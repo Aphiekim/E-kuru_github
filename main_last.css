@@ -1,0 +1,43 @@
+.section3-all{
+    background: olive;
+    width: auto;
+    height: 600px;
+   
+}
+
+.section3-intro{
+    padding-top: 50px;
+    text-align: center;
+    color: beige;
+}
+#section3-icon{
+    width: 7%;
+    height: 7%;
+}
+
+#section3-line{
+    width: 50px;
+}
+
+.section3-content{
+    position: absolute;
+    padding-left:35px;
+    margin-bottom:12px;
+    font-size:40px;
+    user-select:none;
+    color: beige;
+    font-size:16px;
+}
+
+.section3-content1{
+    float: left;
+}
+
+.section3-content2{
+    float: left;
+}
+
+.section3-content3{
+    float: left;
+}
+
