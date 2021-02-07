@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>[ 반갑습니다 ]</title>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> <!--col-md col-lg등 사용할때 필요-->
+    <link rel="stylesheet" href="css/index.css">
+
+    <script>
+        function loginFormPopup(){
+            //window.open("html이름", "별칭", "스타일");
+            //window.open("loginForm.html", "loginForm", "width=600, height=700, left=100, top=50");
+            location.href = "loginForm.html";
+        }
+    </script>
+</head>
+<body>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header-nav">
+        <div class="row">
+            <!-- 로고 구역-->
+            <div class="col-lg-3 col-md-3">
+                <div class="box1">
+                    <a class="#" href=""><img class="logo" src="img/logo.png" alt="logo"></a>
+                </div>
+            </div>
+            <!-- 메뉴 구역 -->
+            <div class="col-lg-9 col-md-9">
+                <div class="box2">
+                    <div class="header-menu">
+                        <a class="header-menu-list" onclick="loginFormPopup();">
+                            <img class="header-menu-img" src="img/login-img.png" alt=""/>
+                            <span class="header-menu-text">Sign In or Register</span>
+                        </a>
+                        <a class="header-menu-list" href="">
+                            <span class="header-menu-text">Point : 85600</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+<!-- Section1 Start -->
+<section class="set-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div>
+                    <div class="section-title">
+                        <h2>Discover The Best Services Near You</h2>
+                        <p>1.118.940.376 The best service package is waiting for you</p>
+                    </div>
+                    <div class="search-form">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <div class="select-option">
+                                <select>
+                                    <option value="">Choose Categories</option>
+                                </select>
+                            </div>
+                            <div class="select-option">
+                                <select>
+                                    <option value="">Choose Location</option>
+                                </select>
+                            </div>
+                            <button type="submit">Explore Now</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="select-page">
+                    <input class="cc" type="button" value="Look around">
+                    <input class="cc" type="button" value="Request">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section1 End -->
+</body>
+</html>

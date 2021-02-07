@@ -1,0 +1,168 @@
+html{
+    margin: 0 auto;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+header{
+    z-index: 2;
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height: 105px;
+    padding: 0;
+}
+
+.header-nav{
+    height: 100%;
+    width: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row{
+    width: 100%;
+    height: 100%;
+}
+
+.col-lg-3, .col-lg-9{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.box1, .box2{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.box1{
+    padding: 30px 0;
+}
+.header-menu{
+    margin-top: 35px;
+    float: right;
+    text-align: center;
+}
+
+.header-menu-img{
+    width: 16px;
+    height: 16px;
+}
+
+.header-menu-text{
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header-menu-list{
+    margin: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo{
+    width: 191px;
+    height: 44px;
+}
+
+.set-bg{
+    position: relative;
+    z-index: 1;
+    padding: 330px 0;
+    background: url("../img/main-img-test.png") no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.search-form{
+    height: 95px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+}
+.section-title{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.section-title h2{
+    font-size: 40px;
+    font-weight: 700;
+    color: #f43f4b;
+    margin-bottom: 10px;
+}
+.section-title p{
+    font-size: 15px;
+    font-family: "Cairo", sans-serif;
+    color: #f43f4b;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0 0 15px 0;
+}
+.search-form form input {
+    width: 40%;
+    float: left;
+    font-size: 15px;
+    color: #A8A8A8;
+    padding-left: 30px;
+    height: 54px;
+    border: none;
+}
+.search-form form button{
+    position: relative;
+    float: left;
+    width: 14.5%;
+	height: 54px;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #f43f4b;
+    border: none;
+}
+.search-form form .select-option select{
+	position: relative;
+    float: left;
+    width: 22.5%;
+	height: 54px;
+    font-size: 15px;
+    color: #A8A8A8;
+    border: none;
+}
+
+.select-page{
+    text-align: center;
+    
+}
+
+.select-page input{
+    margin: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    width: 200px;
+    height: 50px;
+    transition-property:background-color, border; /* 해당요소들을 :hover시 변경할 요소들 */
+    transition-duration:1.0s;
+}
+
+.cc:hover{
+    background-color:#f43f4b;
+    border: none;
+}
+
