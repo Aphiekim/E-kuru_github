@@ -2,6 +2,7 @@
     background-color: rgb(184, 38, 28);
     height: 600px;
 
+
     text-align: center;
     color: beige;
     border: none;
@@ -9,7 +10,7 @@
 }
 
 .section3-intro-content{
-    padding-top: 5%;
+    padding-top: 3%;
 }
 
 /*section3 - 아이콘*/
@@ -20,26 +21,26 @@
 
 #section3-icon1{
     position: absolute;
-    top: 251.5%;
-    left: 17.3%;
-    width: 70px;
-    height: 70px;
+    top: 199%;
+    left: 19.3%;
+    width: 100px;
+    height: 100px;
 }
 
 #section3-icon2{
     position: absolute;
-    top: 251.5%;
-    left: 46%;
-    width: 70px;
-    height: 70px;
+    top: 199%;
+    left: 47.3%;
+    width: 100px;
+    height: 100px;
 }
 
 #section3-icon3{
     position: absolute;
-    top: 251.5%;
-    left: 74.65%;
-    width: 70px;
-    height: 70px;
+    top: 199%;
+    left: 75.3%;
+    width: 100px;
+    height: 100px;
 }
 
 /*section3 - 아이콘 circle 애니메이션*/
@@ -85,21 +86,21 @@
 .section3-content1{
     flex: 1;
     width: 20%;
-    margin: auto 5% auto auto;
+    margin: auto;
 }
 
 .section3-content2{
     flex: 1;
     width: 20%;
-    margin: auto 5% auto auto;
+    margin: auto;
 }
 
 .section3-content3{
     flex: 1;
-    margin:auto 5% auto auto ;
+    margin:auto;
 }
 
 .section3-line{
     flex: 1;
-    margin: auto 5%;
+    margin: auto;
 }
