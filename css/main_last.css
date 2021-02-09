@@ -1,6 +1,6 @@
 .section3-all{
-    background-color: darkcyan;
-    height: 400px;
+    background-color: rgb(184, 38, 28);
+    height: 600px;
 
     text-align: center;
     color: beige;
@@ -15,32 +15,31 @@
 /*section3 - 아이콘*/
 #section3-icon{
     display: inline;
-    width: 50px;
-    height: 50px;
+ 
 }
 
 #section3-icon1{
     position: absolute;
-    top: 43%;
-    left: 17.2%;
-    width: 50px;
-    height: 50px;
+    top: 251.5%;
+    left: 17.3%;
+    width: 70px;
+    height: 70px;
 }
 
 #section3-icon2{
     position: absolute;
-    top: 43%;
-    left: 45.5%;
-    width: 50px;
-    height: 50px;
+    top: 251.5%;
+    left: 46%;
+    width: 70px;
+    height: 70px;
 }
 
 #section3-icon3{
     position: absolute;
-    top: 41.5%;
-    left: 73.7%;
-    width: 50px;
-    height: 50px;
+    top: 251.5%;
+    left: 74.65%;
+    width: 70px;
+    height: 70px;
 }
 
 /*section3 - 아이콘 circle 애니메이션*/
@@ -61,7 +60,7 @@
     } 
 }
 
-/*section3 - 라인 애니메이션 */
+/*section3 - 라인 */
 #section3-line{
     width: 50px;
 }
@@ -75,8 +74,12 @@
     display: flex;
 }
 
+.section3-content h5{
+    font-size: 18px;
+}
+
 .section3-content p{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .section3-content1{
