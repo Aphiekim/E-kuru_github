@@ -1,3 +1,8 @@
+#wrapper{
+    width: 100%;
+    margin: auto;
+}
+
 .section3-all{
     background-color: rgb(184, 38, 28);
     height: 600px;
@@ -14,52 +19,62 @@
 }
 
 /*section3 - 아이콘*/
-#section3-icon{
-    display: inline;
- 
+@media (min-width:768px){
+
+    #section3-icon{
+        display: inline;
+     
+    }
+    
+    #section3-icon1{
+        position: absolute;
+        top: 27vh;
+        left: 19.6%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    #section3-icon2{
+        position: absolute;
+        top: 27vh;
+        left: 47.3%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    #section3-icon3{
+        position: absolute;
+        top: 27vh;
+        left: 75.2%;
+        width: 100px;
+        height: 100px;
+    }
+}
+@media (min-width:768px) {
+    /*section3 - 아이콘 circle 애니메이션*/
+    .section3-circle{
+        position: relative;
+        top: 0vh;
+        left: auto;
+        stroke-dasharray: 50;
+        animation-name: preloader; 
+        animation-duration: 5s; 
+        animation-iteration-count: infinite; animation-timing-function: ease-in-out;
+    }
+
+    .circle{
+        text-align: center;
+    }
+    
+    @keyframes preloader {
+         100% { 
+             transform: rotate(360deg); 
+        } 
+    }
 }
 
-#section3-icon1{
-    position: absolute;
-    top: 199%;
-    left: 19.3%;
-    width: 100px;
-    height: 100px;
-}
-
-#section3-icon2{
-    position: absolute;
-    top: 199%;
-    left: 47.3%;
-    width: 100px;
-    height: 100px;
-}
-
-#section3-icon3{
-    position: absolute;
-    top: 199%;
-    left: 75.3%;
-    width: 100px;
-    height: 100px;
-}
-
-/*section3 - 아이콘 circle 애니메이션*/
-.section3-circle{
-    position: relative;
-    top: 100%;
-    left: auto;
-    stroke-dasharray: 50;
-    animation-name: preloader; 
-    animation-duration: 5s; 
-    animation-iteration-count: infinite; animation-timing-function: ease-in-out;
-}
 
 
-@keyframes preloader {
-     100% { 
-         transform: rotate(360deg); 
-    } 
-}
 
 /*section3 - 라인 */
 #section3-line{
@@ -103,4 +118,11 @@
 .section3-line{
     flex: 1;
     margin: auto;
+}
+
+#container{
+    height: 0;
+    width: 100%;
+    padding-top: auto;
+    position: relative;
 }
