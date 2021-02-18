@@ -63,8 +63,12 @@ header{
 }
 
 .row{
-    width: 100%;
-    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .col-lg-3, .col-lg-9{
@@ -123,6 +127,7 @@ header{
 
 .container{
     width: 100%;
+    max-width: 1170px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -235,4 +240,91 @@ header{
 
 .section4-content{
     text-align: center;
+}
+
+.slide {
+    height: 300px;
+    overflow: hidden;
+}
+
+.slide ul {
+    width: calc(100% * 4);
+    display: flex;
+    animation: slide 20s infinite;
+}
+
+/* slide를 20초동안 진행하며 무한반복 함 */
+.slide li {
+    width: calc(100% / 4);
+    height: 300px;
+}
+
+/* 슬라이드width를 calc 함수를 통해 400%로 만들고 프레임당 진행률마다 변함*/
+@keyframes slide {
+    0% {
+        margin-left: 0;
+    }
+
+    /* 0 ~ 10  : 정지 */
+    10% {
+        margin-left: 0;
+    }
+
+    /* 10 ~ 25 : 변이 */
+    25% {
+        margin-left: -100%;
+    }
+
+    /* 25 ~ 35 : 정지 */
+    35% {
+        margin-left: -100%;
+    }
+
+    /* 35 ~ 50 : 변이 */
+    50% {
+        margin-left: -200%;
+    }
+
+    60% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    85% {
+        margin-left: -300%;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+
+footer{
+    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    padding-top: 70px;
+
+}
+
+.footer{
+    height: 100%;
+    max-width: 1170px;
+    background-color: #f43f4b;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer-logo{
+    width: 191px;
+    height: 44px;
+}
+
+.footer-about p{
+    font-size: 15px;
+    line-height: 25px;
 }

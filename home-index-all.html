@@ -7,9 +7,7 @@
     <title>行来る ( ,,`･ω･´)ﾝﾝﾝ！</title>
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    
-    <!--col-md col-lg등 사용할때 필요-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">  <!--col-md col-lg등 사용할때 필요-->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/main_last.css">
     <link rel="stylesheet" href="css/main_middle.css">
@@ -24,65 +22,7 @@
     </script>
 
     <style>
-        .slide {
-            height: 300px;
-            overflow: hidden;
-        }
 
-        .slide ul {
-            width: calc(100% * 4);
-            display: flex;
-            animation: slide 20s infinite;
-        }
-
-        /* slide를 20초동안 진행하며 무한반복 함 */
-        .slide li {
-            width: calc(100% / 4);
-            height: 300px;
-        }
-
-        /* 슬라이드width를 calc 함수를 통해 400%로 만들고 프레임당 진행률마다 변함*/
-        @keyframes slide {
-            0% {
-                margin-left: 0;
-            }
-
-            /* 0 ~ 10  : 정지 */
-            10% {
-                margin-left: 0;
-            }
-
-            /* 10 ~ 25 : 변이 */
-            25% {
-                margin-left: -100%;
-            }
-
-            /* 25 ~ 35 : 정지 */
-            35% {
-                margin-left: -100%;
-            }
-
-            /* 35 ~ 50 : 변이 */
-            50% {
-                margin-left: -200%;
-            }
-
-            60% {
-                margin-left: -200%;
-            }
-
-            75% {
-                margin-left: -300%;
-            }
-
-            85% {
-                margin-left: -300%;
-            }
-
-            100% {
-                margin-left: 0;
-            }
-        }
     </style>
 </head>
 
@@ -94,7 +34,7 @@
                 <!-- 로고 구역-->
                 <div class="col-lg-3 col-md-3">
                     <div class="box1">
-                        <a class="#" href=""><img class="logo" src="img/logo.png" alt="logo"></a>
+                        <a class="#" href="home-index-all.html"><img class="logo" src="img/logo.png" alt="logo"></a>
                     </div>
                 </div>
                 <!-- 메뉴 구역 -->
@@ -334,6 +274,30 @@
             </div>
     </section>
     <!-- Section4 End-->
+    <!-- footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-about">
+                        <div class="footer-about-logo">
+                            <a class="#" href="home-index-all.html"><img class="footer-logo" src="img/logo.png" alt="logo"></a>
+                        </div>
+                        <p>
+                            Challenging the way things have always been done can lead to creative new options that reward you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
