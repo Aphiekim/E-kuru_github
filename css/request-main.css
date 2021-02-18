@@ -68,8 +68,50 @@
     color: #1abc9c;
     opacity: 1;
 }
+/*버튼 스타일 (적용안됨) */
+.btn,
+.btn::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
 
+.btn {
+  border: 3px solid brown;
+  border-radius: 5px;
+  color: brown;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase;
+}
 
+.btn::before,
+.btn::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+  }
+  
+  .btn:hover:after {
+    width: 100%;
+  }
 
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
 @media all and (min-width:768px) and (max-width:1023px) {
