@@ -12,10 +12,9 @@
 .base{
     max-width: 1080px;
     min-width: 500px;
-    height: 1600px;
+    height: 100%;
     margin-right: auto;
     margin-left: auto;
-    background-color: aquamarine;
 }
 .content1, .content2{
     margin-top: 100px;
@@ -31,11 +30,19 @@
     width: 80%;
 }
 .profile{
+    position: relative;
     width: 100%;
     padding-bottom: 100%;
     background: rgb(66, 51, 197);
     border-radius: 50%;
     
+}
+
+.profile-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 ul{
     list-style: none;
@@ -79,7 +86,24 @@ span{
     width: 100%;
     height: 100%;
 }
-
+.product-list{
+    width: 100%;
+    display: contents;
+}
+.button-list{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button{
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    margin: 20px;
+}
 /* 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width:768px) and (max-width:1023px) {
      /*스타일입력*/
@@ -94,10 +118,6 @@ span{
        font-size: 18px;
     }
 
-    .base{
-        height: 1500px;
-        background-color: rgb(45, 158, 120);
-    }
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
@@ -113,10 +133,6 @@ span{
        font-size: 16px;
     }
 
-    .base{
-        height: 1200px;
-        background-color: rgb(158, 45, 45);
-    }
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
@@ -132,8 +148,4 @@ span{
        font-size: 14px;
     }
 
-    .base{
-        height: 1300px;
-        background-color: rgb(56, 45, 158);
-    }
 }
