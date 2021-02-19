@@ -1,17 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request-WriteForm</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/request-writeForm.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-    <div>
-        <div>
-            
+    <!-- Request WriteForm start-->
+    <div class="container" style="padding-top: 5%;">
+        <!--title-->
+        <h2 class="text-center font-weight-bold text-uppercase" style="margin-bottom: 5%;">Write</h2>
+        <div class="row">
+            <div class="col-lg-8 mb-5">
+                <!--Form-->
+                <form action="#">
+                    
+                <!--사진 / 화면에 맞춰서 설정clear-->
+                    <div class="row form-group">
+                        <div class="col-md-6 mb-3 mb-md-0" style="margin-bottom: 2%;">
+                            <label class="font-weight-bold text-uppercase" for="fname">Picture</label><br>
+                            <div class="form-inline">
+                                <img src="img/iconfinder_image_photo_5402449.png" alt="..." class="img-thumbnail pic">
+                            </div>
+                        </div>
+                    </div>
+                <!--파일 올리기-->
+                    <div class="input-group" style="padding-bottom: 5%;">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile04"
+                                aria-describedby="inputGroupFileAddon04">
+                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button"
+                                id="inputGroupFileAddon04">Button</button>
+                        </div>
+                    </div>
+                    
+                <!-- 게시글 제목 -->
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold text-uppercase" for="subject">Subject</label>
+                            <input type="subject" id="subject" class="form-control">
+                        </div>
+                    </div>
+                <!-- 카테고리 -->
+                    <div class="row form-group col-md-12">
+                        <label class="font-weight-bold text-uppercase" for="subject">category</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- 요청 내용-->
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold text-uppercase" for="message">content</label>
+                            <textarea name="message" id="message" cols="20" rows="7" class="form-control"
+                                placeholder="Write your notes or request here..."></textarea>
+                        </div>
+                    </div>
+                <!-- Submit 버튼-->
+                <div class="row form-group">
+                    <div class="col-md-6 col-md-offset-3" style="margin-left: 40%; padding-top: 5%;">
+                            <input type="submit" value="Save" class="btn btn-danger py-2 px-4 text-uppercase">
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+            <!-- 요청글 사용법 -->
+            <div class="col-lg-3 ml-auto">
+                <div class="mb-3">
+                    <p class="mb-0 font-weight-bold text-uppercase">E-kuru</p>
+                    <p class="mb-4">1st, Write your request whatever you want from Korea. But please make sure what it
+                        is.</p>
+                    <p class="mb-4">2nd, A helper will search and help you with your request </p>
+                    <p class="mb-0 font-weight-bold text-uppercase">Contact</p>
+                    <p class="mb-4">ekuruco@gmail.com</p>
+
+                </div>
+            </div>
         </div>
     </div>
+    <!-- request writeForm end -->
 </body>
+
 </html>
