@@ -1,3 +1,5 @@
+
+
 .category-button{
     margin-top: 5%;
     text-align: center;
@@ -113,6 +115,8 @@
     width: 100%;
   }
 
+/* 페이징 css */
+
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
 @media all and (min-width:768px) and (max-width:1023px) {
     .category-button{
@@ -120,7 +124,6 @@
         width: auto;
     }
 }
-/*요청 글쓰기 버튼에 필요한 스타일*/
 
 
 

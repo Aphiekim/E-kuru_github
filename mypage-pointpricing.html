@@ -35,45 +35,57 @@
         }
 
         .card-titles{
-            margin-bottom: 10%;
+            margin-bottom: 5%;
         }
     </style>
     <script>
     </script>
 </head>
 <body>
+    <!-- 포인트 메뉴 start -->
     <div class="container">
+        <!-- 포인트 메뉴 타이틀-->
         <div class="row justify-content-md-center coin">
             <img src="img/mypage-img/mypoint/iconfinder_b_6_2578279.png" alt="">
         </div>
-        <div class="card-title text-uppercase text-center card-titles" >
+        <div class="card-title text-uppercase text-center" >
             <h1>Point menu</h1>
         </div>
+        <div class="text-center card-titles">
+            <p>This is meue of point. If you charge your point, you can use it as money in this world</p>
+        </div>
+        <!-- 포인트 메뉴 목록-->
         <div class="row justify-content-md-center text-center">
-           <div class="card">
-             <h1 id="pointPrice">5,000P</h1>
-             <div class="card-body">
-               <h5 class="card-title">Point value</h5>
-               <p class="card-text point-content">KOREAN 5,000WON<br>JAPAN 500YEN</p>
-               <a href="#" class="btn btn-outline-danger">Charge</a>
+            <div class="columns">
+                <ul class="price">
+                  <li class="header">Basic</li>
+                  <li class="grey">5,000P</li>
+                  <li>Korea 5,000won</li>
+                  <li>Japan 500yen</li>
+                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                </ul>
             </div>
-           </div>
-           <div class="card">
-            <h1 id="pointPrice">10,000P</h1>
-            <div class="card-body">
-              <h5 class="card-title">Point value</h5>
-              <p class="card-text point-content">KOREAN 10,000WON<br>JAPAN 1,000YEN</p>
-              <a href="#" class="btn btn-outline-danger">Charge</a>
-           </div>
-          </div>
-          <div class="card">
-            <h1 id="pointPrice">50,000P</h1>
-            <div class="card-body">
-              <h5 class="card-title">Point value</h5>
-              <p class="card-text point-content">KOREAN 50,000WON<br>JAPAN 5,000YEN</p>
-              <a href="#" class="btn btn-outline-danger">Charge</a>
-           </div>
-          </div>
+            <div class="columns">
+                <ul class="price">
+                  <li class="header">Standard</li>
+                  <li class="grey">10,000P</li>
+                  <li>Korea 10,000won</li>
+                  <li>Japan 1,000yen</li>
+                  <li>Super pass X 1</li>
+                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                  <li class="header">Special</li>
+                  <li class="grey">50,000P</li>
+                  <li>Korea 50,000won</li>
+                  <li>Japan 10,000yen</li>
+                  <li>Super pass X 3</li>
+                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                </ul>
+            </div>
         </div>
     </div>
+    <!-- 포인트 메뉴 end -->
 </body>
