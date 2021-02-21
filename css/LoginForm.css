@@ -1,0 +1,13 @@
+.row{
+
+    height: 100%;
+}
+
+.container{
+    max-width: 1080px !important;
+    min-width: 500px !important;
+}
+
+.sign-form{
+    margin-top: 250px;
+}
