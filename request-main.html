@@ -15,18 +15,33 @@
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/request-main.js"></script>
+    <style>
+    </style>
 </head>
 
 <body>
     <div>
-        <div class="category-button" style="height: auto; background: white;">
-            <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;">Fashion/Acc</button>
-            <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
-            <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
-            <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
-            <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
-        </div>
+        <section>
+            <div class="category-button" style="height: auto; background: white;">
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-danger"
+                        style="margin-right: 50px;">Fashion/Acc</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
+                </a>
+                <button class="btn text-white" style="background: brown;">Request</button>
+            </div>
+        </section>
         <!-- 요청 게시글 출력 부분 시작-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
@@ -39,18 +54,18 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- 게시글 리스트 -->
-                <h3 style="margin-top: 8%;">Fashion / Acc</h3>
-                <div class="row justify-content-center">
-                    <!-- 요청 게시글 패션/악세서리-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <!-- 요청 게시글 패션/악세서리-->
+                <h3 id="fashion">Fashion / Acc</h3>
+                <div class="row justify-content-center" style="margin-bottom: 5%;">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
                             <div
                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -58,15 +73,15 @@
                                 of the card's content.</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
                             <div
                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -74,15 +89,15 @@
                                 of the card's content.</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
                             <div
                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -92,7 +107,7 @@
                     </div>
                 </div>
                 <!-- 요청 게시글 뷰티 -->
-                <h3>Beauty</h3>
+                <h3 id="beauty">Beauty</h3>
                 <div class="row justify-content-center" style="margin-bottom: 5%;">
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
@@ -101,8 +116,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -117,8 +132,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -133,8 +148,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -142,10 +157,9 @@
                                 of the card's content.</p>
                         </div>
                     </div>
-
                 </div>
                 <!-- 요청 게시글 음식 -->
-                <h3>FOOD</h3>
+                <h3 id="food">FOOD</h3>
                 <div class="row justify-content-center" style="margin-bottom: 5%;">
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
@@ -154,8 +168,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -170,8 +184,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -186,8 +200,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -197,7 +211,7 @@
                     </div>
                 </div>
                 <!-- 요청 게시글 북/음반-->
-                <h3>Book/CD</h3>
+                <h3 id="book">Book/CD</h3>
                 <div class="row justify-content-center" style="margin-bottom: 5%;">
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
@@ -206,8 +220,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -222,8 +236,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -238,8 +252,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -249,7 +263,7 @@
                     </div>
                 </div>
                 <!-- 요청 게시글 기타 -->
-                <h3>Ect</h3>
+                <h3 id="ect">Ect</h3>
                 <div class="row justify-content-center" style="margin-bottom: 5%;">
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
@@ -258,10 +272,10 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
-                        <div class="card-body" style="border: solid 1px gray; border-radius: 5%;">
+                        <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
@@ -274,10 +288,10 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
-                        <div class="card-body" style="border: solid 1px gray; border-radius: 5%;">
+                        <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
@@ -290,19 +304,16 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                alt="" />
+                            <img class="img-fluid"
+                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
                         </div>
-                        <div class="card-body" style="border: solid 1px gray; border-radius: 5%;">
+                        <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container text-center">
-                <button class="btn text-white" style="background: brown;">Request</button>
             </div>
         </section>
     </div>
