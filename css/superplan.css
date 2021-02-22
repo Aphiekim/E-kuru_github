@@ -76,43 +76,12 @@ body {
 .support a:hover {
   transform: scale(1.1);
 }
-/* 숫자*/
-.ftco-counter {
-    overflow-x: hidden;
-    position: relative;
-    padding: 4em 0;
-    background: #88180a; }
-@media (max-width: 1199.98px) {
-      .ftco-counter {
-        background-position: center center !important; } }
-    
-.ftco-counter .block-18 {
-      display: block;
-      width: 100%; }
+/* 마진 간격 */
+.div-margin{
+  margin-top: 10%;
+}
 
-@media (max-width: 991.98px) {
-        .ftco-counter .block-18 {
-          margin-bottom: 2em; } }
-.ftco-counter .text {
-      position: relative; }
-
-@media (max-width: 767.98px) {
-        .ftco-counter .text {
-          width: 100%; } }
-
-.ftco-counter .text .number {
-        line-height: 1;
-        font-weight: 700;
-        font-size: 50px;
-        color: #fff;
-        display: block;
-        margin-bottom: 10px; }
-        
-.ftco-counter .text span {
-        font-size: 17px;
-        color: #fff; }
-
-@media (max-width: 767.98px) {
-      .ftco-counter .counter-wrap {
-        margin-bottom: 20px; } }
-
+.super-pass-box{
+  width: 50%;
+  margin-top: 5%;
+}
