@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <link rel="stylesheet" href="css/superplan.css">
@@ -17,88 +18,105 @@
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
 
     </script>
+    <style>
+        .border-st {
+            border: solid 1px brown;
+        }
+
+        .td-st{
+            margin-left: 10%;
+            margin-top: 2.5%;
+            margin-bottom: 3%;
+            width: 80%;
+        }
+
+    </style>
 
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <button class="accordion text-uppercase">Channel</button>
-                <div class="panel">
-                    <div class="input-group mb-3">
-                        <h3>Advertise My Channel</h3>
-                        <input type="text" class="form-control" style="width: 80%;">
-                    </div>
+        <div class="row text-center">
+            <div class="card  border-st" style="width: 70%; margin-right: 3%;">
+                <div class="card-header text-uppercase">
+                    Super Pass
                 </div>
-
-                <button class="accordion text-uppercase">Shop Post</button>
-                <div class="panel row">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" style="width: 50%; margin-top: 5%;">
-                    </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="table-st  text-center" scope="col">type</th>
+                        <th class="table-st  text-center" scope="col">point</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="table-st" scope="row">
+                            <h3 class="text-center">Channel</h3 class="text-center">
+                        </th>
+                        <td>
+                            <input type="text" class="form-control td-st" placeholder="point value">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="table-st" scope="row">
+                            <h3 class="text-center">Shop Posting</h3 class="text-center">
+                        </th>
+                        <td>
+                            <select name="" id="" class="form-control td-st">
+                                <option value="">select your Post</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                            <input type="text" class="form-control td-st" placeholder="point value">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="table-st" scope="row">
+                            <h3 class="text-center">Request Posting</h3 class="text-center">
+                        </th>
+                        <td>
+                            <select name="" id="" class="form-control td-st">
+                                <option value="">select your Post</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                            <input type="text" class="form-control td-st" placeholder="point value">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
+                <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
+                <div class="card-body text-secondary">
+                    <h5 class="card-title">Please check your items</h5>
+                    <li>
+                        Channel $
+                    </li>
+                    <li>
+                        Shop Post $
+                    </li>
+                    <li>
+                        Request Post $
+                    </li>
                 </div>
-
-                <button class="accordion text-uppercase">Request Post</button>
-                <div class="panel">
-                    <div class="input-group mb-3">
-                        <h3>Advertise My Channel</h3>
-                        <input type="text" class="form-control" style="width: 80%;">
-                    </div>
+                <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
+                    <button class="btn btn-danger" type="button">Submit</button>
                 </div>
-                <!-- 메뉴 js 꼭 여기에 있어야함-->
-                <script>
-                    var acc = document.getElementsByClassName("accordion");
-                    var i;
-
-                    for (i = 0; i < acc.length; i++) {
-                        acc[i].addEventListener("click", function () {
-                            /* Toggle between adding and removing the "active" class,
-                            to highlight the button that controls the panel */
-                            this.classList.toggle("active");
-
-                            /* Toggle between hiding and showing the active panel */
-                            var panel = this.nextElementSibling;
-                            if (panel.style.display === "block") {
-                                panel.style.display = "none";
-                            } else {
-                                panel.style.display = "block";
-                            }
-                        });
-                    }
-                </script>
             </div>
             <div class="col-md-4">
-                <div class="card border-danger mb-3" style="max-width: 70%">
-                    <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
-                    <div class="card-body text-secondary">
-                        <h5 class="card-title">Please check your items</h5>
-                        <li>
-                            Channel   $
-                        </li>
-                        <li>
-                            Shop Post  $
-                        </li>
-                        <li>
-                            Request Post $
-                        </li>
-                    </div>
-                    <div class="d-grid gap-2 col-6 mx-auto  div-margin">
-                        <button class="btn btn-danger" type="button">Submit</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
