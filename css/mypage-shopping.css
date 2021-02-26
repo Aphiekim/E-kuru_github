@@ -1,0 +1,50 @@
+.fullSize{
+    position: relative;
+    overflow: hidden;
+}
+
+
+.mainSize{
+    max-width: 1080px;
+    min-width: 436px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFDFB9;
+}
+
+.buttons{
+    text-align: center;
+}
+
+
+.title{
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 30px;
+}
+
+
+.shopping-list{
+    padding-left: 150px;
+}
+
+.shopping-minus{
+    width: 30px;
+    margin-left: 30px;
+}
+
+.shopping-img{
+    width: 200px;
+    padding-left: 20px;
+    margin-left: 30px;
+}
+
+.shopping-checkbox{
+    width: 100px;
+    margin-left: 30px;
+}
+
+.line{
+    width: 90%;
+    margin-left: 0px;
+}
