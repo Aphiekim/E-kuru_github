@@ -1,0 +1,60 @@
+.fullSize{
+    position: relative;
+    overflow: hidden;
+}
+
+
+.mainSize{
+    max-width: 1080px;
+    min-width: 436px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFDFB9;
+}
+
+.buttons{
+    text-align: center;
+}
+
+
+.main-title{
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 30px;
+
+}
+
+.title{
+    line-height: 120px;
+    vertical-align: middle;
+}
+
+
+.browsing-list{
+    text-align: center;
+}
+
+/*각 제품 row */
+.list-contents{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    height: 120px;
+    margin: 0px auto;
+}
+
+.shopping-img{
+    width: 200px;
+    padding-left: 20px;
+}
+
+.shopping-checkbox{
+    position: relative;
+    top: 60px;
+}
+
+.line{
+    width: 700px;
+}
+
+
