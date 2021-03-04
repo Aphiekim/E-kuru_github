@@ -11,7 +11,7 @@ ul{
 .menu-list{
     color: white; /* 글씨 색을 흰색으로 설정 */ 
     float: left; /* 왼쪽으로 나열되도록 설정 */ 
-    line-height: 30px; /* 텍스트 한 줄의 높이를 30px로 설정 */ 
+    /* line-height: 30px; 텍스트 한 줄의 높이를 30px로 설정 */ 
     vertical-align: middle; /* 세로 정렬을 가운데로 설정 */ 
     text-align: center; /* 텍스트를 가운데로 정렬 */ 
     position: relative; /* 해당 li 태그 내부의 top/left 포지션 초기화 */
@@ -160,7 +160,7 @@ header{
     margin: 0 0 15px 0;
 }
 .search-form form input {
-    width: 40%;
+    width: 85.5%;
     float: left;
     font-size: 15px;
     color: #A8A8A8;
