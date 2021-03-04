@@ -30,66 +30,12 @@
     <style>
          .section3-con{
             background-color: #f43f4b;
-        }
-        .slide {
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .slide ul {
-            width: calc(75% * 4);
-            display: flex;
-            animation: slide 20s infinite;
-        }
-
-        /* slide를 20초동안 진행하며 무한반복 함 */
-        .slide li {
-            width: calc(75% / 4);
-            height: 300px;
-        }
-
-        /* 슬라이드width를 calc 함수를 통해 400%로 만들고 프레임당 진행률마다 변함*/
-        @keyframes slide {
-            0% {
-                margin-left: 0;
-            }
-
-            /* 0 ~ 10  : 정지 */
-            10% {
-                margin-left: 0;
-            }
-
-            /* 10 ~ 25 : 변이 */
-            25% {
-                margin-left: -75%;
-            }
-
-            /* 25 ~ 35 : 정지 */
-            35% {
-                margin-left: -75%;
-            }
-
-            /* 35 ~ 50 : 변이 */
-            50% {
-                margin-left: -200%;
-            }
-
-            60% {
-                margin-left: -200%;
-            }
-
-            75% {
-                margin-left: -300%;
-            }
-
-            85% {
-                margin-left: -300%;
-            }
-
-            75% {
-                margin-left: 0;
-            }
-        }
+      }
+        .section3-text{
+            margin-top: 12%; 
+            margin-bottom: 10%; 
+            color: #A4193D;
+      }
     </style>
 </head>
 
@@ -166,6 +112,15 @@
         </div>
     </section>
    <!-- Section1 End -->
+
+  
+   <!-- Section2 Area Start -->
+    <div class="section3-con">
+        <div class="container">
+            <div class="row text-white" style="font-family: 'Open Sans', sans-serif;">
+                <div class="col-lg-12">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle section-tittle2 text-center mb-80 section3-text">
    <!-- section2 start-->
    <div class="section2-background">
 
@@ -191,6 +146,7 @@
                 <div class="col-lg-12">
                     <!-- Section Tittle -->
                     <div class="section-tittle section-tittle2 text-center  mb-80" style="margin-top: 5%; margin-bottom: 5%;">
+
                         <span>E - k u r u</span>
                         <h2>How It Works</h2>
                     </div>
