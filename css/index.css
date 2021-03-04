@@ -210,7 +210,7 @@ header{
     border: none;
 }
 
-/* header부터 section1까지 */
+/* 폰트 */
 
 
 
@@ -302,29 +302,3 @@ header{
     }
 }
 
-
-footer{
-    margin: 0 auto;
-    width: 100%;
-    height: 300px;
-    padding-top: 70px;
-
-}
-
-.footer{
-    height: 100%;
-    max-width: 1170px;
-    background-color: #f43f4b;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.footer-logo{
-    width: 191px;
-    height: 44px;
-}
-
-.footer-about p{
-    font-size: 15px;
-    line-height: 25px;
-}
