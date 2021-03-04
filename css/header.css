@@ -2,17 +2,16 @@
     margin: 0;
     padding: 0;
 }
-li{
+.headli{
     list-style: none;
 }
 a, a:hover{
     text-decoration: none;
 }
-header{
+.header---{
     width: 100%;
     height: 75px;
-    background-color: #f43f4b;
-    border: 1px solid #f43f4b;
+    background-color: #A4193D;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -35,7 +34,7 @@ header{
     margin: 0 !important;
 }
 
-h1{
+.title{
     float: left;
     color: white;
     line-height: 75px;
