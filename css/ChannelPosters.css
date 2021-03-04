@@ -11,7 +11,6 @@
 }
 
 .base{
-    background: rgb(255, 255, 255);
     max-width: 1080px;
     min-width: 500px;
     height: 100%;
@@ -21,14 +20,14 @@
 .head{
     width: 100%;
     display: flex;
-    border-bottom: 1px solid rgb(255, 227, 227);
+    border-bottom: 1px solid #A4193D;
     margin-bottom: 50px;
 }
 
 .foot{
     width: 100%;
 
-    border-bottom: 1px solid rgb(255, 227, 227);
+    border-bottom: 1px solid #A4193D;
     margin-bottom: 50px;
 }
 .product-img, .product-details{
@@ -40,13 +39,13 @@
     position: relative;
     width: 50%;
     height: 400px;
-    background-color: rgb(255, 255, 255);
+
 }
 
 .product-details{
     width: 50%;
     height: 400px;
-    background-color: rgb(255, 255, 255);
+
 }
 
 .img-box{
