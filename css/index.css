@@ -111,8 +111,7 @@ header{
 }
 
 .logo{
-    width: 191px;
-    height: 44px;
+    width: 30%;
 }
 
 .set-bg{
@@ -148,13 +147,12 @@ header{
 .section-title h2{
     font-size: 40px;
     font-weight: 700;
-    color: #f43f4b;
+    color: #A4193D;
     margin-bottom: 10px;
 }
 .section-title p{
     font-size: 15px;
-    font-family: "Cairo", sans-serif;
-    color: #f43f4b;
+    color: #A4193D;
     font-weight: 400;
     line-height: 25px;
     margin: 0 0 15px 0;
@@ -175,7 +173,7 @@ header{
 	height: 54px;
     font-size: 15px;
     color: #ffffff;
-    background-color: #f43f4b;
+    background-color: #A4193D;
     border: none;
 }
 .search-form form .select-option select{
@@ -206,7 +204,7 @@ header{
 }
 
 .select-page input:hover{
-    background-color:#f43f4b;
+    background-color:#A4193D;
     border: none;
 }
 
@@ -228,7 +226,6 @@ header{
     margin-bottom: 22px;
     color: #ff3d1c;
     display: inline-block;
-    font-family: "Sacramento",cursive;
 }
 
 .section4-title h2{
@@ -253,82 +250,7 @@ header{
     animation: slide 20s infinite;
 }
 
-/* slide를 20초동안 진행하며 무한반복 함 */
-.slide li {
-    width: calc(100% / 4);
-    height: 300px;
-}
 
-/* 슬라이드width를 calc 함수를 통해 400%로 만들고 프레임당 진행률마다 변함*/
-@keyframes slide {
-    0% {
-        margin-left: 0;
-    }
-
-    /* 0 ~ 10  : 정지 */
-    10% {
-        margin-left: 0;
-    }
-
-    /* 10 ~ 25 : 변이 */
-    25% {
-        margin-left: -100%;
-    }
-
-    /* 25 ~ 35 : 정지 */
-    35% {
-        margin-left: -100%;
-    }
-
-    /* 35 ~ 50 : 변이 */
-    50% {
-        margin-left: -200%;
-    }
-
-    60% {
-        margin-left: -200%;
-    }
-
-    75% {
-        margin-left: -300%;
-    }
-
-    85% {
-        margin-left: -300%;
-    }
-
-    100% {
-        margin-left: 0;
-    }
-}
-
-<<<<<<< HEAD
-
-footer{
-    margin: 0 auto;
-    width: 100%;
-    height: 300px;
-    padding-top: 70px;
-
-}
-
-.footer{
-    height: 100%;
-    max-width: 1170px;
-    background-color: #f43f4b;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.footer-logo{
-    width: 191px;
-    height: 44px;
-}
-
-.footer-about p{
-    font-size: 15px;
-    line-height: 25px;
-}
 
 
 /* team member start */
@@ -365,7 +287,6 @@ img {
     font-size: 1rem;
     font-weight: 400;
     font-style: italic;
-    font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     margin-bottom: 4rem;
   }
   
@@ -458,5 +379,4 @@ img {
   }
   
   /* team member end */
-=======
->>>>>>> 82970f026dbc9a856ed49e8a08457c15bebff641
+
