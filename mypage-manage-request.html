@@ -8,6 +8,8 @@
     <title>mypoint-point</title>
     <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="css/mypage-manage-request.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -15,60 +17,91 @@
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-    </script>
+    <style>
+        *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+           
+        }
+
+        body{
+           background-color:#FFDFB9;
+        }
+    </style>
 </head>
 
 <body>
 <!--요청내역 start-->
-<div class="container" style="width: 50%; margin-top: 10%;">
-    <!--요청 내역 헤드-->
-    <div class="card text-center">
-        <div class="card-header">
-            <h2>My Request History</h2>
+<div>
+    <header class="header---">
+        <div class="wrapper">
+            <h1 class="title">E-KURU</h1>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a href="">Home</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Logout</li>
+                            <li class="headli">Mypage</li>
+                            <li class="headli">info</li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a href="">About</a></li>
+                    <li class="headli"><a href="">Board</a></li>
+                    <li class="headli"><a href="">Reference</a></li>
+                    <li class="headli"><a href="">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="card-body">
-            <!-- 충전 내역 출력 부분 -->
-            <div>
-                <form action="#">
-                    <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Code</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Offer ID</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>A12DEW</td>
-                                <td>2021-02-19</td>
-                                <td>aphiakim</td>
-                                <td>
-                                    <button class="btn btn-secondary">Wating</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>W25AEB</td>
-                                <td>2021-02-17</td>
-                                <td>aphiakim</td>
-                                <td>
-                                    <button class="btn btn-danger">Clear</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
+    </header>
+    <div class="container" style="width: 50%; margin-top: 15%;">
+        <!--요청 내역 헤드-->
+        <div class="card text-center">
+            <div class="card-header">
+                <h2>My Request History</h2>
             </div>
-        <div class="card-footer text-muted">
-            Make your request more, Get your stuff more
+            <div class="card-body">
+                <!-- 충전 내역 출력 부분 -->
+                <div>
+                    <form action="#">
+                        <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Offer ID</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>A12DEW</td>
+                                    <td>2021-02-19</td>
+                                    <td>aphiakim</td>
+                                    <td>
+                                        <button class="btn btn-secondary">Wating</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>W25AEB</td>
+                                    <td>2021-02-17</td>
+                                    <td>aphiakim</td>
+                                    <td>
+                                        <button class="btn btn-danger">Clear</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            <div class="card-footer text-muted">
+                Make your request more, Get your stuff more
+            </div>
         </div>
     </div>
+    <!--마이 포인트 end-->
 </div>
-<!--마이 포인트 end-->
 
 </body>

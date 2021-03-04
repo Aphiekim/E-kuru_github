@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
   <link rel="stylesheet" href="css/request-main.css">
   <link rel="stylesheet" href="css/main-footer.css">
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
   <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -27,10 +28,40 @@
     })
   </script>
   <style>
+    *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+        }
+        body{
+            background-color: #FFDFB9;
+        }
+
   </style>
 </head>
 
 <body>
+  <!-- header -->
+  <header class="header---">
+    <div class="wrapper">
+        <h1 class="title">E-KURU</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu-list headli">
+                    <a href="">Home</a>
+                    <ul class="menu-sub">
+                        <li class="headli">Logout</li>
+                        <li class="headli">Mypage</li>
+                        <li class="headli">info</li>
+                    </ul>
+                </li>
+                <li class="headli"><a href="">About</a></li>
+                <li class="headli"><a href="">Board</a></li>
+                <li class="headli"><a href="">Reference</a></li>
+                <li class="headli"><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- header -->
   <div>
     <!-- 검색창 -->
     <div class="container">
@@ -49,7 +80,7 @@
     </div>
     <!-- 카테고리 구분 -->
     <section>
-      <div class="category-button" style="height: auto; background: white;">
+      <div class="category-button" style="height: auto; background:#FFDFB9;">
         <a href="request-categoryresult.html">
           <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;">Fashion/Acc</button>
         </a>

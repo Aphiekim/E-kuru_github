@@ -8,6 +8,8 @@
     <title>mypoint-point</title>
     <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="css/request-main.css">
+    <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -15,18 +17,45 @@
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-    </script>
+    <style>
+        *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+        }
+        body{
+            background-color: #FFDFB9;
+        }
+    </style>
 </head>
 
 <body>
+    <header class="header---">
+        <div class="wrapper">
+            <h1 class="title">E-KURU</h1>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a href="">Home</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Logout</li>
+                            <li class="headli">Mypage</li>
+                            <li class="headli">info</li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a href="">About</a></li>
+                    <li class="headli"><a href="">Board</a></li>
+                    <li class="headli"><a href="">Reference</a></li>
+                    <li class="headli"><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <!--마이 포인트 start-->
     <div class="container" style="width: 50%; margin-top: 10%;">
         <!--현재 잔여 포인트-->
         <div class="card text-center">
             <div class="card-header">
                 <h2>My point</h2>
-                <h1>5000P</h1>
+                <h1 id="h1-p">5000P</h1>
             </div>
             <div class="card-body">
                 <!--충전 및 환불 버튼 부분-->
