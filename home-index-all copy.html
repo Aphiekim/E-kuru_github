@@ -23,6 +23,12 @@
             //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
             location.href = "loginForm.html";
         }
+
+        function joinFormPopup() {
+            //window.open("html이름", "별칭", "스타일");
+            //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
+            location.href = "joinForm.html";
+        }
     </script>
 
     <style>
@@ -31,14 +37,12 @@
             background-color: #FFDFB9;
             height: 800px;
         }
-        .section3-text{
-            margin-top: 12%; 
-            margin-bottom: 10%; 
-            color: #A4193D;
+
         }
         .context-korean{
             margin-top: 5%;
         }
+
 
     </style>
 </head>
@@ -61,15 +65,20 @@
                             <ul>
                                 <li class="menu-list">
                                     <a class="header-menu-list login-main" onclick="loginFormPopup();">
-                                        <img class="header-menu-img" src="img/login-img.png" alt="" />
-                                        <span class="header-menu-text">Sign In or Register</span>
+                                        <!-- <img class="header-menu-img" src="img/login-img.png" alt="" /> -->
+                                        <span class="header-menu-text">Sign In</span>
                                     </a>
+                                    <a class="header-menu-list login-main" onclick="joinFormPopup();">
+                                        <span class="header-menu-text">Sign Up</span>
+                                    </a>
+                                    <!--
                                     <ul class="login-sub">
                                         <li>Logout</li>
                                         <li>Mypage</li>
                                         <li>info</li>
                                         <li>help</li>
                                     </ul>
+                                    -->
                                 </li>
                                 <li></li>
                             </ul>
@@ -96,16 +105,7 @@
                         <div class="search-form">
                             <form action="#">
                                 <input type="text" placeholder="Search...">
-                                <div class="select-option">
-                                    <select>
-                                        <option value="">Choose Categories</option>
-                                    </select>
-                                </div>
-                                <div class="select-option">
-                                    <select>
-                                        <option value="">Choose Location</option>
-                                    </select>
-                                </div>
+
                                 <button type="submit">Explore Now</button>
                             </form>
                         </div>
