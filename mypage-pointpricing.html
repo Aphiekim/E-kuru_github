@@ -7,6 +7,7 @@
     <title>mypoint-point</title>
 
     <link rel="stylesheet" href="css/mypage-pointpricing.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -37,11 +38,52 @@
         .card-titles{
             margin-bottom: 5%;
         }
+        *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+           
+        }
+
+        body{
+           background-color:#FFDFB9;
+        }
+
+        .li-sty{
+            background-color: #A4193D; 
+            color: white;
+            font-size:150%
+        }
+
+        .li-sty2{
+            background-color: white;
+        }
     </style>
     <script>
     </script>
 </head>
 <body>
+   <!-- header -->
+  <header class="header---">
+    <div class="wrapper">
+        <h1 class="title">E-KURU</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu-list headli">
+                    <a href="">Home</a>
+                    <ul class="menu-sub">
+                        <li class="headli">Logout</li>
+                        <li class="headli">Mypage</li>
+                        <li class="headli">info</li>
+                    </ul>
+                </li>
+                <li class="headli"><a href="">About</a></li>
+                <li class="headli"><a href="">Board</a></li>
+                <li class="headli"><a href="">Reference</a></li>
+                <li class="headli"><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- header -->
     <!-- 포인트 메뉴 start -->
     <div class="container">
         <!-- 포인트 메뉴 타이틀-->
@@ -58,30 +100,30 @@
         <div class="row justify-content-md-center text-center">
             <div class="columns">
                 <ul class="price">
-                  <li class="header">Basic</li>
-                  <li class="grey">5,000P</li>
-                  <li>Korea 5,000won</li>
-                  <li>Japan 500yen</li>
+                  <li class="text-uppercase li-sty"style="background-color: #A4193D; font-size:150%">Basic</li>
+                  <li class="grey">5,000P</li>                  
+                  <li class="li-sty2">Korea 5,000won</li>
+                  <li class="li-sty2">Japan 500yen</li>
                   <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
                 </ul>
             </div>
             <div class="columns">
                 <ul class="price">
-                  <li class="header">Standard</li>
+                  <li class="text-uppercase li-sty">Standard</li>
                   <li class="grey">10,000P</li>
-                  <li>Korea 10,000won</li>
-                  <li>Japan 1,000yen</li>
-                  <li>Super pass X 1</li>
+                  <li class="li-sty2">Korea 10,000won</li>
+                  <li class="li-sty2">Japan 1,000yen</li>
+                  <li class="li-sty2">Super pass X 1</li>
                   <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
                 </ul>
             </div>
             <div class="columns">
                 <ul class="price">
-                  <li class="header">Special</li>
+                  <li class="text-uppercase li-sty">Special</li>
                   <li class="grey">50,000P</li>
-                  <li>Korea 50,000won</li>
-                  <li>Japan 10,000yen</li>
-                  <li>Super pass X 3</li>
+                  <li class="li-sty2">Korea 50,000won</li>
+                  <li class="li-sty2">Japan 10,000yen</li>
+                  <li class="li-sty2">Super pass X 3</li>
                   <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
                 </ul>
             </div>

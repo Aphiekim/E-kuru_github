@@ -1,405 +1,439 @@
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-        <link rel="stylesheet" href="css/request-main.css">
-        <link rel="stylesheet" href="css/main-footer.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script>
-            var myCarousel = document.querySelector('#myCarousel')
-            var carousel = new bootstrap.Carousel(myCarousel, {
-                interval: 2000,
-                wrap: false
-            })
-        </script>
-        <style>
-            #requestImage{
-                width: 80%;
-                height: 70%;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="css/request-main.css">
+    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var myCarousel = document.querySelector('#myCarousel')
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000,
+            wrap: false
+        })
+    </script>
+    <style>
+        #requestImage {
+            width: 80%;
+            height: 70%;
+        }
+        *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+        }
 
-    <body>
-        <div>
-            <!-- 검색창 -->
-            <div class="container">
-                <div>
-                    <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
-                        <div class="input-group">
-                            <input type="text" class="search-query form-control" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">
-                                    <span class=" glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 카테고리 구분 -->
-            <section>
-                <div class="category-button" style="height: auto; background: white;">
-                    <a href="request-categoryresult.html">
-                        <button type="button" class="btn btn-outline-danger"
-                            style="margin-right: 50px;">Fashion/Acc</button>
-                    </a>
-                    <a href="request-categoryresult.html">
-                        <button type="button" class="btn btn-outline-warning"
-                            style="margin-right: 50px;">Beauty</button>
-                    </a>
-                    <a href="request-categoryresult.html">
-                        <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
-                    </a>
-                    <a href="request-categoryresult.html">
-                        <button type="button" class="btn btn-outline-primary"
-                            style="margin-right: 50px;">Book/CD</button>
-                    </a>
-                    <a href="request-categoryresult.html">
-                        <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
-                    </a>
-                    <button class="btn text-white" style="background: brown;">Request</button>
-                </div>
-            </section>
-            <!-- 요청 게시글 출력 부분 시작-->
-            <section class="page-section portfolio" id="portfolio">
-                <div class="container">
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"
-                        style="margin-top: 5%;">
-                        Request Board</h2>
-                    <!-- 요청 게시글 배열 나누기-->
-                    <div class="divider-custom">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                        <div class="divider-custom-line"></div>
-                    </div>
-                    <!-- 게시글 리스트 -->
-                    <!-- 인기 게시글 -->
-                    <div style="margin-bottom: 10%; margin-top: 5%;">
-                        <h3 class="text-center text-uppercase" id="popularRequest">Popular Request</h3>
-                        <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
-                            style="width: 100%;">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators" style="width: 110%;">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
+        body{
+           background-color:#FFDFB9;
+        }
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active inner">
-                                    <div class="row justify-content-center inner">
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    </style>
+</head>
 
-                                <div class="item inner">
-                                    <div class="row justify-content-center inner">
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item inner">
-                                    <div class="row justify-content-center inner">
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                            <div class="portfolio-item mx-auto" data-toggle="modal"
-                                                data-target="#portfolioModal4">
-                                                <div
-                                                    class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                    <div class="portfolio-item-caption-content text-center text-white">
-                                                        <i class="fas fa-plus fa-3x"></i></div>
-                                                </div>
-                                                <img class="img-fluid"
-                                                    src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                    alt="" />
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk
-                                                    of the card's content.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 인기 게시글 끝 -->
-                            <!-- 슬라이드 커서 기능 -->
-                            <!-- 슬라이드 커서 기능 -->
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-            </section>
+<body>
+    <!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <h1 class="title">E-KURU</h1>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a href="">Home</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Logout</li>
+                            <li class="headli">Mypage</li>
+                            <li class="headli">info</li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a href="">About</a></li>
+                    <li class="headli"><a href="">Board</a></li>
+                    <li class="headli"><a href="">Reference</a></li>
+                    <li class="headli"><a href="">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- 검색 결과-->
-        <div class="container text-center">
-            <h3>
-                검색하신 ' ${title} ' 에 대한 결과입니다.
-            </h3>
-        </div>
-        <!-- 요청글 출력 -->
-        <div style="margin-left: 33%; margin-top: 2%;">
+    </header>
+    <!-- header -->
+    <div>
+        <!-- 검색창 -->
+        <div class="container">
             <div>
-                <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
-                    <div class="row g-0 ">
-                        <div class="col-md-4">
-                            <img src="img/" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
+                <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
+                    <div class="input-group">
+                        <input type="text" class="search-query form-control" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">
+                                <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
                     </div>
                 </div>
-                <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
-                    <div class="row g-0 ">
-                        <div class="col-md-4">
-                            <img src="..." alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
-                    <div class="row g-0 ">
-                        <div class="col-md-4">
-                            <img src="..." alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
-                    <div class="row g-0 ">
-                        <div class="col-md-4">
-                            <img src="..." alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
-                    <div class="row g-0 ">
-                        <div class="col-md-4">
-                            <img src="..." alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
-    </body>
+        </div>
+        <!-- 카테고리 구분 -->
+        <section>
+            <div class="category-button" style="height: auto; background:#FFDFB9;">
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-danger"
+                        style="margin-right: 50px;">Fashion/Acc</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
+                </a>
+                <a href="request-categoryresult.html">
+                    <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
+                </a>
+                <button class="btn text-white" style="background: brown;">Request</button>
+            </div>
+        </section>
+        <!-- 요청 게시글 출력 부분 시작-->
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 5%;">
+                    Request Board</h2>
+                <!-- 요청 게시글 배열 나누기-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- 게시글 리스트 -->
+                <!-- 인기 게시글 -->
+                <div style="margin-bottom: 10%; margin-top: 5%;">
+                    <h3 class="text-center text-uppercase" id="popularRequest">Popular Request</h3>
+                    <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
+                        style="width: 100%;">
+                        <!-- Indicators -->
+                        
 
-    </html>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active inner">
+                                <div class="row justify-content-center inner">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item inner">
+                                <div class="row justify-content-center inner">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item inner">
+                                <div class="row justify-content-center inner">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 인기 게시글 끝 -->
+                        <!-- 슬라이드 커서 기능 -->
+                        <!-- 슬라이드 커서 기능 -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <!-- 검색 결과-->
+    <div class="container text-center">
+        <h3>
+            검색하신 ' ${title} ' 에 대한 결과입니다.
+        </h3>
+    </div>
+    <!-- 요청글 출력 -->
+    <div style="margin-left: 33%; margin-top: 2%;">
+        <div>
+            <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="img/" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 50%; margin-top: 2%;">
+                <div class="row g-0 ">
+                    <div class="col-md-4">
+                        <img src="..." alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+</body>
+
+</html>

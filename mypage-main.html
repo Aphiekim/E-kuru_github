@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mypage</title>
     <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mypaeg-main.css">
+    <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -15,19 +17,46 @@
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            font-family: 'NotSansCJKjp-Black', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <div>
+    <!-- header -->
+  <header class="header---">
+    <div class="wrapper">
+        <h1 class="title">E-KURU</h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu-list headli">
+                    <a href="">Home</a>
+                    <ul class="menu-sub">
+                        <li class="headli">Logout</li>
+                        <li class="headli">Mypage</li>
+                        <li class="headli">info</li>
+                    </ul>
+                </li>
+                <li class="headli"><a href="">About</a></li>
+                <li class="headli"><a href="">Board</a></li>
+                <li class="headli"><a href="">Reference</a></li>
+                <li class="headli"><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- header -->
+    <div style=" background-color: #FFDFB9;">
+        <div >
             <!-- 회원 사진 / 인트로 -->
             <div>
-                <div class="container d-flex align-items-center flex-column" style="margin-top: 5%;">
+                <div class="container d-flex align-items-center flex-column">
                     <!-- Masthead Avatar Image-->
-                    <img src="img/mypage-img/main/mainperson.jpg" alt="" class="rounded-circle img-raised imgsize"
-                        style="width: 40%;">
+                    <img class="mx-auto rounded-circle" src="img/member1.jpg" style="width: 30%; margin-top: 15%;"/>
                     <!-- Masthead Heading-->
-                    <h1 class="masthead-heading text-uppercase mb-0" style="margin-top: 5%;">Mypage</h1>
+                    <h1 class="text-uppercase mb-0" style="margin-top: 5%;color: black;">Mypage</h1>
                     <!-- Icon Divider-->
                     <div class="divider-custom divider-light">
                         <div class="divider-custom-line"></div>
