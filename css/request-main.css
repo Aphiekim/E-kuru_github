@@ -1,5 +1,8 @@
+body{
+    background-color: #ffdfb9 !important;
+}
+
 .category-button{
-    margin-top:;
     text-align: center;
 }
 
@@ -135,17 +138,43 @@
 }
 
 .search-list{
+    text-align: center;
     margin-top: 25px;
-    margin-left: 15px;
-    margin-right: 15px;
+
     width: 100%;
-    height: 150px;
+    height: 200px;
 }
 
 .search-result{
     width: 80%;
     height: 100%;
-    margin-bottom: 20PX;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.search-card{
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 100%;
+}
+
+.search-img{
+    width: 100%;
+    height: 100%;
+}
+
+.cdby{
+    height: 100%;
+    text-align: left;
+}
+
+.search-form{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #A4193D;
+    margin-bottom: 15px;
 }
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
 @media all and (min-width:768px) and (max-width:1023px) {
