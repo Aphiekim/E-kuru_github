@@ -1,11 +1,97 @@
-/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
-@media all and (min-width:768px) and (max-width:1023px) { /*스타일입력*/}
 
-/* 테블릿 세로 (해상도 768px ~ 1023px)*/
-@media all and (min-width:768px) and (max-width:1023px) { /*스타일입력*/}
+/* 구분선 */
+.line-sty{
+    border-top: 1px solid #A4193D;
+}
 
-/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
-@media all and (min-width:480px) and (max-width:767px) { /*스타일입력*/}
+/* 사진 슬라이드 필요한 CSS*/
+* {box-sizing: border-box}
+body { margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
 
-/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
-@media all and (max-width:479px) { /*스타일입력*/}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 60%;
+  position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 60s;
+  animation-name: fade;
+  animation-duration: 60s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+/*댓글 창*/
+.comment-sty{
+    margin-left: 5% !important;
+    margin-right: 0 !important;
+    width: 80% !important;
+}
+
+/*댓글 버튼*/
+.btn-sty{
+    width: 10%;
+}
+/*댓글 카드*/
+.comtWrite-sty{
+    width: 100%;
+    margin-left: 5%;
+}
+/*댓글 카드의 버튼*/
+.id-sty{
+    margin-right: -30%;
+}
