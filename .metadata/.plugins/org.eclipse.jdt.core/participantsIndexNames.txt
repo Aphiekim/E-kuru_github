@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\SCIT\Documents\E-kuru_github\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1137711562.index
+\ekuru\src\main\java
