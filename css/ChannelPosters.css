@@ -7,11 +7,7 @@ body{
     position: relative;
     overflow: hidden;
 }
-.row{
-    margin-left: 50px !important;
-    margin-right: 50px !important;
-    margin-top: 50px;
-}
+
 
 .base{
     max-width: 1080px;
