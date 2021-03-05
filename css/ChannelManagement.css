@@ -2,9 +2,7 @@ body{
     background-color: #ffdfb9 !important;
 }
 
-#container{
-    background: #fff;
-    
+#container{    
     position: relative;
     overflow: hidden;
 }
@@ -14,8 +12,7 @@ body{
     margin-top: 50px;
 }
 .base{
-    max-width: 1080px;
-    min-width: 500px;
+
     height: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -51,7 +48,7 @@ body{
 ul{
     list-style: none;
 }
-li{
+.li-sty{
     margin: 0 auto;
     width: 33%;
     float: left;
