@@ -7,7 +7,7 @@
 .fact {
     position: relative;
     width: 100%;
-    padding: 5% 0 15% 0;
+    padding: 5% 0 0 0;
 }
 
 .fact .fact-item {
@@ -84,4 +84,8 @@
     .my-menu-size{
         width: 20%;
     }
+}
+
+footer{
+    margin-top: 0% !important;
 }
