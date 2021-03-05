@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -6,17 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/request-writeForm.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
+    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/main-footer.css">
+    <link rel="stylesheet" href="../resources/css/request-writeForm.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         *{
@@ -40,7 +42,7 @@
 <header class="header---">
     <div class="wrapper">
         <a href="">
-            <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
         </a>
         <nav>
             <ul class="menu">
@@ -75,7 +77,7 @@
                         <div class="col-md-6 mb-3 mb-md-0" style="margin-bottom: 2%;">
                             <label class="font-weight-bold text-uppercase" for="fname">Picture</label><br>
                             <div class="form-inline">
-                                <img src="img/iconfinder_image_photo_5402449.png" alt="..." class="img-thumbnail pic">
+                                <img src="../resources/img/iconfinder_image_photo_5402449.png" alt="..." class="img-thumbnail pic">
                             </div>
                         </div>
                     </div>

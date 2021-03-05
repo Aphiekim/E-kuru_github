@@ -1,22 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-kuru</title>
-  <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-  <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/main-footer.css">
-  <link rel="stylesheet" href="css/request-readForm.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+  <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+  <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
+  <link rel="stylesheet" href="../resources/css/header.css">
+  <link rel="stylesheet" href="../resources/css/main-footer.css">
+  <link rel="stylesheet" href="../resources/css/request-readForm.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -36,7 +38,7 @@
 <header class="header---">
   <div class="wrapper">
       <a href="">
-          <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute; margin-top: 0.3%;">
+          <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute; margin-top: 0.3%;">
       </a>
       <nav>
           <ul class="menu">
@@ -65,17 +67,17 @@
 
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
-          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext">2 / 3</div>
-          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
-          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
 
         </div>
         

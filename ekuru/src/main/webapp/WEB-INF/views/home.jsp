@@ -70,7 +70,7 @@
                 <!-- 로고 구역-->
                 <div class="col-lg-3 col-md-3">
                     <div class="box1">
-                        <a class="#" href="home-index-all.html"><img class="logo" src="img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
+                        <a class="#" href="home-index-all.html"><img class="logo" src="resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
                 <!-- 메뉴 구역 -->
@@ -153,7 +153,7 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%; width: 100%;">
                         <span>
-                            <img src="img/icon/2x/baseline_laptop_mac_black_18dp.png">
+                            <img src="resources/img/icon/2x/baseline_laptop_mac_black_18dp.png">
                         </span>
                     </div>
                     <div class="services-cap">
@@ -177,7 +177,7 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%;">
                         <span>
-                            <img src="img/icon/2x/baseline_contact_mail_black_18dp.png">
+                            <img src="resources/img/icon/2x/baseline_contact_mail_black_18dp.png">
                         </span>
                     </div>
                     <div class="services-cap">
@@ -197,7 +197,7 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%;">
                         <span>
-                            <img src="img/icon/2x/baseline_shopping_bag_black_18dp.png" alt="">
+                            <img src="resources/img/icon/2x/baseline_shopping_bag_black_18dp.png" alt="">
                         </span>
                     </div>
                     <div class="services-cap">
@@ -232,7 +232,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/member1.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/member1.jpg" alt="" />
                                 <h4>Jung Ha Young</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
@@ -245,7 +245,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/crew-img/meojong.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/meojong.jpg" alt="" />
                                 <h4>Choi Hyun Jong</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
@@ -258,7 +258,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/crew-img/minyoung.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/minyoung.jpg" alt="" />
                                 <h4>Kim Min Young</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
