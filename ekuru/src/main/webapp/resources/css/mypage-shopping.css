@@ -1,0 +1,56 @@
+*{
+    font-family: 'NotSansCJKjp-Black', sans-serif;
+}
+
+.fullSize{
+    position: relative;
+    overflow: hidden;
+    background-color: #FFDFB9;
+}
+
+
+.mainSize{
+    max-width: 1080px;
+    min-width: 436px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5%;
+}
+
+
+.title{
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 30px;
+}
+
+
+.shopping-list{
+    padding-left: 150px;
+}
+
+.shopping-minus{
+    width: 30px;
+    margin-left: 30px;
+}
+
+.shopping-img{
+    width: 200px;
+    padding-left: 20px;
+    margin-left: 30px;
+}
+
+.shopping-checkbox{
+    width: 100px;
+    margin-left: 30px;
+}
+
+.line{
+    width: 90%;
+    margin-left: 0px;
+}

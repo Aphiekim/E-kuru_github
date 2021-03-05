@@ -1,0 +1,84 @@
+/*super plan 글자*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+:root {
+  --angle: 4deg;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.word-container {
+  margin-top: 20%;
+  position: relative;
+  width: 100%;
+  min-height: 30%;
+
+}
+
+.word {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-family: "Montserrat";
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--color, #fff);
+  display: flex;
+  pointer-events: none;
+  user-select: none;
+  line-height: 5.8rem;
+}
+.word .char {
+  position: relative;
+  -webkit-text-stroke: 2px #000;
+  transform: translateY(-45%) rotate(var(--angle));
+  animation: up-and-down 2s ease infinite;
+  animation-delay: calc((var(--word-index) * -0.15s) + (var(--char-index) * 0.1s));
+  z-index: calc(-1 * var(--char-index));
+  margin-left: -1.6rem;
+}
+
+@keyframes up-and-down {
+  0%,
+	100% {
+    transform: translateY(-45%) rotate(var(--angle));
+  }
+  50% {
+    transform: translateY(45%) rotate(var(--angle));
+  }
+}
+.support {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+}
+.support a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.8rem;
+  backface-visibility: hidden;
+  transition: all 150ms ease;
+}
+.support a:hover {
+  transform: scale(1.1);
+}
+/* 마진 간격 */
+.div-margin{
+  margin-top: 10%;
+}
+
+.super-pass-box{
+  width: 50%;
+  margin-top: 5%;
+}

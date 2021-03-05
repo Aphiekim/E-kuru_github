@@ -1,0 +1,127 @@
+.fullSize{
+    position: relative;
+    overflow: hidden;
+}
+
+
+.mainSize{
+    max-width: 1080px;
+    min-width: 436px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFDFB9;
+}
+
+.screenMax{
+    width: 20%;
+    margin: 26.2px;
+}
+
+
+.carousel-inner w-100{
+    width: 100%;
+    align-content: center;
+}
+
+/*이미지 묶음 */
+.images{
+    margin: 0px auto;
+    padding-top: 5%; 
+    padding-bottom: 5%; 
+    height: 400px; 
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*각 이미지 div */
+.eachImage{
+    text-align: center;
+    margin: 6px;
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+    
+    /* 캐러셀 영역 설정 */
+    #recipeCarousel{
+        margin: 50px;
+    }
+    /* 이미지 캐러셀 크기 설정 */
+    .img-fluid{
+        height: 100%;
+        width: 100%;
+    }
+
+    /*아래 이미지 */
+    .img-fluid2{
+        max-width: 300px;
+        max-height: 200px;
+    }
+
+    /*슬라이드 전체 박스 */
+    .slideBox{
+       margin: 0 auto !important;
+    }
+
+    .smallSlideBox{
+        margin: 0 auto !important;
+    }
+
+
+    /* 캐러셀 이미지 내부 캡션 영역 */
+    .innerCarouselCaption{
+        float: left;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .item_section {
+        float: left;
+        position: relative;
+        width: 100px;
+        height: 300px;
+        margin-left: 20px;
+        background: #fff;
+        -webkit-box-shadow: 3px 4px 5px 0 rgba(2, 2, 2, .2);
+        box-shadow: 3px 4px 5px 0 rgba(2, 2, 2, .2);
+        text-align: center;
+    }
+
+
+@media all and (min-width:1024px) and (max-width:1200px) {
+        .screenMax{
+            margin: 22.5px;
+        }
+    }
+
+    
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:991px) and (max-width:1023px) {
+    .screenMax{
+        margin: 23px;
+    }
+}
+
+@media all and (min-width:768px) and (max-width:991px) {
+    .screenMax{
+        margin: 17px;
+    }
+}
+
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width:525px) and (max-width:767px) { 
+    .screenMax{
+        margin: 12px;
+    }
+}
+
+@media all and (min-width:479px) and (max-width:525px) { 
+    .screenMax{
+        margin: 11.5px;
+    }
+}
+
+
+
+

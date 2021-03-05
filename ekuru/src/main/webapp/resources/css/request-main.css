@@ -1,0 +1,215 @@
+body{
+    background-color: #ffdfb9 !important;
+}
+
+.category-button{
+    text-align: center;
+}
+
+.request-list{
+    text-align: center;
+}
+
+/* 검색창 */
+#custom-search-input {
+    margin:0;
+    padding: 0;
+    margin-top:10%;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3%;
+    padding-right: 4% \9;
+    padding-left: 3%;
+    padding-left: 4% \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+
+
+/*목록 출력에 필요한 스타일*/
+.portfolio .portfolio-item {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.portfolio .portfolio-item .portfolio-item-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    background-color: brown;
+}
+.portfolio .portfolio-item .portfolio-item-caption:hover {
+    opacity: 1;
+}
+.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
+    font-size: 1.5rem;
+}
+
+.portfolio-modal .portfolio-modal-title {
+    font-size: 2.25rem;
+    line-height: 2rem;
+}
+
+
+/*목록 리스트 스타일 2 - 애니메이션*/
+@keyframes hue-rotate {
+    from {
+        -webkit-filter: hue-rotate(0);
+        -moz-filter: hue-rotate(0);
+        -ms-filter: hue-rotate(0);
+        filter: hue-rotate(0);
+    }
+    to {
+        -webkit-filter: hue-rotate(360deg);
+        -moz-filter: hue-rotate(360deg);
+        -ms-filter: hue-rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+@media (min-width: 992px) {
+    .portfolio-modal .portfolio-modal-title {
+        font-size: 3rem;
+        line-height: 2.5rem;
+    }
+}
+.portfolio-modal .close {
+    position: absolute;
+    z-index: 1;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    color: #1abc9c;
+    opacity: 1;
+}
+
+/* 페이징 css */
+.sizeTrans{
+    width: 110%;
+
+}
+
+.title h3{
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.search-list{
+    text-align: center;
+    margin-top: 25px;
+
+    width: 100%;
+    height: 200px;
+}
+
+.search-result{
+    width: 80%;
+    height: 100%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.search-card{
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 100%;
+}
+
+.search-img{
+    width: 100%;
+    height: 100%;
+}
+
+.cdby{
+    height: 100%;
+    text-align: left;
+}
+
+.search-form{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #A4193D;
+    margin-bottom: 15px;
+}
+
+.card-text{
+    line-height: 1.5
+}
+
+.submit-btn{
+    margin-top: 0
+}
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) {
+    .category-button{
+        width: auto;
+    }
+
+}
+
+
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .category-button{
+        width: 70%;
+    }
+
+    .inner{
+        width: 70%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width:480px) and (max-width:767px) { 
+    .category-button{
+        width: 50%;
+    }
+
+    .inner{
+        width: 50%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
+@media all and (max-width:479px) { 
+    .category-button{
+        width: 20%;
+    }
+
+    .inner{
+        width: 30%;
+    }
+   
+}
