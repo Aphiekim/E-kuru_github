@@ -5,8 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.scit.ekuru.vo.UserVO" alias="user" />
+		<typeAlias type="com.scit.ekuru.vo.RequestVO" alias="request" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
+		<mapper resource="mapper/requestMapper.xml" />
 	</mappers>
 </configuration>

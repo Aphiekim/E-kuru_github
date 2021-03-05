@@ -1,9 +1,13 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+Built-By: SCIT
+=======
+<<<<<<< HEAD
 Built-By: HJ
 =======
 Built-By: MeoJong
 >>>>>>> 65e3de327c4da3bfc82521712fd6943526fdcce8
+>>>>>>> origin/master
 Build-Jdk: 15
 Created-By: Maven Integration for Eclipse
 
