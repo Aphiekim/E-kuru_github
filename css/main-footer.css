@@ -2,7 +2,8 @@
     position: relative;
     padding-top: 90px;
     background: #A4193D;
-    margin-top: 20%;
+    margin-top: 10%;
+    font-family: 'NotoSansCJKjp-Black', sans-serif;;
 }
 
 .footer .footer-contact,
@@ -30,6 +31,7 @@
 .footer .footer-newsletter h2::after {
     position: absolute;
     content: flex;
+    /* content: ""; */
     width: 45%;
     height: 2;
     bottom: 0;
