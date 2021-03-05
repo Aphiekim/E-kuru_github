@@ -1,0 +1,38 @@
+
+.form-control {
+    font-weight: 300;
+    border-color: rgb(199, 103, 103) !important;
+    height: 80%;
+    font-size: 22px;
+    color: #fff;
+    padding-left: 10%;
+    padding-right: 10%; 
+}
+    
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .pic{
+        width: 100%;
+    }
+}
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .pic{
+        width: 80%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width:480px) and (max-width:767px) { 
+    .pic{
+        width: 50%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
+@media all and (max-width:479px) { 
+    .pic{
+        width: 20%;
+    }
+}

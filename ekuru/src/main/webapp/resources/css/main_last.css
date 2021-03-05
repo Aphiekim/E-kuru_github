@@ -1,0 +1,127 @@
+#wrapper{
+    width: 100%;
+    margin: auto;
+}
+
+.section3-all{
+    background-color: #A4193D;
+    height: 600px;
+
+
+    text-align: center;
+    color: beige;
+    border: none;
+    
+}
+
+.section3-intro-content{
+    padding-top: 3%;
+}
+
+/*section3 - 아이콘*/
+@media (min-width:768px){
+
+    #section3-icon{
+        display: inline;
+    }
+    
+    #section3-icon1{
+        position: absolute;
+        top: 199%;
+        left: 19.6%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    #section3-icon2{
+        position: absolute;
+        top: 199%;
+        left: 47.3%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    #section3-icon3{
+        position: absolute;
+        top: 199%;
+        left: 75.2%;
+        width: 100px;
+        height: 100px;
+    }
+}
+@media (min-width:768px) {
+    /*section3 - 아이콘 circle 애니메이션*/
+    .section3-circle{
+        position: relative;
+        top: 0vh;
+        left: auto;
+        stroke-dasharray: 50;
+        animation-name: preloader; 
+        animation-duration: 5s; 
+        animation-iteration-count: infinite; animation-timing-function: ease-in-out;
+    }
+
+    .circle{
+        text-align: center;
+    }
+    
+    @keyframes preloader {
+         100% { 
+             transform: rotate(360deg); 
+        } 
+    }
+}
+
+
+
+
+/*section3 - 라인 */
+#section3-line{
+    width: 50px;
+}
+
+/*section3 - 각 스텝의 내용*/
+.section3-content{
+    font-size: 15px;
+    padding-top: 20px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+}
+
+.section3-content h5{
+    font-size: 18px;
+}
+
+.section3-content p{
+    font-size: 12px;
+}
+
+.section3-content1{
+    flex: 1;
+    width: 20%;
+    margin: auto;
+}
+
+.section3-content2{
+    flex: 1;
+    width: 20%;
+    margin: auto;
+}
+
+.section3-content3{
+    flex: 1;
+    margin:auto;
+}
+
+.section3-line{
+    flex: 1;
+    margin: auto;
+}
+
+#container{
+    height: 0;
+    width: 100%;
+    padding-top: auto;
+    position: relative;
+}

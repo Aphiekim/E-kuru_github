@@ -21,7 +21,10 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		logger.info("Open E-kuru Home-page");
-		
+		int a = 0;
+		char b = 'h';
+		a = b;
+		System.out.println(a);
 		return "home";
 	}
 	

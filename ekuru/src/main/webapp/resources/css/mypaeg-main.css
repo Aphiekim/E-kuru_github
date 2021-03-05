@@ -1,0 +1,91 @@
+/*프로필 사진 고정값 어떻게 해야할지 모르겠음*/
+.imgsize{
+    width: 50%;
+    height: 50%;
+}
+/*메뉴*/
+.fact {
+    position: relative;
+    width: 100%;
+    padding: 5% 0 0 0;
+}
+
+.fact .fact-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30%;
+    padding: 60% 0 50% 0;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+    transition: .3s;
+}
+
+.fact .fact-item:hover {
+    border-color: rgba(0, 0, 0, .1);
+    box-shadow: none;
+}
+
+.fact .fact-item img {
+    max-height: 50%;
+    margin-bottom: 15%;
+}
+
+.fact .fact-item h2 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 1%;
+}
+
+.fact-style{
+    width: auto;
+    height: 300%;
+}
+
+  
+
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .imgsize{
+        width: 100%;
+    }
+    .my-menu-size{
+        width: 100%;
+    }
+}
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .imgsize{
+        width: 70%;
+    }
+
+    .my-menu-size{
+        width: 70%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width:480px) and (max-width:767px) { 
+    .imgsize{
+        width: 40%;
+    }
+    .my-menu-size{
+        width: 40%;
+    }
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
+@media all and (max-width:479px) { 
+    .imgsize{
+        width: 20%;
+    }
+    .my-menu-size{
+        width: 20%;
+    }
+}
+
+footer{
+    margin-top: 0% !important;
+}
