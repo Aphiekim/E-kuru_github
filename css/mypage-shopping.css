@@ -1,6 +1,11 @@
+*{
+    font-family: 'NotSansCJKjp-Black', sans-serif;
+}
+
 .fullSize{
     position: relative;
     overflow: hidden;
+    background-color: #FFDFB9;
 }
 
 
@@ -9,11 +14,12 @@
     min-width: 436px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFDFB9;
 }
 
 .buttons{
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5%;
 }
 
 
