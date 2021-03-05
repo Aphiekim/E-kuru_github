@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +12,7 @@
 
     <!-- Css Styles -->
     <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lg등 사용할때 필요-->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lgë± ì¬ì©í ë íì-->
     <link rel="stylesheet" href="resources/css/index.css">
     <link rel="stylesheet" href="resources/css/main_last.css">
     <link rel="stylesheet" href="resources/css/main_middle.css">
@@ -25,15 +29,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function loginFormPopup() {
-            //window.open("html이름", "별칭", "스타일");
+            //window.open("htmlì´ë¦", "ë³ì¹­", "ì¤íì¼");
             //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
-            location.href = "loginForm.html";
+            location.href = "user/loginForm";
         }
 
         function joinFormPopup() {
-            //window.open("html이름", "별칭", "스타일");
+            //window.open("htmlì´ë¦", "ë³ì¹­", "ì¤íì¼");
             //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
-            location.href = "joinForm.html";
+            location.href = "user/joinForm";
         }
     </script>
 
@@ -67,13 +71,13 @@
     <header class="header">
         <div class="header-nav">
             <div class="row">
-                <!-- 로고 구역-->
+                <!-- ë¡ê³  êµ¬ì­-->
                 <div class="col-lg-3 col-md-3">
                     <div class="box1">
-                        <a class="#" href="home-index-all.html"><img class="logo" src="img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
+                        <a class="#" href="home-index-all.html"><img class="logo" src="resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
-                <!-- 메뉴 구역 -->
+                <!-- ë©ë´ êµ¬ì­ -->
                 <div class="col-lg-9 col-md-9">
                     <div class="box2">
                         <div class="header-menu">
@@ -125,7 +129,7 @@
                             </form>
                         </div>
                     </div>
-                    <!-- 검색 하단 버튼 -->
+                    <!-- ê²ì íë¨ ë²í¼ -->
                     <div class="select-page">
                         <input class="" type="button" value="Look around">
                         <input class="" type="button" value="Request">
@@ -153,7 +157,7 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%; width: 100%;">
                         <span>
-                            <img src="img/icon/2x/baseline_laptop_mac_black_18dp.png">
+                            <img src="resources/img/icon/2x/baseline_laptop_mac_black_18dp.png">
                         </span>
                     </div>
                     <div class="services-cap">
@@ -161,14 +165,14 @@
                             <a>1. Request</a>
                         </h5>
                         <p id="context-korean" style="margin-top: 10%; font: ;">
-                            구매자가 원하는 상품을<br>
-                            채널을 운영하는 판매자에게<br>
-                            요청글 작성 / 상품 요청
+                            êµ¬ë§¤ìê° ìíë ìíì<br>
+                            ì±ëì ì´ìíë íë§¤ììê²<br>
+                            ìì²­ê¸ ìì± / ìí ìì²­
                         </p>
                         <p id="context-japan" style="margin-top: 10%; font: ;">
-                            구매자가 원하는 상품을<br>
-                            채널을 운영하는 판매자에게<br>
-                            요청글 작성 / 상품 요청
+                            êµ¬ë§¤ìê° ìíë ìíì<br>
+                            ì±ëì ì´ìíë íë§¤ììê²<br>
+                            ìì²­ê¸ ìì± / ìí ìì²­
                         </p>
                     </div>
                 </div>
@@ -177,18 +181,18 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%;">
                         <span>
-                            <img src="img/icon/2x/baseline_contact_mail_black_18dp.png">
+                            <img src="resources/img/icon/2x/baseline_contact_mail_black_18dp.png">
                         </span>
                     </div>
                     <div class="services-cap">
                         <h5><a>2. Matching</a></h5>
                         <p id="context-korean" style="margin-top: 10%;">
-                            구매자와 판매자가 채팅을 통하여<br>
-                            원하는 상품 정보 공유 / 거래
+                            êµ¬ë§¤ìì íë§¤ìê° ì±íì íµíì¬<br>
+                            ìíë ìí ì ë³´ ê³µì  / ê±°ë
                         </p>
                         <p id="context-japan" style="margin-top: 10%;">
-                            구매자와 판매자가 채팅을 통하여<br>
-                            원하는 상품 정보 공유 / 거래
+                            êµ¬ë§¤ìì íë§¤ìê° ì±íì íµíì¬<br>
+                            ìíë ìí ì ë³´ ê³µì  / ê±°ë
                         </p>
                     </div>
                 </div>
@@ -197,18 +201,18 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%;">
                         <span>
-                            <img src="img/icon/2x/baseline_shopping_bag_black_18dp.png" alt="">
+                            <img src="resources/img/icon/2x/baseline_shopping_bag_black_18dp.png" alt="">
                         </span>
                     </div>
                     <div class="services-cap">
                         <h5><a>3. Get</a></h5>
                         <p id="context-korean" style="margin-top: 10%; font: ;">
-                            거래서까지 작성 후에<br>
-                            해외 배송을 통해 배달
+                            ê±°ëìê¹ì§ ìì± íì<br>
+                            í´ì¸ ë°°ì¡ì íµí´ ë°°ë¬
                         </p>
                         <p id="context-japan" style="margin-top: 10%; font: ;">
-                            거래서까지 작성 후에<br>
-                            해외 배송을 통해 배달
+                            ê±°ëìê¹ì§ ìì± íì<br>
+                            í´ì¸ ë°°ì¡ì íµí´ ë°°ë¬
                         </p>
                     </div>
                 </div>
@@ -232,10 +236,10 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/member1.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/member1.jpg" alt="" />
                                 <h4>Jung Ha Young</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">한국어/日本語/English</p>
+                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
                                 <p class="text-muted">Lead Designer</p>
                                 <p class="text-muted">Lead Designer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
@@ -245,10 +249,10 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/crew-img/meojong.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/meojong.jpg" alt="" />
                                 <h4>Choi Hyun Jong</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">한국어/日本語/English</p>
+                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
                                 <p class="text-muted">Lead Marketer</p>
                                 <p class="text-muted">Lead Marketer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
@@ -258,11 +262,11 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="img/crew-img/minyoung.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/minyoung.jpg" alt="" />
                                 <h4>Kim Min Young</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">한국어/日本語/English</p>
-                                <p class="text-muted">"前向き","挑戦","向上心"</p>
+                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
+                                <p class="text-muted">"ååã","ææ¦","åä¸å¿"</p>
                                 <p class="text-muted">Lead Developer</p>
                                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
@@ -287,11 +291,11 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="row">
-                        <!-- 주소지 -->
+                        <!-- ì£¼ìì§ -->
                         <div class="col-md-6">
                             <div class="footer-contact">
                                 <h2>Our Head Office</h2>
-                                <p><i class="fa fa-map-marker-alt"></i>서울 강남구 영동대로 513</p>
+                                <p><i class="fa fa-map-marker-alt"></i>ìì¸ ê°ë¨êµ¬ ìëëë¡ 513</p>
                                 <p><i class="fa fa-phone-alt"></i>02-6000-0114</p>
                                 <p><i class="fa fa-envelope"></i>E-kuru co.</p>
                                 <div class="footer-social">
@@ -303,7 +307,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 회사 방침 링크 -->
+                        <!-- íì¬ ë°©ì¹¨ ë§í¬ -->
                         <div class="col-md-6">
                             <div class="footer-link">
                                 <h2>Quick Links</h2>
@@ -315,7 +319,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- 서포트 이메일 받는란 -->
+                <!-- ìí¬í¸ ì´ë©ì¼ ë°ëë -->
                 <div class="col-lg-5">
                     <div class="footer-newsletter">
                         <h2>Support us</h2>
@@ -333,7 +337,7 @@
                 </div>
             </div>
         </div>
-        <!-- 저작권 부분 -->
+        <!-- ì ìê¶ ë¶ë¶ -->
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
