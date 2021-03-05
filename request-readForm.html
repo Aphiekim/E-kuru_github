@@ -2,73 +2,123 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[REQUEST READFORM]</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-kuru</title>
+  <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
+  <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
+  <link rel="stylesheet" href="css/request-readForm.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
 
-    <link rel="stylesheet" href="css/request-readForm.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      margin: 0;
+      background-color: #FFDFB9;
+    }
 
-    <style>
-
-    </style>
-
+    * {
+      font-family: 'NotoSansCJKjp-Black', sans-serif;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div style="margin-top: 10%;">
-            <div style="">
-                <h3>
-                    <span style="font-size: 130%; color: cornflowerblue;">뽀대간지</span>님이 찾고 있는 물건 
-                    <img src="img/login-img.png" alt="profileImg" width="50" height="50" style="float:right;">
-                </h3>
-            </div>       
+  <div class="container">
+    <hr class="line line-sty" style="margin-top: 5%;">
+    <div class="row">
+      <!-- 요청글 사진 슬라이드 -->
+      <div class="slideshow-container" style="width: 50%; margin-left: 5%;">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
         </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+      </div>
+      <!-- 요청 설명글 -->
+      <div class="card" style="width: 40%;">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">ID</h6>
+          <h5 class="card-title">상세정보</h5>
+          <p class="card-text">わたしはこれが欲しい</p>
+        </div>
+      </div>
     </div>
-
-    <br>
-
-    <div class="container">
-        <!-- Heading Row -->
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7" style="padding-left: 10%;">
-            <img src="img/icon/arrow-left.png" alt="arrow-left" width="30" height="30">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="img/card-img1.jpg" alt="productImg" width="400" height="400">
-            <img src="img/icon/arrow-right.png" alt="arrow-right" width="30" height="30">
+    <hr class="line line-sty">
+    <!-- 댓글창 -->
+    <div class="row mb-3">
+      <input type="email" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+      <button type="button" class="btn btn-secondary btn-sty">comment</button>
+    </div>
+    <hr class="line">
+    <div class="row">
+      <div class="card comtWrite-sty" style="width: 80%; height: 100%;">
+        <div class="row justify-content-start">
+          <div class="col-4 id-sty">
+            ID
           </div>
-          <!-- /.col-lg-8 -->
-          <div class="col-lg-5" style="padding-right: 5%;">
-            <h1 class="font-weight-light">제품명 : 끝내주는 상품</h1>
-
-            <br>
-
-            <p>
-                상세정보 : <br> 이것은 끝내주는 상품이다.이것은 끝내주는 상품이다.이것은 끝내주는 상품이다.이것은 끝내주는 상품이다.이것은 끝내주는 상품이다.이것은 끝내주는 상품이다.
-            </p>
-
-            <br>
-          </div>
-          <!-- /.col-md-4 -->
-        </div>
-
-        <!-- Call to Action Well -->
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
-          <div class="card-body">
-            <p class="text-white m-0">이곳은 제안댓글 공간이다.</p>
-            <br>
-            <a class="btn btn-primary" href="#" style="float: right;">제안하기</a>
+          <div class="col-4">
+            그 물건 제가 해드리겠습니다
           </div>
         </div>
       </div>
-      
+      <button type="button" class="btn btn-outline-danger">Danger</button>
+
+    </div>
+  </div>
+  
+
 </body>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
 
 </html>
