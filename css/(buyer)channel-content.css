@@ -1,3 +1,7 @@
+*{
+    font-family: 'NotSansCJKjp-Black', sans-serif;
+}
+
 .fullSize{
     position: relative;
     overflow: hidden;
