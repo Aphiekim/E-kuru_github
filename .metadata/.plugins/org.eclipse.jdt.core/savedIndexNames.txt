@@ -1,0 +1,23 @@
+INDEX VERSION 1.131+C:\Users\SCIT\Documents\E-kuru_github\.metadata\.plugins\org.eclipse.jdt.core
+495054792.index
+405263724.index
+429265001.index
+186327206.index
+2307618986.index
+2570214044.index
+4272930723.index
+3702749122.index
+1404706956.index
+2506809205.index
+1450845341.index
+4257977057.index
+3207663146.index
+2664448860.index
+682570918.index
+3534188460.index
+711133417.index
+1777277694.index
+2100122398.index
+4169813984.index
+526609420.index
+1164629045.index
