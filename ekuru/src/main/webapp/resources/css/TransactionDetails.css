@@ -1,0 +1,56 @@
+#container{
+    position: relative;
+    overflow: hidden;
+}
+.row{
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+    margin-top: 50px;
+}
+
+.base{
+    background: rgb(255, 255, 255);
+    max-width: 1080px;
+    min-width: 500px;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid rgb(255, 227, 227);
+    margin-bottom: 50px;
+}
+.title, .list{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+.title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(255, 227, 227);
+}
+
+.list{
+    text-align: center;
+
+}
+
+table{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+span{
+    font-size: 20px;
+}
+.th-text{
+    color: rgb(236, 182, 138);
+}
+
+.title-text{
+    color: rgb(233, 162, 105);
+    font-size: 26px;
+}

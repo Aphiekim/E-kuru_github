@@ -1,0 +1,36 @@
+.row{
+
+    height: 100%;
+}
+
+.container{
+    max-width: 1080px !important;
+    min-width: 500px !important;
+    text-align: center;
+}
+
+.sign-form{
+    margin-top: 200px;
+}
+
+body{
+    background-color: #FFDFB9;
+}
+
+legend, h4{
+    color: #A4193D;
+    font-weight: bold;
+    text-align: left;
+}
+legend{
+    border-bottom: 1px solid #A4193D !important;
+}
+.btn{
+   background-color: #A4193D;
+   color: #FFDFB9;
+}
+
+.logo{
+    border-radius: 50%;
+    width: 200px;
+}
