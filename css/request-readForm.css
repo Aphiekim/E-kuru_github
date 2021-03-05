@@ -86,12 +86,15 @@ img {vertical-align: middle;}
 .btn-sty{
     width: 10%;
 }
+
 /*댓글 카드*/
 .comtWrite-sty{
-    width: 100%;
+    width: 80%;
     margin-left: 5%;
+    margin-top: 1%;
 }
-/*댓글 카드의 버튼*/
-.id-sty{
-    margin-right: -30%;
+
+/*요청글 내용 마진*/
+.con-margin{
+    margin-bottom: 7%;
 }
