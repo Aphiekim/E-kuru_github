@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: HJ
+=======
+Built-By: MeoJong
+>>>>>>> def68211f5502254070749c03ace68db321b520a
 Build-Jdk: 15
 Created-By: Maven Integration for Eclipse
 
