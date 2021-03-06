@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="resources/css/main_last.css">
     <link rel="stylesheet" href="resources/css/main_middle.css">
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css">
-    <link rel="stylesheet" href="resources/css/main-footer.css">
     <link rel="stylesheet" href="resources/font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="resources/font/NotoSansCJKjp-Bold.otf">
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -28,16 +27,16 @@
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        function loginFormPopup() {
-            //window.open("htmlì´ë¦", "ë³ì¹­", "ì¤íì¼");
-            //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
+        function loginForm() {
             location.href = "user/loginForm";
         }
 
-        function joinFormPopup() {
-            //window.open("htmlì´ë¦", "ë³ì¹­", "ì¤íì¼");
-            //window.open("loginForm.html", "loginForm", "width=600, height=700, left=75, top=50");
+        function joinForm() {
             location.href = "user/joinForm";
+        }
+
+        function mypageMain() {
+            location.href = "user/mypageMain";
         }
     </script>
 
@@ -77,19 +76,31 @@
                         <a class="#" href="home-index-all.html"><img class="logo" src="resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
+
                 <!-- ë©ë´ êµ¬ì­ -->
                 <div class="col-lg-9 col-md-9">
                     <div class="box2">
                         <div class="header-menu">
                             <ul>
                                 <li class="menu-list">
-                                    <a class="header-menu-list login-main" onclick="loginFormPopup();">
-                                        <!-- <img class="header-menu-img" src="img/login-img.png" alt="" /> -->
-                                        <span class="header-menu-text">Sign In</span>
-                                    </a>
-                                    <a class="header-menu-list login-main" onclick="joinFormPopup();">
-                                        <span class="header-menu-text">Sign Up</span>
-                                    </a>
+                                    
+                                    
+                                    <c:choose>
+										<c:when test="${empty sessionScope.user.getUserId() }">
+											<a class="header-menu-list login-main" onclick="loginForm();">
+		                                    	<span class="header-menu-text">Sign In</span>
+		                                    </a>
+		                                    <a class="header-menu-list login-main" onclick="joinForm();">
+		                                        <span class="header-menu-text">Sign Up</span>
+		                                    </a>
+										</c:when>
+										<c:otherwise>
+											<span class="header-menu-text">${sessionScope.user.getUserNm() } Welcome!</span>
+											<a class="header-menu-list login-main" onclick="mypageMain();">
+		                                        <span class="header-menu-text">My Page</span>
+		                                    </a>
+										</c:otherwise>
+									</c:choose>
                                     <!--
                                     <ul class="login-sub">
                                         <li>Logout</li>
@@ -101,9 +112,11 @@
                                 </li>
                                 <li></li>
                             </ul>
+                            <%-- 
                             <a class="header-menu-list" href="">
                                 <span class="header-menu-text">Point : 85600</span>
                             </a>
+                            --%>
                         </div>
                     </div>
                 </div>
@@ -285,71 +298,7 @@
         </div>
     </section>
     <!-- Section4 End-->
-     <!-- include tag Footer Start -->
-     <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="row">
-                        <!-- ì£¼ìì§ -->
-                        <div class="col-md-6">
-                            <div class="footer-contact">
-                                <h2>Our Head Office</h2>
-                                <p><i class="fa fa-map-marker-alt"></i>ìì¸ ê°ë¨êµ¬ ìëëë¡ 513</p>
-                                <p><i class="fa fa-phone-alt"></i>02-6000-0114</p>
-                                <p><i class="fa fa-envelope"></i>E-kuru co.</p>
-                                <div class="footer-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- íì¬ ë°©ì¹¨ ë§í¬ -->
-                        <div class="col-md-6">
-                            <div class="footer-link">
-                                <h2>Quick Links</h2>
-                                <a href="">How to use</a>
-                                <a href="">Privacy policy</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ìí¬í¸ ì´ë©ì¼ ë°ëë -->
-                <div class="col-lg-5">
-                    <div class="footer-newsletter">
-                        <h2>Support us</h2>
-                        <p>
-                            If you are interested in this business, send your email to us.<br>
-                            Thank you for supporting.
-                        </p>
-                    </div>
-                    <div>
-                        <form class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Email@email.com" aria-label="Email@email.com aria-describedby="button-addon2">
-                            <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ì ìê¶ ë¶ë¶ -->
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; <a href="#">E-kuru</a>, All Right Reserved.</p>
-                </div>
-                <div class="col-md-6">
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+<%@ include file="/WEB-INF/views/main-footer.jsp" %>
 
 </body>
 

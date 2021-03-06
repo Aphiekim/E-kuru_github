@@ -23,8 +23,6 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
-		System.out.println(vo);
-		
 		return service.insertUser(vo);
 	}
 	
@@ -32,5 +30,31 @@ public class UserController {
 	public String loginForm() {
 		return "user/loginForm";
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(UserVO vo) {
+		System.out.println(vo);
+		
+		return service.loginUser(vo);
+	}
 
+	@RequestMapping(value = "/mypageMain", method = RequestMethod.GET)
+	public String mypageMain() {
+		return "user/mypage_main";
+	}
+	
+	@RequestMapping(value = "/mypageInfo", method = RequestMethod.GET)
+	public String mypageInfo() {
+		return "user/mypage_info";
+	}
+	
+	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
+	public String mypageShopping() {
+		return "user/mypage_shopping";
+	}
+	
+	@RequestMapping(value = "/mypagePoint", method = RequestMethod.GET)
+	public String mypagePoint() {
+		return "user/mypage_point";
+	}
 }

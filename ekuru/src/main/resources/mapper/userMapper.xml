@@ -9,4 +9,11 @@
 	insert into e_user_tb(userId, userPw, userNm) values(#{userId}, #{userPw}, #{userNm})
 </insert>
 
+<select id="loginUser" parameterType="user" resultType="user">
+	select userId, userPw, userNm
+	from e_user_tb
+	where userId = #{userId} and userPw = #{userPw}
+</select>
+
+
 </mapper>

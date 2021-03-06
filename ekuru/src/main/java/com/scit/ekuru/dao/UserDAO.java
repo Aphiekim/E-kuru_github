@@ -23,4 +23,15 @@ public class UserDAO {
 		}
 		return cnt;
 	}
+	
+	public UserVO loginUser(UserVO vo) {
+		UserVO Uservo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			Uservo = mapper.loginUser(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return Uservo;
+	}
 }
