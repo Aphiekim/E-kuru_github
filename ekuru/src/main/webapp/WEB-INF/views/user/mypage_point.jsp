@@ -73,23 +73,14 @@
                                     <th scope="col">Credit/Cash</th>
                                 </tr>
                             </thead>
-                            <c:forEach items="${chargepoint}" var="list" >
+                            <c:forEach items="${pointlist}" var="list" varStatus="status">
                             	<tr>
-                                    <th scope="row">1</th>
-                                    <td>list.get</td>
-                                    <td>2021-02-19</td>
-                                    <td>Cash</td>
+                                    <th scope="row">${status.count}</th>
+                                    <td>${list.POINTPRODNAME}</td>
+                                    <td>${list.POINTCHARGEDINDATE}</td>
+                                    <td>${list.USERID}</td>
                                 </tr>
                             </c:forEach>
-                            <tbody>
-                                
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>500p</td>
-                                    <td>2021-02-20</td>
-                                    <td>Credit</td>
-                                </tr>
-                            </tbody>
                         </table>
                     </form>
                 </div>

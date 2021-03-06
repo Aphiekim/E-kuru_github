@@ -11,7 +11,7 @@
     <title>E-kuru</title>
 
     <!-- Css Styles -->
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="shortcut icon" href="resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lgë± ì¬ì©í ë íì-->
     <link rel="stylesheet" href="resources/css/index.css">
     <link rel="stylesheet" href="resources/css/main_last.css">

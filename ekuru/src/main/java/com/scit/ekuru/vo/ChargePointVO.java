@@ -6,6 +6,7 @@ import lombok.Data;
 public class ChargePointVO {
 	private int pointChargeNum;
 	private String userId;
-	private int pointProdNum;
+	private int pointprodname;
 	private String pointChargedIndate;
+	
 }

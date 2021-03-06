@@ -1,6 +1,7 @@
 package com.scit.ekuru.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +29,7 @@ public class UserService {
 		if(cnt > 0) {
 			path = "redirect:/";
 		}else {
-			path = "redirect:/member/joinForm";
+			path = "redirect:/user/joinForm";
 		}
 		return path;
 	}
@@ -47,10 +48,22 @@ public class UserService {
 		return path;
 	}
 	
-	public String selectPoint() {
+	public String modifyUser(UserVO vo) {
+		vo.setUserId((String)session.getAttribute("userId"));
+		int count = dao.modifyUser(vo);
+		String path = "";
+		if(count == 0) {
+			path = "redirect:/user/mypage_InfoForm";
+		}else {
+			path = "redirect:/user/mypage_Info";
+		}
+		return path;
+	}
+	
+	public ArrayList<HashMap<String, Object>> selectPoint() {
 		String id = (String) session.getAttribute("userId");
-		ArrayList<ChargePointVO> point = dao.selectPoint(id);
-		session.setAttribute("chargepoint", point);
-		return "user/mypage_point";
+		ArrayList<HashMap<String, Object>> list = dao.selectPoint(id);
+
+		return list;
 	}
 }

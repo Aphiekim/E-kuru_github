@@ -1,6 +1,7 @@
 package com.scit.ekuru.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,19 @@ public class UserDAO {
 		return Uservo;
 	}
 	
-	public ArrayList<ChargePointVO> selectPoint(String id) {
-		ArrayList<ChargePointVO> vo = null;
+	public int modifyUser(UserVO vo) {
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.modifyUser(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public ArrayList<HashMap<String, Object>> selectPoint(String id) {
+		ArrayList<HashMap<String, Object>> vo = null;
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			vo = mapper.selectPoint(id);

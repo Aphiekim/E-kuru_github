@@ -15,12 +15,27 @@
 	where userId = #{userId} and userPw = #{userPw}
 </select>
 
-<select id="selectPoint" parameterType="user" resultType="chargepoint">
-	select pointChargeNum, userId, pointprodnum, to_char(pointChargedIndate, 'YYYY-MM-DD') pointchargedindate
-	from e_point_tb
-	where userId like #{userId}
-	order by pointChargeNum
+<select id="selectPoint" parameterType="user" resultType="hashmap">
+	select 
+		ep.pointChargeNum as pontChargeNum, 
+		ep.userId as userId,
+		pp.pointprodname as pointprodname, 
+		to_char(ep.pointChargedIndate, 'YYYY-MM-DD') as pointchargedindate
+		
+	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum 
+	where ep.userId like #{userId}
+	order by ep.pointChargeNum
 </select>
+
+<update id="modifyUser" parameterType="user">
+	update e_user_tb
+	set 
+	 userAddr = #{userAddr},
+	 userZip = #{userZip},
+	 userPhone = #{userPhone}
+	where userId = #{userId}
+	
+</update>
 
 
 </mapper>
