@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -6,17 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/channel-main.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="/resources/css/channel-main.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/main-footer.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -40,7 +42,7 @@
     <header class="header---">
         <div class="wrapper">
             <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png"
+                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png"
                     style="width: 4%; position: absolute; margin-top: 0.3%;">
             </a>
             <nav>
@@ -125,14 +127,14 @@
                                         data-target="#portfolioModal4">
                                         <div
                                             class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                                    class="fas fa-plus fa-3x"></i></div>
+                                            <div class="portfolio-item-caption-content text-center text-white">
+                                            <a href="http://www.naver.com"><i class="fas fa-plus fa-3x"></i></a></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile1.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile1.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -144,11 +146,11 @@
                                             <div class="portfolio-item-caption-content text-center text-white"><i
                                                     class="fas fa-plus fa-3x"></i></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile2.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -160,64 +162,11 @@
                                             <div class="portfolio-item-caption-content text-center text-white"><i
                                                     class="fas fa-plus fa-3x"></i></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile3.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile3.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
-                                        <p class="card-text">Bringing you closer to the people and things you love</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item inner">
-                            <div class="row justify-content-center inner">
-                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                    <div class="portfolio-item mx-auto" data-toggle="modal"
-                                        data-target="#portfolioModal4">
-                                        <div
-                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                                    class="fas fa-plus fa-3x"></i></div>
-                                        </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile1.jpg" alt="" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
-                                        <p class="card-text">Bringing you closer to the people and things you love</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                    <div class="portfolio-item mx-auto" data-toggle="modal"
-                                        data-target="#portfolioModal4">
-                                        <div
-                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                                    class="fas fa-plus fa-3x"></i></div>
-                                        </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile2.jpg" alt="" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
-                                        <p class="card-text">Bringing you closer to the people and things you love</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                    <div class="portfolio-item mx-auto" data-toggle="modal"
-                                        data-target="#portfolioModal4">
-                                        <div
-                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                                    class="fas fa-plus fa-3x"></i></div>
-                                        </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile3.jpg" alt="" />
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -234,11 +183,11 @@
                                             <div class="portfolio-item-caption-content text-center text-white"><i
                                                     class="fas fa-plus fa-3x"></i></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile1.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile1.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -250,11 +199,11 @@
                                             <div class="portfolio-item-caption-content text-center text-white"><i
                                                     class="fas fa-plus fa-3x"></i></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile2.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -266,11 +215,64 @@
                                             <div class="portfolio-item-caption-content text-center text-white"><i
                                                     class="fas fa-plus fa-3x"></i></div>
                                         </div>
-                                        <img class="img-fluid" src="img/channel/ch-profile3.jpg" alt="" />
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile3.jpg" alt="" />
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
-                                                    class="like-img" src="img/channel/like.png"></a></h5>
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
+                                        <p class="card-text">Bringing you closer to the people and things you love</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item inner">
+                            <div class="row justify-content-center inner">
+                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="portfolio-item mx-auto" data-toggle="modal"
+                                        data-target="#portfolioModal4">
+                                        <div
+                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                                    class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile1.jpg" alt="" />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
+                                        <p class="card-text">Bringing you closer to the people and things you love</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="portfolio-item mx-auto" data-toggle="modal"
+                                        data-target="#portfolioModal4">
+                                        <div
+                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                                    class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile2.jpg" alt="" />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
+                                        <p class="card-text">Bringing you closer to the people and things you love</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                    <div class="portfolio-item mx-auto" data-toggle="modal"
+                                        data-target="#portfolioModal4">
+                                        <div
+                                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                                    class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img class="img-fluid" src="/resources/img/channel/ch-profile3.jpg" alt="" />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img
+                                                    class="like-img" src="/resources/img/channel/like.png"></a></h5>
                                         <p class="card-text">Bringing you closer to the people and things you love</p>
                                     </div>
                                 </div>
@@ -300,11 +302,11 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile1.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile1.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
@@ -315,11 +317,11 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
@@ -330,58 +332,11 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
-                        <p class="card-text2">Bringing you closer to the people and things you love</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center inner" style="margin-bottom: 5%; margin-top: 5%;">
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile1.jpg" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
-                        <p class="card-text2">Bringing you closer to the people and things you love</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
-                        <p class="card-text2">Bringing you closer to the people and things you love</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
@@ -394,11 +349,11 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile1.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile1.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
@@ -409,11 +364,11 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
@@ -424,11 +379,58 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid2" src="img/channel/ch-profile2.jpg" alt="" />
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
-                                    src="img/channel/like.png"></a></h5>
+                                    src="/resources/img/channel/like.png"></a></h5>
+                        <p class="card-text2">Bringing you closer to the people and things you love</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center inner" style="margin-bottom: 5%; margin-top: 5%;">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile1.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
+                                    src="/resources/img/channel/like.png"></a></h5>
+                        <p class="card-text2">Bringing you closer to the people and things you love</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
+                                    src="/resources/img/channel/like.png"></a></h5>
+                        <p class="card-text2">Bringing you closer to the people and things you love</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid2" src="/resources/img/channel/ch-profile2.jpg" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Holly Dolly</strong>'s channel<a href=""><img class="like-img"
+                                    src="/resources/img/channel/like.png"></a></h5>
                         <p class="card-text2">Bringing you closer to the people and things you love</p>
                     </div>
                 </div>
