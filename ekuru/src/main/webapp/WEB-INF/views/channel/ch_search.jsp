@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/request-main.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="/resources/css/main-footer.css">
+    <link rel="stylesheet" href="/resources/css/request-main.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -39,7 +41,7 @@
     <header class="header---">
         <div class="wrapper">
             <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
@@ -133,7 +135,7 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -153,7 +155,7 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -173,72 +175,7 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                alt="" />
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title
-                                                and
-                                                make up the bulk
-                                                of the card's content.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item inner">
-                                <div class="row justify-content-center inner">
-                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                        <div class="portfolio-item mx-auto" data-toggle="modal"
-                                            data-target="#portfolioModal4">
-                                            <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                <div class="portfolio-item-caption-content text-center text-white">
-                                                    <i class="fas fa-plus fa-3x"></i></div>
-                                            </div>
-                                            <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                alt="" />
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title
-                                                and
-                                                make up the bulk
-                                                of the card's content.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                        <div class="portfolio-item mx-auto" data-toggle="modal"
-                                            data-target="#portfolioModal4">
-                                            <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                <div class="portfolio-item-caption-content text-center text-white">
-                                                    <i class="fas fa-plus fa-3x"></i></div>
-                                            </div>
-                                            <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                                                alt="" />
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title
-                                                and
-                                                make up the bulk
-                                                of the card's content.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                                        <div class="portfolio-item mx-auto" data-toggle="modal"
-                                            data-target="#portfolioModal4">
-                                            <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                                <div class="portfolio-item-caption-content text-center text-white">
-                                                    <i class="fas fa-plus fa-3x"></i></div>
-                                            </div>
-                                            <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -263,7 +200,7 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -283,7 +220,7 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -303,7 +240,72 @@
                                                     <i class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item inner">
+                                <div class="row justify-content-center inner">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and
+                                                make up the bulk
+                                                of the card's content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                <div class="portfolio-item-caption-content text-center text-white">
+                                                    <i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid"
+                                                src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
                                                 alt="" />
                                         </div>
                                         <div class="card-body">
@@ -335,7 +337,7 @@
                     <div class="search-result">
                         <div class="search-form">
                             <div class="col-md-3 search-card">
-                                <img class="search-img" src="img/shopping-food.jpg" alt="">
+                                <img class="search-img" src="/resources/img/shopping-food.jpg" alt="">
                             </div>
                             <div class="col-md-9 search-card">
                                 <div class="card-body cdby">
@@ -350,10 +352,10 @@
                                 </div>
                             </div>
                         </div>
-            
+
                         <div class="search-form">
                             <div class="col-md-3 search-card">
-                                <img class="search-img" src="img/shopping-food.jpg" alt="">
+                                <img class="search-img" src="/resources/img/shopping-food.jpg" alt="">
                             </div>
                             <div class="col-md-9 search-card">
                                 <div class="card-body cdby">
@@ -368,14 +370,14 @@
                                 </div>
                             </div>
                         </div>
-            
+
                     </div>
                 </div>
         </section>
 
-        
+
     </div>
-    
+
 
     <!-- include tag Footer Start -->
 <div class="footer">

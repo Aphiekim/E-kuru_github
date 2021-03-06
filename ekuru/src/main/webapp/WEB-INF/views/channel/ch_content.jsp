@@ -51,7 +51,7 @@
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
         <div><h2 class="page-section-heading text-center text-secondary title-style">
-            <strong>Holly Dolly</strong>님의 채널</h2></div>
+            <strong>Holly Dolly</strong>님의 게시글</h2></div>
         <!--상위 부분-->
         <div class="top-content">
 
@@ -160,7 +160,7 @@
 
                 <div style="text-align: center;">
                     <input class="textbox" type="text" value="댓글을 입력하세요.">
-                    <img style="width: 30px; margin-left: 10px;" src="resources/img/channel-tick.png">
+                    <img style="width: 30px; margin-left: 10px;" src="/resources/img/channel-tick.png">
                 </div>
             </div>
 

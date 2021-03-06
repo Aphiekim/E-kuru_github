@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +9,11 @@
     <!--반응형 만들기 위해서 필요-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/ChannelManagement.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="/resources/css/ChannelManagement.css">
+    <link rel="stylesheet" href="/resources/css/main-footer.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <style>
        body{
            background-color: #FFDFB9;
@@ -23,7 +25,7 @@
     <header class="header---">
         <div class="wrapper">
             <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
@@ -46,7 +48,7 @@
     <!-- header -->
     <div>
 
-        
+
         <div class="container" style="margin-top: 10%;background-color: #FFDFB9;">
             <div class="base">
                 <div class="row">
@@ -55,9 +57,9 @@
                     </div>
                     <div class="content1">
                         <div class="profile">
-                            <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                            <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                             <a href="">
-                                <img src="img/card-img2.jpg" alt="" class="profile-img">
+                                <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
                             </a>
                         </div>
                     </div>
@@ -68,18 +70,18 @@
                                 <li class="li-sty"><span>379</span></li>
                             <li  class="li-sty"><span>8210</span></li>
                         </ul>
-                        
+
                         <ul class="text">
                             <li  class="li-sty"><span>Posts</span></li>
                             <li  class="li-sty"><span>Followers</span></li>
                             <li  class="li-sty"><span>Follow</span></li>
                         </ul>
                     </div>
-                    
+
                 </div>
-                <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                 <div class="test2">
-                    
+
                     <p>
                         <span class="profile-text">
                             Nike Pro Top can be worn as a long sleeve layered item in cool weather.
@@ -87,47 +89,47 @@
                         </span>
                     </p>
                 </div>
-                
+
                 <div class="product-list">
                     <!-- 채널 상품목록 구현시 foreach 사용예상 -->
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="###">
                             <img src="img/card-img1.jpg" alt="" class="product-img">
                         </a>
                     </div>
-                    
+
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
                             <img src="img/card-img2.jpg" alt="" class="product-img">
                         </a>
                     </div>
-                    
+
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
                             <img src="img/card-img3.jpg" alt="" class="product-img">
                         </a>
                     </div>
-                    
+
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="img/shopping-minus.png" alt=""></a>
+                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
                             <img src="img/card-img4.jpg" alt="" class="product-img">
                         </a>
                     </div>
 
                 </div>
-                
+
                 <div class="button-list">
                     <input class="button btn-danger" type="button" value="modify">
                 </div>
-                
-                
+
+
             </div>
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -197,6 +199,6 @@
         </div>
     </div>
 
-    
+
 </body>
 </html>
