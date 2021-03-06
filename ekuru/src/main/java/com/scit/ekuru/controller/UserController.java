@@ -23,6 +23,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
+		System.out.println(vo);
 		return service.insertUser(vo);
 	}
 	

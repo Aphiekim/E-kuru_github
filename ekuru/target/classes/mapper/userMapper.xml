@@ -6,13 +6,20 @@
 <mapper namespace="com.scit.ekuru.dao.UserMapper">
 
 <insert id="insertUser" parameterType="user">
-	insert into e_user_tb(userId, userPw, userNm) values(#{userId}, #{userPw}, #{userNm})
+	insert into e_user_tb(userId, userPw, userNm, userType) values(#{userId}, #{userPw}, #{userNm}, #{userType})
 </insert>
 
 <select id="loginUser" parameterType="user" resultType="user">
-	select userId, userPw, userNm
+	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint
 	from e_user_tb
 	where userId = #{userId} and userPw = #{userPw}
+</select>
+
+<select id="selectPoint" parameterType="user" resultType="chargepoint">
+	select pointChargeNum, userId, pointprodnum, to_char(pointChargedIndate, 'YYYY-MM-DD') pointchargedindate
+	from e_point_tb
+	where userId like #{userId}
+	order by pointChargeNum
 </select>
 
 

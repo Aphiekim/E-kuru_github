@@ -57,15 +57,14 @@
                             <div class="row align-items-center text-uppercase" >
                                 <div class="col-lg-3 col-md-6 fact-style" style="margin-left: 12%;">
                                     <div class="fact-item" style="width: 330%;">
-                                        <div><h2 style="display: inline;">아이디</h2><h2 style="display: inline;">아이디</h2></div>
-                                        <div><h2 style="display: inline;">아이디</h2><h2 style="display: inline;">아이디</h2></div>
-                                        <div><h2 style="display: inline;">아이디</h2><h2 style="display: inline;">아이디</h2></div>
-                                        <div><h2 style="display: inline;">아이디</h2><h2 style="display: inline;">아이디</h2></div>
-
-                                        <h2>현주소지</h2>
+                                        <div><h2 style="display: inline;">Id :	</h2><h2 style="display: inline;">${sessionScope.user.getUserId() }</h2></div>
+                                        <div><h2 style="display: inline;">Name :	</h2><h2 style="display: inline;">${sessionScope.user.getUserNm() }</h2></div>
+                                        <div><h2 style="display: inline;">Address :	</h2><h2 style="display: inline;">${sessionScope.user.getUserAddr() }</h2></div>
+                                        <div><h2 style="display: inline;">Zip :	</h2><h2 style="display: inline;">${sessionScope.user.getUserZip() }</h2></div>
+                                        <div><h2 style="display: inline;">Phone :	</h2><h2 style="display: inline;">${sessionScope.user.getUserPhone() }</h2></div>
                                     </div>
                                 </div>
-                                .
+                                
                             </div>
                         </div>
                     </div>
