@@ -29,4 +29,17 @@ public class UserService {
 		}
 		return path;
 	}
+	
+	public String loginUser(UserVO vo) {
+		UserVO Uservo = dao.loginUser(vo);
+		
+		String path = "";
+		if(Uservo == null) {
+			path = "redirect:/user/loginForm";
+		}else {
+			session.setAttribute("user", Uservo);
+			path = "redirect:/";
+		}
+		return path;
+	}
 }

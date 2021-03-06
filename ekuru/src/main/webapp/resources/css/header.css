@@ -66,7 +66,7 @@ a, a:hover{
 }
 
 .menu-sub{
-    width: 100%;
+    width: 160%;
     position: absolute; /* html의 flow에 영향을 미치지 않게 absolute 설정 */
     height: 0px; /* 초기 높이는 0px로 설정 */ 
     overflow: hidden; /* 실 내용이 높이보다 커지면 해당 내용 감춤 */ 
