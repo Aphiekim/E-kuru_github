@@ -431,9 +431,9 @@
             </div>
           </div>
         </div>
+</div>
 
-
-    </section>
+</section>
   </div>
    <!-- include tag Footer Start -->
    <div>
