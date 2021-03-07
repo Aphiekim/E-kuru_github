@@ -18,4 +18,7 @@ public interface RequestMapper {
 	
 	//코멘트 달기
 	public int insertComment(RequestCommentVO comment);
+	
+	//코멘트 불러오기
+	public ArrayList<RequestCommentVO> selectComment(int reqNum);
 }

@@ -58,6 +58,7 @@ public class RequestDAO {
 		return list;
 	}
 	
+	//코멘트 넣기
 	public int insertComment(RequestCommentVO comment) {
 		int cnt = 0;
 		
@@ -70,5 +71,41 @@ public class RequestDAO {
 		
 		return cnt;
 	}
+	
+	//코멘트 불러오기
+	public ArrayList<RequestCommentVO> selectComment(int reqNum){
+		ArrayList<RequestCommentVO> commentList = null;
+
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			commentList = mapper.selectComment(reqNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return commentList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -171,9 +171,7 @@
                 </div>
               </div>
            </div>
-            <!-- ì¸ê¸° ê²ìê¸ ë -->
-            <!-- ì¬ë¼ì´ë ì»¤ì ê¸°ë¥ -->
-            <!-- ì¬ë¼ì´ë ì»¤ì ê¸°ë¥ -->
+            <!-- 슬라이드 좌우 -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
               <span class="sr-only">Previous</span>
@@ -184,8 +182,8 @@
             </a>
           </div>
         </div>
-	<!--카테고리별 결과 출력 -->
-
+        
+			<!--카테고리별 결과 출력 -->
 	        <div class="row justify-content-center inner" style="margin-bottom: 5%;">
 		      <c:forEach var="list" items="${reqList }" >
 	          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

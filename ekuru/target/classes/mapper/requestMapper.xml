@@ -50,7 +50,7 @@ where
 	categoryCode = #{categoryCode}
 </select>
 <!-- 코멘트 달기 -->
-<insert id="insertComment" parameterType="request">
+<insert id="insertComment" parameterType="comment">
 insert into
 	e_requestComment_tb(
 		reqCommentNum
@@ -64,5 +64,16 @@ insert into
 		,#{reqComment}
 	)
 </insert>
+<select id="selectComment" resultType="comment">
+select
+	reqCommentNum
+	,userId
+	,reqNum
+	,reqComment
+from
+	e_requestComment_tb
+where
+	reqNum = #{reqNum}
+</select>
 
 </mapper>

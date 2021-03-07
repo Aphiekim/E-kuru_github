@@ -55,8 +55,13 @@ public class RequestViewController {
 	@RequestMapping(value="/request_readForm", method=RequestMethod.GET)
 	public String requestReadForm(int reqNum, Model model) {
 		logger.info("Move to request readForm");
+		//읽기 폼 내용 불러오기
 		RequestVO vo = service.selectReqOne(reqNum);
+		//코멘트 불러오기
+		ArrayList<RequestCommentVO> comment = service.selectComment(reqNum);
+		
 		model.addAttribute("vo", vo);
+		model.addAttribute("comment", comment);
 		
 		return "request/request_readForm";
 	}
@@ -80,8 +85,9 @@ public class RequestViewController {
 		
 		return "request/request_search";
 	}
+	
 	//request에 댓글 달기
-	@RequestMapping(value="request/request_comment", method=RequestMethod.POST)
+	@RequestMapping(value="/request_comment", method=RequestMethod.POST)
 	public String requestComment(RequestCommentVO comment, int reqNum) {
 		logger.info("코멘트 달기");
 		comment.setReqCommentNum(reqNum);

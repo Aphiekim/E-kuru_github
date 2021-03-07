@@ -71,21 +71,45 @@ public class RequestService {
 	
 	//코멘트 달기
 	public String insertComment(RequestCommentVO comment, int reqNum) {
+		//Id와 reqNum 코멘트 VO에 넣기
 		String id = (String)session.getAttribute("userId");
 		comment.setUserId(id);
+		comment.setReqNum(reqNum);
 		
+		logger.info("확인"+comment);
+		//다오 실행
 		int cnt = dao.insertComment(comment);
 		String path = " ";
 		
 		if(cnt>0) {
 			logger.info("코멘트 달기 성공");
-			path = "request/request_readForm?reqNum="+comment.getReqNum();
+			path = "redirect:/request/request_readForm?reqNum="+comment.getReqNum();
 		}else {
 			logger.info("코멘트 실패");
-			path = "request/request_readForm?reqNum="+comment.getReqNum();
+			path = "redirect:/request/request_readForm?reqNum="+comment.getReqNum();
 		}
 		
 		return path;
 	}
+	
+	//코멘트 불러오기
+	public ArrayList<RequestCommentVO> selectComment(int reqNum){
+		return dao.selectComment(reqNum);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
