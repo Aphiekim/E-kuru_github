@@ -99,15 +99,15 @@ function mypageInfoModify(){
                                               </tr>
                                               <tr>
                                                 <th scope="col">state</th>
-                                                <td>Tokyo</td>
+                                                <td>${sessionScope.state}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 1</th>
-                                                <td>aaaaaaaaaaaaaaaaa</td>
+                                                <td>${sessionScope.addr1}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 2</th>
-                                                <td>bbbbbbbbbbbbbbbbb</td>
+                                                <td>${sessionScope.addr2}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">phone</th>
