@@ -3,7 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.scit.ekuru.dao.RequestDAO">
+<mapper namespace="com.scit.ekuru.dao.RequestMapper">
+<!-- 요청글 쓰기 insert -->
+<insert id="insertOne" parameterType="request">
+insert into 
+	e_request_tb(
+	    reqNum
+	    ,userId
+	    ,categoryCode
+	    ,reqTitle
+	    ,reqContent
+	)values(
+	    reqnum_seq.nextval
+	    ,#{userId}
+	    ,#{categoryCode}
+	    ,#{reqTitle}
+	    ,#{reqContent}
+	)
+</insert>
+<!-- 게시글 작성한 것 불러오기 select -->
+<select id="selectReqOne" parameterType="int" resultType="request">
+select
+	reqNum
+    ,userId
+    ,categoryCode
+    ,reqTitle
+    ,reqContent
+    ,reqIndate
+from
+	e_request_tb
+where
+	reqNum = #{reqNum}
+</select>
+<!-- 카테고리별 목록 출력 -->
 <select id="requestCategoryResult" parameterType="int" resultType="request">
 select
 	reqNum
@@ -11,38 +43,26 @@ select
 	,categoryCode
 	,reqTitle
 	,reqContent
-	,reqOriginalPic1
-	,reqOriginalPic2
-	,reqOriginalPic3
-	,reqSavedPic1
-	,reqSavedPic2
-	,reqSavedPic3
 	,reqIndate
 from
 	e_request_tb
 where
 	categoryCode = #{categoryCode}
 </select>
-<insert id="insertRequest" parameterType="request">
-insert into e_request_tb(
-    reqNum
-    ,userId
-    ,categoryCode
-    ,reqTitle
-    ,reqContent
-    ,reqOriginalPic1
-    ,reqOriginalPic2
-    ,reqOriginalPic3
-    ,reqSavedPic1
-    ,reqSavedPic2
-    ,reqSavedPic3
-)values(
-    REQNUM_SEQ.nextval
-    ,#{userId}
-    ,#{categoryCode}
-    ,#{reqTitle}
-    ,#{reqContent}
-)
+<!-- 코멘트 달기 -->
+<insert id="insertComment" parameterType="request">
+insert into
+	e_requestComment_tb(
+		reqCommentNum
+		,userId
+		,reqNum
+		,reqComment
+	)values(
+		reqCommentNum_seq.nextval
+		,#{userId}
+		,#{reqNum}
+		,#{reqComment}
+	)
 </insert>
 
 </mapper>

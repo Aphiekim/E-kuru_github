@@ -70,7 +70,7 @@
         <div class="row" style="margin-top: 5%;">
             <div class="col-lg-8 mb-5">
                 <!--Form-->
-            	<form action="request/write" method="post">
+            <form action="/request/request_write" method="post">
                     
                 <!--사진 / 화면에 맞춰서 설정clear-->
                     <div class="row form-group">
@@ -104,12 +104,12 @@
                 <!-- 카테고리 -->
                     <div class="row form-group col-md-12 cate-sty">
                         <label class="font-weight-bold text-uppercase" for="subject">category</label>
-                        <div>
+                        <div style="width: 100%">
                             <input type="radio" name="categoryCode" value="1" style="margin-right: 2%">Fashion/Acc
                             <input type="radio" name="categoryCode" value="2" style="margin-right: 2%">Beauty
                             <input type="radio" name="categoryCode" value="3" style="margin-right: 2%">Food
                             <input type="radio" name="categoryCode" value="4" style="margin-right: 2%">Book/CD
-                            <input type="radio" name="categoryCode" value="5">Ect
+                            <input type="radio" name="categoryCode" value="5" style="margin-right: 2%">Ect
                         </div>
                     </div>
 

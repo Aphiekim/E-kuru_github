@@ -88,39 +88,23 @@
       <!-- 요청 설명글 -->
       <div class="card" style="width: 40%;">
         <div class="card-body">
-          <h5 class="card-title ">Title</h5>
-          <h6 class="card-subtitle mb-2 text-muted ">ID</h6>
-          <h5 class="card-title con-margin">Information</h5>
-          <p class="card-text">わたしはこれが欲しい</p>
+          <h5 class="card-title ">[ ${vo.reqTitle } ]</h5>
+          <h6 class="card-subtitle mb-2 text-muted ">ID : ${vo.userId }</h6>
+          <h5 class="card-title con-margin" style="margin-top:5%">Information</h5>
+          <p class="card-text">> ${vo.reqContent }</p>
         </div>
       </div>
     </div>
     <hr class="line line-sty">
     <!-- 댓글 입력창 -->
-    <div class="row mb-3">
-      <input type="email" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
-      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
-    </div>
+    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post">
+	    <div class="row mb-3">
+	      <input type="text" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+	      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
+	    </div>
+    </form>
     <hr class="line">
     <!-- 댓글창 -->
-    <div class="card comtWrite-sty">
-      <div class="card-body">
-        <div class="row justify-content-between">
-          <h5 class="card-title col-4">ID</h5>
-          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
-        </div>
-        <p>제가 요청 받을게요</p>
-      </div>
-    </div>
-    <div class="card comtWrite-sty">
-      <div class="card-body">
-        <div class="row justify-content-between">
-          <h5 class="card-title col-4">ID</h5>
-          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
-        </div>
-        <p>제가 요청 받을게요</p>
-      </div>
-    </div>
     <div class="card comtWrite-sty">
       <div class="card-body">
         <div class="row justify-content-between">
