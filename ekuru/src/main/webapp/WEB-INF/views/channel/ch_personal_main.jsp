@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,6 @@
            background-color: #FFDFB9;
        }
     </style>
-
 </head>
 <body>
     <!-- header -->
@@ -54,11 +54,10 @@
             <div class="base">
                 <div class="row">
                     <div class="main-text">
-                        <span>Channel Management</span>
+                        <span>channel Id's CHANNEL</span>
                     </div>
                     <div class="content1">
                         <div class="profile">
-                            <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                             <a href="">
                                 <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
                             </a>
@@ -80,7 +79,6 @@
                     </div>
 
                 </div>
-                <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                 <div class="test2">
 
                     <p>
@@ -94,38 +92,34 @@
                 <div class="product-list">
                     <!-- 채널 상품목록 구현시 foreach 사용예상 -->
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
-                        <a href="###">
-                            <img src="img/card-img1.jpg" alt="" class="product-img">
+                        <a href="ch_content">
+                            <img src="/resources/img/card-img1.jpg" alt="" class="product-img">
                         </a>
                     </div>
 
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
-                            <img src="img/card-img2.jpg" alt="" class="product-img">
+                            <img src="/resources/img/card-img2.jpg" alt="" class="product-img">
                         </a>
                     </div>
 
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
-                            <img src="img/card-img3.jpg" alt="" class="product-img">
+                            <img src="/resources/img/card-img3.jpg" alt="" class="product-img">
                         </a>
                     </div>
 
                     <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
                         <a href="">
-                            <img src="img/card-img4.jpg" alt="" class="product-img">
+                            <img src="/resources/img/card-img4.jpg" alt="" class="product-img">
                         </a>
                     </div>
 
                 </div>
 
                 <div class="button-list">
-                    <input class="button btn-danger" type="button" value="write">
-                    <input class="button btn-danger" type="button" value="modify">
+                    <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters'">
+                    <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management'">
                 </div>
 
 
