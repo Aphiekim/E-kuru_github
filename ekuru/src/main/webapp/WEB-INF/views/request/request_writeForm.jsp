@@ -70,7 +70,7 @@
         <div class="row" style="margin-top: 5%;">
             <div class="col-lg-8 mb-5">
                 <!--Form-->
-                <form action="#">
+            	<form action="request/write" method="post">
                     
                 <!--사진 / 화면에 맞춰서 설정clear-->
                     <div class="row form-group">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 <!--파일 올리기-->
-                    <div class="input-group" >
+                    <!-- <div class="input-group" >
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile04"
                                 aria-describedby="inputGroupFileAddon04">
@@ -92,31 +92,24 @@
                             <button class="btn btn-outline-secondary" type="button"
                                 id="inputGroupFileAddon04" style="background-color: #A4193D; color: white">Button</button>
                         </div>
-                    </div>
+                    </div>  -->
                     
                 <!-- 게시글 제목 -->
                     <div class="row form-group" style="margin-top: 3%;">
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="subject">Subject</label>
-                            <input type="subject" id="subject" class="form-control">
+                            <input type="text" id="subject" class="form-control" name="reqTitle">
                         </div>
                     </div>
                 <!-- 카테고리 -->
                     <div class="row form-group col-md-12 cate-sty">
                         <label class="font-weight-bold text-uppercase" for="subject">category</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button" style="width: 80%;">
-                            <div class="input-group-append" style="width: 20%;"> 
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #A4193D; color: white; width: 200%;"> Dropdown </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div role="separator" class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </div>
+                        <div>
+                            <input type="radio" name="categoryCode" value="1" style="margin-right: 2%">Fashion/Acc
+                            <input type="radio" name="categoryCode" value="2" style="margin-right: 2%">Beauty
+                            <input type="radio" name="categoryCode" value="3" style="margin-right: 2%">Food
+                            <input type="radio" name="categoryCode" value="4" style="margin-right: 2%">Book/CD
+                            <input type="radio" name="categoryCode" value="5">Ect
                         </div>
                     </div>
 
@@ -124,7 +117,7 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="message">content</label>
-                            <textarea name="message" id="message" cols="20" rows="7" class="form-control"
+                            <textarea name="reqContent" id="reqContent" cols="20" rows="7" class="form-control"
                                 placeholder="Write your notes or request here..."></textarea>
                         </div>
                     </div>
@@ -132,10 +125,10 @@
                 <div class="row form-group">
                     <div class="col-md-6 col-md-offset-3" style="margin-left: 40%; padding-top: 5%;">
                             <input type="submit" value="Save" class="btn btn-danger py-2 px-4 text-uppercase">
-                        </div>
                     </div>
+                </div>
 
-                </form>
+            </form>
                 
             </div>
             <!-- 요청글 사용법 -->
