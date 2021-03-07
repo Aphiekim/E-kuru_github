@@ -95,7 +95,7 @@
                                     
                                     
                                     <c:choose>
-										<c:when test="${empty sessionScope.user.getUserId() }">
+										<c:when test="${empty sessionScope.userId }">
 											<a class="header-menu-list login-main" onclick="loginForm();">
 		                                    	<span class="header-menu-text">Sign In</span>
 		                                    </a>
@@ -104,7 +104,7 @@
 		                                    </a>
 										</c:when>
 										<c:otherwise>
-											<span class="header-menu-text">${sessionScope.user.getUserNm() } Welcome!</span>
+											<span class="header-menu-text">${sessionScope.userNm } Welcome!</span>
 											<a class="header-menu-list login-main" onclick="mypageMain();">
 		                                        <span class="header-menu-text">My Page</span>
 		                                    </a>
