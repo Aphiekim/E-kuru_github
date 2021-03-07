@@ -18,4 +18,73 @@
 		E_CHANNEL_TB
 </select>
 
+<!-- 채널 정보 -->
+<select id="chRead" parameterType="channel" resultType="channel">
+	SELECT
+		CHNUM,
+		CHID,
+		CHNAME,
+		CHPROFILE,
+		CHFOLLOWER,
+		CHINTRO,
+		CHINDATE
+	FROM
+		E_CHANNEL_TB
+	<where>
+	    <if test="chName == null">CHNUM = #{chNum}</if>
+	    <if test="chName != null">CHNAME = #{chName}</if>
+	</where>
+
+
+</select>
+
+<!-- 상품 전체 리스트 -->
+<select id="getProdList" parameterType="channel" resultType="product">
+	SELECT
+		PRODNUM,
+		USERID,
+		CHNUM,
+		PRODCATEGORY,
+		PRODTITLE,
+		PRODSTOCK,
+		PRODPRICE,
+		PRODCONTENT,
+		PRODORIGINALPIC1,
+		PRODORIGINALPIC2,
+		PRODORIGINALPIC3,
+		PRODSAVEDPIC1,
+		PRODSAVEDPIC2,
+		PRODSAVEDPIC3,
+		PRODINDATE
+	FROM
+		E_PRODUCT_TB
+	where
+	    USERID = #{chId}
+</select>
+
+<!-- 각 물품 가져오기 -->
+<select id="getProdEach" parameterType="product" resultType="product">
+	SELECT
+		PRODNUM,
+		USERID,
+		CHNUM,
+		PRODCATEGORY,
+		PRODTITLE,
+		PRODSTOCK,
+		PRODPRICE,
+		PRODCONTENT,
+		PRODORIGINALPIC1,
+		PRODORIGINALPIC2,
+		PRODORIGINALPIC3,
+		PRODSAVEDPIC1,
+		PRODSAVEDPIC2,
+		PRODSAVEDPIC3,
+		PRODINDATE
+	FROM
+		E_PRODUCT_TB
+	where
+	    PRODNUM = #{prodNum}
+
+</select>
+
 </mapper>

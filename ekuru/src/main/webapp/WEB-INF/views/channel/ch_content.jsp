@@ -51,7 +51,7 @@
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
         <div><h2 class="page-section-heading text-center text-secondary title-style">
-            <strong>Holly Dolly</strong>님의 게시글</h2></div>
+            <strong>${channel.chName }</strong>님의 게시글</h2></div>
         <!--상위 부분-->
         <div class="top-content">
 
@@ -106,7 +106,7 @@
                 <div class="product-intro">
 
                     <div class="product-title">
-                        <span>TITLE</span>
+                        <span>${prodEachResult.prodTitle }</span>
                     </div>
 
 
@@ -114,7 +114,7 @@
                             <span>PRICE</span>
                         </div>
                         <div class="content-value">
-                            <input type="text" value="3,000" readonly>
+                            <input type="text" value="${prodEachResult.prodPrice }" readonly>
                         </div>
 
 

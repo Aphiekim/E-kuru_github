@@ -54,12 +54,12 @@
             <div class="base">
                 <div class="row">
                     <div class="main-text">
-                        <span>channel Id's CHANNEL</span>
+                        <span>${channel.chName }님의 채널</span>
                     </div>
                     <div class="content1">
                         <div class="profile">
                             <a href="">
-                                <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
+                                <img src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" class="profile-img">
                             </a>
                         </div>
                     </div>
@@ -89,32 +89,20 @@
                     </p>
                 </div>
 
+                <c:if test="${empty prodListResult }">
+                    <p>아직 등록된 상품이 없습니다.</p>
+                </c:if>
+
                 <div class="product-list">
-                    <!-- 채널 상품목록 구현시 foreach 사용예상 -->
-                    <div class="product">
-                        <a href="ch_content">
-                            <img src="/resources/img/card-img1.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="">
-                            <img src="/resources/img/card-img2.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="">
-                            <img src="/resources/img/card-img3.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="">
-                            <img src="/resources/img/card-img4.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
+                    <c:forEach items="${prodListResult }" var="prodList">
+						<c:if test="${not empty prodListResult }">
+                        <div class="product">
+                            <a href="ch_content?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                            </a>
+                        </div>
+                       	</c:if>
+                    </c:forEach>
                 </div>
 
                 <div class="button-list">
