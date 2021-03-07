@@ -3,6 +3,8 @@ package com.scit.ekuru.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+	
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
 	public String joinForm() {
@@ -48,12 +53,25 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/mypage_Info", method = RequestMethod.GET)
-	public String mypageInfo() {
+	public String mypageInfo(Model model) {
+		
+		//model.addAttribute("list", list);
+		//서비스에서 모델 저장 오류
+		ArrayList<HashMap<Object, Object>> list = service.selectUser((String) session.getAttribute("userId"));
+		model.addAttribute("state", list.get(0).get("state"));
+        model.addAttribute("addr1", list.get(0).get("address1"));
+        model.addAttribute("addr2", list.get(0).get("address2"));
+        model.addAttribute("user", list.get(0).get("user"));
 		return "user/mypage_info";
 	}
 	
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.GET)
-	public String mypageInfoForm() {
+	public String mypageInfoForm(Model model) {
+		ArrayList<HashMap<Object, Object>> list = service.selectUser((String) session.getAttribute("userId"));
+		model.addAttribute("state", list.get(0).get("state"));
+        model.addAttribute("addr1", list.get(0).get("address1"));
+        model.addAttribute("addr2", list.get(0).get("address2"));
+        model.addAttribute("user", list.get(0).get("user"));
 		return "user/mypage_infoForm";
 	}
 	

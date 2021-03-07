@@ -20,6 +20,8 @@ public class UserService {
 	@Autowired
 	private UserDAO dao;
 	
+	Model model;
+	
 	@Autowired
 	private HttpSession session;
 	
@@ -42,23 +44,8 @@ public class UserService {
 		if(Uservo == null) {
 			path = "redirect:/user/loginForm";
 		}else {
-			
-			String text = Uservo.getUserAddr();
-			String addr[] = text.split("/");
-			
-			ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
-			HashMap<Object, Object> hash = new HashMap<Object, Object>();
-			
-	        hash.put("state", addr[0]);
-	        hash.put("address1", addr[1]);
-	        hash.put("address2", addr[2]);
-	        list.add(hash);
-			 
-	        session.setAttribute("state", list.get(0).get("state"));
-	        session.setAttribute("addr1", list.get(0).get("address1"));
-	        session.setAttribute("addr2", list.get(0).get("address2"));
-	        session.setAttribute("user", Uservo);
-			session.setAttribute("userId", Uservo.getUserId());
+	        session.setAttribute("userNm", Uservo.getUserNm());
+	        session.setAttribute("userId", Uservo.getUserId());
 			path = "redirect:/";
 		}
 		return path;
@@ -83,5 +70,40 @@ public class UserService {
 		ArrayList<HashMap<String, Object>> list = dao.selectPoint(id);
 
 		return list;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectUser(String id) {
+		UserVO Uservo = null;
+		ArrayList<HashMap<Object, Object>> list = null;
+		Uservo = dao.selectUser(id);
+		System.out.println(Uservo);
+		String path = "";
+		
+		if(Uservo == null){
+			path = "redirect:/";
+		}else {
+			path = "user/mypage_info";
+			String text = Uservo.getUserAddr();
+			list = new ArrayList<HashMap<Object, Object>>();
+			HashMap<Object, Object> hash = new HashMap<Object, Object>();
+			
+	        if(text != null && text.length() != 0) {
+	        	String addr[] = text.split("/");
+	        	hash.put("state", addr[0]);
+		        hash.put("address1", addr[1]);
+		        hash.put("address2", addr[2]);
+		        hash.put("user", Uservo);
+		        
+		        list.add(hash);
+		        
+	        }
+	        
+	        
+		}
+		
+
+		
+		
+        return list;
 	}
 }
