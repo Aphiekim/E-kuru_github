@@ -30,14 +30,20 @@
         }
     </style>
     <script type="text/javascript">
-function mypageInfoModify(){
-	location.href = "/user/mypage_InfoForm";
-}
+    	function formCheck(){
+    		var addr1 = document.getElementById("addr1").value;
+        	var addr2 = document.getElementById("addr2").value;
+        	var addr3 = document.getElementById("addr3").value;
+        	var result = addr1 + "/" + addr2 + "/" + addr3;
+        	document.getElementById("hidden-addr").value = result;
+        	
+        	return true;
+        }
     </script>
 </head>
 
 <body style="background-color: #FFDFB9;">
-<%@ include file="/WEB-INF/views/header.jsp" %>
+    <%@ include file="/WEB-INF/views/header.jsp" %>
     <div>
         <div>
             <!-- 회원 사진 / 인트로 -->
@@ -72,7 +78,8 @@ function mypageInfoModify(){
                             <div class="row align-items-center text-uppercase">
                                 <div class="col-lg-3 col-md-6 fact-style" style="margin-left: 15%;">
                                     <div class="fact-item box-sty2" style="width: 300%;">
-                                        <table class="table table-hover" style="width: 70%; text-align: center; margin-bottom: 10%; margin-left: 15%;" >
+                                        <form action="/user/mypage_InfoForm" method="post" onsubmit="return formCheck()">
+                                        	<table class="table table-hover" style="width: 70%; text-align: center; margin-bottom: 10%; margin-left: 15%;" >
                                             <thead >
                                                 <tr>
                                                   <th scope="col">ID</th>
@@ -95,27 +102,39 @@ function mypageInfoModify(){
                                             <thead>
                                             <tr>
                                                 <th scope="col">zip code</th>
-                                                <td>${sessionScope.user.getUserZip()}</td>
+                                                <td>
+                                                    <input type="text" name="userZip" value="${sessionScope.user.getUserZip()}">
+                                                </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">state</th>
-                                                <td>Tokyo</td>
+                                                <td>
+                                                    <input id="addr1" type="text" value="">
+                                                </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 1</th>
-                                                <td>aaaaaaaaaaaaaaaaa</td>
+                                                <td>
+                                                    <input id="addr2" type="text" value="">
+                                                </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 2</th>
-                                                <td>bbbbbbbbbbbbbbbbb</td>
+                                                <td>
+                                                    <input id="addr3" type="text" value="">
+                                                </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">phone</th>
-                                                <td>${sessionScope.user.getUserPhone()}</td>
+                                                <td>
+                                                    <input type="text" name="userPhone" value="${sessionScope.user.getUserPhone()}">
+                                                </td>
                                               </tr>
                                             </thead>
                                         </table>
-                                        <input class="btn btn-secondary"type="button" value="Modify" onclick="mypageInfoModify();">
+                                        <input type="hidden" id="hidden-addr" name="userAddr" value="">
+                                        <input class="btn btn-secondary"type="submit" value="Save">
+                                        </form>
                                     </div>
                                 </div>
                                 

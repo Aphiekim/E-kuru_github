@@ -11,20 +11,22 @@
     <title>E-kuru</title>
 
     <!-- Css Styles -->
-    <link rel="shortcut icon" href="../img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="../resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lgë± ì¬ì©í ë íì-->
-    <link rel="stylesheet" href="../resources/css/index.css">
-    <link rel="stylesheet" href="../resources/css/main_last.css">
-    <link rel="stylesheet" href="../resources/css/main_middle.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css">
-    <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
-    <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Bold.otf">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
+
+    <link rel="shortcut icon" href="resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lgë± ì¬ì©í ë íì-->
+    <link rel="stylesheet" href="resources/css/index.css">
+    <link rel="stylesheet" href="resources/css/main_last.css">
+    <link rel="stylesheet" href="resources/css/main_middle.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css">
+    <link rel="stylesheet" href="resources/font/NotoSansCJKjp-Black.otf">
+    <link rel="stylesheet" href="resources/font/NotoSansCJKjp-Bold.otf">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function loginForm() {

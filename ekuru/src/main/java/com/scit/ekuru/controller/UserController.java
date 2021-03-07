@@ -1,5 +1,8 @@
 package com.scit.ekuru.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +26,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
+		System.out.println(vo);
 		return service.insertUser(vo);
 	}
 	
@@ -43,9 +47,20 @@ public class UserController {
 		return "user/mypage_main";
 	}
 	
-	@RequestMapping(value = "/mypageInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage_Info", method = RequestMethod.GET)
 	public String mypageInfo() {
 		return "user/mypage_info";
+	}
+	
+	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.GET)
+	public String mypageInfoForm() {
+		return "user/mypage_infoForm";
+	}
+	
+	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.POST)
+	public String mypageInfoForm(UserVO vo) {
+		System.out.println(vo);
+		return service.modifyUser(vo);
 	}
 	
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
@@ -54,7 +69,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/mypagePoint", method = RequestMethod.GET)
-	public String mypagePoint() {
+	public String mypagePoint(Model model) {
+		ArrayList<HashMap<String, Object>> list = service.selectPoint();
+		model.addAttribute("pointlist", list);
 		return "user/mypage_point";
 	}
 }

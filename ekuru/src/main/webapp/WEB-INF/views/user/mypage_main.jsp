@@ -62,7 +62,7 @@
                 <div class="container">
                     <div class="row align-items-center text-uppercase">
                         <div class="col-lg-3 col-md-6 fact-style" style="margin-left: 12%;">
-                        <a href="/user/mypageInfo">
+                        <a href="/user/mypage_Info">
                             <div class="fact-item">
                                 <img src="../resources/img/mypage-img/main/icon-1.png" alt="Icon">
                                 <h2 class="">My Info</h2>

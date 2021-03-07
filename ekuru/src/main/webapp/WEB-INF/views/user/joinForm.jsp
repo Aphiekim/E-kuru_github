@@ -15,7 +15,6 @@ function formCheck(){
 	var firstname = document.getElementById("first").value;
 	var lastname = document.getElementById("last").value;
 	var name = firstname+lastname;
-	alert(name);
 	document.getElementById("userNm").value = name;
 	return true;
 }
@@ -41,8 +40,17 @@ function formCheck(){
                     <input type="text" name="userId" class="form-control input-lg" placeholder="Email"/>
                     <br>
                     <input type="password" name="userPw" class="form-control input-lg" placeholder="Password"/>
-                    <br>
+         
                     <%--<input type="password" name="userPw2" class="form-control input-lg" placeholder="Re-enter Password"> --%>
+                    <br>
+                    
+                    <h5>
+                    	<b>Korean</b><input type="radio" name="userType" value="0">
+                   		<b>Japanese</b><input type="radio" name="userType" value="1">
+                    </h5>
+                    
+                    
+                    
                     <br>
                     <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">JOIN</button>
                     <input id="userNm" name="userNm" type="hidden" value="">

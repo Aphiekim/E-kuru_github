@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="font/CuteCartoonItalic.ttf">
-    <link rel="stylesheet" href="css/ChannelPosters.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-footer.css">
+    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="/resources/font/CuteCartoonItalic.ttf">
+    <link rel="stylesheet" href="/resources/css/ChannelPosters.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/main-footer.css">
     <style>
         @font-face {
             font-family: "CuteCartoonItalic";
-            src: url("font/CuteCartoonItalic.ttf");  
+            src: url("font/CuteCartoonItalic.ttf");
         }
         *{
             font-family: "CuteCartoonItalic" !important;
@@ -29,7 +31,7 @@
     <header class="header---">
         <div class="wrapper">
             <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
@@ -56,7 +58,7 @@
                     <div class="product-img" onclick="">
                         <div class="img-box">
                             <div class="circle">
-                                <img class="cross" src="img/icon/cross.png" alt="">
+                                <img class="cross" src="/resources/img/icon/cross.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -71,14 +73,14 @@
                             <div class="content2">
                                 <input type="text">
                             </div>
-    
+
                             <div class="content1">
                                 <span class="span">Quantity</span>
                             </div>
                             <div class="content2">
                                 <input type="number">
                             </div>
-    
+
                             <div class="content1">
                                 <span class="span">Category</span>
                             </div>
@@ -91,13 +93,13 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="foot">
                     <div class="product-tx">
                         <span>Product Details</span>
                     </div>
-                    
+
 
                     <div class="product-text-div">
                         <textarea class="product-text" name="" id="" cols="100" rows="10"></textarea>
@@ -181,6 +183,6 @@
 </div>
 <!-- Footer End -->
 
-    
+
 </body>
 </html>

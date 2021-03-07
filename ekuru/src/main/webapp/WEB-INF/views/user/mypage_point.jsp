@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -72,20 +73,14 @@
                                     <th scope="col">Credit/Cash</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>1000P</td>
-                                    <td>2021-02-19</td>
-                                    <td>Cash</td>
+                            <c:forEach items="${pointlist}" var="list" varStatus="status">
+                            	<tr>
+                                    <th scope="row">${status.count}</th>
+                                    <td>${list.POINTPRODNAME}</td>
+                                    <td>${list.POINTCHARGEDINDATE}</td>
+                                    <td>${list.USERID}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>500p</td>
-                                    <td>2021-02-20</td>
-                                    <td>Credit</td>
-                                </tr>
-                            </tbody>
+                            </c:forEach>
                         </table>
                     </form>
                 </div>

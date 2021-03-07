@@ -6,14 +6,36 @@
 <mapper namespace="com.scit.ekuru.dao.UserMapper">
 
 <insert id="insertUser" parameterType="user">
-	insert into e_user_tb(userId, userPw, userNm) values(#{userId}, #{userPw}, #{userNm})
+	insert into e_user_tb(userId, userPw, userNm, userType) values(#{userId}, #{userPw}, #{userNm}, #{userType})
 </insert>
 
 <select id="loginUser" parameterType="user" resultType="user">
-	select userId, userPw, userNm
+	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint
 	from e_user_tb
 	where userId = #{userId} and userPw = #{userPw}
 </select>
+
+<select id="selectPoint" parameterType="user" resultType="hashmap">
+	select 
+		ep.pointChargeNum as pontChargeNum, 
+		ep.userId as userId,
+		pp.pointprodname as pointprodname, 
+		to_char(ep.pointChargedIndate, 'YYYY-MM-DD') as pointchargedindate
+		
+	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum 
+	where ep.userId like #{userId}
+	order by ep.pointChargeNum
+</select>
+
+<update id="modifyUser" parameterType="user">
+	update e_user_tb
+	set 
+	 userAddr = #{userAddr},
+	 userZip = #{userZip},
+	 userPhone = #{userPhone}
+	where userId = #{userId}
+	
+</update>
 
 
 </mapper>
