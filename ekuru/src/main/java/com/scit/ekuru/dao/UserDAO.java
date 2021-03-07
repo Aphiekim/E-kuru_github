@@ -39,6 +39,17 @@ public class UserDAO {
 		return Uservo;
 	}
 	
+	public UserVO selectUser(String id) {
+		UserVO Uservo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			Uservo = mapper.selectUser(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return Uservo;
+	}
+	
 	public int modifyUser(UserVO vo) {
 		int count = 0;
 		try {

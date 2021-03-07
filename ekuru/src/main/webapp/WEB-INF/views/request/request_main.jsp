@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-        <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/request-main.css">
-    <link rel="stylesheet" href="../resources/css/header_Origin.css">
+  	<link rel="stylesheet" href="../resources/css/header.css">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
@@ -27,6 +28,14 @@
             interval: 2000,
             wrap: false
         })
+
+        function openCategory(category){
+			var categoryCode = category;
+			location.href="/request/request_categoryResult?categoryCode="+categoryCode;
+        }
+        function openWriteForm(){
+			location.href="/request/request_writeForm";
+        }
     </script>
     <style>
         * {
@@ -40,10 +49,10 @@
 </head>
 
 <body>
-     <!-- header -->
+    <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
+            <a href="/">
                 <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
@@ -84,23 +93,12 @@
         <!-- 카테고리 구분 -->
         <section>
             <div class="category-button" style="height: auto; background:#FFDFB9;">
-                <a href="request-categoryresult.html">
-                    <button type="button" class="btn btn-outline-danger"
-                        style="margin-right: 50px;">Fashion/Acc</button>
-                </a>
-                <a href="request-categoryresult.html">
-                    <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
-                </a>
-                <a href="request-categoryresult.html">
-                    <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
-                </a>
-                <a href="request-categoryresult.html">
-                    <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
-                </a>
-                <a href="request-categoryresult.html">
-                    <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
-                </a>
-                <button class="btn text-white" style="background: brown;">Request</button>
+	            <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+	            <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+				<button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+				<button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+	 			<button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+	            <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
             </div>
         </section>
         <!-- 요청 게시글 출력 부분 시작-->

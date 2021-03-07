@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.vo.ChargePointVO;
@@ -18,6 +19,8 @@ public class UserService {
 	
 	@Autowired
 	private UserDAO dao;
+	
+	Model model;
 	
 	@Autowired
 	private HttpSession session;
@@ -41,12 +44,14 @@ public class UserService {
 		if(Uservo == null) {
 			path = "redirect:/user/loginForm";
 		}else {
-			session.setAttribute("user", Uservo);
-			session.setAttribute("userId", Uservo.getUserId());
+	        session.setAttribute("userNm", Uservo.getUserNm());
+	        session.setAttribute("userId", Uservo.getUserId());
 			path = "redirect:/";
 		}
 		return path;
 	}
+	
+	  
 	
 	public String modifyUser(UserVO vo) {
 		vo.setUserId((String)session.getAttribute("userId"));
@@ -65,5 +70,36 @@ public class UserService {
 		ArrayList<HashMap<String, Object>> list = dao.selectPoint(id);
 
 		return list;
+	}
+	
+	public HashMap<Object, Object> selectUser(String id) {
+		UserVO Uservo = dao.selectUser(id);
+		
+		System.out.println(Uservo);
+		
+		String path = "";
+		HashMap<Object, Object> hash = null;
+		
+		if(Uservo == null){
+			System.out.println("유저 VO를 가져오지 못했습니다");
+		}else {
+			
+			String text = Uservo.getUserAddr();
+			hash = new HashMap<Object, Object>();
+			
+	        if(text != null && text.length() != 0) {
+	        	String addr[] = text.split("/");
+	        	hash.put("state", addr[0]);
+		        hash.put("address1", addr[1]);
+		        hash.put("address2", addr[2]);
+		        hash.put("user", Uservo);
+	        }
+
+		}
+		
+
+		
+		
+        return hash;
 	}
 }

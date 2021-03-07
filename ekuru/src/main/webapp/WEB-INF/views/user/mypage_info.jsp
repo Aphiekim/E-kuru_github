@@ -64,7 +64,7 @@ function mypageInfoModify(){
                         <div class="divider-custom-line"></div>
                     </div>
                     <!-- Masthead Subheading-->
-                    <p class="masthead-subheading font-weight-light mb-0">${sessionScope.user.getUserId()} Welcome!</p>
+                    <p class="masthead-subheading font-weight-light mb-0">${sessionScope.userNm} Welcome!</p>
 
                     <!-- 마이페이지 메뉴 Start -->
                     <div class="fact my-menu-size">
@@ -76,11 +76,11 @@ function mypageInfoModify(){
                                             <thead >
                                                 <tr>
                                                   <th scope="col">ID</th>
-                                                  <td>${sessionScope.user.getUserId()}</td>
+                                                  <td>${sessionScope.userId}</td>
                                                 </tr>
                                                 <tr>
                                                   <th scope="col">Name</th>
-                                                  <td>${sessionScope.user.getUserNm()}</td>
+                                                  <td>${sessionScope.userNm}</td>
                                                 </tr>
                                                 <tr>
                                                   <th scope="col">Certified</th>
@@ -95,23 +95,23 @@ function mypageInfoModify(){
                                             <thead>
                                             <tr>
                                                 <th scope="col">zip code</th>
-                                                <td>${sessionScope.user.getUserZip()}</td>
+                                                <td>${user.getUserZip()}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">state</th>
-                                                <td>Tokyo</td>
+                                                <td>${state}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 1</th>
-                                                <td>aaaaaaaaaaaaaaaaa</td>
+                                                <td>${addr1}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 2</th>
-                                                <td>bbbbbbbbbbbbbbbbb</td>
+                                                <td>${addr2}</td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">phone</th>
-                                                <td>${sessionScope.user.getUserPhone()}</td>
+                                                <td>${user.getUserPhone()}</td>
                                               </tr>
                                             </thead>
                                         </table>

@@ -21,29 +21,32 @@
         *{
             font-family: "CuteCartoonItalic" !important;
         }
+        .sub-a{
+        	LINE-HEIGHT: 30PX; COLOR: 2D2D2D !IMPORTANT"
+        }
     </style>
 </head>
 <body>
     <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
+            <a href="/">
                 <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="mypageMain">My Page</a>
+                        <a class="menu-a" href="mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
                             <li class="headli">My Request</li>
-                            <li class="headli">My Cart</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="">About</a></li>
+                    <li class="headli"><a class="menu-a" href="">Board</a></li>
+                    <li class="headli"><a class="menu-a" href="">Reference</a></li>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
                 </ul>
             </nav>
         </div>
