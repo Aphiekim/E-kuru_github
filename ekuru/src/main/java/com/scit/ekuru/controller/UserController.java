@@ -57,21 +57,21 @@ public class UserController {
 		
 		//model.addAttribute("list", list);
 		//서비스에서 모델 저장 오류
-		ArrayList<HashMap<Object, Object>> list = service.selectUser((String) session.getAttribute("userId"));
-		model.addAttribute("state", list.get(0).get("state"));
-        model.addAttribute("addr1", list.get(0).get("address1"));
-        model.addAttribute("addr2", list.get(0).get("address2"));
-        model.addAttribute("user", list.get(0).get("user"));
+		HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
+		model.addAttribute("state", hash.get("state"));
+        model.addAttribute("addr1", hash.get("address1"));
+        model.addAttribute("addr2", hash.get("address2"));
+        model.addAttribute("user", hash.get("user"));
 		return "user/mypage_info";
 	}
 	
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.GET)
 	public String mypageInfoForm(Model model) {
-		ArrayList<HashMap<Object, Object>> list = service.selectUser((String) session.getAttribute("userId"));
-		model.addAttribute("state", list.get(0).get("state"));
-        model.addAttribute("addr1", list.get(0).get("address1"));
-        model.addAttribute("addr2", list.get(0).get("address2"));
-        model.addAttribute("user", list.get(0).get("user"));
+		HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
+		model.addAttribute("state", hash.get("state"));
+        model.addAttribute("addr1", hash.get("address1"));
+        model.addAttribute("addr2", hash.get("address2"));
+        model.addAttribute("user", hash.get("user"));
 		return "user/mypage_infoForm";
 	}
 	

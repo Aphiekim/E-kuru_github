@@ -72,20 +72,20 @@ public class UserService {
 		return list;
 	}
 	
-	public ArrayList<HashMap<Object, Object>> selectUser(String id) {
-		UserVO Uservo = null;
-		ArrayList<HashMap<Object, Object>> list = null;
-		Uservo = dao.selectUser(id);
+	public HashMap<Object, Object> selectUser(String id) {
+		UserVO Uservo = dao.selectUser(id);
+		
 		System.out.println(Uservo);
+		
 		String path = "";
+		HashMap<Object, Object> hash = null;
 		
 		if(Uservo == null){
-			path = "redirect:/";
+			System.out.println("유저 VO를 가져오지 못했습니다");
 		}else {
-			path = "user/mypage_info";
+			
 			String text = Uservo.getUserAddr();
-			list = new ArrayList<HashMap<Object, Object>>();
-			HashMap<Object, Object> hash = new HashMap<Object, Object>();
+			hash = new HashMap<Object, Object>();
 			
 	        if(text != null && text.length() != 0) {
 	        	String addr[] = text.split("/");
@@ -93,17 +93,13 @@ public class UserService {
 		        hash.put("address1", addr[1]);
 		        hash.put("address2", addr[2]);
 		        hash.put("user", Uservo);
-		        
-		        list.add(hash);
-		        
 	        }
-	        
-	        
+
 		}
 		
 
 		
 		
-        return list;
+        return hash;
 	}
 }
