@@ -4,6 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.scit.ekuru.dao.RequestMapper">
+<!-- 메인에 전체 게시글 불러오기 -->
+<select id="selectRequestAll" resultType="request">
+select
+	reqNum
+	,userId
+	,categoryCode
+	,reqTitle
+	,reqContent
+from
+	e_request_tb
+</select>
 <!-- 요청글 쓰기 insert -->
 <insert id="insertOne" parameterType="request">
 insert into 
@@ -35,6 +46,17 @@ from
 where
 	reqNum = #{reqNum}
 </select>
+<update id="updateRequest" parameterType="request">
+update
+	e_request_tb
+set
+	categoryCode = #{categoryCode}
+	,reqTitle = #{reqTitle}
+	,reqContent = #{reqContent}
+where
+	reqNum = #{reqNum}
+	and userId = #{userId}
+</update>
 <!-- 카테고리별 목록 출력 -->
 <select id="requestCategoryResult" parameterType="int" resultType="request">
 select
@@ -64,6 +86,7 @@ insert into
 		,#{reqComment}
 	)
 </insert>
+<!-- 코멘트 불러오기 -->
 <select id="selectComment" resultType="comment">
 select
 	reqCommentNum

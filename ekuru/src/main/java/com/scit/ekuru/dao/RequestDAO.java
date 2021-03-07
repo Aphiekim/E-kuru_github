@@ -15,6 +15,19 @@ public class RequestDAO {
 	@Autowired
 	private SqlSession session;
 	
+	//메인 요청글 전체 불러오기
+	public ArrayList<RequestVO> selectRequestAll(){
+		ArrayList<RequestVO> requestList = null;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			requestList = mapper.selectRequestAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return requestList;
+	}
+	
 	//요청글 쓰기 위한 DAO
 	public int insertOne(RequestVO reqVO) {
 		int cnt = 0;
@@ -42,6 +55,20 @@ public class RequestDAO {
 		}
 		
 		return vo;
+	}
+	
+	//내 요청글 수정
+	public int updateRequest(int reqNum) {
+		int cnt = 0;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			cnt = mapper.updateRequest(reqNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
 	}
 	
 	//카테고리별 게시글 불러오기 위함

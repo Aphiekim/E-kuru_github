@@ -41,30 +41,30 @@
 
 <body>
 <!-- header -->
-<header class="header---">
-  <div class="wrapper">
-      <a href="">
-          <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute; margin-top: 0.3%;">
-      </a>
-      <nav>
-          <ul class="menu">
-              <li class="menu-list headli">
-                  <a href="">Home</a>
-                  <ul class="menu-sub">
-                      <li class="headli">Logout</li>
-                      <li class="headli">Mypage</li>
-                      <li class="headli">info</li>
-                  </ul>
-              </li>
-              <li class="headli"><a href="">About</a></li>
-              <li class="headli"><a href="">Board</a></li>
-              <li class="headli"><a href="">Reference</a></li>
-              <li class="headli"><a href="">Contact</a></li>
-          </ul>
-      </nav>
-  </div>
-</header>
-<!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a href="mypageMain">My Page</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli">My Cart</li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a href="">About</a></li>
+                    <li class="headli"><a href="">Board</a></li>
+                    <li class="headli"><a href="">Reference</a></li>
+                    <li class="headli"><a href="">58600P</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
   <div class="container" style="margin-top: 10%;">
     <hr class="line line-sty" style="margin-top: 5%;">
     <div class="row">
@@ -117,7 +117,9 @@
 	      <div class="card-body">
 	        <div class="row justify-content-between">
 	          <h5 class="card-title col-4">${comment.userId }</h5>
-	          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+	          <c:if test="${sessionScope.userId ==vo.userId }">
+	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+	          </c:if>
 	        </div>
 	        <p>${comment.reqComment }</p>
 	      </div>

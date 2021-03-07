@@ -31,9 +31,22 @@ public class RequestViewController {
 	
 	//request 메인화면으로 가기
 	@RequestMapping(value="/request_main", method=RequestMethod.GET)
-	public String requestMain() {
+	public String requestMain(Model model) {
 		logger.info("Move to request main");
+//		ArrayList<RequestVO> fashionList = service.requestCategoryResult(1);
+//		ArrayList<RequestVO> beautyList = service.requestCategoryResult(2);
+//		ArrayList<RequestVO> foodList = service.requestCategoryResult(3);
+//		ArrayList<RequestVO> bookList = service.requestCategoryResult(4);
+//		ArrayList<RequestVO> ectList = service.requestCategoryResult(5);
+//		
+//		model.addAttribute("fashionList", fashionList);
+//		model.addAttribute("beautyList", beautyList);
+//		model.addAttribute("foodList", foodList);
+//		model.addAttribute("bookList", bookList);
+//		model.addAttribute("ectList", ectList);
 		
+		ArrayList<RequestVO> requestList = service.selectRequestAll();
+		model.addAttribute("requestList", requestList);
 		return "request/request_main";
 	}
 	
@@ -49,6 +62,27 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO) {
 		return service.insertOne(reqVO);
+	}
+	
+	@RequestMapping(value="/request_rewrite", method=RequestMethod.GET)
+	public String requestRewirteForm(int reqNum, Model model) {
+		//세션에서 로그인한 아이디 읽기
+		String id = (String) session.getAttribute("userId");
+		//전달된 글 번호로 수정할 글 읽기
+		RequestVO vo = service.selectReqOne(reqNum);
+
+		//본인 글이 아니면 메인화면으로 이동
+		if(!id.equals(vo.getUserId())) {
+			return "redirect:/request/request_readForm?reqNum="+reqNum;
+		}
+		
+		model.addAttribute("vo", vo);
+		return "request/request_update";
+	}
+	
+	@RequestMapping(value="/request_update", method=RequestMethod.POST)
+	public String updateRequest(RequestVO reqVO) {
+		return service.updateRequest(reqVO);
 	}
 	
 	//request 읽기폼으로 이동

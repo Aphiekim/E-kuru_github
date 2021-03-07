@@ -25,6 +25,11 @@ public class RequestService {
 	@Autowired
 	private HttpSession session;
 	
+	//메인에 요청글 전체 출력
+	public ArrayList<RequestVO> selectRequestAll(){
+		return dao.selectRequestAll();
+	}
+	
 	//요청 글쓰기
 	public String insertOne(RequestVO reqVO) {
 		//현재 로그인 되어있는 ID를 VO에 넣음
@@ -63,6 +68,26 @@ public class RequestService {
 	public RequestVO selectReqOne(int reqNum) {
 		return dao.selectReqOne(reqNum);
 	};
+	
+	//내 요청글 수정하기
+	public String updateRequest(RequestVO reqVO) {
+		String userId = (String)session.getAttribute("uesrId");
+		reqVO.setUserId(userId);
+		
+		int cnt = dao.insertOne(reqVO);
+		logger.info("확인"+reqVO);
+		String path =" ";
+		
+		if(cnt>0) {
+			logger.info("글쓰기 성공");
+			path ="redirect:/request/request_readForm?reqNum="+reqVO.getReqNum();
+		}else {
+			logger.info("글쓰기 실패");
+			path = "request/request_rewriteForm";
+		}
+		
+		return path;
+	}
 	
 	//카테고리별 요청 글 불러오기
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode) {

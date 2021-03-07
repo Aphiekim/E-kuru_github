@@ -6,12 +6,17 @@ import com.scit.ekuru.vo.RequestCommentVO;
 import com.scit.ekuru.vo.RequestVO;
 
 public interface RequestMapper {
+	//메인에 전체 글 불러오기
+	public ArrayList<RequestVO> selectRequestAll();
 
 	//요청 게시글 넣기
 	public int insertOne(RequestVO reqVO);
 	
 	//요청 게시글 1개 불러오기
 	public RequestVO selectReqOne(int reqNum);
+	
+	//내 요청글 수정
+	public int updateRequest(int reqNum);
 	
 	//카테고리별 게시글 불러오기
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode);
