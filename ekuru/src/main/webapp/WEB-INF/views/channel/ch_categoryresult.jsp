@@ -108,7 +108,7 @@
     <section class="page-section portfolio" id="portfolio">
       <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 5%;">
-          특정 채널</h2>
+          특정 카테고리</h2>
         <!-- 채널 게시글 배열 나누기-->
         <div class="divider-custom">
           <div class="divider-custom-line"></div>

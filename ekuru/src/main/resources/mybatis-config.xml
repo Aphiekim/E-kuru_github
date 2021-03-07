@@ -6,10 +6,15 @@
 	<typeAliases>
 		<typeAlias type="com.scit.ekuru.vo.UserVO" alias="user" />
 		<typeAlias type="com.scit.ekuru.vo.RequestVO" alias="request" />
+<<<<<<< HEAD
 		<typeAlias type="com.scit.ekuru.vo.ChargePointVO" alias="chargepoint" />
+=======
+		<typeAlias type="com.scit.ekuru.vo.ChannelVO" alias="channel" />
+>>>>>>> hjungv
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
 		<mapper resource="mapper/requestMapper.xml" />
+		<mapper resource="mapper/channelMapper.xml" />
 	</mappers>
 </configuration>
