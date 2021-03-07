@@ -11,6 +11,7 @@
     <title>E-kuru</title>
 
     <!-- Css Styles -->
+
     <link rel="shortcut icon" href="resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">  <!--col-md col-lgë± ì¬ì©í ë íì-->
     <link rel="stylesheet" href="resources/css/index.css">
@@ -25,6 +26,7 @@
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function loginForm() {
@@ -37,6 +39,13 @@
 
         function mypageMain() {
             location.href = "user/mypageMain";
+        }
+
+        function openRequestMain(){
+			location.href = "request/request_main";
+        }
+        function openChannelMain(){
+			location.href = "channel/ch_main";
         }
     </script>
 
@@ -73,7 +82,7 @@
                 <!-- ë¡ê³  êµ¬ì­-->
                 <div class="col-lg-3 col-md-3">
                     <div class="box1">
-                        <a class="#" href="home-index-all.html"><img class="logo" src="resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
+                        <a class="#" href="home-index-all.html"><img class="logo" src="../resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
 
@@ -144,8 +153,8 @@
                     </div>
                     <!-- ê²ì íë¨ ë²í¼ -->
                     <div class="select-page">
-                        <input class="" type="button" value="Look around">
-                        <input class="" type="button" value="Request">
+                        <input class="" type="button" value="Look around" onclick="openChannelMain():">
+                        <input class="" type="button" value="Request" onclick="openRequestMain();">
                     </div>
                 </div>
             </div>
@@ -170,7 +179,7 @@
                 <div class="single-services text-center mb-50">
                     <div class="services-icon" style="margin-bottom: 10%; width: 100%;">
                         <span>
-                            <img src="resources/img/icon/2x/baseline_laptop_mac_black_18dp.png">
+                            <img src="../resources/img/icon/2x/baseline_laptop_mac_black_18dp.png">
                         </span>
                     </div>
                     <div class="services-cap">
@@ -178,14 +187,14 @@
                             <a>1. Request</a>
                         </h5>
                         <p id="context-korean" style="margin-top: 10%; font: ;">
-                            êµ¬ë§¤ìê° ìíë ìíì<br>
-                            ì±ëì ì´ìíë íë§¤ììê²<br>
-                            ìì²­ê¸ ìì± / ìí ìì²­
+                           구매자가 원하는 상품을<br>
+                           채널을 운영하는 판매자에게<br>
+                           요청글 작성 / 상품 요청
                         </p>
                         <p id="context-japan" style="margin-top: 10%; font: ;">
-                            êµ¬ë§¤ìê° ìíë ìíì<br>
-                            ì±ëì ì´ìíë íë§¤ììê²<br>
-                            ìì²­ê¸ ìì± / ìí ìì²­
+                            구매자가 원하는 상품을<br>
+                           채널을 운영하는 판매자에게<br>
+                           요청글 작성 / 상품 요청
                         </p>
                     </div>
                 </div>
@@ -200,12 +209,12 @@
                     <div class="services-cap">
                         <h5><a>2. Matching</a></h5>
                         <p id="context-korean" style="margin-top: 10%;">
-                            êµ¬ë§¤ìì íë§¤ìê° ì±íì íµíì¬<br>
-                            ìíë ìí ì ë³´ ê³µì  / ê±°ë
+                            구매자와 판매자가 채팅을 통하여<br>
+                            원하는 상품 정보 공유 / 거래
                         </p>
                         <p id="context-japan" style="margin-top: 10%;">
-                            êµ¬ë§¤ìì íë§¤ìê° ì±íì íµíì¬<br>
-                            ìíë ìí ì ë³´ ê³µì  / ê±°ë
+                            구매자와 판매자가 채팅을 통하여<br>
+                            원하는 상품 정보 공유 / 거래
                         </p>
                     </div>
                 </div>
@@ -220,12 +229,12 @@
                     <div class="services-cap">
                         <h5><a>3. Get</a></h5>
                         <p id="context-korean" style="margin-top: 10%; font: ;">
-                            ê±°ëìê¹ì§ ìì± íì<br>
-                            í´ì¸ ë°°ì¡ì íµí´ ë°°ë¬
+                            거래서 작성 후<br>
+                            해외 배송으로 상품 수령
                         </p>
                         <p id="context-japan" style="margin-top: 10%; font: ;">
-                            ê±°ëìê¹ì§ ìì± íì<br>
-                            í´ì¸ ë°°ì¡ì íµí´ ë°°ë¬
+                            거래서 작성 후<br>
+                            해외 배송으로 상품 수령
                         </p>
                     </div>
                 </div>
@@ -249,46 +258,37 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="resources/img/member1.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="../resources/img/member1.jpg" alt="" />
                                 <h4>Jung Ha Young</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
+                                <p class="text-muted">한국어/日本語/English</p>
                                 <p class="text-muted">Lead Designer</p>
                                 <p class="text-muted">Lead Designer</p>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/meojong.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="../resources/img/crew-img/meojong.jpg" alt="" />
                                 <h4>Choi Hyun Jong</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
+                                <p class="text-muted">한국어/日本語/English</p>
                                 <p class="text-muted">Lead Marketer</p>
-                                <p class="text-muted">Lead Marketer</p>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                                <p class="text-muted">Lead Marketer</p> 
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="resources/img/crew-img/minyoung.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="../resources/img/crew-img/minyoung.jpg" alt="" />
                                 <h4>Kim Min Young</h4>
                                 <p class="text-muted">IT engineer</p>
-                                <p class="text-muted">íêµ­ì´/æ¥æ¬èª/English</p>
-                                <p class="text-muted">"ååã","ææ¦","åä¸å¿"</p>
-                                <p class="text-muted">Lead Developer</p>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                                <p class="text-muted">한국어/日本語/English</p>
+                                <p class="text-muted">"前向き、挑戦、向上心"</p>
+                                <p class="text-muted">aphiekim@gmail.com</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                        <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">We are waiting for you. We want to offer the great service to you.<br> If you have any questions, let us know thank you</p></div>
                     </div>
                 </div>
 

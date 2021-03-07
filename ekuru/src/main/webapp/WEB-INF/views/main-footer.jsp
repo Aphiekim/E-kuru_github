@@ -33,7 +33,7 @@
                         <div class="col-md-6">
                             <div class="footer-contact">
                                 <h2>Our Head Office</h2>
-                                <p><i class="fa fa-map-marker-alt"></i>ìì¸ ê°ë¨êµ¬ ìëëë¡ 513</p>
+                                <p><i class="fa fa-map-marker-alt"></i>서울시 강남구 영동대로 513</p>
                                 <p><i class="fa fa-phone-alt"></i>02-6000-0114</p>
                                 <p><i class="fa fa-envelope"></i>E-kuru co.</p>
                                 <div class="footer-social">

@@ -4,7 +4,45 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.scit.ekuru.dao.RequestDAO">
-
-
+<select id="requestCategoryResult" parameterType="int" resultType="request">
+select
+	reqNum
+	,userId
+	,categoryCode
+	,reqTitle
+	,reqContent
+	,reqOriginalPic1
+	,reqOriginalPic2
+	,reqOriginalPic3
+	,reqSavedPic1
+	,reqSavedPic2
+	,reqSavedPic3
+	,reqIndate
+from
+	e_request_tb
+where
+	categoryCode = #{categoryCode}
+</select>
+<insert id="insertRequest" parameterType="request">
+insert into e_request_tb(
+    reqNum
+    ,userId
+    ,categoryCode
+    ,reqTitle
+    ,reqContent
+    ,reqOriginalPic1
+    ,reqOriginalPic2
+    ,reqOriginalPic3
+    ,reqSavedPic1
+    ,reqSavedPic2
+    ,reqSavedPic3
+)values(
+    REQNUM_SEQ.nextval
+    ,#{userId}
+    ,#{categoryCode}
+    ,#{reqTitle}
+    ,#{reqContent}
+)
+</insert>
 
 </mapper>

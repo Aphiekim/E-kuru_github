@@ -27,7 +27,7 @@
     <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
+            <a href="/">
                 <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
