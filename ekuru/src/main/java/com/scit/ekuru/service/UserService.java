@@ -10,24 +10,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.scit.ekuru.dao.UserDAO;
+import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.UserVO;
 
 
-@Service
+@Service 
 public class UserService {
-
+	
 	@Autowired
 	private UserDAO dao;
-
+	
 	Model model;
-
+	
 	@Autowired
 	private HttpSession session;
-
+	
 	public String insertUser(UserVO vo) {
 		int cnt = dao.insertUser(vo);
 		String path = "";
-
+		
 		if(cnt > 0) {
 			path = "redirect:/";
 		}else {
