@@ -14,21 +14,21 @@ import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.UserVO;
 
 
-@Service 
+@Service
 public class UserService {
-	
+
 	@Autowired
 	private UserDAO dao;
-	
+
 	Model model;
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
 	public String insertUser(UserVO vo) {
 		int cnt = dao.insertUser(vo);
 		String path = "";
-		
+
 		if(cnt > 0) {
 			path = "redirect:/";
 		}else {
@@ -64,29 +64,29 @@ public class UserService {
 		}
 		return path;
 	}
-	
+
 	public ArrayList<HashMap<String, Object>> selectPoint() {
 		String id = (String) session.getAttribute("userId");
 		ArrayList<HashMap<String, Object>> list = dao.selectPoint(id);
 
 		return list;
 	}
-	
+
 	public HashMap<Object, Object> selectUser(String id) {
 		UserVO Uservo = dao.selectUser(id);
-		
+
 		System.out.println(Uservo);
-		
+
 		String path = "";
 		HashMap<Object, Object> hash = null;
-		
+
 		if(Uservo == null){
 			System.out.println("유저 VO를 가져오지 못했습니다");
 		}else {
-			
+
 			String text = Uservo.getUserAddr();
 			hash = new HashMap<Object, Object>();
-			
+
 	        if(text != null && text.length() != 0) {
 	        	String addr[] = text.split("/");
 	        	hash.put("state", addr[0]);
