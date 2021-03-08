@@ -77,7 +77,10 @@ public class UserService {
 		return path;
 	}
 	
-	  
+	public void logout() {
+		session.removeAttribute("userNm");
+		session.removeAttribute("userId");
+	}
 	
 	public String modifyUser(UserVO vo) {
 		vo.setUserId((String)session.getAttribute("userId"));

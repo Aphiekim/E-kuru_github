@@ -35,6 +35,12 @@ public class UserController {
 		return service.insertUser(vo);
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout() {
+		service.logout();
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
 	public String loginForm() {
 		return "user/loginForm";

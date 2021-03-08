@@ -81,7 +81,7 @@
                 <img class="shopping-minus" src="../resources/img/shopping-minus.png">
                 <img class="shopping-img" src="../resources/img/shopping-food.jpg">
                 <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${list.PRODTITLE }</span>
-                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }</span>
+                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }P</span>
                 <input type="number" style="max-width: 40px; margin-left: 30px;" value="${list.CARTPRODEA }"> 개
                 <input class="shopping-checkbox" type="checkbox">
             </div>
