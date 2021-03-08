@@ -38,30 +38,31 @@
     </script>
 </head>
 <body>
+  <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
+            <a href="/">
                 <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="">Home</a>
+                        <a href="mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli">My Cart</li>
                         </ul>
                     </li>
                     <li class="headli"><a href="">About</a></li>
                     <li class="headli"><a href="">Board</a></li>
                     <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
+                    <li class="headli"><a href="">58600P</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
+    <!-- header -->
     <div>
         <!-- 검색창 -->
         <div class="container">

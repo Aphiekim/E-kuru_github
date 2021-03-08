@@ -6,9 +6,15 @@
 	<typeAliases>
 		<typeAlias type="com.scit.ekuru.vo.UserVO" alias="user" />
 		<typeAlias type="com.scit.ekuru.vo.RequestVO" alias="request" />
+<<<<<<< HEAD
+		<typeAlias type="com.scit.ekuru.vo.RequestCommentVO" alias="comment" />
+		<typeAlias type="com.scit.ekuru.vo.ChargePointVO" alias="chargepoint" />
+		<typeAlias type="com.scit.ekuru.vo.ChannelVO" alias="channel" />
+=======
 		<typeAlias type="com.scit.ekuru.vo.ChargePointVO" alias="chargepoint" />
 		<typeAlias type="com.scit.ekuru.vo.ChannelVO" alias="channel" />
 		<typeAlias type="com.scit.ekuru.vo.ProductVO" alias="product" />
+>>>>>>> origin/master
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />

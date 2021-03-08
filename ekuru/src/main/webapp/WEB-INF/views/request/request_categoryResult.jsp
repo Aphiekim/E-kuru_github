@@ -23,13 +23,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-   
     function openCategory(category){
         var categoryCode = category;
 		location.href="/request/request_categoryResult?categoryCode="+categoryCode;
     }
     function openWriteForm(){
 		location.href="/request/request_writeForm";
+    }
+    function openReadForm(reqNum){
+        var reqNum = reqNum;
+        window.open('/request/request_readForm?reqNum='+reqNum);
     }
   </script>
   <style>
@@ -168,9 +171,7 @@
                 </div>
               </div>
            </div>
-            <!-- ì¸ê¸° ê²ìê¸ ë -->
-            <!-- ì¬ë¼ì´ë ì»¤ì ê¸°ë¥ -->
-            <!-- ì¬ë¼ì´ë ì»¤ì ê¸°ë¥ -->
+            <!-- 슬라이드 좌우 -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
               <span class="sr-only">Previous</span>
@@ -181,25 +182,26 @@
             </a>
           </div>
         </div>
-	<!--카테고리별 결과 출력 -->
-        <c:forEach var="list" items="${reqList }" >
-        	${list.userId }
-        </c:forEach>
-	        <h3 id="fashion">${reqCateList.categoryCode}</h3>
+        
+			<!--카테고리별 결과 출력 -->
 	        <div class="row justify-content-center inner" style="margin-bottom: 5%;">
+		      <c:forEach var="list" items="${reqList }" >
 	          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-	            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-	              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-	                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-	                </div>
-	              </div>
-	              <img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-	            </div>
-	            <div class="card-body">
-	              <h5 class="card-title">${reqCateList.reqTitle }</h5>
-	              <p class="card-text">${reqCateList.reqContent }</p>
-	            </div>
+		            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+		              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+		                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+		                </div>
+		              </div>
+		              	<img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"/>	              
+		            </div>
+		          <div class="card-body">
+	            	<h5 class="card-title">
+	            		<a href="/request/request_readForm?reqNum=${list.reqNum }">${list.reqTitle }</a>
+	            	</h5>
+		           	<p class="card-text">${list.reqContent }</p>
+		          </div>
 	          </div>
+	         </c:forEach>
 	        </div>
         
         

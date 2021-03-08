@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -31,34 +32,39 @@
       box-sizing: border-box;
     }
   </style>
+  <script type="text/javascript">
+	function openRequestMain(){
+		location.href="/request/request_main";
+	}
+  </script>
 </head>
 
 <body>
 <!-- header -->
-<header class="header---">
-  <div class="wrapper">
-      <a href="">
-          <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute; margin-top: 0.3%;">
-      </a>
-      <nav>
-          <ul class="menu">
-              <li class="menu-list headli">
-                  <a href="">Home</a>
-                  <ul class="menu-sub">
-                      <li class="headli">Logout</li>
-                      <li class="headli">Mypage</li>
-                      <li class="headli">info</li>
-                  </ul>
-              </li>
-              <li class="headli"><a href="">About</a></li>
-              <li class="headli"><a href="">Board</a></li>
-              <li class="headli"><a href="">Reference</a></li>
-              <li class="headli"><a href="">Contact</a></li>
-          </ul>
-      </nav>
-  </div>
-</header>
-<!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a href="mypageMain">My Page</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli">My Cart</li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a href="">About</a></li>
+                    <li class="headli"><a href="">Board</a></li>
+                    <li class="headli"><a href="">Reference</a></li>
+                    <li class="headli"><a href="">58600P</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
   <div class="container" style="margin-top: 10%;">
     <hr class="line line-sty" style="margin-top: 5%;">
     <div class="row">
@@ -88,54 +94,45 @@
       <!-- 요청 설명글 -->
       <div class="card" style="width: 40%;">
         <div class="card-body">
-          <h5 class="card-title ">Title</h5>
-          <h6 class="card-subtitle mb-2 text-muted ">ID</h6>
-          <h5 class="card-title con-margin">Information</h5>
-          <p class="card-text">わたしはこれが欲しい</p>
+          <h5 class="card-title ">[ ${vo.reqTitle } ]</h5>
+          <h6 class="card-subtitle mb-2 text-muted ">ID : ${vo.userId }</h6>
+          <h5 class="card-title con-margin" style="margin-top:5%">Information</h5>
+          <p class="card-text">> ${vo.reqContent }</p>
         </div>
       </div>
     </div>
     <hr class="line line-sty">
     <!-- 댓글 입력창 -->
-    <div class="row mb-3">
-      <input type="email" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
-      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
-    </div>
+    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post">
+	    <div class="row mb-3">
+	      <input type="text" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+	      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
+	    </div>
+    </form>
+    <!-- 구분선 -->
     <hr class="line">
     <!-- 댓글창 -->
-    <div class="card comtWrite-sty">
-      <div class="card-body">
-        <div class="row justify-content-between">
-          <h5 class="card-title col-4">ID</h5>
-          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
-        </div>
-        <p>제가 요청 받을게요</p>
-      </div>
-    </div>
-    <div class="card comtWrite-sty">
-      <div class="card-body">
-        <div class="row justify-content-between">
-          <h5 class="card-title col-4">ID</h5>
-          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
-        </div>
-        <p>제가 요청 받을게요</p>
-      </div>
-    </div>
-    <div class="card comtWrite-sty">
-      <div class="card-body">
-        <div class="row justify-content-between">
-          <h5 class="card-title col-4">ID</h5>
-          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
-        </div>
-        <p>제가 요청 받을게요</p>
-      </div>
-    </div>
+    <c:forEach var="comment" items="${comment }">
+	    <div class="card comtWrite-sty">
+	      <div class="card-body">
+	        <div class="row justify-content-between">
+	          <h5 class="card-title col-4">${comment.userId }</h5>
+	          <c:if test="${sessionScope.userId ==vo.userId }">
+	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+	          </c:if>
+	        </div>
+	        <p>${comment.reqComment }</p>
+	      </div>
+	    </div>
+    </c:forEach>
 
   </div>
   <!-- 리스트로 가기 버튼 -->
   <div class="container" style="text-align: center; margin-top: 5%;">
-    <button type="button" class="btn btn-secondary content-center">Go to the List</button>
+    <button type="button" class="btn btn-secondary content-center" onclick="openRequestMain();">Go to the List</button>
   </div>
+  
+  
   <!-- include tag Footer Start -->
   <div class="footer">
     <div class="container">
