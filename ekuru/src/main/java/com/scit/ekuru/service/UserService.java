@@ -96,10 +96,12 @@ public class UserService {
 	        }
 
 		}
-		
-
-		
-		
         return hash;
+	}
+	
+	public ArrayList<HashMap<String, Object>> selectCart(){
+		ArrayList<HashMap<String, Object>> list = dao.selectCart((String)session.getAttribute("userId"));
+		//System.out.println(list);
+		return list;
 	}
 }
