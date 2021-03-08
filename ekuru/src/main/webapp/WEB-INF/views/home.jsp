@@ -37,6 +37,10 @@
             location.href = "user/joinForm";
         }
 
+        function logout() {
+            location.href = "user/logout";
+        }
+        
         function mypageMain() {
             location.href = "user/mypageMain";
         }
@@ -107,6 +111,9 @@
 											<span class="header-menu-text">${sessionScope.userNm } Welcome!</span>
 											<a class="header-menu-list login-main" onclick="mypageMain();">
 		                                        <span class="header-menu-text">My Page</span>
+		                                    </a>
+		                                    <a class="header-menu-list login-main" onclick="logout();">
+		                                        <span class="header-menu-text">Logout</span>
 		                                    </a>
 										</c:otherwise>
 									</c:choose>
