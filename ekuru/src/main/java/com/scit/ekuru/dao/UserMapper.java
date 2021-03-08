@@ -14,6 +14,9 @@ public interface UserMapper {
 	// 로그인
 	public UserVO loginUser(UserVO vo);
 	
+	// 유저 정보
+	public UserVO selectUser(String id);
+	
 	// 정보 수정
 	public int modifyUser(UserVO vo);
 	

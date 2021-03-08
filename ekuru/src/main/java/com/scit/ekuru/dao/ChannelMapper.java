@@ -3,9 +3,16 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.ProductVO;
 
 public interface ChannelMapper {
 
-	ArrayList<ChannelVO> getListAll();
+	public ArrayList<ChannelVO> getListAll();
+
+	public ChannelVO chRead(ChannelVO vo);
+
+	public ArrayList<ProductVO> getProdList(ChannelVO vo);
+
+	public ProductVO getProdEach(ProductVO prodVo);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.ProductVO;
 
 
 @Controller
@@ -40,7 +41,11 @@ public class ChViewContoroller {
 
 //	개인 채널 보기
 	@RequestMapping(value="/ch_personal_main")
-	public String chPersonalMain(){
+	public String chPersonalMain(ChannelVO vo, Model model){
+		ChannelVO channel = service.chRead(vo);
+		ArrayList<ProductVO> prodListResult = service.getProdList(vo);
+		model.addAttribute("prodListResult", prodListResult);
+		model.addAttribute("channel", channel);
 		return "channel/ch_personal_main";
 	}
 
@@ -59,7 +64,11 @@ public class ChViewContoroller {
 
 //	채널 게시글 보기 (구매자)
 	@RequestMapping(value="/ch_content")
-	public String chContent(){
+	public String chContent(ChannelVO vo, ProductVO prodVo, Model model){
+		ChannelVO channel = service.chRead(vo);
+		ProductVO prodEachResult = service.getProdEach(prodVo);
+		model.addAttribute("channel", channel);
+		model.addAttribute("prodEachResult", prodEachResult);
 		return "channel/ch_content";
 	}
 

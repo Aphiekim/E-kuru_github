@@ -7,24 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.scit.ekuru.vo.ChannelVO;
-import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.ProductVO;
 
 @Repository
 public class ChannelDAO {
 
 	@Autowired
 	private SqlSession session;
-
-	public int insertUser(UserVO vo) {
-		int cnt = 0;
-		try {
-			UserMapper mapper = session.getMapper(UserMapper.class);
-			cnt = mapper.insertUser(vo);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return cnt;
-	}
 
 	public ArrayList<ChannelVO> getListAll() {
 		ArrayList<ChannelVO> list = null;
@@ -34,6 +23,46 @@ public class ChannelDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		return list;
+	}
+
+	public ChannelVO chRead(ChannelVO vo) {
+
+		ChannelVO list = null;
+
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			list = mapper.chRead(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	public ArrayList<ProductVO> getProdList(ChannelVO vo) {
+		ArrayList<ProductVO> list = null;
+
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			list = mapper.getProdList(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	public ProductVO getProdEach(ProductVO prodVo) {
+		ProductVO list = null;
+
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			list = mapper.getProdEach(prodVo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return list;
 	}
 }
