@@ -31,9 +31,8 @@
 		location.href="/request/request_writeForm";
     }
     function openReadForm(reqNum){
-        var reqNum = reqNum;
-        window.open('/request/request_readForm?reqNum='+reqNum);
-    }
+		location.href="/request/request_readForm?reqNum="+reqNum;
+	}
   </script>
   <style>
     *{
@@ -188,7 +187,8 @@
 		      <c:forEach var="list" items="${reqList }" >
 	          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
 		            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-		              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+		              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+		              onclick="openReadForm('${list.reqNum}');">>
 		                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
 		                </div>
 		              </div>

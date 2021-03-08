@@ -98,5 +98,14 @@ from
 where
 	reqNum = #{reqNum}
 </select>
+<delete id="deleteComment" parameterType="comment">
+delete
+from
+	e_requestComment_tb
+where
+	reqCommentNum = #{reqCommentNum}
+	and
+	userId = #{userId}
+</delete>
 
 </mapper>

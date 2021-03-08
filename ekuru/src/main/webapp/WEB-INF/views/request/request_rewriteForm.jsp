@@ -11,7 +11,7 @@
     <title>E-kuru</title>
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
-    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/header_Origin.css">
     <link rel="stylesheet" href="../resources/css/main-footer.css">
     <link rel="stylesheet" href="../resources/css/request-writeForm.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -70,8 +70,8 @@
         <h2 class="text-center font-weight-bold text-uppercase" style="margin-bottom: 5%;">Write</h2>
         <div class="row" style="margin-top: 5%;">
             <div class="col-lg-8 mb-5">
-                <!--Form-->
-            <form action="/request/request_write" method="post">
+            <!--Form-->
+            <form action="/request/request_update?reqNum=${vo.reqNum }" method="post">
                     
                 <!--사진 / 화면에 맞춰서 설정clear-->
                     <div class="row form-group">
@@ -99,7 +99,7 @@
                     <div class="row form-group" style="margin-top: 3%;">
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" name="reqTitle">
+                            <input type="text" id="reqTitle" class="form-control" name="reqTitle" value=${vo.reqTitle }>
                         </div>
                     </div>
                 <!-- 카테고리 -->
@@ -119,7 +119,7 @@
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="message">content</label>
                             <textarea name="reqContent" id="reqContent" cols="20" rows="7" class="form-control"
-                                placeholder="Write your notes or request here..."></textarea>
+                                placeholder="Write your notes or request here...">${vo.reqContent }</textarea>
                         </div>
                     </div>
                 <!-- Submit 버튼-->

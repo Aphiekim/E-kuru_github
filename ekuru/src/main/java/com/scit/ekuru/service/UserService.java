@@ -43,9 +43,35 @@ public class UserService {
 		String path = "";
 		if(Uservo == null) {
 			path = "redirect:/user/loginForm";
+<<<<<<< HEAD
+		}else {
+
+			
+//			String text = Uservo.getUserAddr();
+//			String addr[] = text.split("/");
+//			
+//			ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
+//			HashMap<Object, Object> hash = new HashMap<Object, Object>();
+			
+//	        hash.put("state", addr[0]);
+//	        hash.put("address1", addr[1]);
+//	        hash.put("address2", addr[2]);
+//	        list.add(hash);
+			 
+//	        session.setAttribute("state", list.get(0).get("state"));
+//	        session.setAttribute("addr1", list.get(0).get("address1"));
+//	        session.setAttribute("addr2", list.get(0).get("address2"));
+	        session.setAttribute("user", Uservo);
+			session.setAttribute("userId", Uservo.getUserId());
+
+	        session.setAttribute("userNm", Uservo.getUserNm());
+	        session.setAttribute("userId", Uservo.getUserId());
+
+=======
 		}else {;
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
+>>>>>>> origin/master
 			path = "redirect:/";
 		}
 		return path;
