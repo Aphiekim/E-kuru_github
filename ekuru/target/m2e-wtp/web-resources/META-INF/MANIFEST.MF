@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: SCIT
+=======
+Built-By: HJ
+>>>>>>> origin/master
 Build-Jdk: 15
 Created-By: Maven Integration for Eclipse
 

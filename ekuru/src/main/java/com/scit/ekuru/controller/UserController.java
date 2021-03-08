@@ -82,7 +82,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
-	public String mypageShopping() {
+	public String mypageShopping(Model model) {
+		ArrayList<HashMap<String, Object>> list = service.selectCart();
+		model.addAttribute("cart", list);
 		return "user/mypage_shopping";
 	}
 	

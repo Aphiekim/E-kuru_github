@@ -14,7 +14,7 @@ public interface UserMapper {
 	// 로그인
 	public UserVO loginUser(UserVO vo);
 	
-	// 유저 정보
+	// 유저 정보 조회
 	public UserVO selectUser(String id);
 	
 	// 정보 수정
@@ -22,4 +22,7 @@ public interface UserMapper {
 	
 	// 포인트 충전 내역
 	public ArrayList<HashMap<String, Object>> selectPoint(String id);
+	
+	// 장바구니 조회
+	public ArrayList<HashMap<String, Object>> selectCart(String id);
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,32 +70,30 @@
             </div>
         </div>
 
-        <div class=shopping-list>
+		
+		<%-- foreach문 안에 foreach문 예상  --%>
+		<c:forEach items="${cart }" var="list" varStatus="status">
+			<div class=shopping-list>
             <hr class="line">
-            <h3>CHANNEL</h3>
+            <h3>${list.CHNAME }</h3>
             <hr class="line">
             <div style="padding-bottom: 10px;">
                 <img class="shopping-minus" src="../resources/img/shopping-minus.png">
                 <img class="shopping-img" src="../resources/img/shopping-food.jpg">
-                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">TITLE</span>
-                <span style="padding-right: 50px; margin-left: 30px;">23,000P</span>
-                <input type="number" style="max-width: 40px; margin-left: 30px;"> 개
+                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${list.PRODTITLE }</span>
+                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }</span>
+                <input type="number" style="max-width: 40px; margin-left: 30px;" value="${list.CARTPRODEA }"> 개
                 <input class="shopping-checkbox" type="checkbox">
             </div>
         
-            <div style="padding-bottom: 10px;">
-                <img class="shopping-minus" src="../resources/img/shopping-minus.png">
-                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
-                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">TITLE</span>
-                <span style="padding-right: 50px; margin-left: 30px;">23,000P</span>
-                <input type="number" style="max-width: 40px; margin-left: 30px;"> 개
-                <input class="shopping-checkbox" type="checkbox">
-            </div>
-        
+
             <div style="text-align: center; margin-right: 70px;">
                 <button type="button" class="btn btn-info">요청</button>
             </div>
         </div>
+			
+		</c:forEach>
+        
        
 
     </div>

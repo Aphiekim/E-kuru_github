@@ -71,4 +71,15 @@ public class UserDAO {
 		}
 		return vo;
 	}
+	
+	public ArrayList<HashMap<String, Object>> selectCart(String id){
+		ArrayList<HashMap<String, Object>> vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectCart(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

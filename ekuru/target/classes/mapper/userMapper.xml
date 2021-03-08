@@ -43,5 +43,18 @@
 	
 </update>
 
+<select id="selectCart" parameterType="String" resultType="hashmap">
+	select 
+		c.cartprodnum as CARTPRODNUM, 
+		c.prodnum as PRODNUM, 
+		e.userid as USERID, 
+		pd.prodtitle as PRODTITLE, 
+		cc.chname as CHNAME, 
+		pd.prodprice as PRODPRICE, 
+		c.cartprodea as CARTPRODEA
+	from e_user_tb e join e_cart_tb c on e.userid = c.userid, e_channel_tb cc join e_product_tb pd on cc.chnum = pd.chnum
+	where e.userId = #{userId}
+</select>
+
 
 </mapper>
