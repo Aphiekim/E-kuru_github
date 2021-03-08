@@ -44,7 +44,7 @@ public class UserService {
 		if(Uservo == null) {
 			path = "redirect:/user/loginForm";
 		}else {
-<<<<<<< HEAD
+
 			
 //			String text = Uservo.getUserAddr();
 //			String addr[] = text.split("/");
@@ -62,10 +62,10 @@ public class UserService {
 //	        session.setAttribute("addr2", list.get(0).get("address2"));
 	        session.setAttribute("user", Uservo);
 			session.setAttribute("userId", Uservo.getUserId());
-=======
+
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
->>>>>>> origin/master
+
 			path = "redirect:/";
 		}
 		return path;

@@ -7,17 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/header.css">
     <style>
     	body{
     		background-color: #ffdfb9 !important;
     	}
-        @font-face {
+       <%-- @font-face {
             font-family: "CuteCartoonItalic";
             src: url("font/CuteCartoonItalic.ttf");  
-        }
+        }--%>
         *{
             font-family: "CuteCartoonItalic" !important;
         }
@@ -36,7 +35,7 @@
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a class="menu-a" href="mypageMain">My Page</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
                             <li class="headli">My Request</li>

@@ -99,7 +99,7 @@
                     <div class="row form-group" style="margin-top: 3%;">
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" name="reqTitle">
+                            <input type="text" id="subject" class="form-control" name="reqTitle" value=${vo.reqTitle }>
                         </div>
                     </div>
                 <!-- 카테고리 -->
@@ -119,7 +119,7 @@
                         <div class="col-md-12">
                             <label class="font-weight-bold text-uppercase" for="message">content</label>
                             <textarea name="reqContent" id="reqContent" cols="20" rows="7" class="form-control"
-                                placeholder="Write your notes or request here..."></textarea>
+                                placeholder="Write your notes or request here...">${vo.reqContent }</textarea>
                         </div>
                     </div>
                 <!-- Submit 버튼-->

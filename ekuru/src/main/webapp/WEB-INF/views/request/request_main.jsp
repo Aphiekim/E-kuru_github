@@ -10,7 +10,7 @@
     <title>E-kuru</title>
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/request-main.css">
-  	<link rel="stylesheet" href="../resources/css/header.css">
+  	<link rel="stylesheet" href="../resources/css/header_Origin.css">
   	<link rel="stylesheet" href="../resources/css/main-footer.css">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -60,7 +60,7 @@
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="mypageMain">My Page</a>
+                        <a href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
                             <li class="headli">My Request</li>
