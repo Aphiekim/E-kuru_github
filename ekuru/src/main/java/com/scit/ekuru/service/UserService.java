@@ -14,21 +14,21 @@ import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.UserVO;
 
 
-@Service 
+@Service
 public class UserService {
-	
+
 	@Autowired
 	private UserDAO dao;
-	
+
 	Model model;
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
 	public String insertUser(UserVO vo) {
 		int cnt = dao.insertUser(vo);
 		String path = "";
-		
+
 		if(cnt > 0) {
 			path = "redirect:/";
 		}else {
@@ -63,6 +63,7 @@ public class UserService {
 			session.setAttribute("userId", Uservo.getUserId());
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
+
 
 			path = "redirect:/";
 		}
