@@ -64,7 +64,8 @@ public class RequestViewController {
 		return service.insertOne(reqVO);
 	}
 	
-	@RequestMapping(value="/request_rewrite", method=RequestMethod.GET)
+	//rewrite 폼으로 이동
+	@RequestMapping(value="/request_rewriteForm", method=RequestMethod.GET)
 	public String requestRewirteForm(int reqNum, Model model) {
 		//세션에서 로그인한 아이디 읽기
 		String id = (String) session.getAttribute("userId");
@@ -77,12 +78,14 @@ public class RequestViewController {
 		}
 		
 		model.addAttribute("vo", vo);
-		return "request/request_update";
+		return "request/request_rewriteForm";
 	}
-	
+
+	//rewrite 업데이트 실행
 	@RequestMapping(value="/request_update", method=RequestMethod.POST)
 	public String updateRequest(RequestVO reqVO) {
-		return service.updateRequest(reqVO);
+		String path = service.updateRequest(reqVO);
+		return path;
 	}
 	
 	//request 읽기폼으로 이동
@@ -128,4 +131,10 @@ public class RequestViewController {
 		
 		return service.insertComment(comment, reqNum);
 	}
+	
+	//request 댓글 지우기
+//	@RequestMapping(value="/request_deleteComment", method=RequestMethod.GET)
+//	public String deleteComment(int reqCommentNum) {
+//		return service.deleteComment(reqCommentNum);
+//	}
 }

@@ -3,6 +3,7 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -58,12 +59,12 @@ public class RequestDAO {
 	}
 	
 	//내 요청글 수정
-	public int updateRequest(int reqNum) {
+	public int updateRequest(RequestVO reqVO) {
 		int cnt = 0;
 		
 		try {
 			RequestMapper mapper = session.getMapper(RequestMapper.class);
-			cnt = mapper.updateRequest(reqNum);
+			cnt = mapper.updateRequest(reqVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -113,7 +114,18 @@ public class RequestDAO {
 		return commentList;
 	}
 	
-	
+	//코멘트 지우기
+//	public int deleteComment(RequestCommentVO reqCommentVO) {
+//		int cnt = 0;
+//		
+//		try {
+//			RequestMapper mapper = session.getMapper(RequestMapper.class);
+//			cnt = mapper.deleteComment(reqCommentVO);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
 	
 	
 	

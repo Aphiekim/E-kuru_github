@@ -38,6 +38,10 @@
         function openWriteForm(){
 			location.href="/request/request_writeForm";
         }
+		function openReadForm(reqNum){
+			location.href="/request/request_readForm?reqNum="+reqNum;
+		}
+        
     </script>
     <style>
         * {
@@ -330,7 +334,8 @@
 	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
 	                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
 	                            <div
-	                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+	                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+	                                onclick="openReadForm('${requestList.reqNum}');">
 	                                <div class="portfolio-item-caption-content text-center text-white"><i
 	                                        class="fas fa-plus fa-3x"></i></div>
 	                            </div>
@@ -338,9 +343,7 @@
 	                                src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
 	                        </div>
 	                        <div class="card-body">
-	                            <h5 class="card-title">
-	                            	<a href="/request/request_readForm?reqNum=${requestList.reqNum }">${requestList.reqTitle }</a>
-	                            </h5>
+	                            <h5 class="card-title">${requestList.reqTitle }</h5>
 	                            <p class="card-text">${requestList.reqContent }</p>
 	                        </div>
 	                    </div>

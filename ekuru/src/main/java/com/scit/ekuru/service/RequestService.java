@@ -71,18 +71,20 @@ public class RequestService {
 	
 	//내 요청글 수정하기
 	public String updateRequest(RequestVO reqVO) {
-		String userId = (String)session.getAttribute("uesrId");
+		String userId = (String)session.getAttribute("userId");
 		reqVO.setUserId(userId);
+		reqVO.setReqNum(reqVO.getReqNum());
 		
-		int cnt = dao.insertOne(reqVO);
+		int cnt = dao.updateRequest(reqVO);
 		logger.info("확인"+reqVO);
 		String path =" ";
 		
 		if(cnt>0) {
-			logger.info("글쓰기 성공");
-			path ="redirect:/request/request_readForm?reqNum="+reqVO.getReqNum();
+			logger.info("수정 성공");
+			int reqNum = reqVO.getReqNum();
+			path ="redirect:/request/request_readForm?reqNum="+reqNum;
 		}else {
-			logger.info("글쓰기 실패");
+			logger.info("수정 실패");
 			path = "request/request_rewriteForm";
 		}
 		
@@ -122,8 +124,28 @@ public class RequestService {
 		return dao.selectComment(reqNum);
 	}
 	
-	
-	
+	//코멘트 지우기
+//	public String deleteComment(int reqCommentNum) {
+//		String id = (String)session.getAttribute("userId");
+//		
+//		
+//		RequestCommentVO comment = new RequestCommentVO();
+//		comment.setUserId(id);
+//		comment.setReqCommentNum(reqCommentNum);
+//		int cnt = dao.deleteComment(comment);
+//		String path ="";
+//		
+//		if(cnt>0) {
+//			logger.info("코멘트 지우기 성공");
+//			path ="redirect:/request/request_main";
+//		}else {
+//			logger.info("코멘트 지우기 실패");
+//			path ="redirect:/request/request_main";
+//		}
+//		
+//		return path;
+//	}
+//	
 	
 	
 	

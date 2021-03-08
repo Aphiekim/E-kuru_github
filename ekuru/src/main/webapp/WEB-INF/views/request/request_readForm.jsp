@@ -11,7 +11,7 @@
   <title>E-kuru</title>
   <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
   <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
-  <link rel="stylesheet" href="../resources/css/header.css">
+  <link rel="stylesheet" href="../resources/css/header_Origin.css">
   <link rel="stylesheet" href="../resources/css/main-footer.css">
   <link rel="stylesheet" href="../resources/css/request-readForm.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -35,6 +35,12 @@
   <script type="text/javascript">
 	function openRequestMain(){
 		location.href="/request/request_main";
+	}
+	function openRewriteForm(reqNum){
+		location.href="/request/request_rewriteForm?reqNum="+reqNum;
+	}
+	function deleteComment(reqCommentNum){
+		location.href="/request/request_deleteComment?reqCommentNum="+reqCommentNum;
 	}
   </script>
 </head>
@@ -117,6 +123,9 @@
 	      <div class="card-body">
 	        <div class="row justify-content-between">
 	          <h5 class="card-title col-4">${comment.userId }</h5>
+	          <c:if test="${sessionScope.userId ==comment.userId }">
+	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%; margin-left: -3%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
+	          </c:if>
 	          <c:if test="${sessionScope.userId ==vo.userId }">
 	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
 	          </c:if>
@@ -130,6 +139,9 @@
   <!-- 리스트로 가기 버튼 -->
   <div class="container" style="text-align: center; margin-top: 5%;">
     <button type="button" class="btn btn-secondary content-center" onclick="openRequestMain();">Go to the List</button>
+    <c:if test="${sessionScope.userId==vo.userId }">
+      <button type="button" class="btn btn-danger btn-sty" onclick="openRewriteForm('${vo.reqNum}');">rewrite</button>
+    </c:if>
   </div>
   
   
