@@ -23,6 +23,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+		function openSPlanContract(){
+			var adTotal = document.getElementById('adTotal').value;
+
+			location.href="/ad/superplan_contract?adTotal="+adTotal;
+		}
+    </script>
     <style>
         * {
             font-family: 'NotSansCJKjp-Black', sans-serif !important;
@@ -86,8 +93,8 @@
             <div class="card-body">
                 <h5 class="card-title">Buy your pass!</h5>
                 <p class="card-text">If you buy your super pass, then you can advertise your post </p>
-                <input type="text"><span style="margin-left: 2%;">P</span><br>
-                <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;">Buy Pass</a>
+                <input type="text" id="adTotal" name="adTotal"><span style="margin-left: 2%;">P</span><br>
+                <button  class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;" onclick="openSPlanContract();">Buy Pass</button>
                 <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;">Charge</a>
             </div>
         </div>

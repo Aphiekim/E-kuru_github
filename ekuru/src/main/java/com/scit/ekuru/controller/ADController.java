@@ -12,12 +12,20 @@ public class ADController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ADController.class);
 	
-	//AD Splan 연결
+	//AD Splan 연결하기
 	@RequestMapping(value="/superplan", method=RequestMethod.GET)
 	public String adSuperPlan() {
 		logger.info("수퍼플랜으로 이동하기");
 		
 		return "ad/superplan";
+	}
+	
+	//AD 계약서로 연결하기
+	@RequestMapping(value="/superplan_contract", method=RequestMethod.GET)
+	public String adSuperPlanContract(int adTotal) {
+		logger.info(adTotal + "수퍼플랜 계약서로 이동하기");
+		
+		return "ad/superplan_contract";
 	}
 	
 }
