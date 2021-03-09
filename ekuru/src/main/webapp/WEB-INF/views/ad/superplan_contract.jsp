@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/superplan.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="font/NotoSansCJKjp-Black.otf">
-    <link rel="stylesheet" href="css/superplan-contract.css">
-    <link rel="stylesheet" href="css/mypage-pointpricing.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="../resources/css/superplan.css">
+    <link rel="stylesheet" href="../resources/css/header_Origin.css">
+    <link rel="stylesheet" href="../resources/css/main-footer.css">
+    <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
+    <link rel="stylesheet" href="../resources/css/superplan-contract.css">
+    <link rel="stylesheet" href="../resources/css/mypage-pointpricing.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,7 +31,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
+    <%--function applyRecipe(){
+			var adChCharge = document.getElementById('adChCharge').value;
+			var adProdCharge = document.getElementById('adProdCharge').value;
+			var adReqCharge = document.getElementById('adReqCharge').value;
 
+			document.getElementById('adChApply').value = adChCharge;
+			document.getElementById('adProdApply').value = adChCharge;
+			document.getElementById('adReqApply').value = adChCharge; 
+
+			document.getElementById('adChApply').value = document.getElementById('adChCharge').value;
+			document.getElementById('adProdApply').value = document.getElementById('adProdCharge').value;
+			document.getElementById('adReqApply').value = document.getElementById('adReqCharge').value;
+		}--%>
     </script>
     <style>
         .border-st {
@@ -42,7 +54,13 @@
             margin-left: 10%;
             margin-top: 2.5%;
             margin-bottom: 3%;
-            width: 80%;
+      		width: 80%
+        }
+        
+        .td-btn{
+        	margin-top: 0% !important;
+            margin-bottom: 0% !important;
+            
         }
         * {
             font-family: 'NotSansCJKjp-Black', sans-serif !important;
@@ -56,88 +74,104 @@
 </head>
 
 <body>
-     <!-- header -->
+    <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="">Home</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-<!-- header -->
-    <div class="container" style="margin-top: 10%;">
-        <div class="row text-center">
-            <div class="card  border-st" style="width: 70%; margin-right: 3%;">
-                <div class="card-header text-uppercase">
-                    Super Pass
-                </div>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th class="table-st  text-center" scope="col">type</th>
-                        <th class="table-st  text-center" scope="col">point</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th class="table-st" scope="row">
-                            <h3 class="text-center">Channel</h3 class="text-center">
-                        </th>
-                        <td>
-                            <input type="text" class="form-control td-st" placeholder="point value">
-                        </td>
-                      </tr>
-                      <tr>
-                        <th class="table-st" scope="row">
-                            <h3 class="text-center">Shop Posting</h3 class="text-center">
-                        </th>
-                        <td>
-                            <select name="" id="" class="form-control td-st">
-                                <option value="">select your Post</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
-                            <input type="text" class="form-control td-st" placeholder="point value">
-                        </td>
-                      </tr>
-                      <tr>
-                        <th class="table-st" scope="row">
-                            <h3 class="text-center">Request Posting</h3 class="text-center">
-                        </th>
-                        <td>
-                            <select name="" id="" class="form-control td-st">
-                                <option value="">select your Post</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
-                            <input type="text" class="form-control td-st" placeholder="point value">
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
+    <!-- header -->
+   
+	    <div class="container" style="margin-top: 10%;">
+	        <div class="row text-center">
+	            <div class="card  border-st" style="width: 70%; margin-right: 3%;">
+	                <div class="card-header text-uppercase">
+	                    Super Pass
+	                </div>
+	                
+	                <table class="table">
+	                    <thead>
+	                      <tr>
+	                        <th class="table-st  text-center" scope="col">type</th>
+	                        <th class="table-st  text-center" scope="col">point</th>
+	                      </tr>
+	                    </thead>
+	                    <tbody>
+	                      <tr>
+	                        <th class="table-st" scope="row">
+	                           <h3 class="text-center">Channel</h3 class="text-center">
+	                        </th>
+	                        <td >
+	        	               <input type="text" class="form-control td-st" id="adChCharge" placeholder="point value">
+	                        </td>
+	                      </tr>
+	                      <tr>
+	                        <th class="table-st" scope="row">
+	                            <h3 class="text-center">Shop Posting</h3 class="text-center">
+	                        </th>
+	                        <td>
+	                            <select name=""  class="form-control td-st">
+	                                <option value="">select your Post</option>
+	                                <option value="">1</option>
+	                                <option value="">2</option>
+	                                <option value="">3</option>
+	                            </select>
+	                            <input type="text" class="form-control td-st" id="adProdCharge" placeholder="point value">
+	                        </td>
+	                      </tr>
+	                      <tr>
+	                        <th class="table-st" scope="row">
+	                            <h3 class="text-center">Request Posting</h3 class="text-center">
+	                        </th>
+	                        <td>
+	                            <select name="" id="" class="form-control td-st">
+	                                <option value="">select your Post</option>
+	                                <option value="">1</option>
+	                                <option value="">2</option>
+	                                <option value="">3</option>
+	                            </select>
+	                            <input type="text" class="form-control td-st" id="adReqCharge" placeholder="point value">
+	                        </td>
+	                      </tr>
+	                      <tr>
+	                      	<th class="table-st" scope="row">
+	                      	
+	                      	</th>
+		                    <td>
+                    			<button class="btn btn-danger" type="submit" style="margin-left:0%">Apply</button>
+					        </td>
+				          </tr>
+	                    </tbody>
+	                  </table>
+	                
+	              </div>
+
+   	        <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
                 <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
                 <div class="card-body text-secondary">
                     <h5 class="card-title">Please check your items</h5>
+                    <li>
+                        Total ${adTotal }$
+                    </li>
+                    <hr class="line">
                     <li>
                         Channel $
                     </li>
@@ -156,6 +190,7 @@
             </div>
         </div>
     </div>
+
 
      <!-- include tag Footer Start -->
      <div class="footer">
