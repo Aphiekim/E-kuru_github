@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.SessionScope;
 
 import com.scit.ekuru.service.RequestService;
@@ -31,7 +32,7 @@ public class RequestViewController {
 	
 	//request 메인화면으로 가기
 	@RequestMapping(value="/request_main", method=RequestMethod.GET)
-	public String requestMain(Model model) {
+	public String requestMain(Model model, @RequestParam(defaultValue="")String search) {
 		logger.info("Move to request main");
 //		ArrayList<RequestVO> fashionList = service.requestCategoryResult(1);
 //		ArrayList<RequestVO> beautyList = service.requestCategoryResult(2);
@@ -45,7 +46,7 @@ public class RequestViewController {
 //		model.addAttribute("bookList", bookList);
 //		model.addAttribute("ectList", ectList);
 		
-		ArrayList<RequestVO> requestList = service.selectRequestAll();
+		ArrayList<RequestVO> requestList = service.selectRequestAll(search);
 		model.addAttribute("requestList", requestList);
 		return "request/request_main";
 	}
@@ -137,6 +138,17 @@ public class RequestViewController {
 //	public String deleteComment(int reqCommentNum) {
 //		return service.deleteComment(reqCommentNum);
 //	}
+	
+	@RequestMapping(value="/request_search", method = RequestMethod.POST)
+	public String search(@RequestParam(defaultValue="")String search, Model model) {
+		logger.info("검색어 : {}", search);
+		logger.info("내용 검색 후, 목록 출력");
+		
+		ArrayList<RequestVO> searchList = service.selectRequestAll(search);
+		model.addAttribute("searchList", searchList);
+			
+		return "request/request_search";
+	}
 	
 	
 }
