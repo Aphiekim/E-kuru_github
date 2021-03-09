@@ -42,7 +42,7 @@
                             <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a class="menu-a" href="">SPlan?</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="">58600P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
