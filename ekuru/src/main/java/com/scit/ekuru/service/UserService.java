@@ -6,10 +6,14 @@ import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import com.scit.ekuru.dao.UserDAO;
+import com.scit.ekuru.util.MailUtils;
+import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -20,8 +24,9 @@ public class UserService {
 	@Autowired
 	private UserDAO dao;
 
-	Model model;
-
+	@Autowired
+	private JavaMailSender mailSender;	
+	
 	@Autowired
 	private HttpSession session;
 
@@ -50,6 +55,11 @@ public class UserService {
 			path = "redirect:/";
 		}
 		return path;
+	}
+	
+	public UserVO selectUserTest(String id) {
+		UserVO Uservo = dao.selectUser(id);
+		return Uservo;
 	}
 	
 	public void logout() {
@@ -97,6 +107,7 @@ public class UserService {
 		        hash.put("address1", addr[1]);
 		        hash.put("address2", addr[2]);
 		        hash.put("user", Uservo);
+		        hash.put("confirm", Uservo.getUserConfirm());
 	        }
 
 		}
@@ -107,5 +118,48 @@ public class UserService {
 		ArrayList<HashMap<String, Object>> list = dao.selectCart((String)session.getAttribute("userId"));
 		//System.out.println(list);
 		return list;
+	}
+	
+	
+	
+	
+	@Transactional
+	public void Mailcreate() throws Exception {
+		String id = (String) session.getAttribute("userId");
+		UserVO vo = dao.selectUser(id);
+		System.out.println(vo);
+		// 임의의 authkey 생성
+		String authkey = new Tempkey().getKey(50, false);
+//		
+		System.out.println(authkey);
+		vo.setAuthkey(authkey);
+		dao.modifyAuthkey(vo);
+
+		// mail 작성 관련 
+		MailUtils sendMail = new MailUtils(mailSender);
+
+		sendMail.setSubject("회원가입 이메일 인증");
+		sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
+				.append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>")
+				.append("<a href='http://localhost:8888/user/mailConfirm?"
+						+ "userId="+ vo.getUserId() 
+						+ "&authkey=" + authkey 
+						+ "' target='_blenk'>이메일 인증 확인</a>")
+				.toString());
+		sendMail.setFrom("meojong@gmail.com", "머종");
+		sendMail.setTo("인증메일 보낼 이메일 입력 == 인증하기 버튼 누른사용자");
+		sendMail.send();
+	}
+	
+	
+	public String updateConfirm(UserVO vo) {
+		int count = dao.updateConfirm(vo);
+		String path = "";
+		if(count == 0) {
+			path = "redirect:/user/mypage_InfoForm";
+		}else {
+			path = "redirect:/user/mypage_Info";
+		}
+		return path;
 	}
 }

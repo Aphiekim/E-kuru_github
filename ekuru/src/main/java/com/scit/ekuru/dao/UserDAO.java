@@ -82,4 +82,26 @@ public class UserDAO {
 		}
 		return vo;
 	}
+	
+	public int modifyAuthkey(UserVO vo) {
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.modifyAuthkey(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int updateConfirm(UserVO vo) {
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.updateConfirm(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 }

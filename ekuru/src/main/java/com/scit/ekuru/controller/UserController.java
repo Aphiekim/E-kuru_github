@@ -3,13 +3,16 @@ package com.scit.ekuru.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.UserVO;
@@ -20,6 +23,7 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+	
 	
 	@Autowired
 	private HttpSession session;
@@ -68,6 +72,7 @@ public class UserController {
         model.addAttribute("addr1", hash.get("address1"));
         model.addAttribute("addr2", hash.get("address2"));
         model.addAttribute("user", hash.get("user"));
+        model.addAttribute("confirm", hash.get("confirm"));
 		return "user/mypage_info";
 	}
 	
@@ -78,6 +83,7 @@ public class UserController {
         model.addAttribute("addr1", hash.get("address1"));
         model.addAttribute("addr2", hash.get("address2"));
         model.addAttribute("user", hash.get("user"));
+        model.addAttribute("confirm", hash.get("confirm"));
 		return "user/mypage_infoForm";
 	}
 	
@@ -99,5 +105,33 @@ public class UserController {
 		ArrayList<HashMap<String, Object>> list = service.selectPoint();
 		model.addAttribute("pointlist", list);
 		return "user/mypage_point";
+	}
+	
+	@RequestMapping(value = "/email", method = RequestMethod.GET)
+	public String email() throws Exception {
+		
+		// 메일 전송
+		service.Mailcreate();
+		return "user/mypage_info";
+	}
+	
+	@RequestMapping(value="/mailConfirm", method=RequestMethod.GET)
+	public String emailConfirm(@ModelAttribute("vo") UserVO vo, Model model) throws Exception {
+		
+		System.out.println(vo);
+		UserVO user = service.selectUserTest(vo.getUserId());
+		
+		if(user.getAuthkey().equals(vo.getAuthkey())) {
+			vo.setUserConfirm('1');
+			//UserConfirm을 1로,, 권한 업데이트
+			service.updateConfirm(vo);
+		}
+		
+		System.out.println(vo);
+
+		
+		model.addAttribute("auth_check", 1);
+		
+		return "/user/mypage_info";
 	}
 }
