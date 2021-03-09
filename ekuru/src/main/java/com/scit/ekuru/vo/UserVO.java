@@ -13,4 +13,5 @@ public class UserVO {
 	private char userConfirm;
 	private char userType;
 	private int userPoint;
+	private String authkey;
 }
