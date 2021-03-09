@@ -104,11 +104,11 @@
                        	</c:if>
                     </c:forEach>
                 </div>
-
-                <div class="button-list">
-                    <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters'">
-                    <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management'">
-                </div>
+                    
+                    <div class="button-list">
+                        <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chNum=${channel.chNum}'">
+                        <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management'">
+                    </div>
 
 
             </div>

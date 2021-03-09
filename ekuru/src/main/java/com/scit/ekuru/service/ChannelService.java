@@ -32,4 +32,9 @@ public class ChannelService {
 		return dao.getProdEach(prodVo);
 	}
 
+	public void ch_posters_Write(ProductVO vo) {
+		dao.ch_posters_Write(vo);
+
+	}
+
 }

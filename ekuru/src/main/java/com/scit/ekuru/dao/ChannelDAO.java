@@ -65,4 +65,15 @@ public class ChannelDAO {
 
 		return list;
 	}
+
+	public void ch_posters_Write(ProductVO vo) {
+
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			mapper.ch_posters_Write(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }
