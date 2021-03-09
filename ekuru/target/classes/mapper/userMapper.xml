@@ -16,7 +16,7 @@
 </select>
 
 <select id="selectUser" parameterType="String" resultType="user">
-	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint
+	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint, authkey
 	from e_user_tb
 	where userId = #{userId}
 </select>
@@ -39,6 +39,20 @@
 	 userAddr = #{userAddr},
 	 userZip = #{userZip},
 	 userPhone = #{userPhone}
+	where userId = #{userId}
+	
+</update>
+
+<update id="modifyAuthkey" parameterType="user">
+	update e_user_tb
+	set authkey = #{authkey}
+	where userId = #{userId}
+	
+</update>
+
+<update id="updateConfirm" parameterType="user">
+	update e_user_tb
+	set userConfirm = #{userConfirm}
 	where userId = #{userId}
 	
 </update>

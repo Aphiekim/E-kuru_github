@@ -19,6 +19,12 @@ public interface UserMapper {
 	
 	// 정보 수정
 	public int modifyUser(UserVO vo);
+
+	// 권환키 설정
+	public int modifyAuthkey(UserVO vo);
+
+	// 유저 인증 정보 수정
+	public int updateConfirm(UserVO vo);
 	
 	// 포인트 충전 내역
 	public ArrayList<HashMap<String, Object>> selectPoint(String id);

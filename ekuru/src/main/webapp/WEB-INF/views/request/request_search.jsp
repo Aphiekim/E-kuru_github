@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
     </script>
 </head>
 <body>
-  <!-- header -->
+   <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -47,17 +48,17 @@
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="mypageMain">My Page</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
                             <li class="headli">My Request</li>
-                            <li class="headli">My Cart</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -334,45 +335,26 @@
                     </div>
                 </div>
                 <!-- 이미지, 제목, 상세설명-->
-                <div class="search-list">
-                    <div class="search-result">
-                        <div class="search-form">
-                            <div class="col-md-3 search-card">
-                                <img class="search-img" src="../resources/img/shopping-food.jpg" alt="">
-                            </div>
-                            <div class="col-md-9 search-card">
-                                <div class="card-body cdby">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.
-                                    </p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <div class="search-form">
-                            <div class="col-md-3 search-card">
-                                <img class="search-img" src="../resources/img/shopping-food.jpg" alt="">
-                            </div>
-                            <div class="col-md-9 search-card">
-                                <div class="card-body cdby">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.
-                                        This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.
-                                    </p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-            
-                    </div>
+                <h3>Search Result</h3>
+                <div class="row justify-content-center inner" style="margin-bottom: 5%;">
+	                <c:forEach var="searchList" items="${searchList }">
+	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+	                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+	                            <div
+	                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+	                                onclick="openReadForm('${searchList.reqNum}');">
+	                                <div class="portfolio-item-caption-content text-center text-white"><i
+	                                        class="fas fa-plus fa-3x"></i></div>
+	                            </div>
+	                            <img class="img-fluid"
+	                                src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
+	                        </div>
+	                        <div class="card-body">
+	                            <h5 class="card-title">${searchList.reqTitle }</h5>
+	                            <p class="card-text">${searchList.reqContent }</p>
+	                        </div>
+	                    </div>
+	                </c:forEach>
                 </div>
         </section>
 

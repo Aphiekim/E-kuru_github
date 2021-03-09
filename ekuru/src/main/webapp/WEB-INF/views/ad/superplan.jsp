@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -6,21 +8,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/superplan.css">
-    <link rel="stylesheet" href="css/mypage-pointpricing.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="../resources/css/superplan.css">
+    <link rel="stylesheet" href="../resources/css/mypage-pointpricing.css">
+    <link rel="stylesheet" href="../resources/css/header_Origin.css">
+    <link rel="stylesheet" href="../resources/css/main-footer.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+		function openSPlanContract(){
+			var adTotal = document.getElementById('adTotal').value;
+
+			location.href="/ad/superplan_contract?adTotal="+adTotal;
+		}
+    </script>
     <style>
         * {
             font-family: 'NotSansCJKjp-Black', sans-serif !important;
@@ -37,28 +46,28 @@
     <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
-                <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="">Home</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-<!-- header -->
+    <!-- header -->
     <div class="container text-center">
         <!-- 수퍼패스 글자 애니메이션 -->
         <div class="row">
@@ -70,7 +79,7 @@
                 <a href="https://dribbble.com/devloop01" target="_blank"><i class="fab fa-dribbble"></i></a>
             </div>
             <!-- partial -->
-            <script src="JS/superplan.js"></script><br>
+            <script src="../resources/js/superplan.js"></script><br>
         </div>
         <!-- 수퍼패스 설명 -->
         <div class="text-center div-margin">
@@ -84,8 +93,8 @@
             <div class="card-body">
                 <h5 class="card-title">Buy your pass!</h5>
                 <p class="card-text">If you buy your super pass, then you can advertise your post </p>
-                <input type="text"><span style="margin-left: 2%;">P</span><br>
-                <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;">Buy Pass</a>
+                <input type="text" id="adTotal" name="adTotal"><span style="margin-left: 2%;">P</span><br>
+                <button  class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;" onclick="openSPlanContract();">Buy Pass</button>
                 <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;">Charge</a>
             </div>
         </div>
@@ -159,6 +168,4 @@
     <!-- Footer End -->
 
 </body>
-<body>
-    
-</body>
+</html>
