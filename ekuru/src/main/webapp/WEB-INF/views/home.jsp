@@ -40,7 +40,7 @@
         function logout() {
             location.href = "user/logout";
         }
-        
+
         function mypageMain() {
             location.href = "user/mypageMain";
         }
@@ -64,15 +64,15 @@
             height: 300%;
         }
         .section3-text{
-            margin-top: 5%; 
-            margin-bottom: 5%; 
+            margin-top: 5%;
+            margin-bottom: 5%;
             color: #A4193D;
         }
         .context-korean{
             margin-top: 5%;
         }
         .context-japan{
-            
+
         }
 
     </style>
@@ -96,8 +96,8 @@
                         <div class="header-menu">
                             <ul>
                                 <li class="menu-list">
-                                    
-                                    
+
+
                                     <c:choose>
 										<c:when test="${empty sessionScope.userId }">
 											<a class="header-menu-list login-main" onclick="loginForm();">
@@ -128,7 +128,7 @@
                                 </li>
                                 <li></li>
                             </ul>
-                            <%-- 
+                            <%--
                             <a class="header-menu-list" href="">
                                 <span class="header-menu-text">Point : 85600</span>
                             </a>
@@ -160,7 +160,7 @@
                     </div>
                     <!-- ê²ì íë¨ ë²í¼ -->
                     <div class="select-page">
-                        <input class="" type="button" value="Look around" onclick="openChannelMain():">
+                        <input class="" type="button" value="Look around" onclick="openChannelMain();">
                         <input class="" type="button" value="Request" onclick="openRequestMain();">
                     </div>
                 </div>
@@ -280,7 +280,7 @@
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
                                 <p class="text-muted">Lead Marketer</p>
-                                <p class="text-muted">Lead Marketer</p> 
+                                <p class="text-muted">Lead Marketer</p>
                             </div>
                         </div>
                         <div class="col-lg-4">

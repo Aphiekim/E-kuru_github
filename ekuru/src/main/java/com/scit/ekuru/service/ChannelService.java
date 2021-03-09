@@ -37,4 +37,8 @@ public class ChannelService {
 
 	}
 
+	public void prodDelete(ProductVO vo) {
+		dao.prodDelete(vo);
+	}
+
 }

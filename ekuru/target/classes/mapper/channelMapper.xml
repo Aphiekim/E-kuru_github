@@ -124,4 +124,13 @@ INSERT INTO
 		SYSDATE)
 </insert>
 
+<!-- 상품 삭제 -->
+<delete id="prodDelete" parameterType="product">
+	DELETE
+		FROM
+			E_PRODUCT_TB
+		WHERE
+			PRODNUM = #{prodNum}
+</delete>
+
 </mapper>

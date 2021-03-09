@@ -37,31 +37,7 @@
     </script>
 </head>
 <body>
-    <!-- header -->
-    <header class="header---">
-        <div class="wrapper">
-            <a href="/">
-                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-            </a>
-            <nav>
-                <ul class="menu">
-                    <li class="menu-list headli">
-                        <a class="menu-a" href="/user/mypageMain">My Page</a>
-                        <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
-                        </ul>
-                    </li>
-                    <li class="headli"><a class="menu-a" href="">SPlan?</a></li>
-                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
-                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- header -->
+    
     <div class="container" style="margin-top: 5%;">
         <div class="base">
             <form name="prodWriteForm" id="prodWriteForm">

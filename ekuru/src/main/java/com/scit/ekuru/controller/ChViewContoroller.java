@@ -55,9 +55,23 @@ public class ChViewContoroller {
 		return "channel/ch_personal_main";
 	}
 
-//	개인 채널 수정
+//	개인 채널 수정 폼
 	@RequestMapping(value="/ch_management")
-	public String chManagement(){
+	public String chManagement(ChannelVO vo, Model model, HttpSession session){
+		String userId = (String) session.getAttribute("userId");
+		vo.setChId(userId);
+		ChannelVO channel = service.chRead(vo);
+		ArrayList<ProductVO> prodListResult = service.getProdList(vo);
+		model.addAttribute("prodListResult", prodListResult);
+		model.addAttribute("channel", channel);
+		return "channel/ch_management";
+	}
+
+//	상품 삭제
+	@RequestMapping(value = "/prodDelete")
+	public String prodDelete(ProductVO vo) {
+		service.prodDelete(vo);
+		logger.info("삭제 성공");
 		return "channel/ch_management";
 	}
 
@@ -73,8 +87,8 @@ public class ChViewContoroller {
 	@RequestMapping(value="/ch_posters_Write")
 	public String ch_posters_Write(ProductVO vo, HttpSession session){
 		logger.info("물품 등록");
-//		String userId = (String) session.getAttribute("userId");
-//		vo.setUserId(userId);
+		String userId = (String) session.getAttribute("userId");
+		vo.setUserId(userId);
 		service.ch_posters_Write(vo);
 		return "redirect:/channel/ch_personal_main?chId="+vo.getUserId();
 	}
