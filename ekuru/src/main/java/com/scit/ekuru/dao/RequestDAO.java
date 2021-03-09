@@ -17,12 +17,12 @@ public class RequestDAO {
 	private SqlSession session;
 	
 	//메인 요청글 전체 불러오기
-	public ArrayList<RequestVO> selectRequestAll(){
+	public ArrayList<RequestVO> selectRequestAll(String search){
 		ArrayList<RequestVO> requestList = null;
 		
 		try {
 			RequestMapper mapper = session.getMapper(RequestMapper.class);
-			requestList = mapper.selectRequestAll();
+			requestList = mapper.selectRequestAll(search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

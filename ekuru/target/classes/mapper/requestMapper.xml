@@ -5,7 +5,7 @@
 
 <mapper namespace="com.scit.ekuru.dao.RequestMapper">
 <!-- 메인에 전체 게시글 불러오기 -->
-<select id="selectRequestAll" resultType="request">
+<select id="selectRequestAll" parameterType="string" resultType="request">
 select
 	reqNum
 	,userId
@@ -14,6 +14,10 @@ select
 	,reqContent
 from
 	e_request_tb
+<if test="_parameter != null">
+where
+	reqContent like '%'|| #{search} || '%'
+</if>
 </select>
 <!-- 요청글 쓰기 insert -->
 <insert id="insertOne" parameterType="request">
