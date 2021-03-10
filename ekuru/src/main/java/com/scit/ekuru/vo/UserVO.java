@@ -10,8 +10,8 @@ public class UserVO {
 	private String userAddr;
 	private String userZip;
 	private String userPhone;
-	private char userConfirm;
-	private char userType;
+	private String userConfirm;
+	private String userType;
 	private int userPoint;
 	private String authkey;
 }

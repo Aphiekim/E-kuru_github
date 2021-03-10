@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,18 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+		function openPayment1(pointProdNum){
+			
+			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+		}
+		function openPayment2(pointProdNum){
+			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+		}
+		function openPayment3(pointProdNum){
+			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+		}
+    </script>
     <style>
         .coin{
             margin-top: 10%;
@@ -107,29 +120,50 @@
                 <ul class="price">
                   <li class="text-uppercase li-sty"style="background-color: #A4193D; font-size:150%">Basic</li>
                   <li class="grey">5,000P</li>                  
-                  <li class="li-sty2">Korea 5,000won</li>
-                  <li class="li-sty2">Japan 500yen</li>
-                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                  <li class="li-sty2">Korea <p id="priceWon">5,000</p>won</li>
+                  <li class="li-sty2">Japan <p id="priceYen">500</p>yen</li>
+                  <li class="grey">
+                    <c:if test="${user.getUserType() ne '1' }">	
+                  		<button class="btn btn-outline-danger" onclick="openPayment1('1');">Charge</button>
+                  	</c:if>
+                  	<c:if test="${user.getUserType() eq '1' }">
+                  		<button class="btn btn-outline-danger" onclick="openPayment1('1');">Charge</button>
+                  	</c:if> 
+                  </li>
                 </ul>
             </div>
             <div class="columns">
                 <ul class="price">
                   <li class="text-uppercase li-sty">Standard</li>
                   <li class="grey">10,000P</li>
-                  <li class="li-sty2">Korea 10,000won</li>
-                  <li class="li-sty2">Japan 1,000yen</li>
+                  <li class="li-sty2">Korea <p id="priceWon">10,000</p>won</li>
+                  <li class="li-sty2">Japan <p id="priceYen">1,000</p>yen</li>
                   <li class="li-sty2">Super pass X 1</li>
-                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                  <li class="grey">
+                  	<c:if test="${user.getUserType() ne '1' }">	
+                  		<button class="btn btn-outline-danger" onclick="openPayment2('2');">Charge</button>
+                  	</c:if>
+                  	<c:if test="${user.getUserType() eq '1' }">
+                  		<button class="btn btn-outline-danger" onclick="openPayment2('2');">Charge</button>
+                  	</c:if> 
+                  </li>
                 </ul>
             </div>
             <div class="columns">
                 <ul class="price">
                   <li class="text-uppercase li-sty">Special</li>
                   <li class="grey">50,000P</li>
-                  <li class="li-sty2">Korea 50,000won</li>
-                  <li class="li-sty2">Japan 10,000yen</li>
+                  <li class="li-sty2">Korea <p id="priceWon">50,000</p>won</li>
+                  <li class="li-sty2">Japan <p id="priceYen">5,000</p>yen</li>
                   <li class="li-sty2">Super pass X 3</li>
-                  <li class="grey"><button class="btn btn-outline-danger">Charge</button></li>
+                  <li class="grey">
+                  	<c:if test="${user.getUserType() ne '1' }">	
+                  		<button class="btn btn-outline-danger" onclick="openPayment3('3');">Charge</button>
+                  	</c:if>
+                  	<c:if test="${user.getUserType() eq '1' }">
+                  		<button class="btn btn-outline-danger" onclick="openPayment3('3');">Charge</button>
+                  	</c:if> 
+                  </li>
                 </ul>
             </div>
         </div>

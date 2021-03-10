@@ -122,7 +122,7 @@ public class UserController {
 		UserVO user = service.selectUserTest(vo.getUserId());
 		
 		if(user.getAuthkey().equals(vo.getAuthkey())) {
-			vo.setUserConfirm('1');
+			vo.setUserConfirm("1");
 			//UserConfirm을 1로,, 권한 업데이트
 			service.updateConfirm(vo);
 		}
@@ -135,8 +135,15 @@ public class UserController {
 		return "/user/mypage_info";
 	}
 	
+	//포인트 화면으로 이동
 	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
-	public String pointPricing() {
+	public String pointPricing(Model model) {
+		String id = (String)session.getAttribute("userId");
+		
+		UserVO user = service.selectUserTest(id);
+		
+		model.addAttribute("user", user);
+		
 		return "/user/mypage_pointPricing";
 	}
 }

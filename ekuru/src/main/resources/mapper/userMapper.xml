@@ -69,6 +69,17 @@
 	from e_user_tb e join e_cart_tb c on e.userid = c.userid, e_channel_tb cc join e_product_tb pd on cc.chnum = pd.chnum
 	where e.userId = #{userId}
 </select>
+<select id="selectPointPricing" parameterType="int" resultType="pointprod">
+select
+	pointProdNum
+	,pointProdName
+	,priceWon
+	,priceYen
+from
+	e_pointProduct_tb
+where
+	pointProdNum = #{pointProdNum}
+</select>
 
 
 </mapper>
