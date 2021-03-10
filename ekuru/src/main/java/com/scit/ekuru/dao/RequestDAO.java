@@ -3,7 +3,6 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
