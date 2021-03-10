@@ -93,14 +93,12 @@
                                                 <tr>
                                                   <th scope="col">Certified</th>
                                                   <td>
-                                                     <c:choose>
-	                                                  	<c:when test="${confirm > 0 }">
-	                                                  		<img src="../resources/img/channel-tick.png" style="width: 5%; height: auto; margin-bottom: 0px;">
-	                                                  	</c:when>
-	                                                  	<c:otherwise>
-	                                                  		<a href="/user/email"><img src="../resources/img/shopping-minus.png" style="width: 5%; height: auto; margin-bottom: 0px;"></a>
-	                                                	</c:otherwise>
-                                                  	</c:choose>
+                                                      <c:if test="${user.getUserConfirm() eq '1'}">
+													<img src="../resources/img/channel-tick.png" style="width: 5%; height: auto; margin-bottom: 0px;">
+												</c:if>
+                                               <c:if test="${user.getUserConfirm() eq '0'}">
+													<a href="/user/email"><img src="../resources/img/shopping-minus.png" style="width: 5%; height: auto; margin-bottom: 0px;"></a>
+												</c:if>
                                                   </td>
                                                 </tr>
                                             </thead>

@@ -58,7 +58,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/mypageMain", method = RequestMethod.GET)
-	public String mypageMain() {
+	public String mypageMain(Model model) {
+		HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
 		return "user/mypage_main";
 	}
 	
@@ -72,8 +73,8 @@ public class UserController {
         model.addAttribute("addr1", hash.get("address1"));
         model.addAttribute("addr2", hash.get("address2"));
         model.addAttribute("user", hash.get("user"));
-        model.addAttribute("confirm", hash.get("confirm"));
-		return "user/mypage_info";
+
+		return "/user/mypage_info";
 	}
 	
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.GET)
@@ -83,8 +84,7 @@ public class UserController {
         model.addAttribute("addr1", hash.get("address1"));
         model.addAttribute("addr2", hash.get("address2"));
         model.addAttribute("user", hash.get("user"));
-        model.addAttribute("confirm", hash.get("confirm"));
-		return "user/mypage_infoForm";
+		return "/user/mypage_infoForm";
 	}
 	
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.POST)
@@ -112,7 +112,7 @@ public class UserController {
 		
 		// 메일 전송
 		service.Mailcreate();
-		return "user/mypage_info";
+		return "redirect:/user/mypage_Info";
 	}
 	
 	@RequestMapping(value="/mailConfirm", method=RequestMethod.GET)
@@ -126,13 +126,14 @@ public class UserController {
 			//UserConfirm을 1로,, 권한 업데이트
 			service.updateConfirm(vo);
 		}
-		
-		System.out.println(vo);
 
 		
-		model.addAttribute("auth_check", 1);
-		
-		return "/user/mypage_info";
+		return "redirect:/user/mypage_Info";
+	}
+	
+	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
+	public String chatForm() {
+		return "/chat/chatForm";
 	}
 	
 	//포인트 화면으로 이동
