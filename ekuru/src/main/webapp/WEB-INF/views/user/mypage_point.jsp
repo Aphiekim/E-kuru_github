@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<script type="text/javascript">
+		function openPointPricing(){
+			location.href = "/user/mypage_pointPricing";
+		}
+   	</script>
     <style>
         * {
             font-family: 'NotSansCJKjp-Black', sans-serif;
@@ -56,7 +61,7 @@
                         <div class="col-6" style="margin-left: auto; margin-right: auto;">
                             <button type="button" class="btn btn-outline-danger"
                                 style="margin-right: 5%;">Refund</button>
-                            <button type="button" class="btn btn-outline-danger">Charge</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="openPointPricing();">Charge</button>
                         </div>
                     </div>
 
