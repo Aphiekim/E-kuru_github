@@ -42,6 +42,9 @@
 	function deleteComment(reqCommentNum){
 		location.href="/request/request_deleteComment?reqCommentNum="+reqCommentNum;
 	}
+	function deleteReadForm(reqNum){
+		location.href="/request/request_deleteRequest?reqNum="+reqNum;
+	}
   </script>
 </head>
 
@@ -140,7 +143,8 @@
   <div class="container" style="text-align: center; margin-top: 5%;">
     <button type="button" class="btn btn-secondary content-center" onclick="openRequestMain();">Go to the List</button>
     <c:if test="${sessionScope.userId==vo.userId }">
-      <button type="button" class="btn btn-danger btn-sty" onclick="openRewriteForm('${vo.reqNum}');">rewrite</button>
+      <button type="button" class="btn btn-danger btn-sty" onclick="openRewriteForm('${vo.reqNum}');">Rewrite</button>
+      <button type="button" class="btn btn-danger btn-sty" onclick="deleteReadForm('${vo.reqNum}');">Delete</button>
     </c:if>
   </div>
   

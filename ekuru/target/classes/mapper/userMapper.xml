@@ -80,6 +80,13 @@ from
 where
 	pointProdNum = #{pointProdNum}
 </select>
-
+<update id="updatePoint" parameterType="string">
+update 
+	e_user_tb
+set 
+	userPoint = #{userPoint}
+where
+	userId = #{userId}
+</update>
 
 </mapper>
