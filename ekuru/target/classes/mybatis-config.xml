@@ -10,6 +10,7 @@
 		<typeAlias type="com.scit.ekuru.vo.ChargePointVO" alias="chargepoint" />
 		<typeAlias type="com.scit.ekuru.vo.ChannelVO" alias="channel" />
 		<typeAlias type="com.scit.ekuru.vo.ProductVO" alias="product" />
+		<typeAlias type="com.scit.ekuru.vo.PointProductVO" alias="pointprod" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />

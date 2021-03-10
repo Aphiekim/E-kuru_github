@@ -15,6 +15,7 @@ import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.ChargePointVO;
+import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.UserVO;
 
 
@@ -165,5 +166,9 @@ public class UserService {
 			path = "redirect:/user/mypage_Info";
 		}
 		return path;
+	}
+	
+	public PointProductVO selectPointPricing(int pointProdNum) {
+		return dao.selectPointPricing(pointProdNum);
 	}
 }

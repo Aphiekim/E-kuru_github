@@ -136,8 +136,15 @@ public class UserController {
 		return "/chat/chatForm";
 	}
 	
+	//포인트 화면으로 이동
 	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
-	public String pointPricing() {
+	public String pointPricing(Model model) {
+		String id = (String)session.getAttribute("userId");
+		
+		UserVO user = service.selectUserTest(id);
+		
+		model.addAttribute("user", user);
+		
 		return "/user/mypage_pointPricing";
 	}
 }
