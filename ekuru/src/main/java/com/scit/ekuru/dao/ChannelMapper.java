@@ -15,4 +15,8 @@ public interface ChannelMapper {
 
 	public ProductVO getProdEach(ProductVO prodVo);
 
+	public void ch_posters_Write(ProductVO vo);
+
+	public void prodDelete(ProductVO vo);
+
 }

@@ -25,4 +25,10 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value="/payment", method=RequestMethod.GET)
+	public String payment() {
+		logger.info("Open paypal payment");
+		
+		return "/payment";
+	}
 }

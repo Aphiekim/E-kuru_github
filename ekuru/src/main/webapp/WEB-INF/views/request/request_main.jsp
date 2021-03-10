@@ -335,7 +335,7 @@
                 </div>
 
                 <!-- 요청 게시글 패션/악세서리-->
-                <h3 id="fashion">Fashion / Acc</h3>
+                <h3 id="fashion">Request List</h3>
                 <div class="row justify-content-center inner" style="margin-bottom: 5%;">
 	                <c:forEach var="requestList" items="${requestList }">
 	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

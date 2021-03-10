@@ -87,4 +87,50 @@
 
 </select>
 
+<!-- 상품 등록 -->
+<insert id="ch_posters_Write" parameterType="product">
+INSERT INTO
+	E_PRODUCT_TB (
+		PRODNUM,
+		USERID,
+		CHNUM,
+		PRODCATEGORY,
+		PRODTITLE,
+		PRODSTOCK,
+		PRODPRICE,
+		PRODCONTENT,
+		PRODORIGINALPIC1,
+		PRODORIGINALPIC2,
+		PRODORIGINALPIC3,
+		PRODSAVEDPIC1,
+		PRODSAVEDPIC2,
+		PRODSAVEDPIC3,
+		PRODINDATE
+	)VALUES(
+		PRODNUM_SQ.nextval,
+		#{userId},
+		#{chNum},
+		#{prodCategory},
+		#{prodTitle},
+		#{prodStock},
+		#{prodPrice},
+		#{prodContent},
+		'wash1.jpg',
+		'wash2.jpg',
+		'wash3.jpg',
+		'wash1.jpg',
+		'wash2.jpg',
+		'wash3.jpg',
+		SYSDATE)
+</insert>
+
+<!-- 상품 삭제 -->
+<delete id="prodDelete" parameterType="product">
+	DELETE
+		FROM
+			E_PRODUCT_TB
+		WHERE
+			PRODNUM = #{prodNum}
+</delete>
+
 </mapper>

@@ -24,29 +24,31 @@
 <body>
 <!--전체 틀-->
 <div class="fullSize">
+    <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
-                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute; margin-top: 0.3%;">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="">Home</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <!-- header -->
     <!-- 중간 전체 틀 -->
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>

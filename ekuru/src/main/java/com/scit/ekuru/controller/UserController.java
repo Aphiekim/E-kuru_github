@@ -134,4 +134,9 @@ public class UserController {
 		
 		return "/user/mypage_info";
 	}
+	
+	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
+	public String pointPricing() {
+		return "/user/mypage_pointPricing";
+	}
 }
