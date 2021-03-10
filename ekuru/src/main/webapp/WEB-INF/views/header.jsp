@@ -38,7 +38,7 @@
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
