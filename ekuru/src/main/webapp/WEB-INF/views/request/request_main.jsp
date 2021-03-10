@@ -41,6 +41,11 @@
 		function openReadForm(reqNum){
 			location.href="/request/request_readForm?reqNum="+reqNum;
 		}
+		<%--function searchList(){
+			var search = document.getElementById('search').value;
+
+			location.href="/request/request_search?search="+search;
+		}--%>
         
     </script>
     <style>
@@ -86,12 +91,14 @@
             <div>
                 <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
                     <div class="input-group">
-                        <input type="text" class="search-query form-control" placeholder="Search" />
+                    <form action="/request/request_search" method="post">
+                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width=80%;"/>
                         <span class="input-group-btn">
-                            <button class="btn btn-danger" type="button">
-                                <span class=" glyphicon glyphicon-search"></span>
-                            </button>
+                           <button class="btn btn-danger" type="submit">
+                               <span class="glyphicon glyphicon-search"></span>
+                           </button>
                         </span>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -328,7 +335,7 @@
                 </div>
 
                 <!-- 요청 게시글 패션/악세서리-->
-                <h3 id="fashion">Fashion / Acc</h3>
+                <h3 id="fashion">Request List</h3>
                 <div class="row justify-content-center inner" style="margin-bottom: 5%;">
 	                <c:forEach var="requestList" items="${requestList }">
 	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">

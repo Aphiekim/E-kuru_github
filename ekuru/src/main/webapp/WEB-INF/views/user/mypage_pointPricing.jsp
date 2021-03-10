@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,16 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
 
-    <link rel="shortcut icon" href="img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="css/mypage-pointpricing.css">
-    <link rel="stylesheet" href="css/main-footer.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="../resources/css/mypage-pointpricing.css">
+    <link rel="stylesheet" href="../resources/css/main-footer.css">
+    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .coin{
@@ -63,36 +65,35 @@
     </script>
 </head>
 <body>
-  <!-- header -->
-  <header class="header---">
-    <div class="wrapper">
-        <a href="">
-            <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-        </a>
-        <nav>
-            <ul class="menu">
-                <li class="menu-list headli">
-                    <a href="">Home</a>
-                    <ul class="menu-sub">
-                        <li class="headli">Logout</li>
-                        <li class="headli">Mypage</li>
-                        <li class="headli">info</li>
-                    </ul>
-                </li>
-                <li class="headli"><a href="">About</a></li>
-                <li class="headli"><a href="">Board</a></li>
-                <li class="headli"><a href="">Reference</a></li>
-                <li class="headli"><a href="">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<!-- header -->
+   <!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
     <!-- 포인트 메뉴 start -->
     <div class="container">
         <!-- 포인트 메뉴 타이틀-->
         <div class="row justify-content-md-center coin">
-            <img src="img/mypage-img/mypoint/iconfinder_b_6_2578279.png" alt="">
+            <img src="../resources/img/mypage-img/mypoint/iconfinder_b_6_2578279.png" alt="">
         </div>
         <div class="card-title text-uppercase text-center" >
             <h1>Point menu</h1>
@@ -203,3 +204,4 @@
     </div>
     <!-- Footer End -->
 </body>
+</html>

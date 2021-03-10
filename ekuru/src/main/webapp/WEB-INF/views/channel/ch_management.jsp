@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,29 +20,56 @@
            background-color: #FFDFB9;
        }
     </style>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+    <script>
+        $(".delete_${prodList.prodNum}_img").click(function(){
+            var confirm = confirm("정말 삭제?");
+
+            if(confirm) {
+                var checkArr = new Array();
+
+                checkArr.push($(this).attr("data-prodNum"));
+
+                $.ajax({
+                url : "channel/prodDelete",
+                type : "post",
+                data : { chbox : checkArr },
+                success : function(result){
+                if(result == 1) {
+                location.href = "channel/management";
+                } else {
+                alert("삭제 실패");
+                }
+                }
+                });
+            }
+        });
+    </script>
 
 </head>
 <body>
     <!-- header -->
     <header class="header---">
         <div class="wrapper">
-            <a href="">
-                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
             </a>
             <nav>
                 <ul class="menu">
                     <li class="menu-list headli">
-                        <a href="">Home</a>
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli">My Request</li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -58,7 +86,7 @@
                     </div>
                     <div class="content1">
                         <div class="profile">
-                            <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
+                            <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
                             <a href="">
                                 <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
                             </a>
@@ -80,7 +108,7 @@
                     </div>
 
                 </div>
-                <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
+                <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
                 <div class="test2">
 
                     <p>
@@ -91,42 +119,29 @@
                     </p>
                 </div>
 
+                <c:if test="${empty prodListResult }">
+                    <p>아직 등록된 상품이 없습니다.</p>
+                </c:if>
+
                 <div class="product-list">
-                    <!-- 채널 상품목록 구현시 foreach 사용예상 -->
-                    <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
-                        <a href="###">
-                            <img src="img/card-img1.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
-                        <a href="">
-                            <img src="img/card-img2.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
-                        <a href="">
-                            <img src="img/card-img3.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
-                    <div class="product">
-                        <a href="##"><img class="minus-icon" src="/resources/img/shopping-minus.png" alt=""></a>
-                        <a href="">
-                            <img src="img/card-img4.jpg" alt="" class="product-img">
-                        </a>
-                    </div>
-
+                    <c:forEach items="${prodListResult }" var="prodList">
+						<c:if test="${not empty prodListResult }">
+                        <div class="product">
+                            <a href="" class="delete_${prodList.prodNum}_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
+                            <a href="ch_content?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                            </a>
+                        </div>
+                       	</c:if>
+                    </c:forEach>
                 </div>
+
+
 
                 <div class="button-list">
-                    <input class="button btn-danger" type="button" value="write">
-                    <input class="button btn-danger" type="button" value="modify">
+                    <input class="button btn-danger" type="button" value="done">
                 </div>
+
 
 
             </div>

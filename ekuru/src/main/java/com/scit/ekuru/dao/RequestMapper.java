@@ -7,7 +7,7 @@ import com.scit.ekuru.vo.RequestVO;
 
 public interface RequestMapper {
 	//메인에 전체 글 불러오기
-	public ArrayList<RequestVO> selectRequestAll();
+	public ArrayList<RequestVO> selectRequestAll(String search);
 
 	//요청 게시글 넣기
 	public int insertOne(RequestVO reqVO);

@@ -21,97 +21,87 @@
         *{
             font-family: "CuteCartoonItalic" !important;
         }
-
         body{
            background-color:#FFDFB9;
         }
     </style>
+
+    <script>
+        function fn_prodWrite(){
+            var prodWriteForm = document.getElementById("prodWriteForm");
+            console.log(prodWriteForm);
+            prodWriteForm.action="/channel/ch_posters_Write";
+            prodWriteForm.method="POST";
+            prodWriteForm.submit();
+        }
+    </script>
 </head>
 <body>
-    <header class="header---">
-        <div class="wrapper">
-            <a href="">
-                <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-            </a>
-            <nav>
-                <ul class="menu">
-                    <li class="menu-list headli">
-                        <a href="">Home</a>
-                        <ul class="menu-sub">
-                            <li class="headli">Logout</li>
-                            <li class="headli">Mypage</li>
-                            <li class="headli">info</li>
-                        </ul>
-                    </li>
-                    <li class="headli"><a href="">About</a></li>
-                    <li class="headli"><a href="">Board</a></li>
-                    <li class="headli"><a href="">Reference</a></li>
-                    <li class="headli"><a href="">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    
     <div class="container" style="margin-top: 5%;">
         <div class="base">
-            <div class="row">
-                <div class="head">
-                    <div class="product-img" onclick="">
-                        <div class="img-box">
-                            <div class="circle">
-                                <img class="cross" src="/resources/img/icon/cross.png" alt="">
+            <form name="prodWriteForm" id="prodWriteForm">
+                <input type="hidden" name="userId" id="userId" value="${sessionScope.userId}">
+                <input type="hidden" name="chNum" id="chNum" value="${channel.chNum}">
+                <div class="row">
+                    <!-- 줄 윗 부분 시작 -->
+                    <div class="head">
+                        <!--사진 파일-->
+                        <div class="product-img" onclick="">
+                            <div class="img-box">
+                                <div class="circle">
+                                    <img class="cross" src="/resources/img/icon/cross.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 물품 정보 -->
+                        <div class="product-details">
+                            <div class="product-title">
+                                <input type="text" name="prodTitle" id="prodTitle">
+                            </div>
+                            <div class="product-spec">
+                                <div class="content1">
+                                    <span class="span">Price</span>
+                                </div>
+                                <div class="content2">
+                                    <input type="text" name="prodPrice" id="prodPrice">
+                                </div>
+                                <div class="content1">
+                                    <span class="span">Quantity</span>
+                                </div>
+                                <div class="content2">
+                                    <input type="number" name="prodStock" id="prodStock">
+                                </div>
+                                <div class="content1">
+                                    <span class="span">Category</span>
+                                </div>
+                                <div class="content2 select-div">
+                                    <select class="select" name="prodCategory" id="prodCategory">
+                                        <option value="0">Beauty</option>
+                                        <option value="1">fashion</option>
+                                        <option value="2">food</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-details">
-                        <div class="product-title">
-                            <span>Title</span>
+                    <!-- 줄 윗 부분 끝 -->
+                    <!-- 줄 아래부분 시작 -->
+                    <div class="foot">
+                        <div class="product-tx">
+                            <span>Product Details</span>
                         </div>
-                        <div class="product-spec">
-                            <div class="content1">
-                                <span class="span">Price</span>
-                            </div>
-                            <div class="content2">
-                                <input type="text">
-                            </div>
+                        <div class="product-text-div">
+                            <textarea class="product-text" name="prodContent" id="prodContent" cols="100" rows="10"></textarea>
+                        </div>
 
-                            <div class="content1">
-                                <span class="span">Quantity</span>
-                            </div>
-                            <div class="content2">
-                                <input type="number">
-                            </div>
-
-                            <div class="content1">
-                                <span class="span">Category</span>
-                            </div>
-                            <div class="content2 select-div">
-                                <select class="select" name="" id="">
-                                    <option value="0">Beauty</option>
-                                    <option value="1">fashion</option>
-                                    <option value="2">food</option>
-                                </select>
-                            </div>
+                        <div class="submit-btn">
+                            <input class="btn btn-danger" type="button" value="Save" onclick="fn_prodWrite();">
                         </div>
                     </div>
-
+                    <!--줄 아래부분 끝-->
                 </div>
-                <div class="foot">
-                    <div class="product-tx">
-                        <span>Product Details</span>
-                    </div>
-
-
-                    <div class="product-text-div">
-                        <textarea class="product-text" name="" id="" cols="100" rows="10"></textarea>
-                    </div>
-
-                    <div class="submit-btn">
-                        <input class="btn btn-danger" type="submit" value="Save">
-                    </div>
-                </div>
-
-
-            </div>
+            </form>
         </div>
     </div>
 
@@ -182,7 +172,5 @@
     </div>
 </div>
 <!-- Footer End -->
-
-
 </body>
 </html>

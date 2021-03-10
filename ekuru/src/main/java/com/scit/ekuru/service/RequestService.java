@@ -26,8 +26,8 @@ public class RequestService {
 	private HttpSession session;
 	
 	//메인에 요청글 전체 출력
-	public ArrayList<RequestVO> selectRequestAll(){
-		return dao.selectRequestAll();
+	public ArrayList<RequestVO> selectRequestAll(String search){
+		return dao.selectRequestAll(search);
 	}
 	
 	//요청 글쓰기

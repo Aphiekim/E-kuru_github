@@ -20,7 +20,7 @@ public class ChannelDAO {
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
 			list = mapper.getListAll();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
@@ -64,5 +64,27 @@ public class ChannelDAO {
 		}
 
 		return list;
+	}
+
+	public void ch_posters_Write(ProductVO vo) {
+
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			mapper.ch_posters_Write(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+//	상품 삭제
+	public void prodDelete(ProductVO vo) {
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			mapper.prodDelete(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

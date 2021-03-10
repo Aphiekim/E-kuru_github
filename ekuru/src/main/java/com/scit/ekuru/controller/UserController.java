@@ -135,4 +135,9 @@ public class UserController {
 	public String chatForm() {
 		return "/chat/chatForm";
 	}
+	
+	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
+	public String pointPricing() {
+		return "/user/mypage_pointPricing";
+	}
 }

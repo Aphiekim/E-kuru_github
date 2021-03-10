@@ -29,6 +29,10 @@
 
 			location.href="/ad/superplan_contract?adTotal="+adTotal;
 		}
+
+		function openPointPricing(){
+			location.href="/user/mypage_pointPricing"
+		}
     </script>
     <style>
         * {
@@ -95,7 +99,7 @@
                 <p class="card-text">If you buy your super pass, then you can advertise your post </p>
                 <input type="text" id="adTotal" name="adTotal"><span style="margin-left: 2%;">P</span><br>
                 <button  class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;" onclick="openSPlanContract();">Buy Pass</button>
-                <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;">Charge</a>
+                <a href="#" class="btn btn-danger" style="margin-top: 5%;margin-bottom: 5%;" onclick="openPointPricing();">Charge</a>
             </div>
         </div>
 
