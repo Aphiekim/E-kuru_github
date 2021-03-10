@@ -168,7 +168,24 @@ public class UserService {
 		return path;
 	}
 	
+	// 포인트 상품 조회
 	public PointProductVO selectPointPricing(int pointProdNum) {
 		return dao.selectPointPricing(pointProdNum);
+	}
+	
+	// 회원 포인트 수정
+	public String updatePoint(int userPoint) {
+		System.out.println("포인트 수정");
+		int cnt = dao.updatePoint(userPoint);
+		String path = " ";
+		if(cnt>0) {
+			System.out.println("포인트 수정 성공");
+			path = "redirect:/user/mypage_point";
+		}else {
+			System.out.println("포인트 수정 실패");
+			path = "redirect:/ad/superplan_contract";
+		}
+		
+		return path;
 	}
 }

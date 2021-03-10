@@ -18,6 +18,9 @@ public interface RequestMapper {
 	//내 요청글 수정
 	public int updateRequest(RequestVO reqVO);
 	
+	//내 요청글 삭제
+	public int deleteRequest(RequestVO request);
+	
 	//카테고리별 게시글 불러오기
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode);
 	
@@ -28,5 +31,7 @@ public interface RequestMapper {
 	public ArrayList<RequestCommentVO> selectComment(int reqNum);
 	
 	//코멘트 지우기
-//	public int deleteComment(RequestCommentVO reqCommentVO);
+	public int deleteComment(RequestCommentVO reqCommentVO);
+	
+	
 }

@@ -163,30 +163,29 @@
 	                  </table>
 	                
 	              </div>
-
    	        <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
                 <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
-                <div class="card-body text-secondary">
-                    <h5 class="card-title">Please check your items</h5>
-                    <li>
-                        Total ${adTotal }$
-                    </li>
-                    <hr class="line">
-                    <li>
-                        Channel $<p id="adChApply"></p>
-                    </li>
-                    <li>
-                        Shop Post $<p id="adProdApply"></p>
-                    </li>
-                    <li>
-                        Request Post $<p id="adReqApply"></p>
-                    </li>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
-                    <button class="btn btn-danger" type="button">Submit</button>
-                </div>
-            </div>
-            <div class="col-md-4">
+				<form action="/ad/superplan_doContract?adTotal=${adTotal }" method="post">
+	               	 <div class="card-body text-secondary">
+	               		 <h5 class="card-title">Please check your items</h5>
+		                    <li>
+		                        Total ${adTotal }$
+		                    </li>
+		                    <hr class="line">
+		                    <li>
+		                        Channel $<p id="adChApply" ></p>
+		                    </li>
+		                    <li>
+		                        Shop Post $<p id="adProdApply"></p>
+		                    </li>
+		                    <li>
+		                        Request Post $<p id="adReqApply"></p>
+		                    </li>
+				     </div>
+				     <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
+		                    <button class="btn btn-danger" type="submit">Submit</button>
+				     </div>
+				</form>
             </div>
         </div>
     </div>

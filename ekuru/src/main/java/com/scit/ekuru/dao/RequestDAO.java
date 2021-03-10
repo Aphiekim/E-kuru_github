@@ -71,6 +71,19 @@ public class RequestDAO {
 		return cnt;
 	}
 	
+	//내 요청글 삭제
+	public int deleteRequest(RequestVO request) {
+		int cnt = 0;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			cnt = mapper.deleteRequest(request);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
 	//카테고리별 게시글 불러오기 위함
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode) {
 		ArrayList<RequestVO> list = null;
@@ -114,18 +127,19 @@ public class RequestDAO {
 	}
 	
 	//코멘트 지우기
-//	public int deleteComment(RequestCommentVO reqCommentVO) {
-//		int cnt = 0;
-//		
-//		try {
-//			RequestMapper mapper = session.getMapper(RequestMapper.class);
-//			cnt = mapper.deleteComment(reqCommentVO);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
+	public int deleteComment(RequestCommentVO reqCommentVO) {
+		int cnt = 0;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			cnt = mapper.deleteComment(reqCommentVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 	
+	//내 요청 내역 불러오기
 	
 	
 	

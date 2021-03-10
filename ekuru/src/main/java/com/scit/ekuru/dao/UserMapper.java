@@ -35,4 +35,7 @@ public interface UserMapper {
 	
 	// 포인트 상품 목록 조회
 	public PointProductVO selectPointPricing(int pointProdNum);
+	
+	// 회원 포인트 수정
+	public int updatePoint(int userPoint);
 }
