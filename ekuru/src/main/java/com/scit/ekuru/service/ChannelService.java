@@ -20,12 +20,12 @@ public class ChannelService {
 		return dao.getListAll();
 	}
 
-	public ChannelVO chRead(ChannelVO vo) {
-		return dao.chRead(vo);
+	public ChannelVO chRead(String chId) {
+		return dao.chRead(chId);
 	}
 
-	public ArrayList<ProductVO> getProdList(ChannelVO vo) {
-		return dao.getProdList(vo);
+	public ArrayList<ProductVO> getProdList(String chId) {
+		return dao.getProdList(chId);
 	}
 
 	public ProductVO getProdEach(ProductVO prodVo) {
