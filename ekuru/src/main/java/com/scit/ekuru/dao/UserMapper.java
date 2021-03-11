@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.scit.ekuru.vo.ChargePointVO;
+import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.UserVO;
 
 public interface UserMapper {
@@ -31,4 +32,7 @@ public interface UserMapper {
 	
 	// 장바구니 조회
 	public ArrayList<HashMap<String, Object>> selectCart(String id);
+	
+	// 포인트 상품 목록 조회
+	public PointProductVO selectPointPricing(int pointProdNum);
 }

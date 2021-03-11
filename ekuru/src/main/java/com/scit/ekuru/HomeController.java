@@ -1,11 +1,19 @@
 package com.scit.ekuru;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.UserVO;
 
 /**
  * Handles requests for the application home page.
@@ -15,6 +23,11 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	@Autowired
+	private UserService service;
+	
+	@Autowired
+	private HttpSession session;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -25,4 +38,15 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value="/payment", method=RequestMethod.GET)
+	public String payment(int pointProdNum,Model model) {
+		logger.info("Open paypal payment");
+		PointProductVO pvo = service.selectPointPricing(pointProdNum);
+		String id = (String)session.getAttribute("userId");
+		UserVO vo = service.selectUserTest(id);
+		
+		model.addAttribute("pvo", pvo);
+		model.addAttribute("vo", vo);
+		return "/payment";
+	}
 }

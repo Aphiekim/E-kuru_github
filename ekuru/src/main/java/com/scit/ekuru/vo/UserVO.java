@@ -10,8 +10,12 @@ public class UserVO {
 	private String userAddr;
 	private String userZip;
 	private String userPhone;
-	private char userConfirm;
+	private String userConfirm;
+<<<<<<< HEAD
+	private String userType;
+=======
 	private char userType;
+>>>>>>> origin/master
 	private int userPoint;
 	private String authkey;
 }

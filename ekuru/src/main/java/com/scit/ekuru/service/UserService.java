@@ -15,6 +15,7 @@ import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.ChargePointVO;
+import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.UserVO;
 
 
@@ -88,8 +89,8 @@ public class UserService {
 
 	public HashMap<Object, Object> selectUser(String id) {
 		UserVO Uservo = dao.selectUser(id);
-
 		System.out.println(Uservo);
+		
 
 		String path = "";
 		HashMap<Object, Object> hash = null;
@@ -101,14 +102,18 @@ public class UserService {
 			String text = Uservo.getUserAddr();
 			hash = new HashMap<Object, Object>();
 
+			String addr[] = {"", "", ""};
+			
 	        if(text != null && text.length() != 0) {
-	        	String addr[] = text.split("/");
-	        	hash.put("state", addr[0]);
-		        hash.put("address1", addr[1]);
-		        hash.put("address2", addr[2]);
-		        hash.put("user", Uservo);
-		        hash.put("confirm", Uservo.getUserConfirm());
+	        	addr = text.split("/");
+	        	System.out.println(addr.length);
+	        	
 	        }
+	        
+	        hash.put("state", addr[0]);
+	        hash.put("address1", addr[1]);
+	        hash.put("address2", addr[2]);
+	        hash.put("user", Uservo);
 
 		}
         return hash;
@@ -147,7 +152,7 @@ public class UserService {
 						+ "' target='_blenk'>이메일 인증 확인</a>")
 				.toString());
 		sendMail.setFrom("meojong@gmail.com", "머종");
-		sendMail.setTo("인증메일 보낼 이메일 입력 == 인증하기 버튼 누른사용자");
+		sendMail.setTo("tasd7070@naver.com");
 		sendMail.send();
 	}
 	
@@ -161,5 +166,9 @@ public class UserService {
 			path = "redirect:/user/mypage_Info";
 		}
 		return path;
+	}
+	
+	public PointProductVO selectPointPricing(int pointProdNum) {
+		return dao.selectPointPricing(pointProdNum);
 	}
 }

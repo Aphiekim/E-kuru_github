@@ -31,19 +31,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-    <%--function applyRecipe(){
+    function applyRecipe(){
 			var adChCharge = document.getElementById('adChCharge').value;
 			var adProdCharge = document.getElementById('adProdCharge').value;
 			var adReqCharge = document.getElementById('adReqCharge').value;
 
-			document.getElementById('adChApply').value = adChCharge;
-			document.getElementById('adProdApply').value = adChCharge;
-			document.getElementById('adReqApply').value = adChCharge; 
+			document.getElementById('adChApply').innerHTML = adChCharge;
+			document.getElementById('adProdApply').innerHTML = adProdCharge;
+			document.getElementById('adReqApply').innerHTML = adReqCharge; 
 
-			document.getElementById('adChApply').value = document.getElementById('adChCharge').value;
+			<%--document.getElementById('adChApply').value = document.getElementById('adChCharge').value;
 			document.getElementById('adProdApply').value = document.getElementById('adProdCharge').value;
-			document.getElementById('adReqApply').value = document.getElementById('adReqCharge').value;
-		}--%>
+			document.getElementById('adReqApply').value = document.getElementById('adReqCharge').value;--%>
+		}
     </script>
     <style>
         .border-st {
@@ -156,7 +156,7 @@
 	                      	
 	                      	</th>
 		                    <td>
-                    			<button class="btn btn-danger" type="submit" style="margin-left:0%">Apply</button>
+                    			<button class="btn btn-danger" type="submit" style="margin-left:0%" onclick="applyRecipe();">Apply</button>
 					        </td>
 				          </tr>
 	                    </tbody>
@@ -173,13 +173,13 @@
                     </li>
                     <hr class="line">
                     <li>
-                        Channel $
+                        Channel $<p id="adChApply"></p>
                     </li>
                     <li>
-                        Shop Post $
+                        Shop Post $<p id="adProdApply"></p>
                     </li>
                     <li>
-                        Request Post $
+                        Request Post $<p id="adReqApply"></p>
                     </li>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
