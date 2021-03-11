@@ -97,7 +97,7 @@
                     <c:forEach items="${prodListResult }" var="prodList">
 						<c:if test="${not empty prodListResult }">
                         <div class="product">
-                            <a href="ch_content?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                            <a href="ch_content?prodNum=${prodList.prodNum }&chId=${channel.chId}">
                                 <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
                             </a>
                         </div>
@@ -107,8 +107,8 @@
 
                     <c:if test="${sessionScope.userId eq channel.chId}">
                         <div class="button-list">
-                            <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chNum=${channel.chNum}'">
-                            <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management?chName=${channel.chName}'">
+                            <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chId=${channel.chId}'">
+                            <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management?chId=${channel.chId}'">
                         </div>
                 </c:if>
 
