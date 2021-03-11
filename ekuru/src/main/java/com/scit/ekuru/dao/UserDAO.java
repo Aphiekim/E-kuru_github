@@ -121,16 +121,17 @@ public class UserDAO {
 	}
 	
 	// 회원 포인트 수정
-	public int updatePoint(int userPoint) {
+	public int updatePoint(UserVO vo) {
 		int cnt = 0;
 		
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			cnt = mapper.updatePoint(userPoint);
+			cnt = mapper.updatePoint(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return cnt;
+	
 	}
 }

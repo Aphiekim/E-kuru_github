@@ -80,7 +80,7 @@ from
 where
 	pointProdNum = #{pointProdNum}
 </select>
-<update id="updatePoint" parameterType="string">
+<update id="updatePoint" parameterType="user">
 update 
 	e_user_tb
 set 
