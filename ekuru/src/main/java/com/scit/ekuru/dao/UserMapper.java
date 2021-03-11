@@ -31,4 +31,7 @@ public interface UserMapper {
 	
 	// 장바구니 조회
 	public ArrayList<HashMap<String, Object>> selectCart(String id);
+	
+	// 채팅방 조회
+	public ArrayList<HashMap<Object, Object>> selectChatRoom(String id);
 }

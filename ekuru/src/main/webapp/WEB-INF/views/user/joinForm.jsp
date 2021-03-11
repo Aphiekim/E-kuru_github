@@ -37,7 +37,7 @@ function formCheck(){
                         </div>
                     </div>
                     <br>
-                    <input type="text" name="userId" class="form-control input-lg" placeholder="Email"/>
+                    <input type="text" name="userId" class="form-control input-lg" placeholder="Please write your Email adress..."/>
                     <br>
                     <input type="password" name="userPw" class="form-control input-lg" placeholder="Password"/>
          

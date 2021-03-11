@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
@@ -40,86 +41,27 @@
           </div>
         </div>
         <div class="inbox_chat">
-          <div class="chat_list active_chat">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                <div class="chat_ib">
-                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                  <p>Test, which is a new approach to have all solutions
-                    astrology under one roof.</p>
-                </div>
-              </div>
-            </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions
-                  astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>Test, which is a new approach to have all solutions
-                    astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
-        <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>
-                  Test, which is a new approach to have all solutions
-                  astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>
-                  Test, which is a new approach to have all solutions
-                    astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>
-                  Test, which is a new approach to have all solutions
-                    astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="chat_list">
-            <div class="chat_people">
-              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="chat_ib">
-                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                <p>
-                  Test, which is a new approach to have all solutions
-                    astrology under one roof.
-                </p>
-              </div>
-            </div>
-          </div>
+            
+            
+            
+            
+          <c:forEach items="${chatroomlist }" var="list">
+	          <div class="chat_list">
+	            <div class="chat_people">
+	              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+	              <div class="chat_ib">
+	                <h5>${list.CHNAME } Room<span class="chat_date"> 25 </span></h5>
+	                <p>
+	                
+	                </p>
+	              </div>
+	            </div>
+	          </div>
+          </c:forEach>
+          
+          
+          
+          
         </div>
       </div>
       <div class="mesgs">

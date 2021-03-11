@@ -70,5 +70,15 @@
 	where e.userId = #{userId}
 </select>
 
-
+<select id="selectChatRoom" parameterType="String" resultType="hashmap">
+select 
+	cr.chatnum as CHATNUM, 
+	cr.userid as USERID, 
+	cr.chnum as CHNUM, 
+	chh.chname as CHNAME,
+	ca.content as CONTENT
+from 
+	e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
+where cr.userId = #{userId}
+</select>
 </mapper>
