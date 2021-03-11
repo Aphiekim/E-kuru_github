@@ -151,8 +151,8 @@ public class UserService {
 						+ "&authkey=" + authkey 
 						+ "' target='_blenk'>이메일 인증 확인</a>")
 				.toString());
-		sendMail.setFrom("meojong@gmail.com", "머종");
-		sendMail.setTo("tasd7070@naver.com");
+		sendMail.setFrom("ekuruco@gmail.com", "Ekuru-Team");
+		sendMail.setTo(vo.getUserId());
 		sendMail.send();
 	}
 	
@@ -174,15 +174,12 @@ public class UserService {
 	}
 	
 	// 회원 포인트 수정
-	public String updatePoint(int userPoint) {
-		System.out.println("포인트 수정");
-		int cnt = dao.updatePoint(userPoint);
-		String path = " ";
+	public String updatePoint(UserVO vo) {
+		int cnt = dao.updatePoint(vo);
+		String path ="";
 		if(cnt>0) {
-			System.out.println("포인트 수정 성공");
-			path = "redirect:/user/mypage_point";
+			path ="redirect:/ad/superplan_clear";
 		}else {
-			System.out.println("포인트 수정 실패");
 			path = "redirect:/ad/superplan_contract";
 		}
 		

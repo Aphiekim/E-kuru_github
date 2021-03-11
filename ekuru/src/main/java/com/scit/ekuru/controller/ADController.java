@@ -27,6 +27,7 @@ public class ADController {
 	@Autowired
 	private RequestService service;
 	
+	@Autowired
 	private UserService userService;
 	
 	//AD Splan 연결하기
@@ -46,16 +47,29 @@ public class ADController {
 		return "ad/superplan_contract";
 	}
 
+	//AD 계약서 작성 완료
 	@RequestMapping(value="/superplan_doContract", method=RequestMethod.POST)
 	public String splanContract(int adTotal) {
 		String id = (String)session.getAttribute("userId");
-		logger.info("{} 님의 포인트 소비 {}", id, adTotal);
 		UserVO vo = userService.selectUserTest(id);
 		int userPoint = vo.getUserPoint();
-		userPoint = userPoint - adTotal;
-		String path = userService.updatePoint(userPoint);
 		
-		return path;
+		//사용한 포인트 차감
+		userPoint = userPoint-adTotal;
+		String path = "";
+		
+		vo.setUserPoint(userPoint);
+		path = userService.updatePoint(vo);
+		
+		return  path;
+	}
+	
+	//AD 계약 완료창 열기
+	@RequestMapping(value="/superplan_clear", method=RequestMethod.GET)
+	public String splanClear() {
+		logger.info("수퍼플랜 완료");
+		
+		return "ad/superplan_clear";
 	}
 	
 }
