@@ -30,11 +30,8 @@
 		CHINDATE
 	FROM
 		E_CHANNEL_TB
-	<where>
-	    <if test="chName == null">CHNUM = #{chNum}</if>
-	    <if test="chName != null">CHNAME = #{chName}</if>
-	</where>
-
+	WHERE
+	    chId = #{chId}
 
 </select>
 
