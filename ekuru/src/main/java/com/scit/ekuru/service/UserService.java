@@ -157,7 +157,7 @@ public class UserService {
 			test.remove("CONTENT");
 			
 			// 마지막에 기록된 채팅, 날짜를 가져와서 새로운 키값으로 저장
-			test.put("content", text[1]);
+			test.put("text", text[1]);
 			test.put("date", text[2]);
 			
 			System.out.println(test);
