@@ -52,7 +52,7 @@
         <div class="card text-center">
             <div class="card-header">
                 <h2>My point</h2>
-                <h1 id="h1-p">5000P</h1>
+                <h1 id="h1-p">${sessionScope.userPoint }P</h1>
             </div>
             <div class="card-body">
                 <!--충전 및 환불 버튼 부분-->
