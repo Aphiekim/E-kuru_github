@@ -26,13 +26,13 @@ public class ChannelDAO {
 		return list;
 	}
 
-	public ChannelVO chRead(ChannelVO vo) {
+	public ChannelVO chRead(String chId) {
 
 		ChannelVO list = null;
 
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
-			list = mapper.chRead(vo);
+			list = mapper.chRead(chId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,12 +40,12 @@ public class ChannelDAO {
 		return list;
 	}
 
-	public ArrayList<ProductVO> getProdList(ChannelVO vo) {
+	public ArrayList<ProductVO> getProdList(String chId) {
 		ArrayList<ProductVO> list = null;
 
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
-			list = mapper.getProdList(vo);
+			list = mapper.getProdList(chId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
@@ -47,9 +48,9 @@ public class ChViewContoroller {
 
 //	개인 채널 보기
 	@RequestMapping(value="/ch_personal_main")
-	public String chPersonalMain(ChannelVO vo, Model model){
-		ChannelVO channel = service.chRead(vo);
-		ArrayList<ProductVO> prodListResult = service.getProdList(vo);
+	public String chPersonalMain(String chId, Model model){
+		ChannelVO channel = service.chRead(chId);
+		ArrayList<ProductVO> prodListResult = service.getProdList(chId);
 		model.addAttribute("prodListResult", prodListResult);
 		model.addAttribute("channel", channel);
 		return "channel/ch_personal_main";
@@ -57,11 +58,9 @@ public class ChViewContoroller {
 
 //	개인 채널 수정 폼
 	@RequestMapping(value="/ch_management")
-	public String chManagement(ChannelVO vo, Model model, HttpSession session){
-		String userId = (String) session.getAttribute("userId");
-		vo.setChId(userId);
-		ChannelVO channel = service.chRead(vo);
-		ArrayList<ProductVO> prodListResult = service.getProdList(vo);
+	public String chManagement(String chId, Model model){
+		ChannelVO channel = service.chRead(chId);
+		ArrayList<ProductVO> prodListResult = service.getProdList(chId);
 		model.addAttribute("prodListResult", prodListResult);
 		model.addAttribute("channel", channel);
 		return "channel/ch_management";
@@ -77,14 +76,14 @@ public class ChViewContoroller {
 
 //	채널 게시글 폼
 	@RequestMapping(value="/ch_posters")
-	public String chPosters(ChannelVO vo, Model model){
-		ChannelVO channel = service.chRead(vo);
+	public String chPosters(String chId, Model model){
+		ChannelVO channel = service.chRead(chId);
 		model.addAttribute("channel", channel);
 		return "channel/ch_posters";
 	}
 
 // 채널 게시글 쓰기
-	@RequestMapping(value="/ch_posters_Write")
+	@RequestMapping(value="/ch_posters_Write", method = RequestMethod.POST)
 	public String ch_posters_Write(ProductVO vo, HttpSession session){
 		logger.info("물품 등록");
 		String userId = (String) session.getAttribute("userId");
@@ -96,8 +95,8 @@ public class ChViewContoroller {
 
 //	채널 게시글 보기 (구매자)
 	@RequestMapping(value="/ch_content")
-	public String chContent(ChannelVO vo, ProductVO prodVo, Model model){
-		ChannelVO channel = service.chRead(vo);
+	public String chContent(String chId, ProductVO prodVo, Model model){
+		ChannelVO channel = service.chRead(chId);
 		ProductVO prodEachResult = service.getProdEach(prodVo);
 		model.addAttribute("channel", channel);
 		model.addAttribute("prodEachResult", prodEachResult);
