@@ -1,6 +1,7 @@
 package com.scit.ekuru.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
@@ -67,11 +70,10 @@ public class ChViewContoroller {
 	}
 
 //	상품 삭제
+	@ResponseBody
 	@RequestMapping(value = "/prodDelete")
-	public String prodDelete(ProductVO vo) {
-		service.prodDelete(vo);
-		logger.info("삭제 성공");
-		return "channel/ch_management";
+	public HashMap<String, Object> prodDelete(@RequestBody HashMap<String, Object> json) {
+		return service.prodDelete(json);
 	}
 
 //	채널 게시글 폼

@@ -1,6 +1,7 @@
 package com.scit.ekuru.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,13 +79,16 @@ public class ChannelDAO {
 	}
 
 //	상품 삭제
-	public void prodDelete(ProductVO vo) {
+	public boolean prodDelete(int prodNum) {
+		boolean check = false;
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
-			mapper.prodDelete(vo);
+			check = mapper.prodDelete(prodNum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return check;
 
 	}
 }

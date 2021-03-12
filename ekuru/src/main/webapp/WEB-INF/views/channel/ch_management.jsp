@@ -10,6 +10,7 @@
     <!--반응형 만들기 위해서 필요-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="/resources/css/ChannelManagement.css">
     <link rel="stylesheet" href="/resources/css/main-footer.css">
@@ -20,31 +21,42 @@
            background-color: #FFDFB9;
        }
     </style>
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
-    <script>
-        $(".delete_${prodList.prodNum}_img").click(function(){
-            var confirm = confirm("정말 삭제?");
+    <script type="text/javascript">
+        $(() => {
+            $(".delete_img").click(function () {
+                if(confirm("삭제하시겠습니까?")){
+                    
+                    let prodNum = $(this).attr('data-prodNum'); // prodNum 정의
+                    prodNum = parseInt(prodNum);
+                    console.log(typeof (prodNum));
+                    const data = {
+                        prodNum: prodNum
+                    };
 
-            if(confirm) {
-                var checkArr = new Array();
+                    $.ajax({
+                        url: '/channel/prodDelete',
+                        type: "POST",
+                        contentType: "application/json", 
+                        dataType: "json", 
+                        data: JSON.stringify(data), 
+                        success: function (result) { 
+                            if (result['check']) {
 
-                checkArr.push($(this).attr("data-prodNum"));
+                                $(`#delete_img_${prodNum}`).remove();
+                            } else {
+                                alert('삭제 되지 않았습니다.');
+                            }
+                        },
+                        error: function () {
+                            alert("통신장애가 발생하였습니다.");
+                        }
 
-                $.ajax({
-                url : "channel/prodDelete",
-                type : "post",
-                data : { chbox : checkArr },
-                success : function(result){
-                if(result == 1) {
-                location.href = "channel/management";
-                } else {
-                alert("삭제 실패");
-                }
-                }
-                });
-            }
+                    });
+
+                }        
+            });
         });
     </script>
 
@@ -126,8 +138,8 @@
                 <div class="product-list">
                     <c:forEach items="${prodListResult }" var="prodList">
 						<c:if test="${not empty prodListResult }">
-                        <div class="product">
-                            <a href="" class="delete_${prodList.prodNum}_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
+                        <div class="product" id="delete_img_${prodList.prodNum}">
+                            <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
                             <a href="ch_content?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
                                 <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
                             </a>
