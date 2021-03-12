@@ -75,7 +75,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Charged Point</th>
                                     <th scope="col">Date</th>
-                                    <th scope="col">Credit/Cash</th>
+                                    <th scope="col">ID</th>
                                 </tr>
                             </thead>
                             <c:forEach items="${pointlist}" var="list" varStatus="status">

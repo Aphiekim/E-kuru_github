@@ -287,6 +287,10 @@ public class UserService {
 		
 		return path;
 	}
+	// 회원 포인트 충전 후 업데이트
+	public int updateUserPoint(UserVO vo) {
+		return dao.updatePoint(vo);
+	}
 	
 
 	//회원 포인트 충전 내역 기입
@@ -349,4 +353,10 @@ public class UserService {
 		return chatvo;
 	}
 
+	
+	
+	
+	
+	
+	
 }
