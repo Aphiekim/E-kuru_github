@@ -1,6 +1,7 @@
 package com.scit.ekuru.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,12 @@ public class ChannelService {
 
 	}
 
-	public void prodDelete(ProductVO vo) {
-		dao.prodDelete(vo);
-	}
+	public HashMap<String, Object> prodDelete(HashMap<String, Object> json) {
+		int prodNum = (int) json.get("prodNum");
+		boolean check = dao.prodDelete(prodNum);
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		result.put("check", check);
 
+		return result;
+	}
 }

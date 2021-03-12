@@ -17,6 +17,6 @@ public interface ChannelMapper {
 
 	public void ch_posters_Write(ProductVO vo);
 
-	public void prodDelete(ProductVO vo);
+	public boolean prodDelete(int prodNum);
 
 }
