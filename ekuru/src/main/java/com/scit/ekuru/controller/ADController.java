@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.RequestService;
 import com.scit.ekuru.service.UserService;
@@ -49,18 +50,26 @@ public class ADController {
 
 	//AD 계약서 작성 완료
 	@RequestMapping(value="/superplan_doContract", method=RequestMethod.POST)
-	public String splanContract(int adTotal) {
+	public String splanContract(SuperPlanVO splan) {
+		
+		logger.info("값 확인"+splan);
+		
 		String id = (String)session.getAttribute("userId");
+		String path = "";
 		UserVO vo = userService.selectUserTest(id);
 		int userPoint = vo.getUserPoint();
+		int adTotal = splan.getAdTotal();
 		
-		//사용한 포인트 차감
-		userPoint = userPoint-adTotal;
-		String path = "";
-		
-		vo.setUserPoint(userPoint);
-		path = userService.updatePoint(vo);
-		
+		if(adTotal>userPoint || userPoint<0) {
+			logger.info("포인트 결제 실패");
+			path ="redirect:/ad/superplan_fail";
+		}else {
+			//사용한 포인트 차감
+			userPoint = userPoint-adTotal;
+			
+			vo.setUserPoint(userPoint);
+			path = userService.updatePoint(vo);
+		}
 		return  path;
 	}
 	
@@ -72,4 +81,11 @@ public class ADController {
 		return "ad/superplan_clear";
 	}
 	
+	//AD 계약 실패창 열기
+	@RequestMapping(value="/superplan_fail", method=RequestMethod.GET)
+	public String splanFail() {
+		logger.info("수퍼플랜 포인트 결제 실패");
+		
+		return "ad/superplan_fail";
+	}
 }

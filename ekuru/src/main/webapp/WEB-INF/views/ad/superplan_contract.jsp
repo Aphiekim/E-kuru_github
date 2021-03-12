@@ -31,16 +31,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-    function applyRecipe(){
-			var adChCharge = document.getElementById('adChCharge').value;
-			var adProdCharge = document.getElementById('adProdCharge').value;
-			var adReqCharge = document.getElementById('adReqCharge').value;
+    function applyRecipe(adTotal){
+        	var adTotal = adTotal;
+			var adChCharge = document.getElementById('adCh').value;
+			var adProdCharge = document.getElementById('adProd').value;
+			var adReqCharge = document.getElementById('adReq').value;
+			var summ = (adChCharge + adProdCharge + adReqCharge);
+			
+			<%--if(summ!=adTotal){
+				alert("신청 금액의 합이 맞지 않습니다.");
+				return false;
+			}--%>
 
-			document.getElementById('adChApply').innerHTML = adChCharge;
+			document.getElementById('adChCharge').value = adChCharge;
+			document.getElementById('adProdCharge').value = adProdCharge;
+			document.getElementById('adReqCharge').value = adReqCharge; 
+				
+			<%--document.getElementById('adChApply').innerHTML = adChCharge;
 			document.getElementById('adProdApply').innerHTML = adProdCharge;
 			document.getElementById('adReqApply').innerHTML = adReqCharge; 
 
-			<%--document.getElementById('adChApply').value = document.getElementById('adChCharge').value;
+			document.getElementById('adChApply').value = document.getElementById('adChCharge').value;
 			document.getElementById('adProdApply').value = document.getElementById('adProdCharge').value;
 			document.getElementById('adReqApply').value = document.getElementById('adReqCharge').value;--%>
 		}
@@ -100,6 +111,7 @@
     </header>
     <!-- header -->
    
+	<form action="/ad/superplan_doContract" method="post">
 	    <div class="container" style="margin-top: 10%;">
 	        <div class="row text-center">
 	            <div class="card  border-st" style="width: 70%; margin-right: 3%;">
@@ -120,7 +132,7 @@
 	                           <h3 class="text-center">Channel</h3 class="text-center">
 	                        </th>
 	                        <td >
-	        	               <input type="text" class="form-control td-st" id="adChCharge" placeholder="point value">
+	        	               <input type="text" class="form-control td-st" id="adCh" placeholder="point value">
 	                        </td>
 	                      </tr>
 	                      <tr>
@@ -128,13 +140,13 @@
 	                            <h3 class="text-center">Shop Posting</h3 class="text-center">
 	                        </th>
 	                        <td>
-	                            <select name=""  class="form-control td-st">
-	                                <option value="">select your Post</option>
-	                                <option value="">1</option>
-	                                <option value="">2</option>
-	                                <option value="">3</option>
+	                            <select name="req"  class="form-control td-st">
+	                                <option value="0">select your Post</option>
+	                                <option value="1">1</option>
+	                                <option value="2">2</option>
+	                                <option value="3">3</option>
 	                            </select>
-	                            <input type="text" class="form-control td-st" id="adProdCharge" placeholder="point value">
+	                            <input type="text" class="form-control td-st" id="adProd" placeholder="point value">
 	                        </td>
 	                      </tr>
 	                      <tr>
@@ -142,13 +154,13 @@
 	                            <h3 class="text-center">Request Posting</h3 class="text-center">
 	                        </th>
 	                        <td>
-	                            <select name="" id="" class="form-control td-st">
-	                                <option value="">select your Post</option>
-	                                <option value="">1</option>
-	                                <option value="">2</option>
-	                                <option value="">3</option>
+	                            <select name="prod" class="form-control td-st">
+	                                <option value="0">select your Post</option>
+	                                <option value="1">1</option>
+	                                <option value="2">2</option>
+	                                <option value="3">3</option>
 	                            </select>
-	                            <input type="text" class="form-control td-st" id="adReqCharge" placeholder="point value">
+	                            <input type="text" class="form-control td-st" id="adReq" placeholder="point value">
 	                        </td>
 	                      </tr>
 	                      <tr>
@@ -156,7 +168,7 @@
 	                      	
 	                      	</th>
 		                    <td>
-                    			<button class="btn btn-danger" type="submit" style="margin-left:0%" onclick="applyRecipe();">Apply</button>
+                    			<button class="btn btn-danger" type="button" style="margin-left:0%" onclick="applyRecipe('${adTotal}');">Apply</button>
 					        </td>
 				          </tr>
 	                    </tbody>
@@ -165,30 +177,36 @@
 	              </div>
    	        <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
                 <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
-				<form action="/ad/superplan_doContract?adTotal=${adTotal }" method="post">
 	               	 <div class="card-body text-secondary">
 	               		 <h5 class="card-title">Please check your items</h5>
 		                    <li>
 		                        Total ${adTotal }$
+		                        <input type="text" id="adTotal" name="adTotal" value="${adTotal }" readonly="readonly">
 		                    </li>
 		                    <hr class="line">
 		                    <li>
-		                        Channel $<p id="adChApply" ></p>
+		                        Channel $
+		                        <input type="text" id="adChCharge" name="adChCharge" readonly="readonly">
+		                       <!--  <p id="adChApply"></p> -->
 		                    </li>
 		                    <li>
-		                        Shop Post $<p id="adProdApply"></p>
+		                        Shop Post $
+		                        <input type="text" id="adProdCharge" name="adProdCharge" readonly="readonly">
+		                        <!-- <p id="adProdApply"></p> -->
 		                    </li>
 		                    <li>
-		                        Request Post $<p id="adReqApply"></p>
+		                        Request Post $
+		                        <input type="text" id="adReqCharge" name="adReqCharge" readonly="readonly">
+		                        <!-- <p id="adReqApply"></p> -->
 		                    </li>
 				     </div>
 				     <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
 		                    <button class="btn btn-danger" type="submit">Submit</button>
 				     </div>
-				</form>
             </div>
         </div>
     </div>
+</form>
 
 
      <!-- include tag Footer Start -->

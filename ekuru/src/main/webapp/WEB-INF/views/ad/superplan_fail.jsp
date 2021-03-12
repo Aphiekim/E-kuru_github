@@ -15,6 +15,9 @@
 		function openHome(){
 			location.href="/";
 		}
+		function openPointCharge(){
+			location.href="/user/mypage_pointPricing"
+		}
     </script>
     <style>
         .text-st{
@@ -58,7 +61,7 @@
     <div class="text-center text-st">
         <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
         <h2>[ Super Plan ]</h2>
-        <h1> 포인트 결재가 완료되었습니다.</h1>
+        <h1>결제 포인트가 현재 포인트보다 많습니다.</h1>
     </div>
 
     <!--버튼-->
@@ -66,7 +69,7 @@
         <div class="row">
             <div class="col">
                 <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning" onclick="">Buying history</button>
+                <button type="button" class="btn btn-warning" onclick="openPointCharge();">Charge</button>
             </div>
         </div>
     </div>
