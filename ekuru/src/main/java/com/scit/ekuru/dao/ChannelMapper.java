@@ -9,9 +9,9 @@ public interface ChannelMapper {
 
 	public ArrayList<ChannelVO> getListAll();
 
-	public ChannelVO chRead(ChannelVO vo);
+	public ChannelVO chRead(String chId);
 
-	public ArrayList<ProductVO> getProdList(ChannelVO vo);
+	public ArrayList<ProductVO> getProdList(String chId);
 
 	public ProductVO getProdEach(ProductVO prodVo);
 
