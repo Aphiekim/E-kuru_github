@@ -140,8 +140,32 @@ public class RequestDAO {
 	}
 	
 	//내 요청 내역 불러오기
+	public ArrayList<RequestVO> mypageReq(String id){
+		ArrayList<RequestVO> list = null;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			list = mapper.mypageReq(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
-	
+	public int deleteMypageReq(String id) {
+		int cnt = 0;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			cnt = mapper.deleteMypageReq(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+		
+	}
 	
 	
 	

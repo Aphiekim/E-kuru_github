@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +19,14 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+		function openWriteRequest(){
+			location.href="/request/request_writeForm";
+		}
+		function deleteHistory(){
+			location.href="/request/request_manageDelete";
+		}
+    </script>
     <style>
         * {
             font-family: 'NotSansCJKjp-Black', sans-serif;
@@ -33,38 +42,12 @@
 <body>
 <%@ include file="/WEB-INF/views/header.jsp" %>
     <!--요청내역 start-->
-    <div>
-        <!-- header -->
-        <header class="header---">
-            <div class="wrapper">
-                <a href="">
-                    <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-                </a>
-                <nav>
-                    <ul class="menu">
-                        <li class="menu-list headli">
-                            <a href="">Home</a>
-                            <ul class="menu-sub">
-                                <li class="headli">Logout</li>
-                                <li class="headli">Mypage</li>
-                                <li class="headli">info</li>
-                            </ul>
-                        </li>
-                        <li class="headli"><a href="">About</a></li>
-                        <li class="headli"><a href="">Board</a></li>
-                        <li class="headli"><a href="">Reference</a></li>
-                        <li class="headli"><a href="">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <!-- header -->
         <!--버튼-->
         <div class="buttons" style="text-align: center; margin-top: 10%;">
             <div class="row">
                 <div class="col">
                     <button type="button" class="btn btn-info">Home</button>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-warning">Request</button>
+                    <button type="button" class="btn btn-warning" onclick="openWriteRequest();">Request</button>
                 </div>
             </div>
         </div>
@@ -75,38 +58,47 @@
                     <h2>My Request History</h2>
                 </div>
                 <div class="card-body">
-                    <!-- 충전 내역 출력 부분 -->
+                    <!-- 요청 내역 출력 부분 -->
                     <div>
                         <form action="#">
                             <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Code</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Title</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Offer ID</th>
-                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>A12DEW</td>
-                                        <td>2021-02-19</td>
-                                        <td>aphiakim</td>
-                                        <td>
-                                            <button class="btn btn-secondary">Wating</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>W25AEB</td>
-                                        <td>2021-02-17</td>
-                                        <td>aphiakim</td>
-                                        <td>
-                                            <button class="btn btn-danger">Clear</button>
-                                        </td>
-                                    </tr>
+                                	<c:forEach var="list" items="${list }">
+	                                    <tr>
+	                                        <th scope="row">${list.reqNum }</th>
+	                                        <td>
+	                                        	<c:if test="${list.categoryCode==1 }">
+	                                        		Fashion/ACC
+	                                        	</c:if>
+	                                        	<c:if test="${list.categoryCode==2 }">
+	                                        		Beauty
+	                                        	</c:if>
+	                                        	<c:if test="${list.categoryCode==3 }">
+	                                        		Food
+	                                        	</c:if>
+	                                        	<c:if test="${list.categoryCode==4 }">
+	                                        		Book/CD
+	                                        	</c:if>
+	                                        	<c:if test="${list.categoryCode==5 }">
+	                                        		Ect
+	                                        	</c:if>
+	                                        </td>
+	                                        <td>
+	                                        	<a href="/request/request_readForm?reqNum=${list.reqNum }">${list.reqTitle }</a>
+											</td>
+	                                        <td>
+	                                        	${list.reqIndate }
+	                                        </td>
+	                                    </tr>
+	                                </c:forEach>
                                 </tbody>
                             </table>
                         </form>
@@ -116,8 +108,8 @@
                     </div>
                 </div>
             </div>
-            <!--마이 포인트 end-->
-            <button type="button" class="btn btn-secondary" style="margin-top: 3%;">Delete All
+            <!--작성한 요청글 end-->
+            <button type="button" class="btn btn-secondary" style="margin-top: 3%;" onclick="deleteHistory();">Delete All</button>
         </div>
         <%@ include file="/WEB-INF/views/main-footer.jsp" %>
 
