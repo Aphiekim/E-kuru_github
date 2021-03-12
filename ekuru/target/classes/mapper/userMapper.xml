@@ -90,7 +90,7 @@ where
 </update>
 
 
-<select id="selectChatRoom" parameterType="String" resultType="hashmap">
+<select id="selectChatRoom" parameterType="chat" resultType="hashmap">
 select 
 	cr.chatnum as CHATNUM, 
 	cr.userid as USERID, 
@@ -99,6 +99,56 @@ select
 	ca.content as CONTENT
 from 
 	e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
-where cr.userId = #{userId}
+
+<choose>
+	<when test="userType == 1">
+		<where>
+			chh.chNum = #{chNum}
+		</where>
+	</when>
+	<otherwise>
+		<where>
+			cr.userId = #{userId}
+		</where>
+	</otherwise>
+</choose>
+
+</select>
+
+<select id="selectChat" parameterType="int" resultType="chat">
+select 
+	roomnum as ROOMNUM,
+	content as CONTENT
+from e_chat_tb
+where roomnum = #{chatNum}
+</select>
+
+<update id="updateChat" parameterType="chat">
+update 
+	e_chat_tb
+set 
+	content = #{content}
+where
+	roomnum = #{chatNum}
+</update>
+
+<select id="selectChUser1" parameterType="String" resultType="chat">
+select 
+	
+	ch.CHNUM as CHNUM,
+	us.USERTYPE as USERTYPE,
+	us.USERID as USERID
+	
+from e_channel_tb ch join e_user_tb us on ch.chid = us.userid join e_chattingroom_tb cr on cr.chnum = ch.chnum
+where us.USERID = #{userId}
+</select>
+
+<select id="selectChUser2" parameterType="String" resultType="chat">
+select 
+	userId as userId, 
+	userType as userType
+from 
+	e_user_tb
+where userid = #{userId}
 </select>
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.scit.ekuru.vo.ChargePointVO;
+import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -84,11 +85,22 @@ public class UserDAO {
 		return vo;
 	}
 	
-	public ArrayList<HashMap<Object, Object>> selectChatRoom(String id){
-		ArrayList<HashMap<Object, Object>> vo = null;
+	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo){
+		ArrayList<HashMap<Object, Object>> list = null;
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			vo = mapper.selectChatRoom(id);
+			list = mapper.selectChatRoom(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ChatVO selectChat(int chatNum){
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChat(chatNum);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -144,5 +156,41 @@ public class UserDAO {
 		
 		return cnt;
 	
+	}
+	
+	public int updateChat(ChatVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.updateChat(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	
+	}
+	
+	public ChatVO selectChUser1(String id) {
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChUser1(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
+	public ChatVO selectChUser2(String id) {
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChUser2(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 }

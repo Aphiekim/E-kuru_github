@@ -17,6 +17,22 @@
   <script src="../resources/css/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
   <script src="../resources/css/bootstrap-4.6.0-dist/js/jquery.min2.js"></script>
   <title>E-kuru</title>
+  
+  <script type="text/javascript">
+	function insertChat(){
+		var text = document.getElementById("checkchat").value;
+		if (text == "") {
+            alert("내용을 입력해주세요");
+            return false;
+		}else{
+			document.submitForm.submit();
+			return true;
+		}
+		return false;
+	}
+	
+  </script>
+  
 </head>
 
 <body>
@@ -46,6 +62,7 @@
             
             
           <c:forEach items="${chatroomlist }" var="list">
+          <a href="/user/chatForm?chatNum=${list.CHATNUM }">
 	          <div class="chat_list">
 	            <div class="chat_people">
 	              <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
@@ -57,6 +74,7 @@
 	              </div>
 	            </div>
 	          </div>
+	      </a>
           </c:forEach>
           
           
@@ -66,70 +84,59 @@
       </div>
       <div class="mesgs">
         <div class="msg_history">
-          <div class="incoming_msg">
-            <div class="incoming_msg_img">
-              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-            </div>
-            <div class="received_msg">
-              <div class="received_withd_msg">
-                <p>
-                  Test which is a new approach to have all
-                  solutions
-                </p>
-                <span class="time_date"> 11:01 AM | June 9</span>
-              </div>
-            </div>
+        <button type="button" class="btn btn-outline-danger" style="margin-bottom: 10px;">명세작성</button>
+        <c:forEach items="${chatlist }" var="chat">
+        
+        	<c:if test="${chat.userid eq sessionScope.userId}">
+	        	<div class="outgoing_msg">
+	              <div class="sent_msg">
+	                <p>
+	                	${chat.content }
+	                </p>
+	                <span class="time_date"> ${chat.date }</span>
+	              </div>
+	            </div>
+        	</c:if>
+        	<c:if test="${chat.userid ne sessionScope.userId}">
+        		<div class="incoming_msg">
+	            <div class="incoming_msg_img">
+	              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+	            </div>
+	            <div class="received_msg">
+	              <div class="received_withd_msg">
+	                <p>
+	                  ${chat.content }
+	                </p>
+	                <span class="time_date"> ${chat.date }</span>
+	              </div>
+	            </div>
+	          </div>
+        	</c:if>
+        </c:forEach>
+
           </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Test which is a new approach to have all
-                  solutions</p>
-                <span class="time_date"> 11:01 AM | June 9</span>
-              </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-              </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test, which is a new approach to have</p>
-                  <span class="time_date"> 11:01 AM | Yesterday</span>
-                </div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Apollo University, Delhi, India Test</p>
-                <span class="time_date"> 11:01 AM | Today</span>
-              </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-              </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>We work directly with our designers and suppliers,
-                    and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford.</p>
-                  <span class="time_date"> 11:01 AM | Today</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="type_msg">
-            <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-            </div>
-          </div>
+          <form name="submitForm" action="/user/chatForm" method="post">
+	          <div class="type_msg">
+	            <div class="input_msg_write">
+	              <input id="checkchat" name="content" type="text" class="write_msg" placeholder="Type a message" />
+	              <input type="hidden" name="chatNum" value="${chatNum }">
+	              <input type="hidden" name="userId" value="${sessionScope.userId }">
+	              
+	              <button class="msg_send_btn" type="button" onclick="insertChat();"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+	            </div>
+	          </div>
+          </form>
         </div>
+        
+        
 
 
 
         
 </div>
+	
 </div>
-
+	
 </div>
 
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>

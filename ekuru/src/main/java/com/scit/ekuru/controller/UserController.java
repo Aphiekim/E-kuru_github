@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
 
 @Controller
@@ -35,7 +36,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO vo) {
-		System.out.println(vo);
+		//System.out.println(vo);
 		return service.insertUser(vo);
 	}
 	
@@ -52,7 +53,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(UserVO vo) {
-		System.out.println(vo);
+		//System.out.println(vo);
 		
 		return service.loginUser(vo);
 	}
@@ -89,7 +90,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.POST)
 	public String mypageInfoForm(UserVO vo) {
-		System.out.println(vo);
+		//System.out.println(vo);
 		return service.modifyUser(vo);
 	}
 	
@@ -101,10 +102,38 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
-	public String chatForm(Model model) {
-		ArrayList<HashMap<Object, Object>> list = service.selectChatRoom();
-		model.addAttribute("chatroomlist", list);
+	public String chatForm(Model model, ChatVO vo) {
+		String id = (String)session.getAttribute("userId");
+		UserVO uservo = service.selectUserTest(id);
+		ChatVO chatvo = null;
+		System.out.println(uservo);
+		if(uservo.getUserType().equals("1")) {
+			chatvo = service.selectChUser1();
+		}else {
+			chatvo = service.selectChUser2();
+		}
+		
+		System.out.println(chatvo);
+		
+		ArrayList<HashMap<Object, Object>> chatroomlist = service.selectChatRoom(chatvo);
+		model.addAttribute("chatroomlist", chatroomlist);
+	
+		//System.out.println(vo);
+
+		ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
+		if(chatlist != null) {
+			model.addAttribute("chatlist", chatlist);
+			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));
+		}
+			
+		
 		return "/chat/chatForm";
+	}
+	
+	@RequestMapping(value = "/chatForm", method = RequestMethod.POST)
+	public String updateChat(ChatVO vo) {
+		
+		return service.updateChat(vo);
 	}
 	
 	@RequestMapping(value = "/mypagePoint", method = RequestMethod.GET)
