@@ -38,4 +38,6 @@ public interface UserMapper {
 	
 	// 회원 포인트 수정
 	public int updatePoint(UserVO vo);
+	// 채팅방 조회
+	public ArrayList<HashMap<Object, Object>> selectChatRoom(String id);
 }

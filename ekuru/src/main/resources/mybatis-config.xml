@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.scit.ekuru.vo.UserVO" alias="user" />
+		<typeAlias type="com.scit.ekuru.vo.ChatVO" alias="chat" />
 		<typeAlias type="com.scit.ekuru.vo.RequestVO" alias="request" />
 		<typeAlias type="com.scit.ekuru.vo.RequestCommentVO" alias="comment" />
 		<typeAlias type="com.scit.ekuru.vo.ChargePointVO" alias="chargepoint" />

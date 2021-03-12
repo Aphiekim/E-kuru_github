@@ -16,6 +16,7 @@ import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
 
 
@@ -53,7 +54,13 @@ public class UserService {
 
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
-			path = "redirect:/";
+	        // 인증여부 확인용 session.setAttribute("userId", Uservo.getUserId());
+	 
+	        if(Uservo.getUserConfirm().equals("0")) {
+	        	path = "redirect:/user/mypage_Info";
+	        }else {
+	        	path = "redirect:/";
+	        }
 		}
 		return path;
 	}
@@ -125,8 +132,69 @@ public class UserService {
 		return list;
 	}
 	
+	public ArrayList<HashMap<Object, Object>> selectChatRoom(){
+		String id = (String) session.getAttribute("userId");
+		ArrayList<HashMap<Object, Object>> list = dao.selectChatRoom(id);
+		HashMap<Object, Object> texthash = null;
+		HashMap<Object, Object> test = null;
+		
+		for(int i = 0; i < list.size(); i++) {
+			test = new HashMap<Object,Object>();
+			
+			String content = (String)list.get(i).get("CONTENT");
+			String text[] = content.split("/");
+			
+//			System.out.println(text.length);
+//			System.out.println(text[0] + text[1] + text[2]);
+			
+			//texthash = new HashMap<Object, Object>();
+			//texthash.put("CONTENT", text[1]);
+			
+			// 반복문으로 list 하나씩 test 해시에 저장
+			test = list.get(i);
+			
+			// 기존에 한 문장으로 저장된 채팅내용은 삭제
+			test.remove("CONTENT");
+			
+			// 마지막에 기록된 채팅, 날짜를 가져와서 새로운 키값으로 저장
+			test.put("text", text[1]);
+			test.put("date", text[2]);
+			
+			System.out.println(test);
+			
+			//수정된 해시를 다시 기존 list에 set하여 저장
+			//그러면 채팅방 목록에서 채팅 보낸 날짜와 마지막 채팅내용을 출력할수 있음
+			list.set(i, test);
+			System.out.println(list);
+			
+			//texthash.put("date", text[2]);
+			//list.add(texthash);
+			//list.get(i).s
+			//System.out.println(texthash);
+			//list.add(texthash);
+		}
+		
+		return list;
+	}
 	
-	
+//	public ArrayList<HashMap<String, Object>> selectChat(){
+//		String id = (String) session.getAttribute("userId");
+//		ChatVO vo = dao.selectChatRoom(id);
+//	    String text = vo.getContent();
+//	    String arr[] = text.split("/");
+//	      
+//	    ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
+//	    HashMap<Object, Object> content = null;
+//	      
+//	    for(int i = 0; i < arr.length; i++) {
+//	    	content = new HashMap<Object, Object>();
+//	    	content.put("userid", arr[i]);
+//	        content.put("content", arr[i+1]);
+//	        content.put("date", arr[i+2]);
+//	        i += 2;
+//	        list.add(content);
+//	     }
+//	}
 	
 	@Transactional
 	public void Mailcreate() throws Exception {
@@ -153,6 +221,7 @@ public class UserService {
 				.toString());
 		sendMail.setFrom("ekuruco@gmail.com", "Ekuru-Team");
 		sendMail.setTo(vo.getUserId());
+		sendMail.setTo("tasd7070@naver.com");
 		sendMail.send();
 	}
 	
