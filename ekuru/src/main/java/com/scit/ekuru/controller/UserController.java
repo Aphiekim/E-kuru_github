@@ -139,8 +139,13 @@ public class UserController {
 	
 	@RequestMapping(value = "/mypagePoint", method = RequestMethod.GET)
 	public String mypagePoint(Model model) {
+		String id = (String)session.getAttribute("userId");
+		UserVO newVo = service.selectUserTest(id);
+		
 		ArrayList<HashMap<String, Object>> list = service.selectPoint();
 		model.addAttribute("pointlist", list);
+		session.setAttribute("userPoint", newVo.getUserPoint());
+		
 		return "user/mypage_point";
 	}
 	

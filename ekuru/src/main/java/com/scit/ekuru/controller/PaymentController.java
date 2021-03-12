@@ -40,7 +40,7 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value="/payinsert", method=RequestMethod.GET)
-	public String payInsert(int pointProdNum) {
+	public String payInsert(int pointProdNum,Model model) {
 		logger.info("결제 성공! 포인트로 전환");
 		String id = (String)session.getAttribute("userId");
 		PointVO point = new PointVO();
@@ -48,6 +48,25 @@ public class PaymentController {
 		point.setUserId(id);
 		
 		String path = service.insertPoint(point);
+		logger.info("포인트로 전환");
+		UserVO vo = service.selectUserTest(id);
+		PointProductVO pvo = service.selectPointPricing(pointProdNum);
+		int total = vo.getUserPoint()+pvo.getPointProdName();
+		
+		UserVO updateVo = new UserVO();
+		updateVo.setUserId(id);
+		updateVo.setUserPoint(total);
+		
+		int cnt = service.updateUserPoint(updateVo);
+		
+		if(cnt>0) {
+			logger.info("충전 업데이트 성공");
+		}else {
+			logger.info("충전 업데이트 실패");
+		}
+		//세션에 포인트내용 업데이트
+		UserVO newVo = service.selectUserTest(id);
+		session.setAttribute("userPoint", newVo.getUserPoint());
 		
 		return path;
 	}

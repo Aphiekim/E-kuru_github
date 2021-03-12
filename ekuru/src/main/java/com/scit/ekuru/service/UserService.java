@@ -287,8 +287,12 @@ public class UserService {
 		
 		return path;
 	}
+	// 회원 포인트 충전 후 업데이트
+	public int updateUserPoint(UserVO vo) {
+		return dao.updatePoint(vo);
+	}
 	
-<<<<<<< HEAD
+
 	//회원 포인트 충전 내역 기입
 	public String insertPoint(PointVO vo) {
 		int cnt = dao.insertPoint(vo);
@@ -300,7 +304,11 @@ public class UserService {
 		}else {
 			logger.info("충전 내역 기입 실패");
 			path="redirect:/user/mypage_pointPricing";
-=======
+		}
+		
+		return path;
+	}
+	
 	public String updateChat(ChatVO vo) {
 		//현재 시간을 가져옴
 		SimpleDateFormat sysdate = new SimpleDateFormat ( "YYYY-MM-DD HH:mm:ss");
@@ -325,14 +333,11 @@ public class UserService {
 			path = "redirect:/user/chatForm?chatNum=" + vo.getChatNum();
 		}else {
 			path = "redirect:/";
->>>>>>> origin/master
 		}
 		
 		return path;
+
 	}
-<<<<<<< HEAD
-=======
-	
 	
 	public ChatVO selectChUser1() {
 		String id = (String) session.getAttribute("userId");
@@ -347,5 +352,11 @@ public class UserService {
 		
 		return chatvo;
 	}
->>>>>>> origin/master
+
+	
+	
+	
+	
+	
+	
 }
