@@ -13,6 +13,7 @@
 		<typeAlias type="com.scit.ekuru.vo.ProductVO" alias="product" />
 		<typeAlias type="com.scit.ekuru.vo.PointProductVO" alias="pointprod" />
 		<typeAlias type="com.scit.ekuru.vo.ProductCommentVO" alias="prodComment" />
+		<typeAlias type="com.scit.ekuru.vo.PointVO" alias="point" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
