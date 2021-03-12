@@ -3,6 +3,7 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
 
 public interface ChannelMapper {
@@ -18,5 +19,11 @@ public interface ChannelMapper {
 	public void ch_posters_Write(ProductVO vo);
 
 	public boolean prodDelete(int prodNum);
+
+	public ArrayList<ProductCommentVO> getProdComment(int prodNum);
+
+	public String getUserType(String userId);
+
+	public int addComment(ProductCommentVO commentVo);
 
 }

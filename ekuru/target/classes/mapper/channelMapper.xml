@@ -130,4 +130,51 @@ INSERT INTO
 			PRODNUM = #{prodNum}
 </delete>
 
+<!-- 상품 댓글 가져오기 -->
+<select id="getProdComment" parameterType="int" resultType="prodComment">
+	SELECT
+		PRODCOMMENTNUM,
+		USERID,
+		PRODNUM,
+		PRODCOMMENT
+	FROM
+		E_PRODUCTCOMMENT_TB
+	WHERE
+		PRODNUM = #{prodNum}
+
+</select>
+
+<!-- 유저타입 가져오기 (댓글창) -->
+<select id="getUserType" parameterType="String" resultType="String">
+	SELECT
+		USERTYPE
+	FROM
+		E_USER_TB
+	WHERE
+		USERID = #{userId}
+</select>
+
+<!-- 상품 댓글 추가 -->
+<insert id="addComment" parameterType="prodComment">
+
+	<selectKey keyProperty="prodCommentNum" resultType="int" order="BEFORE">
+		SELECT
+			prodCommentNum_seq.nextval
+		FROM
+			dual
+	</selectKey>
+	INSERT INTO
+		E_PRODUCTCOMMENT_TB(
+			PRODCOMMENTNUM,
+			USERID,
+			PRODNUM,
+			PRODCOMMENT
+		)VALUES(
+			#{prodCommentNum},
+			#{userId},
+			#{prodNum},
+			#{prodComment})
+
+</insert>
+
 </mapper>

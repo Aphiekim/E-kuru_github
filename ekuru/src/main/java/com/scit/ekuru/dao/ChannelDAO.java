@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
 
 @Repository
@@ -91,4 +92,44 @@ public class ChannelDAO {
 		return check;
 
 	}
+
+	public ArrayList<ProductCommentVO> getProdComment(int prodNum) {
+		ArrayList<ProductCommentVO> commentResult = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			commentResult = mapper.getProdComment(prodNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return commentResult;
+
+	}
+
+	public String getUserType(String userId) {
+		String userResult = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			userResult = mapper.getUserType(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return userResult;
+
+	}
+
+//	상품 댓글 추가
+	public int addComment(ProductCommentVO commentVo) {
+		int prodCommentNum = -1;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			prodCommentNum = mapper.addComment(commentVo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return prodCommentNum;
+	}
+
 }

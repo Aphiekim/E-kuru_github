@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,64 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/main-footer.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script> $('.carousel').carousel({ interval: 2000 //기본 5초
-    }) </script>
+    <script>
+    $('.carousel').carousel({ interval: 2000 //기본 5초
+    });
+
+    $(() => {
+            $(".addComment").click(function () {
+                alert("안녕");
+
+                const prodComment = $("#commentBox").val();
+                if (prodComment == null || prodComment.lengh == 0) {
+                    alert("댓글을 입력 해 주세요");
+                } else {
+                    const userId = $("#userId").val();
+                    let prodNum = $("#prodNum").val();
+                    prodNum = parseInt(prodNum);
+
+                    const data = {
+                    	prodComment: prodComment,
+                        userId: userId,
+                        prodNum: prodNum
+                    };
+
+                    $.ajax({
+                        url: '/channel/addComment',
+                        type: "POST",
+                        async : false,
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(data),
+                        success: function (result) {
+                            if (result['prodCommentNum'] > 0) {
+                               /** const content = `
+                                    <div class="col-md-12">
+                                        <span class="comment-detail">${prodComment}</span>
+                                        <span class="comment-detail">${userId}</span>
+                                    </div>
+                                `;**/
+                                const content = '<div class="col-md-12"><span class="comment-detail">'+userId+'</span><span class="comment-detail">'+prodComment+'</span></div>';
+                                $("#commentAdd").append(content);
+                            } else {
+                                alert('등록 되지 않았습니다.');
+                            }
+                        },
+                        error: function () {
+                            alert("통신장애가 발생하였습니다.");
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+    </script>
 
 
 </head>
@@ -142,28 +196,35 @@
 
         <!--하위 부분 시작-->
         <div class="bottom-content">
-
             <div class="comments">
-                <div>
-                    <img class="img" src="/resources/img/person1.png">
-                    <span class="comment-detail">Jaded</span>
-                    <span class="comment-detail">I am used to much thicker foundations - this is the complete opposite</span>
-                </div>
-                <div>
-                    <img class="img" src="/resources/img/person1.png">
-                    <span class="comment-detail">N. Richter</span>
-                    <span class="comment-detail">Seems great! I don’t have experience with brushes though !</span>
-                </div>
-                <div>
-                    <img class="img" src="/resources/img/person1.png">
-                    <span class="comment-detail">Cassie</span>
-                    <span class="comment-detail">Love it. Will buy it again.~</span>
+                <div class="row" id="commentAdd">
+                    <c:forEach items="${commentResult }" var="commentList">
+                            <div class="col-md-12">
+                                <img class="img" src="/resources/img/person1.png">
+                                <span class="comment-detail">${commentList.userId }</span>
+                                <span class="comment-detail">${commentList.prodComment }</span>
+                            </div>
+                    </c:forEach>
                 </div>
 
-                <div style="text-align: center;">
-                    <input class="textbox" type="text" value="댓글을 입력하세요.">
-                    <img style="width: 30px; margin-left: 10px;" src="/resources/img/channel-tick.png">
+                <div class="row" style="text-align: center;">
+                    <c:if test="${userType == '1'}">
+                        <div class="col-md-12">
+                            <input id="prodNum" type="hidden" value="${prodEachResult.prodNum }">
+                            <input id="userId" type="hidden" value="${sessionScope.userId}">
+                            <c:choose>
+                                <c:when test="${result}">
+                                    <input class="textbox" id="commentBox" type="text" placeholder="댓글을 입력하세요." readonly = "readonly">
+                                </c:when>
+                                <c:otherwise>
+                                    <input class="textbox" id="commentBox" type="text" placeholder="댓글을 입력하세요.">
+                                </c:otherwise>
+                            </c:choose>
+                            <a class="addComment"><img style="width: 30px; margin-left: 10px;" src="/resources/img/channel-tick.png"></a>
+                        </div>
+                    </c:if>
                 </div>
+
             </div>
 
         </div>
