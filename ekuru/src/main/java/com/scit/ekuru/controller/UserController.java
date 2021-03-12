@@ -2,6 +2,7 @@ package com.scit.ekuru.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -138,8 +139,6 @@ public class UserController {
 		return "redirect:/user/mypage_Info";
 	}
 	
-	
-	
 	//포인트 화면으로 이동
 	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
 	public String pointPricing(Model model) {
@@ -150,5 +149,11 @@ public class UserController {
 		model.addAttribute("user", user);
 		
 		return "/user/mypage_pointPricing";
+	}
+	
+	//결제 완료 페이지로 이동
+	@RequestMapping(value="/mypage_paymentClear", method=RequestMethod.GET)
+	public String payClear() {
+		return "/user/mypage_paymentClear";
 	}
 }

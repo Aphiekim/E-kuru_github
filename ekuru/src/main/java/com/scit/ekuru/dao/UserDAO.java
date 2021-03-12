@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
 
 
@@ -141,8 +142,20 @@ public class UserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return cnt;
+	}
+	
+	// 포인트 충전 내역 기록
+	public int insertPoint(PointVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertPoint(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return cnt;
-	
 	}
 }

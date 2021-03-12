@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
 
 public interface UserMapper {
@@ -35,6 +36,9 @@ public interface UserMapper {
 	
 	// 포인트 상품 목록 조회
 	public PointProductVO selectPointPricing(int pointProdNum);
+	
+	//포인트 충전 내역 기록
+	public int insertPoint(PointVO vo);
 	
 	// 회원 포인트 수정
 	public int updatePoint(UserVO vo);
