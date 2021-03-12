@@ -8,6 +8,12 @@
 <title>Ekuru</title>
 <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
 </head>
+<script type="text/javascript">
+function useId(id){
+	opener.document.getElementById("id").value = id;
+	this.close();
+}
+</script>
 <body>
 
 <h2>E-kuru Point Pay</h2>
@@ -17,6 +23,7 @@
 	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 		<input type="hidden" name="cmd" value="_xclick">
 		<input type="hidden" name="business" value="ekuruco@gmail.com">
+		결제후 이동되는 페이지 : <input type="text" name="return" value="http://localhost:8888/" size="50"/><br />
 		Item : <input type="text" name="item_name" value="${pvo.getPointProdName() }" readonly="readonly"><br/>
 		Code : <input type="text" name="item_number" value="${pvo.getPointProdName() }" readonly="readonly"><br />
 		Currency : <input type="text" name="currency_code" value="JPY" readonly="readonly"><br />

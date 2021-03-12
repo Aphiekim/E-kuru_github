@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="../resources/css/main-footer.css">
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/header_Origin.css">
+    <script type="text/javascript">
+		function openHome(){
+			location.href="/";
+		}
+    </script>
     <style>
         .text-st{
             color: #A4193D;
@@ -51,17 +56,17 @@
 <!-- 주문 완료 창-->
 <div class="container" style="margin-bottom: 25%;">
     <div class="text-center text-st">
-        <img src="img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
-        <h2>[ 주문 번호 ]</h2>
-        <h1>주문이 완료되었습니다.</h1>
+        <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
+        <h2>[ Super Plan ]</h2>
+        <h1> 포인트 결재가 완료되었습니다.</h1>
     </div>
 
     <!--버튼-->
     <div class="buttons" style="text-align: center; margin-top: 5%;">
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-info">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning">Buying history</button>
+                <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-warning" onclick="">Buying history</button>
             </div>
         </div>
     </div>

@@ -1,28 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!--반응형 만들기 위해서 필요-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-kuru</title>
-    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
-    <link rel="stylesheet" href="/resources/css/ChannelManagement.css">
-    <link rel="stylesheet" href="/resources/css/main-footer.css">
-    <link rel="stylesheet" href="/resources/css/header.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
+    <link rel="stylesheet" href="../resources/css/main-footer.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/header_Origin.css">
+    <script type="text/javascript">
+		function openHome(){
+			location.href="/";
+		}
+		function openPointCharge(){
+			location.href="/user/mypage_pointPricing"
+		}
+    </script>
     <style>
-       body{
-           background-color: #FFDFB9;
-       }
+        .text-st{
+            color: #A4193D;
+            margin-top: 3%;
+        }
+
+        body{
+            background-color: #FFDFB9;
+        }
     </style>
 </head>
 <body>
-    <!-- header -->
+ <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -34,7 +43,7 @@
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
@@ -47,80 +56,31 @@
         </div>
     </header>
     <!-- header -->
-    <div>
+<!-- 주문 완료 창-->
+<div class="container" style="margin-bottom: 25%;">
+    <div class="text-center text-st">
+        <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
+        <h2>[ Super Plan ]</h2>
+        <h1>결제 포인트가 현재 포인트보다 많습니다.</h1>
+    </div>
 
-
-        <div class="container" style="margin-top: 10%;background-color: #FFDFB9;">
-            <div class="base">
-                <div class="row">
-                    <div class="main-text">
-                        <span>${channel.chName }님의 채널</span>
-                    </div>
-                    <div class="content1">
-                        <div class="profile">
-                            <a href="">
-                                <img src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" class="profile-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content2">
-                        <div class="test">
-                            <ul>
-                                <li class="li-sty"><span>51</span></li>
-                                <li class="li-sty"><span>379</span></li>
-                            <li  class="li-sty"><span>8210</span></li>
-                        </ul>
-
-                        <ul class="text">
-                            <li  class="li-sty"><span>Posts</span></li>
-                            <li  class="li-sty"><span>Followers</span></li>
-                            <li  class="li-sty"><span>Follow</span></li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="test2">
-
-                    <p>
-                        <span class="profile-text">
-                            Nike Pro Top can be worn as a long sleeve layered item in cool weather.
-                            Lightweight, highly reliable materials with dry fit technology provide a consistent comfortable fit during training.
-                        </span>
-                    </p>
-                </div>
-
-                <c:if test="${empty prodListResult }">
-                    <p>아직 등록된 상품이 없습니다.</p>
-                </c:if>
-
-                <div class="product-list">
-                    <c:forEach items="${prodListResult }" var="prodList">
-						<c:if test="${not empty prodListResult }">
-                        <div class="product">
-                            <a href="ch_content?prodNum=${prodList.prodNum }&chId=${channel.chId}">
-                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
-                            </a>
-                        </div>
-                       	</c:if>
-                    </c:forEach>
-                </div>
-
-                    <c:if test="${sessionScope.userId eq channel.chId}">
-                        <div class="button-list">
-                            <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chId=${channel.chId}'">
-                            <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management?chId=${channel.chId}'">
-                        </div>
-                </c:if>
-
-
+    <!--버튼-->
+    <div class="buttons" style="text-align: center; margin-top: 5%;">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-warning" onclick="openPointCharge();">Charge</button>
             </div>
-
-
         </div>
     </div>
+
 </div>
-    <!-- include tag Footer Start -->
-    <div class="footer">
+<!-- 주문 완료창 end-->
+
+<!-- include tag Footer Start -->
+<div>
+
+    <div class="footer" style="margin-top: -15%;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -166,7 +126,7 @@
                         <form class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Email@email.com"
                                 aria-label="Email@email.com aria-describedby=" button-addon2">
-                            <button class="btn btn-secondary" type="submit" id="button-addon2">SUBMIT</button>
+                            <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
                         </form>
                     </div>
                 </div>
@@ -184,7 +144,7 @@
             </div>
         </div>
     </div>
-
-
+</div>
+<!-- Footer End -->
 </body>
 </html>

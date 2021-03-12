@@ -30,11 +30,8 @@
 		CHINDATE
 	FROM
 		E_CHANNEL_TB
-	<where>
-	    <if test="chName == null">CHNUM = #{chNum}</if>
-	    <if test="chName != null">CHNAME = #{chName}</if>
-	</where>
-
+	WHERE
+	    chId = #{chId}
 
 </select>
 
@@ -125,7 +122,7 @@ INSERT INTO
 </insert>
 
 <!-- 상품 삭제 -->
-<delete id="prodDelete" parameterType="product">
+<delete id="prodDelete" parameterType="int">
 	DELETE
 		FROM
 			E_PRODUCT_TB

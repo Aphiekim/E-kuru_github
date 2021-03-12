@@ -131,7 +131,7 @@
                     <c:if test="${channel.chNum > -1 && channel.chNum < 3 }">
                       <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chName=${channel.chName }&chId=${channel.chId }'">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                 class="fas fa-plus fa-3x"></i></div>
                           </div>
@@ -155,7 +155,7 @@
                     <c:if test="${channel.chNum > 2 && channel.chNum < 6 }">
                       <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chName=${channel.chName }&chId=${channel.chId }'">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                 class="fas fa-plus fa-3x"></i></div>
                           </div>
@@ -178,7 +178,7 @@
                     <c:if test="${channel.chNum > 5 && channel.chNum < 9 }">
                       <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chName=${channel.chName }&chId=${channel.chId }'">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                 class="fas fa-plus fa-3x"></i></div>
                           </div>
@@ -214,7 +214,7 @@
         <c:forEach items="${chListResult }" var="channel">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
             <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chName=${channel.chName }&chId=${channel.chId }'">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
