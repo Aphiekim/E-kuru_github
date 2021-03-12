@@ -88,7 +88,18 @@ set
 where
 	userId = #{userId}
 </update>
-
+<insert id="insertPoint" parameterType="point">
+insert
+into e_point_tb(
+	pointChargeNum
+	,userId
+	,pointProdNum
+)values(
+	point_seq.nextval
+	,#{userId}
+	,#{pointProdNum}
+)
+</insert>
 
 <select id="selectChatRoom" parameterType="chat" resultType="hashmap">
 select 

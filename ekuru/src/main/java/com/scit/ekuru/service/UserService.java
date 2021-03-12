@@ -7,23 +7,29 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
+import com.scit.ekuru.controller.PaymentController;
 import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
 
 
 @Service
 public class UserService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
 	@Autowired
 	private UserDAO dao;
@@ -56,10 +62,9 @@ public class UserService {
 
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
-<<<<<<< HEAD
 	        session.setAttribute("userPoint", Uservo.getUserPoint());
 			path = "redirect:/";
-=======
+
 	        // 인증여부 확인용 session.setAttribute("userId", Uservo.getUserId());
 	 
 	        if(Uservo.getUserConfirm().equals("0")) {
@@ -67,7 +72,7 @@ public class UserService {
 	        }else {
 	        	path = "redirect:/";
 	        }
->>>>>>> 58fa899df969caacc690ff83b00e9c761be92434
+
 		}
 		return path;
 	}
@@ -283,6 +288,19 @@ public class UserService {
 		return path;
 	}
 	
+<<<<<<< HEAD
+	//회원 포인트 충전 내역 기입
+	public String insertPoint(PointVO vo) {
+		int cnt = dao.insertPoint(vo);
+		String path ="";
+		
+		if(cnt>0) {
+			logger.info("충전 내역 기입 성공");
+			path="redirect:/user/mypage_paymentClear";
+		}else {
+			logger.info("충전 내역 기입 실패");
+			path="redirect:/user/mypage_pointPricing";
+=======
 	public String updateChat(ChatVO vo) {
 		//현재 시간을 가져옴
 		SimpleDateFormat sysdate = new SimpleDateFormat ( "YYYY-MM-DD HH:mm:ss");
@@ -307,10 +325,13 @@ public class UserService {
 			path = "redirect:/user/chatForm?chatNum=" + vo.getChatNum();
 		}else {
 			path = "redirect:/";
+>>>>>>> origin/master
 		}
 		
 		return path;
 	}
+<<<<<<< HEAD
+=======
 	
 	
 	public ChatVO selectChUser1() {
@@ -326,4 +347,5 @@ public class UserService {
 		
 		return chatvo;
 	}
+>>>>>>> origin/master
 }

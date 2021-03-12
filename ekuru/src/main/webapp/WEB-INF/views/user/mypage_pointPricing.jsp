@@ -22,14 +22,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript">
 		function openPayment1(pointProdNum){
-			
-			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+			location.href="/payment/payment?pointProdNum="+pointProdNum;
 		}
 		function openPayment2(pointProdNum){
-			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+			location.href="/payment/payment?pointProdNum="+pointProdNum;
 		}
 		function openPayment3(pointProdNum){
-			window.open("/payment?pointProdNum="+pointProdNum, "Payment", "width=500, height=800");
+			location.href="/payment/payment?pointProdNum="+pointProdNum;
 		}
     </script>
     <style>
