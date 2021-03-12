@@ -11,7 +11,7 @@
   <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
   <link rel="stylesheet" href="../resources/css/request-main.css">
   <link rel="stylesheet" href="../resources/css/main-footer.css">
-  <link rel="stylesheet" href="../resources/css/header.css">
+  <link rel="stylesheet" href="../resources/css/header_Origin.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -46,7 +46,7 @@
 </head>
 
 <body>
-  <!-- header -->
+   <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -58,13 +58,13 @@
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
@@ -72,21 +72,23 @@
     </header>
     <!-- header -->
   <div>
-    <!-- ê²ìì°½ -->
-    <div class="container">
-      <div>
-        <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
-          <div class="input-group">
-            <input type="text" class="search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-              <button class="btn btn-danger" type="button">
-                <span class=" glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
+    <!-- 검색창 -->
+        <div class="container">
+            <div>
+                <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
+                    <div class="input-group">
+                    <form action="/request/request_search" method="post">
+                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width=80%;"/>
+                        <span class="input-group-btn">
+                           <button class="btn btn-danger" type="submit">
+                               <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                        </span>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     <!-- 카테고리별 결과 -->
     <section>
       <div class="category-button" style="height: auto; background:#FFDFB9;">
@@ -196,7 +198,7 @@
 		            </div>
 		          <div class="card-body">
 	            	<h5 class="card-title">
-	            		<a href="/request/request_readForm?reqNum=${list.reqNum }">${list.reqTitle }</a>
+	            		${list.reqTitle }
 	            	</h5>
 		           	<p class="card-text">${list.reqContent }</p>
 		          </div>

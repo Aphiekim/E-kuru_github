@@ -18,7 +18,31 @@ from
 where
 	reqContent like '%'|| #{search} || '%'
 </if>
+order by reqNum desc
 </select>
+<!-- 해당 ID의 요청글 불러오기 -->
+<select id="mypageReq" parameterType="string" resultType="request">
+select
+	reqNum
+	,userId
+	,categoryCode
+	,reqTitle
+	,reqContent
+	,reqIndate
+from
+	e_request_tb
+where
+	userId = #{userId}
+order by reqNum desc
+</select>
+<!-- 해당 ID의 요청글 전체 삭제 -->
+<delete id="deleteMypageReq" parameterType="string">
+delete
+from
+	e_request_tb
+where
+	userId=#{userId}
+</delete>
 <!-- 요청글 쓰기 insert -->
 <insert id="insertOne" parameterType="request">
 insert into 
@@ -60,6 +84,7 @@ where
 	and
 	userId = #{userId}
 </delete>
+<!-- 요청글 수정 -->
 <update id="updateRequest" parameterType="request">
 update
 	e_request_tb
@@ -112,6 +137,7 @@ from
 where
 	reqNum = #{reqNum}
 </select>
+<!-- 코멘트 삭제 -->
 <delete id="deleteComment" parameterType="comment">
 delete
 from

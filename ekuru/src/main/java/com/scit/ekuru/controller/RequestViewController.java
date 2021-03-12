@@ -171,11 +171,24 @@ public class RequestViewController {
 	}
 	
 	//내 요청글 history 가기
-//	@RequestMapping(value="/requestHistory", method=RequestMethod.GET)
-//	public String requestHistory() {
-//		logger.info("요청글 히스토리 열기");
-//		
-//		return "/user/mypage_manageRequest";
-//	}
+	@RequestMapping(value="/request_manageRequest", method=RequestMethod.GET)
+	public String requestHistory(Model model) {
+		logger.info("요청글 히스토리 열기");
+		String id = (String)session.getAttribute("userId");
+		ArrayList<RequestVO> list = service.mypageReq(id);
+		
+		model.addAttribute("list", list);
+		return "/user/mypage_manageRequest";
+	}
+	
+	@RequestMapping(value="/request_manageDelete", method=RequestMethod.GET)
+	public String deleteHistory() {
+		logger.info("요청글 히스토리 열기");
+		String id = (String)session.getAttribute("userId");
+		
+		String path = service.deleteMypageReq(id);
+		
+		return path;
+	}
 	
 }

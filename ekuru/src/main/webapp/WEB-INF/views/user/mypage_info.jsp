@@ -31,9 +31,13 @@
         }
     </style>
     <script type="text/javascript">
-function mypageInfoModify(){
-	location.href = "/user/mypage_InfoForm";
-}
+		function mypageInfoModify(){
+			location.href = "/user/mypage_InfoForm";
+		}
+		
+		function openMyRequest(){
+			location.href="/request/request_manageRequest";
+		}
     </script>
 </head>
 
@@ -49,7 +53,12 @@ function mypageInfoModify(){
                         <div class="row">
                             <div class="col">
                                 <button type="button" class="btn btn-secondary">Information</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button type="button" class="btn btn-warning">Channel</button>
+                                <c:if test="${user.getUserType() eq '0'}">
+	                                <button type="button" class="btn btn-warning">Channel</button>
+                                </c:if>
+                                <c:if test="${user.getUserType() eq '1'}">
+	                                <button type="button" class="btn btn-warning" onclick="openMyRequest();">Request</button>
+                                </c:if>
                             </div>
                         </div>
                     </div>

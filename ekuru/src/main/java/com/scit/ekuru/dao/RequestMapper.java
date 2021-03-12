@@ -21,6 +21,12 @@ public interface RequestMapper {
 	//내 요청글 삭제
 	public int deleteRequest(RequestVO request);
 	
+	//해당 ID가 작성한 요청글 전체 불러오기
+	public ArrayList<RequestVO> mypageReq(String id);
+	
+	//해당 ID 요청글 전체삭제
+	public int deleteMypageReq(String id);
+	
 	//카테고리별 게시글 불러오기
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode);
 	
@@ -32,6 +38,5 @@ public interface RequestMapper {
 	
 	//코멘트 지우기
 	public int deleteComment(RequestCommentVO reqCommentVO);
-	
 	
 }

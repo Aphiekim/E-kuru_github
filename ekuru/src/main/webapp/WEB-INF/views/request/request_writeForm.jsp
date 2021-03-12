@@ -10,7 +10,7 @@
     <title>E-kuru</title>
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
-    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/header_Origin.css">
     <link rel="stylesheet" href="../resources/css/main-footer.css">
     <link rel="stylesheet" href="../resources/css/request-writeForm.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+		function check(){
+			
+		}
+    </script>
     <style>
         *{
             font-family: 'NotSansCJKjp-Black', sans-serif;
@@ -50,13 +55,13 @@
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
                             <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>

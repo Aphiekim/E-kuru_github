@@ -36,17 +36,6 @@ public class RequestService {
 		String id = (String)session.getAttribute("userId");
 		reqVO.setUserId(id);
 		
-		//현재 로그인 되어있는 ID를 VO에 넣음
-//		RequestVO vo = null;
-//		String id = (String)session.getAttribute("userId");
-//		vo.setUserId(id);
-//		vo.setCategoryCode(categoryCode);
-//		vo.setReqTitle(reqTitle);
-//		vo.setReqContent(reqContent);
-//		//VO를 이용하여 글 저장
-//		int cnt = dao.insertOne(vo);
-//		logger.info("확인"+vo);
-//		String path =" ";
 		
 		//VO를 이용하여 글 저장
 		int cnt = dao.insertOne(reqVO);
@@ -158,9 +147,26 @@ public class RequestService {
 
 	}
 	
+	//해당 ID 요청글 불러오기
+	public ArrayList<RequestVO> mypageReq(String id){
+		return dao.mypageReq(id);
+	}
 	
-	
-	
+	//해당 ID 요청글 전체 삭제
+	public String deleteMypageReq(String id) {
+		int cnt = dao.deleteMypageReq(id);
+		String path ="";
+		
+		if(cnt>0) {
+			logger.info("요청글 전체 삭제 성공");
+			path="redirect:/request/request_manageRequest";
+		}else {
+			logger.info("요청글 전체 삭제 실패");
+			path="redirect:/request/request_manageRequest";
+		}
+		
+		return path;
+	}
 	
 	
 	
