@@ -15,6 +15,10 @@
 		function openHome(){
 			location.href="/";
 		}
+
+		function openPointPage(){
+			location.href=""
+		}
     </script>
     <style>
         .text-st{
@@ -66,7 +70,7 @@
         <div class="row">
             <div class="col">
                 <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning" onclick="">Point History</button>
+                <button type="button" class="btn btn-warning" onclick="openPointPage();">Point History</button>
             </div>
         </div>
     </div>
