@@ -44,7 +44,7 @@
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>

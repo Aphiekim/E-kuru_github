@@ -23,11 +23,6 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@Autowired
-	private UserService service;
-	
-	@Autowired
-	private HttpSession session;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -38,15 +33,5 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value="/payment", method=RequestMethod.GET)
-	public String payment(int pointProdNum,Model model) {
-		logger.info("Open paypal payment");
-		PointProductVO pvo = service.selectPointPricing(pointProdNum);
-		String id = (String)session.getAttribute("userId");
-		UserVO vo = service.selectUserTest(id);
-		
-		model.addAttribute("pvo", pvo);
-		model.addAttribute("vo", vo);
-		return "/payment";
-	}
+	
 }

@@ -5,8 +5,10 @@ import lombok.Data;
 @Data
 public class ChatVO {
 	private int chatNum;
-	private String useId;
+	private String userId;
 	private int chNum;
 	private String chName;
 	private String content;
+	private int roomNum;
+	private String userType;
 }
