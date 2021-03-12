@@ -53,6 +53,7 @@ public class UserService {
 
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
+	        session.setAttribute("userPoint", Uservo.getUserPoint());
 			path = "redirect:/";
 		}
 		return path;
