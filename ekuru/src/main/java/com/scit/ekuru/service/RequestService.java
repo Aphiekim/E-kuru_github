@@ -90,6 +90,27 @@ public class RequestService {
 		
 		return path;
 	}
+	//내 요청글 삭제
+	public String deleteRequest(int reqNum) {
+		String id = (String)session.getAttribute("userId");
+		RequestVO request= new RequestVO();
+		request.setUserId(id);
+		request.setReqNum(reqNum);
+		
+		String path ="";
+		
+		
+		int cnt = dao.deleteRequest(request);
+		
+		if(cnt>0) {
+			logger.info("요청글 삭제 성공");
+			path ="redirect:/request/request_main";
+		}else {
+			logger.info("요청글 삭제 실패");
+			path = "redirect:/request/request_readForm?reqNum="+reqNum;
+		}
+		return path;
+	}
 	
 	//카테고리별 요청 글 불러오기
 	public ArrayList<RequestVO> requestCategoryResult(int categoryCode) {
@@ -125,27 +146,18 @@ public class RequestService {
 	}
 	
 	//코멘트 지우기
-//	public String deleteComment(int reqCommentNum) {
-//		String id = (String)session.getAttribute("userId");
-//		
-//		
-//		RequestCommentVO comment = new RequestCommentVO();
-//		comment.setUserId(id);
-//		comment.setReqCommentNum(reqCommentNum);
-//		int cnt = dao.deleteComment(comment);
-//		String path ="";
-//		
-//		if(cnt>0) {
-//			logger.info("코멘트 지우기 성공");
-//			path ="redirect:/request/request_main";
-//		}else {
-//			logger.info("코멘트 지우기 실패");
-//			path ="redirect:/request/request_main";
-//		}
-//		
-//		return path;
-//	}
-//	
+	public int deleteComment(int reqCommentNum) {
+		
+		String id = (String)session.getAttribute("userId");
+		RequestCommentVO comment = new RequestCommentVO();
+		
+		comment.setUserId(id);
+		comment.setReqCommentNum(reqCommentNum);
+
+		return dao.deleteComment(comment);
+
+	}
+	
 	
 	
 	

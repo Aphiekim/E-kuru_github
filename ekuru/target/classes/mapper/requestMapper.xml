@@ -50,6 +50,16 @@ from
 where
 	reqNum = #{reqNum}
 </select>
+<!-- 작성한 게시글 삭제하기 -->
+<delete id="deleteRequest" parameterType="request">
+delete
+from
+	e_request_tb
+where
+	reqNum = #{reqNum}
+	and
+	userId = #{userId}
+</delete>
 <update id="updateRequest" parameterType="request">
 update
 	e_request_tb

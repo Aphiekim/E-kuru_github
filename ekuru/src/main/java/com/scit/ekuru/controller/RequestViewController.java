@@ -104,6 +104,14 @@ public class RequestViewController {
 		return "request/request_readForm";
 	}
 	
+	// 내 요청글 지우기
+	@RequestMapping(value="/request_deleteRequest")
+	public String deleteRequest(int reqNum) {
+		logger.info("{} 번 글 삭제하기", reqNum);
+		
+		return service.deleteRequest(reqNum);
+	}
+	
 	//request 카테고리 결과로 이동
 	@RequestMapping(value="/request_categoryResult", method=RequestMethod.GET)
 	public String requestCategoryResult(int categoryCode, Model model) {
@@ -134,11 +142,23 @@ public class RequestViewController {
 	}
 	
 	//request 댓글 지우기
-//	@RequestMapping(value="/request_deleteComment", method=RequestMethod.GET)
-//	public String deleteComment(int reqCommentNum) {
-//		return service.deleteComment(reqCommentNum);
-//	}
+	@RequestMapping(value="/request_deleteComment", method=RequestMethod.GET)
+	public String deleteComment(int reqCommentNum) {
+		int cnt = service.deleteComment(reqCommentNum);
+		String path =" ";
+		
+		if(cnt>0) {
+			logger.info("코멘트 지우기 성공");
+			path ="redirect:/request/request_main";
+		}else {
+			logger.info("코멘트 지우기 실패");
+			path ="redirect:/request/request_main";
+		}
+		
+		return path;
+	}
 	
+	//검색결과
 	@RequestMapping(value="/request_search", method = RequestMethod.POST)
 	public String search(@RequestParam(defaultValue="")String search, Model model) {
 		logger.info("검색어 : {}", search);
@@ -150,5 +170,12 @@ public class RequestViewController {
 		return "request/request_search";
 	}
 	
+	//내 요청글 history 가기
+//	@RequestMapping(value="/requestHistory", method=RequestMethod.GET)
+//	public String requestHistory() {
+//		logger.info("요청글 히스토리 열기");
+//		
+//		return "/user/mypage_manageRequest";
+//	}
 	
 }

@@ -84,6 +84,17 @@ public class UserDAO {
 		return vo;
 	}
 	
+	public ArrayList<HashMap<Object, Object>> selectChatRoom(String id){
+		ArrayList<HashMap<Object, Object>> vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChatRoom(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
 	public int modifyAuthkey(UserVO vo) {
 		int count = 0;
 		try {
@@ -118,5 +129,20 @@ public class UserDAO {
 		}
 		
 		return pvo;
+	}
+	
+	// 회원 포인트 수정
+	public int updatePoint(UserVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.updatePoint(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	
 	}
 }
