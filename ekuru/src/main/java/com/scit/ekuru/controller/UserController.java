@@ -100,6 +100,13 @@ public class UserController {
 		return "user/mypage_shopping";
 	}
 	
+	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
+	public String chatForm(Model model) {
+		ArrayList<HashMap<Object, Object>> list = service.selectChatRoom();
+		model.addAttribute("chatroomlist", list);
+		return "/chat/chatForm";
+	}
+	
 	@RequestMapping(value = "/mypagePoint", method = RequestMethod.GET)
 	public String mypagePoint(Model model) {
 		ArrayList<HashMap<String, Object>> list = service.selectPoint();
@@ -131,10 +138,7 @@ public class UserController {
 		return "redirect:/user/mypage_Info";
 	}
 	
-	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
-	public String chatForm() {
-		return "/chat/chatForm";
-	}
+	
 	
 	//포인트 화면으로 이동
 	@RequestMapping(value="/mypage_pointPricing", method=RequestMethod.GET)
