@@ -20,7 +20,6 @@ import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
-import com.scit.ekuru.vo.RequestVO;
 
 import lombok.extern.slf4j.Slf4j;
 

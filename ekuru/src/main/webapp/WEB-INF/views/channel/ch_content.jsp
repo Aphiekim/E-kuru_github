@@ -69,6 +69,13 @@
             });
         });
 
+        function fn_addCart(){
+            var addCart = document.getElementById("addCart");
+            console.log(addCart);
+            addCart.action = location.href="../user/mypageShopping";
+            addCart.submit();
+        }
+
 
 
     </script>
@@ -162,31 +169,32 @@
                 <div class="product-intro">
 
                     <div class="product-title">
-                        <span>${prodEachResult.prodTitle }</span>
+                        <span id="prodTitle" name="prodTitle">${prodEachResult.prodTitle }</span>
                     </div>
 
+                        <form id="addCart">
+                            <div class="content-name">
+                                <span>PRICE</span>
+                            </div>
+                            <div class="content-value">
+                                <input type="text" id="prodPrice" name="prodPrice" value="${prodEachResult.prodPrice }" readonly>
+                            </div>
 
-                        <div class="content-name">
-                            <span>PRICE</span>
-                        </div>
-                        <div class="content-value">
-                            <input type="text" value="${prodEachResult.prodPrice }" readonly>
-                        </div>
 
+                            <div class="content-name">
+                                <span>QUANTITY</span>
+                            </div>
+                            <div class="content-value">
+                                <input type="number" id="prodStock" name="prodStock">
+                            </div>
 
-                        <div class="content-name">
-                            <span>QUANTITY</span>
-                        </div>
-                        <div class="content-value">
-                            <input type="number">
-                        </div>
-
-                        <div style="margin-top: 30px;">
-                            <li style="list-style: none; margin-left: 40px;">
-                                <ul class="button"><button type="button" style="width: 100%;" class="btn btn-info">장바구니 넣기</button></ul>
-                                <ul class="button"><button type="button" style="width: 100%;" class="btn btn-info">문의하기</button></ul>
-                            </li>
-                        </div>
+                            <div style="margin-top: 30px;">
+                                <ul style="list-style: none; margin-left: 40px;">
+                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">장바구니 넣기</button></li>
+                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">문의하기</button></li>
+                                </ul>
+                            </div>
+                        </form>
 
                 </div>
                 <!--상품내용 끝 -->
