@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.RequestVO;
 
 @Repository
 public class ChannelDAO {
@@ -130,6 +131,28 @@ public class ChannelDAO {
 		}
 
 		return prodCommentNum;
+	}
+
+	public ArrayList<ChannelVO> chCategoryResult(int categoryCode) {
+		ArrayList<ChannelVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chCategoryResult(categoryCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public ArrayList<ChannelVO> chSearch(String search) {
+		ArrayList<ChannelVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chSearch(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

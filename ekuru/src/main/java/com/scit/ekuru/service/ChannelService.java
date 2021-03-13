@@ -3,16 +3,23 @@ package com.scit.ekuru.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import com.scit.ekuru.controller.ChViewContoroller;
 import com.scit.ekuru.dao.ChannelDAO;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.RequestVO;
 
 @Service
 public class ChannelService {
+
+	private static final Logger logger = LoggerFactory.getLogger(ChViewContoroller.class);
 
 	@Autowired
 	private ChannelDAO dao;
@@ -77,5 +84,23 @@ public class ChannelService {
         result.put("prodCommentNum", prodCommentNum);
 
 		return result;
+	}
+
+//	카테고리 별 리스트 출력
+	public void chCategoryResult(Model model, int categoryCode) {
+		ArrayList<ChannelVO> listResult = dao.chCategoryResult(categoryCode);
+		ArrayList<ChannelVO> chListResult = dao.getListAll();
+		model.addAttribute("chListResult", chListResult);
+		model.addAttribute("listResult", listResult);
+	}
+
+//	채널 검색 결과
+	public void chSearch(String search, Model model) {
+		ArrayList<ChannelVO> searchResult = dao.chSearch(search);
+		ArrayList<ChannelVO> chListResult = dao.getListAll();
+		System.out.println(searchResult);
+		model.addAttribute("chListResult", chListResult);
+		model.addAttribute("searchResult", searchResult);
+
 	}
 }

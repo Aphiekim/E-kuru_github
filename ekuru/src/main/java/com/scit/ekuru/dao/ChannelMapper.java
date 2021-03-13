@@ -26,4 +26,8 @@ public interface ChannelMapper {
 
 	public int addComment(ProductCommentVO commentVo);
 
+	public ArrayList<ChannelVO> chCategoryResult(int categoryCode);
+
+	public ArrayList<ChannelVO> chSearch(String search);
+
 }

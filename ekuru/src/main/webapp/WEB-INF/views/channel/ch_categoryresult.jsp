@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -29,6 +30,12 @@
       interval: 2000,
       wrap: false
     })
+
+    function openCategory(category){
+      var categoryCode = category;
+      location.href = "/channel/ch_categoryresult?categoryCode="+categoryCode;
+    }
+
   </script>
   <style>
     *{
@@ -43,30 +50,30 @@
 
 <body>
   <!-- header -->
-  <header class="header---">
-    <div class="wrapper">
-        <a href="">
-            <img src="/resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-        </a>
-        <nav>
-            <ul class="menu">
-                <li class="menu-list headli">
-                    <a href="">Home</a>
-                    <ul class="menu-sub">
-                        <li class="headli">Logout</li>
-                        <li class="headli">Mypage</li>
-                        <li class="headli">info</li>
-                    </ul>
-                </li>
-                <li class="headli"><a href="">About</a></li>
-                <li class="headli"><a href="">Board</a></li>
-                <li class="headli"><a href="">Reference</a></li>
-                <li class="headli"><a href="">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
- <!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
+                        <ul class="menu-sub">
+                            <li class="headli">Recently viewed items</li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                        </ul>
+                    </li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
   <div>
     <!-- 검색창 -->
     <div class="container">
@@ -84,24 +91,18 @@
       </div>
     </div>
     <!-- 카테고리 구분 -->
-    <section  style="margin-top: 1%;">
+    <section>
       <div class="category-button" style="height: auto; background:#FFDFB9;">
-        <a href="request-categoryresult.html">
-          <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;">Fashion/Acc</button>
-        </a>
-        <a href="request-categoryresult.html">
-          <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
-        </a>
-        <a href="request-categoryresult.html">
-          <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
-        </a>
-        <a href="request-categoryresult.html">
-          <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
-        </a>
-        <a href="request-categoryresult.html">
-          <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
-        </a>
-        <button class="btn text-white" style="background: brown;">Request</button>
+        <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;"
+          onclick="openCategory('1');">Fashion/Acc</button>
+        <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;"
+          onclick="openCategory('2');">Beauty</button>
+        <button type="button" class="btn btn-outline-success" style="margin-right: 50px;"
+          onclick="openCategory('3');">Food</button>
+        <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;"
+          onclick="openCategory('4');">Book/CD</button>
+        <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;"
+          onclick="openCategory('5');">Ect</button>
       </div>
     </section>
     <!-- 채널 게시글 출력 부분 시작-->
@@ -125,160 +126,71 @@
             <div class="carousel-inner">
               <div class="item active inner">
                 <div class="row justify-content-center inner">
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
+                  <c:forEach items="${chListResult }" var="channel">
+                    <c:if test="${channel.chNum > -1 && channel.chNum < 3 }">
+                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                class="fas fa-plus fa-3x"></i></div>
+                          </div>
+                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+                            alt="" />
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">${channel.chName }</h5>
+                          <p class="card-text">${channel.chIntro }</p>
+                        </div>
                       </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
+                  </c:if>
+                  </c:forEach>
+
                 </div>
               </div>
 
               <div class="item inner">
                 <div class="row justify-content-center inner">
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
+                  <c:forEach items="${chListResult }" var="channel">
+                    <c:if test="${channel.chNum > 2 && channel.chNum < 6 }">
+                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                class="fas fa-plus fa-3x"></i></div>
+                          </div>
+                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+                            alt="" />
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">${channel.chName }</h5>
+                          <p class="card-text">${channel.chIntro }</p>
+                        </div>
                       </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
+                    </c:if>
+                  </c:forEach>
                 </div>
               </div>
 
               <div class="item inner">
                 <div class="row justify-content-center inner">
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
+                  <c:forEach items="${chListResult }" var="channel">
+                    <c:if test="${channel.chNum > 5 && channel.chNum < 9 }">
+                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                class="fas fa-plus fa-3x"></i></div>
+                          </div>
+                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+                            alt="" />
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">${channel.chName }</h5>
+                          <p class="card-text">${channel.chIntro }</p>
+                        </div>
                       </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
+                    </c:if>
+                  </c:forEach>
                 </div>
               </div>
             </div>
@@ -299,138 +211,21 @@
         <!-- 카테고리별 검색 결과 (id는 카테고리 별에 맞춰서 바뀜) -->
         <h3 id="fashion">Fashion / Acc</h3>
         <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+          <c:forEach items="${listResult }" var="channel">
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
+                  <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+                  </div>
                 </div>
+                <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" />
               </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">${channel.chName }</h5>
+                <p class="card-text">${channel.chIntro }</p>
               </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-        </div>
-        <!-- 2번째 라인-->
-        <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-        </div>
-        <!-- 3번째 라인 -->
-        <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="/resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                of the card's content.</p>
-            </div>
-          </div>
+          </c:forEach>
         </div>
 
 

@@ -67,7 +67,7 @@
                         <div class="test">
                             <ul>
                                 <li class="li-sty"><span>51</span></li>
-                                <li class="li-sty"><span>379</span></li>
+                                <li class="li-sty"><span>${channel.chFollower }</span></li>
                             <li  class="li-sty"><span>8210</span></li>
                         </ul>
 
@@ -79,21 +79,18 @@
                     </div>
 
                 </div>
-                <div class="test2">
+                <div class="test2 col-md-12">
 
                     <p>
-                        <span class="profile-text">
-                            Nike Pro Top can be worn as a long sleeve layered item in cool weather.
-                            Lightweight, highly reliable materials with dry fit technology provide a consistent comfortable fit during training.
-                        </span>
+                        <span class="profile-text">${channel.chIntro }</span>
                     </p>
                 </div>
 
-                <c:if test="${empty prodListResult }">
-                    <p>아직 등록된 상품이 없습니다.</p>
-                </c:if>
 
                 <div class="product-list">
+                    <c:if test="${empty prodListResult }">
+                        <p>아직 등록된 상품이 없습니다.</p>
+                    </c:if>
                     <c:forEach items="${prodListResult }" var="prodList">
 						<c:if test="${not empty prodListResult }">
                         <div class="product">

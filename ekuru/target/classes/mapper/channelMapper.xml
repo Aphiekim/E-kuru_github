@@ -177,19 +177,46 @@ INSERT INTO
 
 </insert>
 
-<select id="">
+<!-- 카테고리 별 채널 리스트 -->
+<select id="chCategoryResult" parameterType="int" resultType="channel">
 	SELECT
-			d.SPECNUM,
-			d.DEALCODE,
-			e.USERID,
-			d.DEALSTATE,
-			d.DEALINDATE
-		FROM
-			E_DEALHISTORY_TB d, E_SPEC_TB e
-		WHERE
-			e.USERID ='real@real'
-			AND
-			d.SPECNUM = e.SPECNUM
+		CHNUM,
+		CHID,
+		CHNAME,
+		CHPROFILE,
+		CHFOLLOWER,
+		CHINTRO,
+		CHINDATE
+	FROM
+		E_CHANNEL_TB
+	WHERE
+		CHID = (SELECT DISTINCT
+					USERID
+				FROM
+					E_PRODUCT_TB
+				WHERE
+					PRODCATEGORY = #{categoryCode})
+</select>
+
+<!-- 검색 결과 -->
+<select id="chSearch" parameterType="String" resultType="channel">
+	SELECT
+		CHNUM,
+		CHID,
+		CHNAME,
+		CHPROFILE,
+		CHFOLLOWER,
+		CHINTRO,
+		CHINDATE
+	FROM
+		E_CHANNEL_TB
+	WHERE
+		CHID IN (SELECT DISTINCT
+					USERID
+				FROM
+					E_PRODUCT_TB
+				WHERE
+					PRODTITLE like '%'|| #{search} || '%')
 
 </select>
 

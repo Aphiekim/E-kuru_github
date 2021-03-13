@@ -31,6 +31,11 @@
       wrap: false
     })
 
+    function openCategory(category){
+      var categoryCode = category;
+      location.href = "/channel/ch_categoryresult?categoryCode="+categoryCode;
+    }
+
   </script>
   <style>
     *{
@@ -71,41 +76,37 @@
 <!-- header -->
   <div>
     <!-- 검색창 -->
-    <div class="container">
-      <div>
-        <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
-          <div class="input-group">
-            <input type="text" class="search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-              <button class="btn btn-danger" type="button">
-                <span class=" glyphicon glyphicon-search" onclick="location.href='ch_search'"></span>
-              </button>
-            </span>
-          </div>
+        <div class="container">
+            <div>
+                <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
+                    <div class="input-group">
+                    <form action="/channel/ch_search" method="post">
+                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width=80%;"/>
+                        <span class="input-group-btn">
+                           <button class="btn btn-danger" type="submit">
+                               <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                        </span>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     <!-- 카테고리 구분 -->
-    <section  style="margin-top: 1%;">
-      <div class="category-button" style="height: auto; background:#FFDFB9;">
-        <a href="ch_categoryresult">
-          <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;">Fashion/Acc</button>
-        </a>
-        <a href="ch_categoryresult">
-          <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;">Beauty</button>
-        </a>
-        <a href="ch_categoryresult">
-          <button type="button" class="btn btn-outline-success" style="margin-right: 50px;">Food</button>
-        </a>
-        <a href="ch_categoryresult">
-          <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;">Book/CD</button>
-        </a>
-        <a href="ch_categoryresult">
-          <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;">Ect</button>
-        </a>
-        <button class="btn text-white" style="background: brown;">Request</button>
-      </div>
-    </section>
+      <section>
+        <div class="category-button" style="height: auto; background:#FFDFB9;">
+          <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;"
+            onclick="openCategory('1');">Fashion/Acc</button>
+          <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;"
+            onclick="openCategory('2');">Beauty</button>
+          <button type="button" class="btn btn-outline-success" style="margin-right: 50px;"
+            onclick="openCategory('3');">Food</button>
+          <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;"
+            onclick="openCategory('4');">Book/CD</button>
+          <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;"
+            onclick="openCategory('5');">Ect</button>
+        </div>
+      </section>
     <!-- 채널 게시글 출력 부분 시작-->
     <section class="page-section portfolio" id="portfolio">
       <div class="container">
@@ -122,7 +123,6 @@
         <div style="margin-bottom: 10%; margin-top: 5%;">
           <h3 class="text-center text-uppercase" id="popularRequest">인 기 채 널</h3>
           <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel" style="width: 100%;">
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <div class="item active inner">
@@ -211,21 +211,21 @@
 
 
         <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-        <c:forEach items="${chListResult }" var="channel">
-          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+          <c:forEach items="${chListResult }" var="channel">
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
+                  <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
+                  </div>
                 </div>
+                <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" />
               </div>
-              <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">${channel.chName }</h5>
+                <p class="card-text">${channel.chIntro }</p>
+              </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">${channel.chName }</h5>
-              <p class="card-text">${channel.chIntro }</p>
-            </div>
-          </div>
-      </c:forEach>
+          </c:forEach>
         </div>
 
     </section>

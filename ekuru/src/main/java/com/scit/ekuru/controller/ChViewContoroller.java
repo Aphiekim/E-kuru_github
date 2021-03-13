@@ -5,18 +5,22 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.RequestVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping(value = "/channel")
 public class ChViewContoroller {
+
+	private static final Logger logger = LoggerFactory.getLogger(ChViewContoroller.class);
 
 	@Autowired
 	private ChannelService service;
@@ -37,14 +43,16 @@ public class ChViewContoroller {
 	}
 
 //	채널 검색 결과 보기
-	@RequestMapping(value = "/ch_search")
-	public String chSearch() {
+	@RequestMapping(value = "/ch_search", method = RequestMethod.POST)
+	public String chSearch(@RequestParam(defaultValue = "") String search, Model model) {
+		service.chSearch(search, model);
 		return "channel/ch_search";
 	}
 
 //	특정 카테고리만
-	@RequestMapping(value = "/ch_categoryresult")
-	public String chCategoryResult() {
+	@RequestMapping(value = "/ch_categoryresult", method = RequestMethod.GET)
+	public String chCategoryResult(int categoryCode, Model model) {
+		service.chCategoryResult(model, categoryCode);
 		return "channel/ch_categoryresult";
 	}
 
