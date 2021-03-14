@@ -216,7 +216,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return result;
-	
+	}
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
 		ArrayList<HashMap<Object, Object>> list = null;
 		try {

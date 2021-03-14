@@ -363,13 +363,6 @@ public class UserService {
 
 
 
-
-
-
-
-
-
-}
 	
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
 		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
