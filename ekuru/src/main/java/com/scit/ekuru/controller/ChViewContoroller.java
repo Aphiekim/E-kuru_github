@@ -65,7 +65,7 @@ public class ChViewContoroller {
 		return "channel/ch_personal_main";
 	}
 
-//	개인 채널 수정 폼
+//	개인 채널 수정 폼으로 가기
 	@RequestMapping(value = "/ch_management")
 	public String chManagement(String chId, Model model) {
 		ChannelVO channel = service.chRead(chId);
@@ -97,6 +97,15 @@ public class ChViewContoroller {
 		vo.setUserId(userId);
 		service.ch_posters_Write(vo);
 		return "redirect:/channel/ch_personal_main?chId=" + vo.getUserId();
+	}
+
+//	채널 게시글 수정
+	@RequestMapping(value = "/ch_contetModify")
+	public String ch_contetModify(ProductVO prodVo,Model model) {
+		ProductVO prodResult = service.getProdEach(prodVo);
+		model.addAttribute("prodResult", prodResult);
+		return "channel/ch_contetModify";
+
 	}
 
 //	채널 게시글 보기 (구매자)
@@ -140,5 +149,8 @@ public class ChViewContoroller {
 	public String chContentSeller() {
 		return "channel/ch_content_seller";
 	}
+	
+	
+
 
 }
