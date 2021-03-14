@@ -1,8 +1,15 @@
 package com.scit.ekuru.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -128,6 +135,24 @@ public class ChViewContoroller {
 			}
 		}
 
+	@RequestMapping(value="/ch_content")
+	public String chContent(String chId, ProductVO prodVo, Model model, HttpServletResponse response, HttpServletRequest request) throws UnsupportedEncodingException {
+		ChannelVO channel = service.chRead(chId);
+		ProductVO prodEachResult = service.getProdEach(prodVo);
+		
+		//현재 시간을 가져옴
+		//SimpleDateFormat sysdate = new SimpleDateFormat ( "MM-DD HH:mm");
+		//Date time = new Date();
+		//String time1 = sysdate.format(time);
+		
+		
+		String prod = Integer.toString(prodVo.getProdNum());
+		Cookie cook = new Cookie("prodnum", URLEncoder.encode(prod, "UTF-8"));
+		cook.setMaxAge(300);
+		cook.setPath("/user/viewedItems");
+		response.addCookie(cook);
+		//System.out.println(cook.getValue());
+		
 		model.addAttribute("channel", channel);
 		model.addAttribute("prodEachResult", prodEachResult);
 		model.addAttribute("commentResult", commentResult);

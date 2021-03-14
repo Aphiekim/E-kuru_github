@@ -179,4 +179,19 @@ where userid = #{userId}
 		e.USERID = #{userId}
 </select>
 
+<!-- 상품 전체 리스트 -->
+<select id="selectProdList" resultType="hashmap">
+	SELECT
+		PRODNUM as PRODNUM,
+		USERID as USERID,
+		CHNUM as CHNUM,
+		PRODCATEGORY as PRODCATEGORY,
+		PRODTITLE as PRODTITLE,
+		PRODSTOCK as PRODSTOCK,
+		PRODPRICE as PRODSTOCK,
+		PRODCONTENT as PRODSTOCK,
+		PRODINDATE as PRODINDATE
+	FROM
+		E_PRODUCT_TB
+</select>
 </mapper>

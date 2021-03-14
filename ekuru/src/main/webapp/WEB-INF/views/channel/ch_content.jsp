@@ -80,9 +80,14 @@
 
     </script>
 
+    <script> $('.carousel').carousel({ interval: 2000 //기본 5초
+    }) </script>
+	
 
 </head>
 <body>
+
+
 <!--전체 틀-->
 <div class="fullSize">
     <!-- header -->
@@ -110,6 +115,7 @@
         </div>
     </header>
     <!-- header -->
+
     <!-- 중간 전체 틀 -->
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
