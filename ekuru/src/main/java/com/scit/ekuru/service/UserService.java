@@ -56,10 +56,9 @@ public class UserService {
 
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
-<<<<<<< HEAD
 	        session.setAttribute("userPoint", Uservo.getUserPoint());
 			path = "redirect:/";
-=======
+
 	        // 인증여부 확인용 session.setAttribute("userId", Uservo.getUserId());
 	 
 	        if(Uservo.getUserConfirm().equals("0")) {
@@ -67,7 +66,7 @@ public class UserService {
 	        }else {
 	        	path = "redirect:/";
 	        }
->>>>>>> 58fa899df969caacc690ff83b00e9c761be92434
+
 		}
 		return path;
 	}
@@ -80,6 +79,7 @@ public class UserService {
 	public void logout() {
 		session.removeAttribute("userNm");
 		session.removeAttribute("userId");
+		session.removeAttribute("userPoint");
 	}
 	
 	public String modifyUser(UserVO vo) {
@@ -325,5 +325,11 @@ public class UserService {
 		ChatVO chatvo = dao.selectChUser2(id);
 		
 		return chatvo;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectProdList(){
+		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
+		//System.out.println(list);
+		return list;
 	}
 }

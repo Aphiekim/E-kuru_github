@@ -54,4 +54,7 @@ public interface UserMapper {
 	
 	// ChatVO로 유저 정보 조회
 	public ChatVO selectChUser2(String id);
+	
+	// 전체 상품 조회
+	public ArrayList<HashMap<Object, Object>> selectProdList();
 }

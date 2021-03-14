@@ -193,4 +193,15 @@ public class UserDAO {
 		}
 		return vo;
 	}
+	
+	public ArrayList<HashMap<Object, Object>> selectProdList(){
+		ArrayList<HashMap<Object, Object>> list = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectProdList();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

@@ -18,10 +18,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script> $('.carousel').carousel({ interval: 2000 //기본 5초
     }) </script>
-
+	
 
 </head>
 <body>
+
+
 <!--전체 틀-->
 <div class="fullSize">
     <!-- header -->
@@ -49,6 +51,7 @@
         </div>
     </header>
     <!-- header -->
+
     <!-- 중간 전체 틀 -->
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
