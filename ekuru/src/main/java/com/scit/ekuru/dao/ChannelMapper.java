@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.categoryVO;
 
 public interface ChannelMapper {
 
@@ -29,5 +30,9 @@ public interface ChannelMapper {
 	public ArrayList<ChannelVO> chCategoryResult(int categoryCode);
 
 	public ArrayList<ChannelVO> chSearch(String search);
+
+	public categoryVO getCategory(ProductVO prodVo);
+
+	public boolean contentModify(ProductVO vo);
 
 }

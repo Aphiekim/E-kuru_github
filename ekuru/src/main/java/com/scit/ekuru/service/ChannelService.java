@@ -14,7 +14,7 @@ import com.scit.ekuru.dao.ChannelDAO;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
-import com.scit.ekuru.vo.RequestVO;
+import com.scit.ekuru.vo.categoryVO;
 
 @Service
 public class ChannelService {
@@ -101,6 +101,20 @@ public class ChannelService {
 		System.out.println(searchResult);
 		model.addAttribute("chListResult", chListResult);
 		model.addAttribute("searchResult", searchResult);
+
+	}
+
+//	카테고리 정보 가져오기
+	public void getCategory(ProductVO prodVo, Model model) {
+		categoryVO categoryResult = dao.getCategory(prodVo);
+		model.addAttribute("categoryResult", categoryResult);
+	}
+
+	public void contentModify(ProductVO vo) {
+		boolean result = dao.contentModify(vo);
+		if(result) {
+			logger.info("수정완료");
+		}
 
 	}
 }

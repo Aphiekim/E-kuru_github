@@ -21,20 +21,24 @@
   <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
+  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>  -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
+  <script type="text/javascript">
     var myCarousel = document.querySelector('#myCarousel')
     var carousel = new bootstrap.Carousel(myCarousel, {
       interval: 2000,
       wrap: false
-    })
+    });
+
 
     function openCategory(category){
       var categoryCode = category;
       location.href = "/channel/ch_categoryresult?categoryCode="+categoryCode;
     }
+
 
   </script>
   <style>
@@ -109,9 +113,10 @@
       </section>
     <!-- 채널 게시글 출력 부분 시작-->
     <section class="page-section portfolio" id="portfolio">
+    <input type="button" id="translate" value="번역">
       <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 5%;">
-          채 널 게 시 판</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="text" style="margin-top: 5%;">
+          채널게시판</h2>
         <!-- 채널 게시글 배열 나누기-->
         <div class="divider-custom">
           <div class="divider-custom-line"></div>
@@ -302,8 +307,39 @@
   </div>
 </div>
 <!-- Footer End -->
+<script>
+$(() => {
+        $("#translate").click(function () {
+            alert("안녕");
+            var source = 'ko';
+		      	var target = 'ja';
+			      var text = $( 'h3' ).text();
+			      alert(text);
 
+			$.ajax({
+				url : '../translate',
+				type : 'post',
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+				data : {
+					source : source,
+					target : target,
+					text : text
+				},
+				success : function(data){
+					//JSON 형태의 문자열을 JSON 객체로 변환
+					var jsonObject = JSON.parse(data);
+					console.log(jsonObject);
 
+					$('h3').html(jsonObject.message.result.translatedText);
+				},
+				error : function(e){
+					console.log(e);
+				}
+			});
+
+        });
+    });
+</script>
 </body>
 
 </html>

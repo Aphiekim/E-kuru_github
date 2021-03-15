@@ -16,6 +16,7 @@
 		<typeAlias type="com.scit.ekuru.vo.PointVO" alias="point" />
 		<typeAlias type="com.scit.ekuru.vo.dealHistoryVO" alias="dealHistory" />
 		<typeAlias type="com.scit.ekuru.vo.specVO" alias="spec" />
+		<typeAlias type="com.scit.ekuru.vo.categoryVO" alias="category" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />

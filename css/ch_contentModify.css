@@ -85,6 +85,15 @@
     padding-right: 60px;
 }
 
+.button-list{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .textbox{
     width: 60%;
     margin-top: 50px;

@@ -20,6 +20,7 @@ import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.categoryVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -99,14 +100,25 @@ public class ChViewContoroller {
 		return "redirect:/channel/ch_personal_main?chId=" + vo.getUserId();
 	}
 
-//	채널 게시글 수정
-	@RequestMapping(value = "/ch_contetModify")
-	public String ch_contetModify(ProductVO prodVo,Model model) {
+//	채널 게시글 수정 폼
+	@RequestMapping(value = "/ch_contentModify")
+	public String ch_contentModify(ProductVO prodVo,Model model) {
 		ProductVO prodResult = service.getProdEach(prodVo);
+		ArrayList<ProductCommentVO> commentResult = service.getProdComment(prodVo.getProdNum());
+		service.getCategory(prodVo,model);
 		model.addAttribute("prodResult", prodResult);
-		return "channel/ch_contetModify";
+		model.addAttribute("commentResult", commentResult);
+		return "channel/ch_contentModify";
 
 	}
+
+//	채널 게시글 수정
+	@RequestMapping(value = "/contentModify")
+	public String contentModify(ProductVO vo) {
+		service.contentModify(vo);
+		return "redirect:/channel/ch_management?chId="+vo.getUserId();
+	}
+
 
 //	채널 게시글 보기 (구매자)
 	@RequestMapping(value = "/ch_content")
@@ -144,13 +156,7 @@ public class ChViewContoroller {
 		return service.addComment(json);
 	}
 
-//	채널 게시글 보기 (판매자)
-	@RequestMapping(value = "/ch_content_seller")
-	public String chContentSeller() {
-		return "channel/ch_content_seller";
-	}
-	
-	
+
 
 
 }

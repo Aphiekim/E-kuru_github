@@ -140,7 +140,7 @@
 						<c:if test="${not empty prodListResult }">
                         <div class="product" id="delete_img_${prodList.prodNum}">
                             <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                            <a href="/channel/ch_contetModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                            <a href="/channel/ch_contentModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
                                 <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
                             </a>
                         </div>

@@ -220,4 +220,31 @@ INSERT INTO
 
 </select>
 
+<!-- 카테고리 정보 -->
+<select id="getCategory" parameterType="product" resultType="category">
+	SELECT
+		ca.CATEGORYCODE as CATEGORYCODE,
+		ca.CATEGORYNAME as CATEGORYNAME
+	FROM
+		E_CATEGORY_TB ca, E_PRODUCT_TB pr
+	WHERE
+		pr.PRODNUM = #{prodNum}
+	AND
+		ca.CATEGORYCODE = pr.PRODCATEGORY
+</select>
+
+<update id="contentModify" parameterType="product">
+	UPDATE
+		E_PRODUCT_TB
+	SET
+		PRODCATEGORY = #{prodCategory},
+		PRODTITLE = #{prodTitle},
+		PRODSTOCK = #{prodStock},
+		PRODPRICE = #{prodPrice},
+		PRODCONTENT = #{prodContent},
+		PRODINDATE = SYSDATE
+	WHERE
+		PRODNUM = #{prodNum}
+</update>
+
 </mapper>
