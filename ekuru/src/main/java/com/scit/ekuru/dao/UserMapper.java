@@ -61,4 +61,7 @@ public interface UserMapper {
 
 	// 거래 내역
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId);
+	
+	// 전체 상품 조회
+	public ArrayList<HashMap<Object, Object>> selectProdList();
 }

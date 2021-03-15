@@ -2,9 +2,7 @@ package com.scit.ekuru.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
@@ -27,7 +25,6 @@ import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
-import com.scit.ekuru.vo.categoryVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -150,21 +147,21 @@ public class ChViewContoroller {
 		//SimpleDateFormat sysdate = new SimpleDateFormat ( "MM-DD HH:mm");
 		//Date time = new Date();
 		//String time1 = sysdate.format(time);
-				
-				
+
+
 		String prod = Integer.toString(prodVo.getProdNum());
 		Cookie cook = new Cookie("prodnum", URLEncoder.encode(prod, "UTF-8"));
 		cook.setMaxAge(300);
 		cook.setPath("/user/viewedItems");
 		response.addCookie(cook);
 		//System.out.println(cook.getValue());
-				
+
 		model.addAttribute("channel", channel);
 		model.addAttribute("prodEachResult", prodEachResult);
 		model.addAttribute("commentResult", commentResult);
 		model.addAttribute("userType", userType);
 		model.addAttribute("result", result);
-		
+
 		return "channel/ch_content";
 	}
 

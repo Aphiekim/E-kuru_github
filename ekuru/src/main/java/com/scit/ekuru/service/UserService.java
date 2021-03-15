@@ -85,6 +85,7 @@ public class UserService {
 	public void logout() {
 		session.removeAttribute("userNm");
 		session.removeAttribute("userId");
+		session.removeAttribute("userPoint");
 	}
 
 	public String modifyUser(UserVO vo) {
@@ -362,10 +363,10 @@ public class UserService {
 
 
 
-
-
-
-
-
-
+	
+	public ArrayList<HashMap<Object, Object>> selectProdList(){
+		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
+		//System.out.println(list);
+		return list;
+	}
 }
