@@ -86,10 +86,10 @@
                 <!-- ë¡ê³  êµ¬ì­-->
                 <div class="col-lg-3 col-md-3">
                     <div class="box1">
-                        <a class="#" href="home-index-all.html"><img class="logo" src="../resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
+                        <a class="#" href="/"><img class="logo" src="../resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
-
+				
                 <!-- ë©ë´ êµ¬ì­ -->
                 <div class="col-lg-9 col-md-9">
                     <div class="box2">
