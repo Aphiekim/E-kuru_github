@@ -177,4 +177,20 @@ INSERT INTO
 
 </insert>
 
+<select id="">
+	SELECT
+			d.SPECNUM,
+			d.DEALCODE,
+			e.USERID,
+			d.DEALSTATE,
+			d.DEALINDATE
+		FROM
+			E_DEALHISTORY_TB d, E_SPEC_TB e
+		WHERE
+			e.USERID ='real@real'
+			AND
+			d.SPECNUM = e.SPECNUM
+
+</select>
+
 </mapper>

@@ -22,49 +22,49 @@
 </select>
 
 <select id="selectPoint" parameterType="user" resultType="hashmap">
-	select 
-		ep.pointChargeNum as pontChargeNum, 
+	select
+		ep.pointChargeNum as pontChargeNum,
 		ep.userId as userId,
-		pp.pointprodname as pointprodname, 
+		pp.pointprodname as pointprodname,
 		to_char(ep.pointChargedIndate, 'YYYY-MM-DD') as pointchargedindate
-		
-	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum 
+
+	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum
 	where ep.userId like #{userId}
 	order by ep.pointChargeNum
 </select>
 
 <update id="modifyUser" parameterType="user">
 	update e_user_tb
-	set 
+	set
 	 userAddr = #{userAddr},
 	 userZip = #{userZip},
 	 userPhone = #{userPhone}
 	where userId = #{userId}
-	
+
 </update>
 
 <update id="modifyAuthkey" parameterType="user">
 	update e_user_tb
 	set authkey = #{authkey}
 	where userId = #{userId}
-	
+
 </update>
 
 <update id="updateConfirm" parameterType="user">
 	update e_user_tb
 	set userConfirm = #{userConfirm}
 	where userId = #{userId}
-	
+
 </update>
 
 <select id="selectCart" parameterType="String" resultType="hashmap">
-	select 
-		c.cartprodnum as CARTPRODNUM, 
-		c.prodnum as PRODNUM, 
-		e.userid as USERID, 
-		pd.prodtitle as PRODTITLE, 
-		cc.chname as CHNAME, 
-		pd.prodprice as PRODPRICE, 
+	select
+		c.cartprodnum as CARTPRODNUM,
+		c.prodnum as PRODNUM,
+		e.userid as USERID,
+		pd.prodtitle as PRODTITLE,
+		cc.chname as CHNAME,
+		pd.prodprice as PRODPRICE,
 		c.cartprodea as CARTPRODEA
 	from e_user_tb e join e_cart_tb c on e.userid = c.userid, e_channel_tb cc join e_product_tb pd on cc.chnum = pd.chnum
 	where e.userId = #{userId}
@@ -81,9 +81,9 @@ where
 	pointProdNum = #{pointProdNum}
 </select>
 <update id="updatePoint" parameterType="user">
-update 
+update
 	e_user_tb
-set 
+set
 	userPoint = #{userPoint}
 where
 	userId = #{userId}
@@ -102,13 +102,13 @@ into e_point_tb(
 </insert>
 
 <select id="selectChatRoom" parameterType="chat" resultType="hashmap">
-select 
-	cr.chatnum as CHATNUM, 
-	cr.userid as USERID, 
-	cr.chnum as CHNUM, 
+select
+	cr.chatnum as CHATNUM,
+	cr.userid as USERID,
+	cr.chnum as CHNUM,
 	chh.chname as CHNAME,
 	ca.content as CONTENT
-from 
+from
 	e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
 
 <choose>
@@ -127,7 +127,7 @@ from
 </select>
 
 <select id="selectChat" parameterType="int" resultType="chat">
-select 
+select
 	roomnum as ROOMNUM,
 	content as CONTENT
 from e_chat_tb
@@ -135,35 +135,48 @@ where roomnum = #{chatNum}
 </select>
 
 <update id="updateChat" parameterType="chat">
-update 
+update
 	e_chat_tb
-set 
+set
 	content = #{content}
 where
 	roomnum = #{chatNum}
 </update>
 
 <select id="selectChUser1" parameterType="String" resultType="chat">
-select 
-	
+select
+
 	ch.CHNUM as CHNUM,
 	us.USERTYPE as USERTYPE,
 	us.USERID as USERID
-	
+
 from e_channel_tb ch join e_user_tb us on ch.chid = us.userid join e_chattingroom_tb cr on cr.chnum = ch.chnum
 where us.USERID = #{userId}
 </select>
 
 <select id="selectChUser2" parameterType="String" resultType="chat">
-select 
-	userId as userId, 
+select
+	userId as userId,
 	userType as userType
-from 
+from
 	e_user_tb
 where userid = #{userId}
 </select>
 
-
-
+<!-- 거래 내역 가져오기 -->
+<select id = "dealHistory" parameterType="String" resultType="hashmap">
+	SELECT
+		d.SPECNUM as SPECNUM,
+		d.DEALCODE as DEALCODE,
+		e.USERID as USERID,
+		d.DEALSTATE as DEALSTATE,
+		d.DEALINDATE as DEALINDATE
+	FROM
+		E_DEALHISTORY_TB d, E_SPEC_TB e
+	WHERE
+		d.SPECNUM = e.SPECNUM
+	AND
+		e.USERID = #{userId}
+</select>
 
 </mapper>

@@ -19,7 +19,7 @@ public class UserDAO {
 
 	@Autowired
 	private SqlSession session;
-	
+
 	public int insertUser(UserVO vo) {
 		int cnt = 0;
 		try {
@@ -30,7 +30,7 @@ public class UserDAO {
 		}
 		return cnt;
 	}
-	
+
 	public UserVO loginUser(UserVO vo) {
 		UserVO Uservo = null;
 		try {
@@ -41,7 +41,7 @@ public class UserDAO {
 		}
 		return Uservo;
 	}
-	
+
 	public UserVO selectUser(String id) {
 		UserVO Uservo = null;
 		try {
@@ -52,7 +52,7 @@ public class UserDAO {
 		}
 		return Uservo;
 	}
-	
+
 	public int modifyUser(UserVO vo) {
 		int count = 0;
 		try {
@@ -63,7 +63,7 @@ public class UserDAO {
 		}
 		return count;
 	}
-	
+
 	public ArrayList<HashMap<String, Object>> selectPoint(String id) {
 		ArrayList<HashMap<String, Object>> vo = null;
 		try {
@@ -74,7 +74,7 @@ public class UserDAO {
 		}
 		return vo;
 	}
-	
+
 	public ArrayList<HashMap<String, Object>> selectCart(String id){
 		ArrayList<HashMap<String, Object>> vo = null;
 		try {
@@ -85,7 +85,7 @@ public class UserDAO {
 		}
 		return vo;
 	}
-	
+
 	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo){
 		ArrayList<HashMap<Object, Object>> list = null;
 		try {
@@ -96,7 +96,7 @@ public class UserDAO {
 		}
 		return list;
 	}
-	
+
 	public ChatVO selectChat(int chatNum){
 		ChatVO vo = null;
 		try {
@@ -107,7 +107,7 @@ public class UserDAO {
 		}
 		return vo;
 	}
-	
+
 	public int modifyAuthkey(UserVO vo) {
 		int count = 0;
 		try {
@@ -118,7 +118,7 @@ public class UserDAO {
 		}
 		return count;
 	}
-	
+
 	public int updateConfirm(UserVO vo) {
 		int count = 0;
 		try {
@@ -129,25 +129,25 @@ public class UserDAO {
 		}
 		return count;
 	}
-	
+
 	// 포인트 상품 조회
 	public PointProductVO selectPointPricing(int pointProdNum) {
 		PointProductVO pvo = null;
-		
+
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			pvo = mapper.selectPointPricing(pointProdNum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return pvo;
 	}
-	
+
 	// 회원 포인트 수정
 	public int updatePoint(UserVO vo) {
 		int cnt = 0;
-		
+
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			cnt = mapper.updatePoint(vo);
@@ -156,35 +156,35 @@ public class UserDAO {
 		}
 		return cnt;
 	}
-	
+
 	// 포인트 충전 내역 기록
 	public int insertPoint(PointVO vo) {
 		int cnt = 0;
-		
+
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			cnt = mapper.insertPoint(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return cnt;
 	}
-	
+
 	public int updateChat(ChatVO vo) {
 		int cnt = 0;
-		
+
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			cnt = mapper.updateChat(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return cnt;
-	
+
 	}
-	
+
 	public ChatVO selectChUser1(String id) {
 		ChatVO vo = null;
 		try {
@@ -195,7 +195,7 @@ public class UserDAO {
 		}
 		return vo;
 	}
-	
+
 	public ChatVO selectChUser2(String id) {
 		ChatVO vo = null;
 		try {
@@ -205,5 +205,16 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return vo;
+	}
+
+	public ArrayList<HashMap<String, Object>> dealHistory(String userId) {
+		ArrayList<HashMap<String, Object>> result = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			result = mapper.dealHistory(userId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }
