@@ -143,12 +143,12 @@
                             </div>
                             <div class="content-value">
                                 <select class="select" name="prodCategory" id="prodCategory">
-                                    <option value="">${categoryResult.categoryName}</option>
-                                    <option value="1">fashion</option>
-                                    <option value="2">beauty</option>
-                                    <option value="3">food</option>
-                                    <option value="4">boo_cd</option>
-                                    <option value="5">ect</option>
+                                    <option value="${categoryResult.categoryCode}">${categoryResult.categoryName}</option>
+                                    <option value="1">Fashion_acc</option>
+                                    <option value="2">Beauty</option>
+                                    <option value="3">Food</option>
+                                    <option value="4">Book_cd</option>
+                                    <option value="5">Ect</option>
                                 </select>
 
                             </div>

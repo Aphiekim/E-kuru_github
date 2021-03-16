@@ -80,6 +80,14 @@ public class ChViewContoroller {
 		return "channel/ch_management";
 	}
 
+//	개인 채널 수정
+	@RequestMapping(value = "/chModify")
+	public String chModify(ChannelVO vo) {
+		service.chModify(vo);
+		return "redirect:/channel/ch_personal_main?chId="+vo.getChId();
+	}
+
+
 //	상품 삭제
 	@ResponseBody
 	@RequestMapping(value = "/prodDelete")
@@ -174,7 +182,6 @@ public class ChViewContoroller {
 	public HashMap<String, Object> addComment(@RequestBody HashMap<String, Object> json) {
 		return service.addComment(json);
 	}
-
 
 
 

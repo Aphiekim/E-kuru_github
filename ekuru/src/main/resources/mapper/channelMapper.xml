@@ -233,6 +233,7 @@ INSERT INTO
 		ca.CATEGORYCODE = pr.PRODCATEGORY
 </select>
 
+<!-- 상품 정보 수정 -->
 <update id="contentModify" parameterType="product">
 	UPDATE
 		E_PRODUCT_TB
@@ -246,5 +247,21 @@ INSERT INTO
 	WHERE
 		PRODNUM = #{prodNum}
 </update>
+
+<!-- 채널 정보 수정 -->
+<update id="chModify" parameterType="channel">
+	UPDATE
+		E_CHANNEL_TB
+	SET
+		CHNAME = #{chName},
+		<!-- CHPROFILE = #{chProfile}, -->
+		CHINTRO =#{chIntro},
+		CHINDATE = SYSDATE
+	WHERE
+		CHID = #{chId}
+
+</update>
+
+
 
 </mapper>

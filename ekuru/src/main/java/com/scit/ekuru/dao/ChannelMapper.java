@@ -35,4 +35,6 @@ public interface ChannelMapper {
 
 	public boolean contentModify(ProductVO vo);
 
+	public boolean chModify(ChannelVO vo);
+
 }

@@ -24,6 +24,14 @@
 
 
     <script type="text/javascript">
+
+        function fn_chModify(){
+            const chModify = document.getElementById("chModify");
+            chModify.action="/channel/chModify";
+            chModify.method="POSt";
+            chModify.submit();
+        }
+
         $(() => {
             $(".delete_img").click(function () {
                 if(confirm("삭제하시겠습니까?")){
@@ -92,76 +100,69 @@
 
         <div class="container" style="margin-top: 10%;background-color: #FFDFB9;">
             <div class="base">
-                <div class="row">
-                    <div class="main-text">
-                        <span>Channel Management</span>
-                    </div>
-                    <div class="content1">
-                        <div class="profile">
-                            <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                            <a href="">
-                                <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
-                            </a>
+                <form id=chModify>
+                    <div class="row">
+                        <div class="main-text">
+                            <input type="hidden" name="chId" id="chId" value="${channel.chId}">
+                            <input type="text" name="chName" id="chName" value="${channel.chName}">
+                        </div>
+                        <div class="content1">
+                            <div class="profile">
+                                <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
+                                <a href="">
+                                    <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="content2">
+                            <div class="test">
+                                <ul>
+                                    <li class="li-sty"><span>51</span></li>
+                                    <li class="li-sty"><span>379</span></li>
+                                    <li  class="li-sty"><span>8210</span></li>
+                                </ul>
+
+                                <ul class="text">
+                                    <li  class="li-sty"><span>Posts</span></li>
+                                    <li  class="li-sty"><span>Followers</span></li>
+                                    <li  class="li-sty"><span>Follow</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="test2 col-md-12">
+                            <p>
+                                <span class="profile-text">
+                                    <input type="text" style="width : 100%" name="chIntro" id="chIntro" value="${channel.chIntro}">
+                                </span>
+                            </p>
+                        </div>
+
+                        <c:if test="${empty prodListResult }">
+                            <p>There are no items</p>
+                        </c:if>
+
+                        <div class="product-list">
+                            <c:forEach items="${prodListResult }" var="prodList">
+                                <c:if test="${not empty prodListResult }">
+                                <div class="product" id="delete_img_${prodList.prodNum}">
+                                    <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
+                                    <a href="/channel/ch_contentModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                                        <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                                    </a>
+                                </div>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+
+                        <div class="button-list">
+                            <input class="button btn-danger" type="button" value="done" onclick="fn_chModify();">
                         </div>
                     </div>
-                    <div class="content2">
-                        <div class="test">
-                            <ul>
-                                <li class="li-sty"><span>51</span></li>
-                                <li class="li-sty"><span>379</span></li>
-                            <li  class="li-sty"><span>8210</span></li>
-                        </ul>
-
-                        <ul class="text">
-                            <li  class="li-sty"><span>Posts</span></li>
-                            <li  class="li-sty"><span>Followers</span></li>
-                            <li  class="li-sty"><span>Follow</span></li>
-                        </ul>
-                    </div>
-
-                </div>
-                <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                <div class="test2">
-
-                    <p>
-                        <span class="profile-text">
-                            Nike Pro Top can be worn as a long sleeve layered item in cool weather.
-                            Lightweight, highly reliable materials with dry fit technology provide a consistent comfortable fit during training.
-                        </span>
-                    </p>
-                </div>
-
-                <c:if test="${empty prodListResult }">
-                    <p>아직 등록된 상품이 없습니다.</p>
-                </c:if>
-
-                <div class="product-list">
-                    <c:forEach items="${prodListResult }" var="prodList">
-						<c:if test="${not empty prodListResult }">
-                        <div class="product" id="delete_img_${prodList.prodNum}">
-                            <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                            <a href="/channel/ch_contentModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
-                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
-                            </a>
-                        </div>
-                       	</c:if>
-                    </c:forEach>
-                </div>
-
-
-
-                <div class="button-list">
-                    <input class="button btn-danger" type="button" value="done">
-                </div>
-
-
-
+                </form>    
             </div>
-
-
         </div>
     </div>
-</div>
     <!-- include tag Footer Start -->
     <div class="footer">
         <div class="container">

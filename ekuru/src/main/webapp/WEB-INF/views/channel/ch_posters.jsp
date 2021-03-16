@@ -37,7 +37,7 @@
     </script>
 </head>
 <body>
-    
+
     <div class="container" style="margin-top: 5%;">
         <div class="base">
             <form name="prodWriteForm" id="prodWriteForm">
@@ -77,9 +77,11 @@
                                 </div>
                                 <div class="content2 select-div">
                                     <select class="select" name="prodCategory" id="prodCategory">
-                                        <option value="0">Beauty</option>
-                                        <option value="1">fashion</option>
-                                        <option value="2">food</option>
+                                        <option value="1">fashion_acc</option>
+                                        <option value="2">beauty</option>
+                                        <option value="3">food</option>
+                                        <option value="4">book_cd</option>
+                                        <option value="5">ect</option>
                                     </select>
                                 </div>
                             </div>

@@ -113,7 +113,15 @@ public class ChannelService {
 	public void contentModify(ProductVO vo) {
 		boolean result = dao.contentModify(vo);
 		if(result) {
-			logger.info("수정완료");
+			logger.info("상품수정완료");
+		}
+
+	}
+
+	public void chModify(ChannelVO vo) {
+		boolean result = dao.chModify(vo);
+		if(result) {
+			logger.info("채널수정완료");
 		}
 
 	}

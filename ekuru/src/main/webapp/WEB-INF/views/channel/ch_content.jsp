@@ -24,7 +24,6 @@
 
     $(() => {
             $(".addComment").click(function () {
-                alert("안녕");
 
                 const prodComment = $("#commentBox").val();
                 if (prodComment == null || prodComment.lengh == 0) {
@@ -71,8 +70,8 @@
 
         function fn_addCart(){
             var addCart = document.getElementById("addCart");
-            console.log(addCart);
-            addCart.action = location.href="../user/mypageShopping";
+            addCart.action = "../user/mypageShopping";
+            addCart.method = "GET";
             addCart.submit();
         }
 
@@ -82,7 +81,7 @@
 
     <script> $('.carousel').carousel({ interval: 2000 //기본 5초
     }) </script>
-	
+
 
 </head>
 <body>
@@ -120,7 +119,7 @@
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
         <div><h2 class="page-section-heading text-center text-secondary title-style">
-            <strong>${channel.chName }</strong>님의 게시글</h2></div>
+            <strong>${channel.chName }</strong>'s item</h2></div>
         <!--상위 부분-->
         <div class="top-content">
 
@@ -191,7 +190,8 @@
                                 <span>QUANTITY</span>
                             </div>
                             <div class="content-value">
-                                <input type="number" id="prodStock" name="prodStock">
+                                <input type="number" id="cartProdEa" name="cartProdEa">
+                                <input type="hidden" id="prodNum" name="prodNum" value="${prodEachResult.prodNum }">
                             </div>
 
                             <div style="margin-top: 30px;">

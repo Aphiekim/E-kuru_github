@@ -54,7 +54,7 @@
             <div class="base">
                 <div class="row">
                     <div class="main-text">
-                        <span>${channel.chName }님의 채널</span>
+                        <span>${channel.chName }</span>
                     </div>
                     <div class="content1">
                         <div class="profile">
@@ -89,7 +89,7 @@
 
                 <div class="product-list">
                     <c:if test="${empty prodListResult }">
-                        <p>아직 등록된 상품이 없습니다.</p>
+                        <p>There are no items</p>
                     </c:if>
                     <c:forEach items="${prodListResult }" var="prodList">
 						<c:if test="${not empty prodListResult }">

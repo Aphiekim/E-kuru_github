@@ -176,4 +176,15 @@ public class ChannelDAO {
 		return check;
 	}
 
+	public boolean chModify(ChannelVO vo) {
+		boolean check = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			check = mapper.chModify(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return check;
+	}
+
 }
