@@ -37,7 +37,7 @@
 			var adProdCharge = document.getElementById('adProd').value;
 			var adReqCharge = document.getElementById('adReq').value;
 			var summ = (adChCharge + adProdCharge + adReqCharge);
-			
+			console.log(summ)
 			<%--if(summ!=adTotal){
 				alert("신청 금액의 합이 맞지 않습니다.");
 				return false;
@@ -55,6 +55,23 @@
 			document.getElementById('adProdApply').value = document.getElementById('adProdCharge').value;
 			document.getElementById('adReqApply').value = document.getElementById('adReqCharge').value;--%>
 		}
+
+	function checkAndSave(adTotal){
+		var adChCharge = Number(document.getElementById('adChCharge').value);
+		var adProdCharge = Number(document.getElementById('adProdCharge').value);
+		var adReqCharge = Number(document.getElementById('adReqCharge').value);
+		var summ = (adChCharge + adProdCharge + adReqCharge);
+		var total = adTotal;
+		console.log(summ);
+		console.log(total);
+		if(summ!=total){
+			alert("신청 금액의 합이 맞지 않습니다.");
+			return false;
+		}else{
+			alert("신청이 완료되었습니다.");
+			return true;
+		}
+	}
     </script>
     <style>
         .border-st {
@@ -96,14 +113,14 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a href="/user/viewedItems">Recently viewed items</a></li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
                 </ul>
             </nav>
@@ -111,7 +128,7 @@
     </header>
     <!-- header -->
    
-	<form action="/ad/superplan_doContract" method="post">
+	<form action="/ad/superplan_doContract" method="post" onsubmit="return checkAndSave('${adTotal}');">
 	    <div class="container" style="margin-top: 10%;">
 	        <div class="row text-center">
 	            <div class="card  border-st" style="width: 70%; margin-right: 3%;">
@@ -129,38 +146,38 @@
 	                    <tbody>
 	                      <tr>
 	                        <th class="table-st" scope="row">
-	                           <h3 class="text-center">Channel</h3 class="text-center">
+	                           <h3 class="text-center">Channel</h3>
 	                        </th>
 	                        <td >
-	        	               <input type="text" class="form-control td-st" id="adCh" placeholder="point value">
+	        	               <input type="number" class="form-control td-st" id="adCh" placeholder="point value" value="0">
 	                        </td>
 	                      </tr>
 	                      <tr>
 	                        <th class="table-st" scope="row">
-	                            <h3 class="text-center">Shop Posting</h3 class="text-center">
+	                            <h3 class="text-center">Shop Posting</h3>
 	                        </th>
 	                        <td>
-	                            <select name="req"  class="form-control td-st">
+	                            <select name="reqNum"  class="form-control td-st">
 	                                <option value="0">select your Post</option>
 	                                <option value="1">1</option>
 	                                <option value="2">2</option>
 	                                <option value="3">3</option>
 	                            </select>
-	                            <input type="text" class="form-control td-st" id="adProd" placeholder="point value">
+	                            <input type="number" class="form-control td-st" id="adProd" placeholder="point value" value="0">
 	                        </td>
 	                      </tr>
 	                      <tr>
 	                        <th class="table-st" scope="row">
-	                            <h3 class="text-center">Request Posting</h3 class="text-center">
+	                            <h3 class="text-center">Request Posting</h3>
 	                        </th>
 	                        <td>
-	                            <select name="prod" class="form-control td-st">
+	                            <select name="prodNum" class="form-control td-st">
 	                                <option value="0">select your Post</option>
 	                                <option value="1">1</option>
 	                                <option value="2">2</option>
 	                                <option value="3">3</option>
 	                            </select>
-	                            <input type="text" class="form-control td-st" id="adReq" placeholder="point value">
+	                            <input type="number" class="form-control td-st" id="adReq" placeholder="point value" value="0">
 	                        </td>
 	                      </tr>
 	                      <tr>
@@ -168,7 +185,7 @@
 	                      	
 	                      	</th>
 		                    <td>
-                    			<button class="btn btn-danger" type="button" style="margin-left:0%" onclick="applyRecipe('${adTotal}');">Apply</button>
+                    			<input class="btn btn-danger" type="button" style="margin-left:0%" onclick="applyRecipe('${adTotal}');" value="Apply">
 					        </td>
 				          </tr>
 	                    </tbody>
@@ -179,29 +196,31 @@
                 <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
 	               	 <div class="card-body text-secondary">
 	               		 <h5 class="card-title">Please check your items</h5>
+	               		 <ul>
 		                    <li>
-		                        Total ${adTotal }$
+		                        Total $
 		                        <input type="text" id="adTotal" name="adTotal" value="${adTotal }" readonly="readonly">
 		                    </li>
 		                    <hr class="line">
 		                    <li>
 		                        Channel $
-		                        <input type="text" id="adChCharge" name="adChCharge" readonly="readonly">
+		                        <input type="number" id="adChCharge" name="adChCharge" readonly="readonly" value="0">
 		                       <!--  <p id="adChApply"></p> -->
 		                    </li>
 		                    <li>
 		                        Shop Post $
-		                        <input type="text" id="adProdCharge" name="adProdCharge" readonly="readonly">
+		                        <input type="number" id="adProdCharge" name="adProdCharge" readonly="readonly" value="0">
 		                        <!-- <p id="adProdApply"></p> -->
 		                    </li>
 		                    <li>
 		                        Request Post $
-		                        <input type="text" id="adReqCharge" name="adReqCharge" readonly="readonly">
+		                        <input type="number" id="adReqCharge" name="adReqCharge" readonly="readonly" value="0">
 		                        <!-- <p id="adReqApply"></p> -->
 		                    </li>
+	               		 </ul>
 				     </div>
 				     <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
-		                    <button class="btn btn-danger" type="submit">Submit</button>
+		                    <input class="btn btn-danger" type="submit" value="Submit">
 				     </div>
             </div>
         </div>

@@ -58,22 +58,11 @@ public interface UserMapper {
 
 	// ChatVO로 유저 정보 조회
 	public ChatVO selectChUser2(String id);
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-	// 거래 내역
-	public ArrayList<HashMap<String, Object>> dealHistory(String userId);
-=======
-	
-	// 전체 상품 조회
-	public ArrayList<HashMap<Object, Object>> selectProdList();
->>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
-=======
 
 	// 거래 내역
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId);
 	
 	// 전체 상품 조회
 	public ArrayList<HashMap<Object, Object>> selectProdList();
->>>>>>> master
+
 }
