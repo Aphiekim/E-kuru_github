@@ -2,10 +2,13 @@
     font-family: 'NotSansCJKjp-Black', sans-serif;
 }
 
+body{
+    background-color: #ffdfb9 !important;
+}
+
 .fullSize{
     position: relative;
     overflow: hidden;
-    background-color: #FFDFB9;
 }
 
 
@@ -14,7 +17,7 @@
     min-width: 436px;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
 
 .title-style{
@@ -27,6 +30,7 @@
     display: flex;
     border-bottom: 1px solid rgb(140, 141, 140);
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .bottom-content{
@@ -80,9 +84,19 @@
 }
 
 .button{
-    margin-top: 10px;
-    text-align: right;
-    padding-right: 60px;
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    margin: 20px;
+}
+
+.button-list{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .textbox{

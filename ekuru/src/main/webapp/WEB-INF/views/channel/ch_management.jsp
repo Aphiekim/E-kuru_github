@@ -27,7 +27,7 @@
         $(() => {
             $(".delete_img").click(function () {
                 if(confirm("삭제하시겠습니까?")){
-                    
+
                     let prodNum = $(this).attr('data-prodNum'); // prodNum 정의
                     prodNum = parseInt(prodNum);
                     console.log(typeof (prodNum));
@@ -38,10 +38,10 @@
                     $.ajax({
                         url: '/channel/prodDelete',
                         type: "POST",
-                        contentType: "application/json", 
-                        dataType: "json", 
-                        data: JSON.stringify(data), 
-                        success: function (result) { 
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(data),
+                        success: function (result) {
                             if (result['check']) {
 
                                 $(`#delete_img_${prodNum}`).remove();
@@ -55,7 +55,7 @@
 
                     });
 
-                }        
+                }
             });
         });
     </script>
@@ -140,7 +140,7 @@
 						<c:if test="${not empty prodListResult }">
                         <div class="product" id="delete_img_${prodList.prodNum}">
                             <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                            <a href="ch_content?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
+                            <a href="/channel/ch_contentModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
                                 <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
                             </a>
                         </div>

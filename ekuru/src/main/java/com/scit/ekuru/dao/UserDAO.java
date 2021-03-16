@@ -207,6 +207,9 @@ public class UserDAO {
 		return vo;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId) {
 		ArrayList<HashMap<String, Object>> result = null;
@@ -217,8 +220,12 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return result;
+<<<<<<< HEAD
 =======
 	
+=======
+	}
+>>>>>>> master
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
 		ArrayList<HashMap<Object, Object>> list = null;
 		try {
@@ -228,6 +235,9 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return list;
+<<<<<<< HEAD
 >>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
+=======
+>>>>>>> master
 	}
 }

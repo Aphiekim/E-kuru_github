@@ -2,9 +2,7 @@ package com.scit.ekuru.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
@@ -12,12 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.scit.ekuru.service.ChannelService;
@@ -32,6 +33,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/channel")
 public class ChViewContoroller {
 
+	private static final Logger logger = LoggerFactory.getLogger(ChViewContoroller.class);
+
 	@Autowired
 	private ChannelService service;
 
@@ -44,14 +47,16 @@ public class ChViewContoroller {
 	}
 
 //	채널 검색 결과 보기
-	@RequestMapping(value = "/ch_search")
-	public String chSearch() {
+	@RequestMapping(value = "/ch_search", method = RequestMethod.POST)
+	public String chSearch(@RequestParam(defaultValue = "") String search, Model model) {
+		service.chSearch(search, model);
 		return "channel/ch_search";
 	}
 
 //	특정 카테고리만
-	@RequestMapping(value = "/ch_categoryresult")
-	public String chCategoryResult() {
+	@RequestMapping(value = "/ch_categoryresult", method = RequestMethod.GET)
+	public String chCategoryResult(int categoryCode, Model model) {
+		service.chCategoryResult(model, categoryCode);
 		return "channel/ch_categoryresult";
 	}
 
@@ -65,7 +70,7 @@ public class ChViewContoroller {
 		return "channel/ch_personal_main";
 	}
 
-//	개인 채널 수정 폼
+//	개인 채널 수정 폼으로 가기
 	@RequestMapping(value = "/ch_management")
 	public String chManagement(String chId, Model model) {
 		ChannelVO channel = service.chRead(chId);
@@ -99,10 +104,33 @@ public class ChViewContoroller {
 		return "redirect:/channel/ch_personal_main?chId=" + vo.getUserId();
 	}
 
+//	채널 게시글 수정 폼
+	@RequestMapping(value = "/ch_contentModify")
+	public String ch_contentModify(ProductVO prodVo,Model model) {
+		ProductVO prodResult = service.getProdEach(prodVo);
+		ArrayList<ProductCommentVO> commentResult = service.getProdComment(prodVo.getProdNum());
+		service.getCategory(prodVo,model);
+		model.addAttribute("prodResult", prodResult);
+		model.addAttribute("commentResult", commentResult);
+		return "channel/ch_contentModify";
+
+	}
+
+//	채널 게시글 수정
+	@RequestMapping(value = "/contentModify")
+	public String contentModify(ProductVO vo) {
+		service.contentModify(vo);
+		return "redirect:/channel/ch_management?chId="+vo.getUserId();
+	}
+
+
 //	채널 게시글 보기 (구매자)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 	@RequestMapping(value = "/ch_content")
-	public String chContent(String chId, ProductVO prodVo, Model model, HttpSession session) {
+	public String chContent(String chId, ProductVO prodVo, Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws UnsupportedEncodingException {
 		ChannelVO channel = service.chRead(chId);
 		ProductVO prodEachResult = service.getProdEach(prodVo);
 		ArrayList<ProductCommentVO> commentResult = service.getProdComment(prodVo.getProdNum());
@@ -119,6 +147,7 @@ public class ChViewContoroller {
 				}
 			}
 		}
+<<<<<<< HEAD
 
 =======
 	@RequestMapping(value="/ch_content")
@@ -126,20 +155,26 @@ public class ChViewContoroller {
 		ChannelVO channel = service.chRead(chId);
 		ProductVO prodEachResult = service.getProdEach(prodVo);
 		
+=======
+>>>>>>> master
 		//현재 시간을 가져옴
 		//SimpleDateFormat sysdate = new SimpleDateFormat ( "MM-DD HH:mm");
 		//Date time = new Date();
 		//String time1 = sysdate.format(time);
-		
-		
+
+
 		String prod = Integer.toString(prodVo.getProdNum());
 		Cookie cook = new Cookie("prodnum", URLEncoder.encode(prod, "UTF-8"));
 		cook.setMaxAge(300);
 		cook.setPath("/user/viewedItems");
 		response.addCookie(cook);
 		//System.out.println(cook.getValue());
+<<<<<<< HEAD
 		
 >>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
+=======
+
+>>>>>>> master
 		model.addAttribute("channel", channel);
 		model.addAttribute("prodEachResult", prodEachResult);
 		model.addAttribute("commentResult", commentResult);
@@ -149,6 +184,9 @@ public class ChViewContoroller {
 		return "channel/ch_content";
 	}
 
+
+
+
 //	채널 댓글 달기
 	@ResponseBody
 	@RequestMapping(value = "addComment")
@@ -156,10 +194,7 @@ public class ChViewContoroller {
 		return service.addComment(json);
 	}
 
-//	채널 게시글 보기 (판매자)
-	@RequestMapping(value = "/ch_content_seller")
-	public String chContentSeller() {
-		return "channel/ch_content_seller";
-	}
+
+
 
 }

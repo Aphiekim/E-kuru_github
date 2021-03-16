@@ -1,7 +1,6 @@
 package com.scit.ekuru.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.categoryVO;
 
 @Repository
 public class ChannelDAO {
@@ -130,6 +130,50 @@ public class ChannelDAO {
 		}
 
 		return prodCommentNum;
+	}
+
+	public ArrayList<ChannelVO> chCategoryResult(int categoryCode) {
+		ArrayList<ChannelVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chCategoryResult(categoryCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public ArrayList<ChannelVO> chSearch(String search) {
+		ArrayList<ChannelVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chSearch(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public categoryVO getCategory(ProductVO prodVo) {
+		categoryVO result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.getCategory(prodVo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean contentModify(ProductVO vo) {
+		boolean check = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			check = mapper.contentModify(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return check;
 	}
 
 }
