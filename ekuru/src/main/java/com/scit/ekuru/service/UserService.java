@@ -353,6 +353,10 @@ public class UserService {
 
 		return chatvo;
 	}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
 	public void dealHistory(HttpSession session, Model model) {
 		String userId = (String) session.getAttribute("userId");
@@ -363,6 +367,17 @@ public class UserService {
 
 
 
+<<<<<<< HEAD
+
+
+
+
+
+
+}
+=======
+=======
+>>>>>>> master
 	
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
 		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
@@ -370,3 +385,7 @@ public class UserService {
 		return list;
 	}
 }
+<<<<<<< HEAD
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
+=======
+>>>>>>> master

@@ -163,6 +163,10 @@ from
 where userid = #{userId}
 </select>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 <!-- 거래 내역 가져오기 -->
 <select id = "dealHistory" parameterType="String" resultType="hashmap">
 	SELECT
@@ -179,6 +183,10 @@ where userid = #{userId}
 		e.USERID = #{userId}
 </select>
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> master
 <!-- 상품 전체 리스트 -->
 <select id="selectProdList" resultType="hashmap">
 	SELECT
@@ -194,4 +202,8 @@ where userid = #{userId}
 	FROM
 		E_PRODUCT_TB
 </select>
+<<<<<<< HEAD
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
+=======
+>>>>>>> master
 </mapper>

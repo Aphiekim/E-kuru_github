@@ -186,6 +186,10 @@ public class UserController {
 
 		return "/user/mypage_pointPricing";
 	}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 
 	//결제 완료 페이지로 이동
 	@RequestMapping(value="/mypage_paymentClear", method=RequestMethod.GET)
@@ -199,6 +203,10 @@ public class UserController {
 		 service.dealHistory(session, model);
 		return "user/mypage_dealHistory";
 	}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> master
 	
 	
 	//최근 본 상품
@@ -247,4 +255,8 @@ public class UserController {
 		return "/user/mypage_browSingHistory";
 	}
 	
+<<<<<<< HEAD
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
+=======
+>>>>>>> master
 }
