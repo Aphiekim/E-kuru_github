@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.ChatVO;
+import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
 
 @Controller
@@ -184,6 +186,7 @@ public class UserController {
 
 		return "/user/mypage_pointPricing";
 	}
+<<<<<<< HEAD
 
 	//결제 완료 페이지로 이동
 	@RequestMapping(value="/mypage_paymentClear", method=RequestMethod.GET)
@@ -197,4 +200,54 @@ public class UserController {
 		 service.dealHistory(session, model);
 		return "user/mypage_dealHistory";
 	}
+=======
+	
+	
+	//최근 본 상품
+	@RequestMapping(value="/viewedItems", method=RequestMethod.GET)
+	public String viewedItems(Model model, HttpServletRequest request) {
+		
+		Cookie[] cook = request.getCookies();
+		//전체 상품 정보를 저장하는 변수
+		ArrayList<HashMap<Object, Object>> list = service.selectProdList();
+		
+		//최근 본 상품만 저장하기 위한 변수
+		ArrayList<HashMap<Object, Object>> prodlist = new ArrayList<HashMap<Object,Object>>();
+		
+		// 해쉬로 저장하기 위해 필요한 변수
+		HashMap<Object, Object> hash = new HashMap<Object, Object>();
+		
+		if(cook != null){
+			for(int i = 0; i < cook.length; i++) {
+				if(cook[i].getName().equals("prodnum")) {
+					
+					for(int j = 0; j < list.size(); j++) {
+						String su = String.valueOf(list.get(j).get("PRODNUM"));
+						if(cook[i].getValue().equals(su)) {
+							hash.put("PRODNUM", list.get(j).get("PRODNUM"));
+							hash.put("PRODINDATE", list.get(j).get("PRODINDATE"));
+							hash.put("PRODTITLE", list.get(j).get("PRODTITLE"));
+						}
+					}
+				}
+			}
+			
+			
+		}else{
+			System.out.println("쿠키가 없어요");
+		}
+		
+		
+		prodlist.add(hash);
+//		System.out.println(prodlist);
+//		System.out.println(prodlist.size());
+		if(prodlist.get(0).get("PRODNUM") != null) {
+			model.addAttribute("prodlist", prodlist);
+		}
+		
+		
+		return "/user/mypage_browSingHistory";
+	}
+	
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
 }

@@ -206,6 +206,7 @@ public class UserDAO {
 		}
 		return vo;
 	}
+<<<<<<< HEAD
 
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId) {
 		ArrayList<HashMap<String, Object>> result = null;
@@ -216,5 +217,17 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return result;
+=======
+	
+	public ArrayList<HashMap<Object, Object>> selectProdList(){
+		ArrayList<HashMap<Object, Object>> list = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectProdList();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
 	}
 }

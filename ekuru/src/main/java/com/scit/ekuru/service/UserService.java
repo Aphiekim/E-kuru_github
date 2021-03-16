@@ -85,6 +85,7 @@ public class UserService {
 	public void logout() {
 		session.removeAttribute("userNm");
 		session.removeAttribute("userId");
+		session.removeAttribute("userPoint");
 	}
 
 	public String modifyUser(UserVO vo) {
@@ -352,6 +353,7 @@ public class UserService {
 
 		return chatvo;
 	}
+<<<<<<< HEAD
 
 	public void dealHistory(HttpSession session, Model model) {
 		String userId = (String) session.getAttribute("userId");
@@ -369,3 +371,12 @@ public class UserService {
 
 
 }
+=======
+	
+	public ArrayList<HashMap<Object, Object>> selectProdList(){
+		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
+		//System.out.println(list);
+		return list;
+	}
+}
+>>>>>>> 001b3bf2c327ee130ecb64128adcc82cc8d7297d
