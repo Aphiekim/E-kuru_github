@@ -40,7 +40,7 @@
     </script>
 </head>
 <body>
-    <!-- header -->
+     <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -65,18 +65,25 @@
         </div>
     </header>
     <!-- header -->
+    <!-- header -->
     <div>
-        <!-- 검색창 -->
-        <div class="container">
+    <!-- 검색창 -->
+  	 <div class="container">
             <div>
                 <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
                     <div class="input-group">
-                        <input type="text" class="search-query form-control" placeholder="Search" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-danger" type="button">
-                                <span class=" glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
+                    <form action="/request/request_search" method="post">
+                    	<div class="row">
+		                   	 <div class="col-sm">
+		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:190%;"/>
+		                   	 </div>
+	                       	<div class="col-sm input-group-btn">
+	                          <button class="btn btn-danger" type="submit" style="margin-left:90%">
+	                              <span class="glyphicon glyphicon-search"></span>
+	                          </button>
+	                       </div>
+                    	</div>
+                    </form>
                     </div>
                 </div>
             </div>
