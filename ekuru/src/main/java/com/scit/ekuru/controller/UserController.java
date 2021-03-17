@@ -101,9 +101,6 @@ public class UserController {
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
 	public String mypageShopping(CartVO vo, Model model, HttpSession ssesion) {
 		ArrayList<HashMap<String, Object>> list = service.selectCart();
-		String userId = (String) session.getAttribute("userId");
-		vo.setUserId(userId);
-		service.addCart(vo);
 		model.addAttribute("cart", list);
 		return "user/mypage_shopping";
 	}
@@ -257,7 +254,8 @@ public class UserController {
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
 		service.addCart(vo);
-		return "user/mypage_shopping";
+		System.out.println(vo);
+		return "redirect:/user/mypageShopping";
 	}
 
 
