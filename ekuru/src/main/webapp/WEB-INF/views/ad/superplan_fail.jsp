@@ -61,7 +61,7 @@
     <div class="text-center text-st">
         <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
         <h2>[ Super Plan ]</h2>
-        <h1>결제 포인트가 현재 포인트보다 많습니다.</h1>
+        <h1>The payment point is more than your point.</h1>
     </div>
 
     <!--버튼-->
