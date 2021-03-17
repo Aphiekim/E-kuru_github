@@ -257,7 +257,7 @@ public class UserController {
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
 		service.addCart(vo);
-		return "user/mypage_shopping";
+		return "redirect:/user/mypage_shopping";
 	}
 
 
