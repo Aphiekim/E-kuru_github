@@ -12,8 +12,7 @@
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/mypage-browsinghistory.css">
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">    
-    <link rel="stylesheet" href="../resources/css/header.css">
-    <link rel="stylesheet" href="../resources/css/main-footer.css">
+	<link rel="stylesheet" href="../resources/css/mypage-shopping.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
@@ -28,7 +27,6 @@
 
 </head>
 <body>
-
 <!--전체 틀-->
 <div class="fullSize">
     <%@ include file="/WEB-INF/views/header.jsp" %>
@@ -47,61 +45,65 @@
 			</div>
 		</div>
 
-            <div class="container" style="width: 70%; margin-top: 5%;">
-                <!--요청 내역 헤드-->
-                <div class="card text-center">
-                    <div class="card-header">
-                        <h2 class="page-section-heading text-center text-secondary title-style">
-                            <strong>최근 본 상품</h2>
-                    </div>
-                    <div class="card-body">
-                        <!-- 충전 내역 출력 부분 -->
-                        <div>
-                            <form action="#">
-                                <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Code</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Product Title</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                 
-                                     <c:forEach items="${prodlist }" var="list" varStatus="status">
-			                          <tr>
-				                          <th scope="row">${status.count}</th>
-				                          <td>${list.PRODNUM }</td>
-				                          <td>${list.PRODINDATE }</td>
-				                          <td>${list.PRODTITLE }</td>
-				                          <td>
-				                      			<button class="btn btn-secondary">Wating</button>
-				                          </td>
-			                          </tr>
-                                      </c:forEach>
-                                        
-                                    </tbody>
-                                </table>
-                            </form>
-                        </div>
-                    <div class="card-footer text-muted">
-                        Make your request more, Get your stuff more
-                    </div>
-                </div>
-            </div>
+        <div>
+            <h2 class="page-section-heading text-center text-secondary">
+                <strong>최근 본 상품</strong></h2>
+        </div>
 
-            <div style="text-align: center; padding-top: 30px;">
+	<%-- 
+        <div class=shopping-list>
+            <hr class="line">
+            <h3>CHANNEL</h3>
+            <hr class="line">
+            <div style="padding-bottom: 10px;">
+                <img class="shopping-minus" src="../resources/img/shopping-minus.png">
+                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
+                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">TITLE</span>
+                <span style="padding-right: 50px; margin-left: 30px;">23,000P</span>
+                <input type="number" style="max-width: 40px; margin-left: 30px;"> 개
+                <input class="shopping-checkbox" type="checkbox">
+            </div>
+        
+            <div style="padding-bottom: 10px;">
+                <img class="shopping-minus" src="../resources/img/shopping-minus.png">
+                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
+                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">TITLE</span>
+                <span style="padding-right: 50px; margin-left: 30px;">23,000P</span>
+                <input type="number" style="max-width: 40px; margin-left: 30px;"> 개
+                <input class="shopping-checkbox" type="checkbox">
+            </div>
+        
+            <div style="text-align: center; margin-right: 70px;">
+                <button type="button" class="btn btn-info">요청</button>
+            </div>
+        </div>
+	--%>
+		
+		<%-- foreach문 안에 foreach문 예상  --%>
+        
+        <c:forEach items="${prodlist }" var="list" varStatus="status">
+			<div class=shopping-list>
+            <hr class="line">
+            <hr class="line">
+            <div style="padding-bottom: 10px;">
+                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
+                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${status.count}</span>
+                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODNUM }</span>
+                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODTITLE }</span> 
+            </div>
+        </div>
+			
+		</c:forEach>
+       
+       <div style="text-align: center; padding-top: 30px;">
                 <button type="button" class="btn btn-info">내역삭제</button>
             </div>
 
-        </div>
-        <!-- 중간 전체 틀 끝-->
     </div>
-                <%@ include file="/WEB-INF/views/main-footer.jsp" %>
-                    <!-- Footer End -->
-                </div>
-    <!--전체 틀 끝-->
+    <!-- 중간 전체 틀 끝-->
+        <!-- include tag Footer Start -->
+<%@ include file="/WEB-INF/views/main-footer.jsp" %>
+</div>
+<!--전체 틀 끝-->
 </body>
 </html>

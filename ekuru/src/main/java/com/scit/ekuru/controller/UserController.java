@@ -101,9 +101,6 @@ public class UserController {
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
 	public String mypageShopping(CartVO vo, Model model, HttpSession ssesion) {
 		ArrayList<HashMap<String, Object>> list = service.selectCart();
-		String userId = (String) session.getAttribute("userId");
-		vo.setUserId(userId);
-		service.addCart(vo);
 		model.addAttribute("cart", list);
 		return "user/mypage_shopping";
 	}
@@ -257,8 +254,18 @@ public class UserController {
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
 		service.addCart(vo);
-		return "user/mypage_shopping";
+		return "redirect:/user/mypage_shopping";
 	}
 
 
+	
+	//채팅방 채팅 생성
+	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
+	public String createChat(ChatVO vo) {
+		ChatVO chvo = service.selectChId(vo.getChId());
+		vo.setChNum(chvo.getChNum());
+		
+		//System.out.println(chnum);
+		return service.createChatRoom(vo);
+	}
 }
