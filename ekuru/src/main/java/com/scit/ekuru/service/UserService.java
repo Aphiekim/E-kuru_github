@@ -19,6 +19,7 @@ import com.scit.ekuru.controller.PaymentController;
 import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
+import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointVO;
@@ -363,10 +364,18 @@ public class UserService {
 
 
 
-	
+
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
 		ArrayList<HashMap<Object, Object>> list = dao.selectProdList();
 		//System.out.println(list);
 		return list;
+	}
+
+	public void addCart(CartVO vo) {
+		boolean check = false;
+		check = dao.addCart(vo);
+		if(check) {
+			logger.info("장바구니 담기 성공");
+		}
 	}
 }

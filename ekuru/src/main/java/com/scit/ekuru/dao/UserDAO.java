@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
@@ -226,5 +227,16 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public boolean addCart(CartVO vo) {
+		boolean check = false;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			check = mapper.addCart(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return check;
 	}
 }

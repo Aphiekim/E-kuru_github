@@ -194,4 +194,22 @@ where userid = #{userId}
 	FROM
 		E_PRODUCT_TB
 </select>
+
+
+<!-- 장바구니 저장 -->
+<insert id="addCart" parameterType="cart">
+	INSERT INTO
+		E_CART_TB
+			(CARTPRODNUM,
+			USERID,
+			PRODNUM,
+			CARTPRODEA
+		)VALUES(
+			CART_SEQ.nextval,
+			#{userId},
+			#{prodNum},
+			#{cartProdEa})
+
+</insert>
+
 </mapper>

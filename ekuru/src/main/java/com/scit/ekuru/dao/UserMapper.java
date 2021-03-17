@@ -3,6 +3,7 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
@@ -61,7 +62,9 @@ public interface UserMapper {
 
 	// 거래 내역
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId);
-	
+
 	// 전체 상품 조회
 	public ArrayList<HashMap<Object, Object>> selectProdList();
+
+	public boolean addCart(CartVO vo);
 }

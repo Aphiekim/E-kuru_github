@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
@@ -98,8 +99,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
-	public String mypageShopping(Model model) {
+	public String mypageShopping(CartVO vo, Model model, HttpSession ssesion) {
 		ArrayList<HashMap<String, Object>> list = service.selectCart();
+		String userId = (String) session.getAttribute("userId");
+		vo.setUserId(userId);
+		service.addCart(vo);
 		model.addAttribute("cart", list);
 		return "user/mypage_shopping";
 	}
@@ -199,26 +203,26 @@ public class UserController {
 		 service.dealHistory(session, model);
 		return "user/mypage_dealHistory";
 	}
-	
-	
+
+
 	//최근 본 상품
 	@RequestMapping(value="/viewedItems", method=RequestMethod.GET)
 	public String viewedItems(Model model, HttpServletRequest request) {
-		
+
 		Cookie[] cook = request.getCookies();
 		//전체 상품 정보를 저장하는 변수
 		ArrayList<HashMap<Object, Object>> list = service.selectProdList();
-		
+
 		//최근 본 상품만 저장하기 위한 변수
 		ArrayList<HashMap<Object, Object>> prodlist = new ArrayList<HashMap<Object,Object>>();
-		
+
 		// 해쉬로 저장하기 위해 필요한 변수
 		HashMap<Object, Object> hash = new HashMap<Object, Object>();
-		
+
 		if(cook != null){
 			for(int i = 0; i < cook.length; i++) {
 				if(cook[i].getName().equals("prodnum")) {
-					
+
 					for(int j = 0; j < list.size(); j++) {
 						String su = String.valueOf(list.get(j).get("PRODNUM"));
 						if(cook[i].getValue().equals(su)) {
@@ -229,22 +233,31 @@ public class UserController {
 					}
 				}
 			}
-			
-			
+
+
 		}else{
 			System.out.println("쿠키가 없어요");
 		}
-		
-		
+
+
 		prodlist.add(hash);
 //		System.out.println(prodlist);
 //		System.out.println(prodlist.size());
 		if(prodlist.get(0).get("PRODNUM") != null) {
 			model.addAttribute("prodlist", prodlist);
 		}
-		
-		
+
+
 		return "/user/mypage_browSingHistory";
 	}
-	
+
+//	장바구니 저장
+//	@RequestMapping(value = "/addCart")
+//	public String addCart(CartVO vo, HttpSession session){
+//		String userId = (String) session.getAttribute("userId");
+//		vo.setUserId(userId);
+//		service.addCart(vo);
+//		return "user/mypage_shopping";
+//	}
+
 }
