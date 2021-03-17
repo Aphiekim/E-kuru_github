@@ -71,8 +71,8 @@
 
         function fn_addCart(){
             var addCart = document.getElementById("addCart");
-            addCart.action = "../user/mypageShopping";
-            addCart.method = "GET";
+            addCart.action = "../user/addCart";
+            addCart.method = "POST";
             addCart.submit();
         }
 
