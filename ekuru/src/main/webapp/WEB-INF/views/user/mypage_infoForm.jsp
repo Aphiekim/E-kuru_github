@@ -108,31 +108,31 @@
                                             <tr>
                                                 <th scope="col">zip code</th>
                                                 <td>
-                                                    <input type="text" name="userZip" value="${user.getUserZip()}">
+                                                    <input type="text" name="userZip" value="${user.getUserZip()}" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">state</th>
                                                 <td>
-                                                    <input id="addr1" type="text" value="${state }">
+                                                    <input id="addr1" type="text" value="${state }" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 1</th>
                                                 <td>
-                                                    <input id="addr2" type="text" value="${addr1 }">
+                                                    <input id="addr2" type="text" value="${addr1 }" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">address 2</th>
                                                 <td>
-                                                    <input id="addr3" type="text" value="${addr2 }">
+                                                    <input id="addr3" type="text" value="${addr2 }" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <th scope="col">phone</th>
                                                 <td>
-                                                    <input type="text" name="userPhone" value="${user.getUserPhone()}">
+                                                    <input type="text" name="userPhone" value="${user.getUserPhone()}" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                             </thead>

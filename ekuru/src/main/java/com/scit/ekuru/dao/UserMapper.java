@@ -69,4 +69,12 @@ public interface UserMapper {
 //	장바구니 추가
 	public boolean addCart(CartVO vo);
 
+	// 채널 유저 조회
+	public ChatVO selectChid(String id);
+	
+	// 채팅방 생성
+	public int createChatRoom(ChatVO vo);
+	
+	// 채팅생성
+	public int createChat(ChatVO vo);
 }

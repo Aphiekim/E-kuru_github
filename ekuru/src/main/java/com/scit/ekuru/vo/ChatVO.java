@@ -11,4 +11,5 @@ public class ChatVO {
 	private String content;
 	private int roomNum;
 	private String userType;
+	private String chId;
 }
