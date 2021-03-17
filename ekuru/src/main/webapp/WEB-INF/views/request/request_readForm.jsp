@@ -129,9 +129,17 @@
 	          <c:if test="${sessionScope.userId ==comment.userId }">
 	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
 	          </c:if>
+	          
 	          <c:if test="${sessionScope.userId ==vo.userId }">
-	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+		          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
 	          </c:if>
+	          
+	          <form action="/user/createChat" method="post">
+		        <input type="hidden" name="chId" value="${sessionScope.userId }">
+		        <input type="hidden" name="userId" value="${vo.userId }">
+		      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+		      </form>
+	          
 	        </div>
 	        <p>${comment.reqComment }</p>
 	      </div>

@@ -43,6 +43,7 @@
                 <strong>내 장바구니</h2>
         </div>
 
+	<%-- 
         <div class=shopping-list>
             <hr class="line">
             <h3>CHANNEL</h3>
@@ -69,7 +70,7 @@
                 <button type="button" class="btn btn-info">요청</button>
             </div>
         </div>
-
+	--%>
 		
 		<%-- foreach문 안에 foreach문 예상  --%>
 		<c:forEach items="${cart }" var="list" varStatus="status">

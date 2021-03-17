@@ -65,7 +65,7 @@
                                             <th scope="col">Code</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Product Title</th>
-                                            <th scope="col">Status</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,11 +74,8 @@
 			                          <tr>
 				                          <th scope="row">${status.count}</th>
 				                          <td>${list.PRODNUM }</td>
-				                          <td>${list.PRODINDATE }</td>
 				                          <td>${list.PRODTITLE }</td>
-				                          <td>
-				                      			<button class="btn btn-secondary">Wating</button>
-				                          </td>
+				                          <td>${list.PRODINDATE }</td>
 			                          </tr>
                                       </c:forEach>
                                         
@@ -99,7 +96,11 @@
         </div>
         <!-- 중간 전체 틀 끝-->
     </div>
-                <%@ include file="/WEB-INF/views/main-footer.jsp" %>
+               
+               
+               
+               
+  <%@ include file="/WEB-INF/views/main-footer.jsp" %>
                     <!-- Footer End -->
                 </div>
     <!--전체 틀 끝-->

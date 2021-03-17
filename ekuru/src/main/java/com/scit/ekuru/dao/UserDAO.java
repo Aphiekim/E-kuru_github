@@ -241,5 +241,27 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return check;
+	
+	public ChatVO selectChid(String id){
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChid(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
+	public int createChatRoom(ChatVO vo){
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.createChatRoom(vo);
+			count += mapper.createChat(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }

@@ -376,6 +376,28 @@ public class UserService {
 		if(check) {
 			logger.info("장바구니 담기 성공");
 		}
+	
+	public ChatVO selectChId (String id){
+		return dao.selectChid(id);
+	}
+	
+	public String createChatRoom (ChatVO vo){
+		//현재 시간을 가져옴
+		SimpleDateFormat sysdate = new SimpleDateFormat ( "YYYY-MM-DD HH:mm:ss");
+		Date time = new Date();
+		String time1 = sysdate.format(time);
+		//vo.getUserId()로 하면 구매자가 요청버튼 눌렀을때
+		//vo.getChId()로 하면 판매자가 요청버튼 눌렀을때
+		vo.setContent(vo.getChId() + "/" + "Hello!" + "/" + time1);
+		int count = dao.createChatRoom(vo);
+
+		String path = "";
+		if(count == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/chatForm";
+		}
+		return path;
 	}
 }
 
