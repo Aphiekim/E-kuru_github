@@ -162,7 +162,6 @@ from
 	e_user_tb
 where userid = #{userId}
 </select>
-
 <!-- 거래 내역 가져오기 -->
 <select id = "dealHistory" parameterType="String" resultType="hashmap">
 	SELECT
@@ -178,7 +177,6 @@ where userid = #{userId}
 	AND
 		e.USERID = #{userId}
 </select>
-
 <!-- 상품 전체 리스트 -->
 <select id="selectProdList" resultType="hashmap">
 	SELECT

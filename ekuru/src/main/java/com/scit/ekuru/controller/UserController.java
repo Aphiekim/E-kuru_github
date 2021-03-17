@@ -204,7 +204,6 @@ public class UserController {
 		return "user/mypage_dealHistory";
 	}
 
-
 	//최근 본 상품
 	@RequestMapping(value="/viewedItems", method=RequestMethod.GET)
 	public String viewedItems(Model model, HttpServletRequest request) {
@@ -251,13 +250,15 @@ public class UserController {
 		return "/user/mypage_browSingHistory";
 	}
 
+
 //	장바구니 저장
-//	@RequestMapping(value = "/addCart")
-//	public String addCart(CartVO vo, HttpSession session){
-//		String userId = (String) session.getAttribute("userId");
-//		vo.setUserId(userId);
-//		service.addCart(vo);
-//		return "user/mypage_shopping";
-//	}
+	@RequestMapping(value = "/addCart")
+	public String addCart(CartVO vo, HttpSession session){
+		String userId = (String) session.getAttribute("userId");
+		vo.setUserId(userId);
+		service.addCart(vo);
+		return "user/mypage_shopping";
+	}
+
 
 }

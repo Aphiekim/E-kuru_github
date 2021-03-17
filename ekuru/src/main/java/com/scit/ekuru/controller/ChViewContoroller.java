@@ -151,6 +151,7 @@ public class ChViewContoroller {
 				}
 			}
 		}
+
 		//현재 시간을 가져옴
 		//SimpleDateFormat sysdate = new SimpleDateFormat ( "MM-DD HH:mm");
 		//Date time = new Date();

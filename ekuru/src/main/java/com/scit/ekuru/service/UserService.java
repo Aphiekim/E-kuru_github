@@ -355,14 +355,13 @@ public class UserService {
 		return chatvo;
 	}
 
+
 	public void dealHistory(HttpSession session, Model model) {
 		String userId = (String) session.getAttribute("userId");
 		ArrayList<HashMap<String, Object>> result = dao.dealHistory(userId);
 		model.addAttribute("result", result);
 
 	}
-
-
 
 
 	public ArrayList<HashMap<Object, Object>> selectProdList(){
@@ -379,3 +378,4 @@ public class UserService {
 		}
 	}
 }
+

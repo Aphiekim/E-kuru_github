@@ -66,5 +66,7 @@ public interface UserMapper {
 	// 전체 상품 조회
 	public ArrayList<HashMap<Object, Object>> selectProdList();
 
+//	장바구니 추가
 	public boolean addCart(CartVO vo);
+
 }
