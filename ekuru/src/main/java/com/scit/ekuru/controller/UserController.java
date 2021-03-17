@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
@@ -247,5 +248,14 @@ public class UserController {
 		
 		return "/user/mypage_browSingHistory";
 	}
-
+	
+	//채팅방 채팅 생성
+	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
+	public String createChat(ChatVO vo) {
+		ChatVO chvo = service.selectChId(vo.getChId());
+		vo.setChNum(chvo.getChNum());
+		
+		//System.out.println(chnum);
+		return service.createChatRoom(vo);
+	}
 }

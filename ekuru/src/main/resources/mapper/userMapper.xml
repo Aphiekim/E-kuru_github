@@ -192,4 +192,18 @@ where userid = #{userId}
 	FROM
 		E_PRODUCT_TB
 </select>
+
+<select id="selectChid" parameterType="String" resultType="chat">
+	select chNum, chId, chName
+	from e_channel_tb
+	where chid = #{chId}
+</select>
+
+<insert id="createChatRoom" parameterType="chat">
+	insert into e_chattingroom_tb(chatnum, userid, chnum) values(chattingroom_seq.nextval, #{userId}, #{chNum})
+</insert>
+
+<insert id="createChat" parameterType="chat">
+	insert into e_chat_tb(roomnum, content) values(chat_seq.nextval, #{content})
+</insert>
 </mapper>

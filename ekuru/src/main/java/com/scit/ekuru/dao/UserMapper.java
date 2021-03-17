@@ -3,6 +3,7 @@ package com.scit.ekuru.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.scit.ekuru.vo.ChannelVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
@@ -65,4 +66,12 @@ public interface UserMapper {
 	// 전체 상품 조회
 	public ArrayList<HashMap<Object, Object>> selectProdList();
 
+	// 채널 유저 조회
+	public ChatVO selectChid(String id);
+	
+	// 채팅방 생성
+	public int createChatRoom(ChatVO vo);
+	
+	// 채팅생성
+	public int createChat(ChatVO vo);
 }
