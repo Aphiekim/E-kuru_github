@@ -45,6 +45,13 @@
 	function deleteReadForm(reqNum){
 		location.href="/request/request_deleteRequest?reqNum="+reqNum;
 	}
+	function checkComment(){
+		var reqComment = document.getElementById('reqComment').value;
+
+		if(reqComment.length ==0 && reqComment ==null){
+			alert('댓글을 달아주세요.');
+		}
+	}
   </script>
 </head>
 
@@ -113,9 +120,9 @@
     </div>
     <hr class="line line-sty">
     <!-- 댓글 입력창 -->
-    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post">
+    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
 	    <div class="row mb-3">
-	      <input type="text" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+	      <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
 	      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
 	    </div>
     </form>
