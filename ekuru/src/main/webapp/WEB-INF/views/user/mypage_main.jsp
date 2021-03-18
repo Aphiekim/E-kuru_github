@@ -44,7 +44,7 @@
             <div>
                 <div class="container d-flex align-items-center flex-column">
                     <!-- Masthead Avatar Image-->
-                    <img class="mx-auto rounded-circle" src="../resources/img/member1.jpg" style="width: 30%; margin-top: 15%;" />
+                    <img class="mx-auto rounded-circle" src="../resources/upload/file/${user.getUserProfile()}" style="width: 30%; margin-top: 15%;" />
                     <!-- Masthead Heading-->
                     <h1 class="text-uppercase mb-0" style="margin-top: 5%;color: black;">Mypage</h1>
                     <!-- Icon Divider-->

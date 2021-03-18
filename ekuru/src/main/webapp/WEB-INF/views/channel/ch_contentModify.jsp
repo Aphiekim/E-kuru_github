@@ -31,7 +31,12 @@
 
     </script>
 
-
+<style type="text/css">
+	#contentimg{
+		width: 525px;
+		height: 300px;
+	}
+	</style>
 </head>
 <body>
 <!--전체 틀-->
@@ -77,18 +82,18 @@
                             <!-- 슬라이드 쇼 -->
                             <div class="carousel-item active">
                                 <!--가로-->
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodResult.getProdOriginalPic1() }?auto=compress&cs=tinysrgb&h=650&w=940"
                                     alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/2355519/pexels-photo-2355519.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodResult.getProdOriginalPic2() }?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                                     alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/2544554/pexels-photo-2544554.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodResult.getProdOriginalPic3() }?auto=compress&cs=tinysrgb&h=650&w=940"
                                     alt="Third slide">
                             </div>
                             <!-- / 슬라이드 쇼 끝 -->

@@ -59,7 +59,7 @@
                     <div class="content1">
                         <div class="profile">
                             <a href="">
-                                <img src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" class="profile-img">
+                                <img src="../resources/upload/file/${channel.chProfile }" alt="" class="profile-img">
                             </a>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
 						<c:if test="${not empty prodListResult }">
                         <div class="product">
                             <a href="ch_content?prodNum=${prodList.prodNum }&chId=${channel.chId}">
-                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                                <img src="../resources/upload/file/${prodList.getProdOriginalPic1() }" alt="" class="product-img">
                             </a>
                         </div>
                        	</c:if>

@@ -1,11 +1,15 @@
 package com.scit.ekuru.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.CartVO;
@@ -64,7 +69,12 @@ public class UserController {
 
 	@RequestMapping(value = "/mypageMain", method = RequestMethod.GET)
 	public String mypageMain(Model model) {
+		//HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
 		HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
+		model.addAttribute("state", hash.get("state"));
+        model.addAttribute("addr1", hash.get("address1"));
+        model.addAttribute("addr2", hash.get("address2"));
+        model.addAttribute("user", hash.get("user"));
 		return "user/mypage_main";
 	}
 
@@ -93,8 +103,43 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/mypage_InfoForm", method = RequestMethod.POST)
-	public String mypageInfoForm(UserVO vo) {
+	public String mypageInfoForm(UserVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		//System.out.println(vo);
+		//파일이 업로드 될 경로 설정
+				String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+				
+				System.out.println(upload[0].getOriginalFilename());
+				
+				//위에서 설정한 경로의 폴더가 없을 경우 생성 
+				File dir = new File(saveDir);
+				if(!dir.exists()) { 
+					dir.mkdirs(); 
+				} 
+				String reName = "";
+				// 파일 업로드 
+				for(MultipartFile f : upload) { 
+					if(!f.isEmpty()) { 
+						// 기존 파일 이름을 받고 확장자 저장 
+						String orifileName = f.getOriginalFilename();
+						String ext = orifileName.substring(orifileName.lastIndexOf("."));
+						// 이름 값 변경을 위한 설정 
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+						int rand = (int)(Math.random()*1000); 
+						
+						// 파일 이름 변경 
+						reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+						
+						
+						// 파일 저장 
+						try { 
+							f.transferTo(new File(saveDir + "/" + reName)); 
+						}catch (IllegalStateException | IOException e) { 
+							e.printStackTrace(); 
+							} 
+						}
+					}
+				vo.setUserProfile(reName);
+				System.out.println(vo);
 		return service.modifyUser(vo);
 	}
 
@@ -275,6 +320,28 @@ public class UserController {
 		return "/user/mypage_browSingHistory";
 	}
 
+
+	// 쿠키 삭제
+	@RequestMapping(value = "/removeCookie")
+	public String removeCookie(HttpServletResponse response, HttpServletRequest request){
+		ArrayList<HashMap<Object, Object>> list = service.selectProdList();
+		Cookie[] cookies = request.getCookies();
+		Cookie kc = null;
+
+		int count = 0;
+		while(count < list.size()) {
+			for(int i = 0; i < cookies.length; i++) {
+				String su = String.valueOf(list.get(count).get("PRODNUM"));
+				if(cookies[i].getValue().equals(su)) {
+					kc = new Cookie("prodnum" + su, null);
+					response.addCookie(kc);
+				}
+			}
+			count++;
+		}
+		
+		return "redirect:/user/viewedItems";
+	}
 
 //	장바구니 저장
 	@RequestMapping(value = "/addCart")

@@ -14,4 +14,5 @@ public class UserVO {
 	private String userType;
 	private int userPoint;
 	private String authkey;
+	private String userProfile;
 }

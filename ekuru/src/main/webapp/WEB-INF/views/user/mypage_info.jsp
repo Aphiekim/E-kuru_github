@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Masthead Avatar Image-->
-                    <img class="mx-auto rounded-circle imgsize" src="../resources/img/member1.jpg" style="width: 20%; margin-top: 5%;" />
+                    <img class="mx-auto rounded-circle imgsize" src="../resources/upload/file/${user.getUserProfile()}" style="width: 20%; margin-top: 5%;" />
                     <!-- Masthead Heading-->
                     <h1 class="text-uppercase mb-0" style="margin-top: 5%;color: black;">Mypage</h1>
                     <!-- Icon Divider-->
