@@ -392,6 +392,7 @@ public class UserService {
 		}
 	}
 	
+	}
 	public ChatVO selectChId (String id){
 		return dao.selectChid(id);
 	}
