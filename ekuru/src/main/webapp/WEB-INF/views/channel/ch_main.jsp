@@ -35,8 +35,18 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
+	
+	$(document).ready(function() {
+        $('#loading').show();
+        setTimeout(function(){
+            $('#loading').hide();
+            return true;
+        },3000);
+    });
+
     var myCarousel = document.querySelector('#myCarousel')
     var carousel = new bootstrap.Carousel(myCarousel, {
       interval: 2000,
@@ -49,7 +59,6 @@
       location.href = "/channel/ch_categoryresult?categoryCode="+categoryCode;
     }
 
-
   </script>
 <style>
 * {
@@ -59,10 +68,34 @@
 body {
 	background-color: #FFDFB9;
 }
+
+        #loading {
+        	width: 100%;
+        	height: 100%;
+        	top: 0px;
+        	left: 0px;
+        	position: fixed;
+        	display: block;
+        	opacity: 0.7;
+        	background-color: #fff;
+        	z-index: 99;
+        	text-align: center;
+        	}
+        #loading-img {
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+        	z-index: 100;
+        	}
 </style>
 </head>
 
 <body>
+	<!--로딩바-->
+    <div id="loading" style="margin-left: 0px;">
+        <img id="loading-img" src="/resources/img/loader.gif">
+    </div>
+
 	<!-- header -->
 	<header class="header---">
 		<div class="wrapper">
