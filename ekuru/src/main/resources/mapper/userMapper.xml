@@ -58,16 +58,19 @@
 </update>
 
 <select id="selectCart" parameterType="String" resultType="hashmap">
+
 	select
 		c.cartprodnum as CARTPRODNUM,
 		c.prodnum as PRODNUM,
-		e.userid as USERID,
+		--c.userid as USERID,
 		pd.prodtitle as PRODTITLE,
 		cc.chname as CHNAME,
 		pd.prodprice as PRODPRICE,
 		c.cartprodea as CARTPRODEA
-	from e_user_tb e join e_cart_tb c on e.userid = c.userid, e_channel_tb cc join e_product_tb pd on cc.chnum = pd.chnum
-	where e.userId = #{userId}
+	from
+    e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum 
+	where c.userId = #{userId}
+	
 </select>
 <select id="selectPointPricing" parameterType="int" resultType="pointprod">
 select
@@ -209,6 +212,11 @@ where userid = #{userId}
 			#{cartProdEa})
 
 </insert>
+
+<delete id="removeCart" parameterType="int">
+delete from e_cart_tb
+where cartProdNum = #{cartProdNum}
+</delete>
 
 <select id="selectChid" parameterType="String" resultType="chat">
 	select chNum, chId, chName

@@ -69,6 +69,9 @@ public interface UserMapper {
 //	장바구니 추가
 	public boolean addCart(CartVO vo);
 
+	//장바구니 삭제
+	public int removeCart(int cartprodnum);
+	
 	// 채널 유저 조회
 	public ChatVO selectChid(String id);
 	

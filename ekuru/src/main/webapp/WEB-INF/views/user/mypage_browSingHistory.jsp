@@ -47,7 +47,7 @@
 
         <div>
             <h2 class="page-section-heading text-center text-secondary">
-                <strong>최근 본 상품</strong></h2>
+                <strong>Recently viewed items</strong></h2>
         </div>
 
 	<%-- 
@@ -87,9 +87,9 @@
             <hr class="line">
             <div style="padding-bottom: 10px;">
                 <img class="shopping-img" src="../resources/img/shopping-food.jpg">
-                <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${status.count}</span>
-                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODNUM }</span>
-                <span style="padding-right: 50px; margin-left: 30px;">${list.PRODTITLE }</span> 
+                <span style="padding-right: 70px; padding-left: 70px;margin-left: 30px;"><b>${status.count}</b></span>
+                <span style="padding-right: 70px; margin-left: 50px;"><b>${list.PRODNUM }</b></span>
+                <span style="padding-right: 70px; margin-left: 50px;"><b>${list.PRODTITLE }</b></span> 
             </div>
         </div>
 			
@@ -105,5 +105,7 @@
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>
 </div>
 <!--전체 틀 끝-->
+
+
 </body>
 </html>
