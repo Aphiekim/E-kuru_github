@@ -38,8 +38,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
-	
-	$(document).ready(function() {
+
+ 	$(document).ready(function() {
         $('#loading').show();
         setTimeout(function(){
             $('#loading').hide();
@@ -189,7 +189,7 @@ body {
 								<div class="row justify-content-center inner">
 									<c:forEach items="${chListResult }" var="channel">
 										<c:if test="${channel.chNum > -1 && channel.chNum < 3 }">
-											<div class="col-md-6 col-lg-4 mb-5 mb-lg-0 chDiv">
+											<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
 												<div class="portfolio-item mx-auto" data-toggle="modal"
 													data-target="#portfolioModal4">
 													<div
@@ -205,8 +205,8 @@ body {
 														alt="" />
 												</div>
 												<div class="card-body">
-													<h5 class="card-title chName">${channel.chName }</h5>
-													<p class="card-text chIntro">${channel.chIntro }</p>
+													<h5 class="card-title">${channel.chName }</h5>
+													<p class="card-text">${channel.chIntro }</p>
 												</div>
 											</div>
 										</c:if>
@@ -234,7 +234,7 @@ body {
 														src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
 														alt="" />
 												</div>
-												<div class="card-body">
+												<div class="card-body ">
 													<h5 class="card-title">${channel.chName }</h5>
 													<p class="card-text">${channel.chIntro }</p>
 												</div>
@@ -314,10 +314,10 @@ body {
 						</div>
 					</c:forEach>
 				</div>
+			</div>
 		</section>
 	</div>
 
-	</div>
 	<!-- include tag Footer Start -->
 	<div>
 
@@ -396,76 +396,8 @@ body {
 			</div>
 		</div>
 	</div>
-	</div>
 	<!-- Footer End -->
-	<script>
-$(() => {
-        $("#translate").click(function () {
-            var source = 'ko';
-		    var target = 'ja';
 
-        /*     const text = new Array();
-            text[0] = $( '#text' ).text();
-            text[1] = $( 'h3' ).text();
- */
-            /* for(var i = 0; i<text.length; i++){
-              console.log(text[i]);
-            } */
-          var text = $( 'h3' ).text();
-          /*   var text = $( 'p' ).text(); */
-
-          /* $(".chDiv").each(function(index,item){
-			var chName = ($(this).find(".chName").html());
-			var chIntro = ($(this).find(".chIntro").html());
-
-			var result = '';
-			result += index +' : ' + chName + ', ' + chIntro;
-
-			console.log(result);
-
-          }); */
-		  var chArr = '';
-
-          $(".chDiv").each(function(index,item){
-			  chArr += $(this).find(".chName").html();
-			  if(index < ($(".chDiv").length-1)){
-				  chArr += '//';
-			  }
-			  /* chArr += $(this).find(".chIntro").html();
-			  if(index < ($(".chDiv").length-1)){
-				  chArr += '//';
-			  } */
-          });
-
-          console.log(chArr);
-
-			$.ajax({
-				url : '../translate',
-				type : 'post',
-				contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-				data : {
-					source : source,
-					target : target,
-					text : chArr
-				},
-				success : function(data){
-					//JSON 형태의 문자열을 JSON 객체로 변환
-					var jsonObject = JSON.parse(data);
-					console.log(jsonObject);
-					var obj = jsonObject.message.result.translatedText.split("/");
-					console.log(obj);
-					/* $('#text').html(jsonObject.message.result.translatedText); */
-					//$('h3').html(jsonObject.message.result.translatedText);
-				},
-				error : function(e){
-					console.log(e);
-				}
-			});
-
-
-        });
-    });
-</script>
 </body>
 
 </html>
