@@ -40,7 +40,7 @@
 
         <div>
             <h2 class="page-section-heading text-center text-secondary">
-                <strong>내 장바구니</h2>
+                <strong>My Cart</h2>
         </div>
 
 	<%-- 
@@ -74,12 +74,13 @@
 		
 		<%-- foreach문 안에 foreach문 예상  --%>
 		<c:forEach items="${cart }" var="list" varStatus="status">
+			
 			<div class=shopping-list>
             <hr class="line">
             <h3>${list.CHNAME }</h3>
             <hr class="line">
             <div style="padding-bottom: 10px;">
-                <img class="shopping-minus" src="../resources/img/shopping-minus.png">
+                <a href="/user/removeCart?cartProdNum=${list.CARTPRODNUM }"><img class="shopping-minus" src="../resources/img/shopping-minus.png"></a>
                 <img class="shopping-img" src="../resources/img/shopping-food.jpg">
                 <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${list.PRODTITLE }</span>
                 <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }P</span>
@@ -101,6 +102,8 @@
     <!-- 중간 전체 틀 끝-->
         <!-- include tag Footer Start -->
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>
+
+
 </div>
 <!--전체 틀 끝-->
 </body>

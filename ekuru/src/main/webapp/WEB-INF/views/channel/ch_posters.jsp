@@ -32,15 +32,37 @@
             console.log(prodWriteForm);
             prodWriteForm.action="/channel/ch_posters_Write";
             prodWriteForm.method="POST";
+            prodWriteForm.enctype="multipart/form-data";
             prodWriteForm.submit();
         }
     </script>
+    
+<script> 
+function setThumbnail(event) {
+		                        
+	var header = document.querySelector("#inputFileOne");	//제거하고자 하는 엘리먼트
+	if(header != null){
+		header.parentNode.removeChild(header);
+	}
+								
+	                        	
+	var reader = new FileReader();
+	reader.onload = function(event) {
+	var img = document.createElement("img");
+	img.setAttribute("src", event.target.result); 
+	img.setAttribute("style", style="width: 333px; height: 333px");
+	img.setAttribute("id", id="inputFileOne");
+	document.querySelector("div#image_container").appendChild(img); 
+	}; 
+	reader.readAsDataURL(event.target.files[0]); 
+	} 
+</script>    
 </head>
 <body>
 
     <div class="container" style="margin-top: 5%;">
         <div class="base">
-            <form name="prodWriteForm" id="prodWriteForm">
+            <form name="prodWriteForm" id="prodWriteForm" enctype="multipart/form-data";>
                 <input type="hidden" name="userId" id="userId" value="${sessionScope.userId}">
                 <input type="hidden" name="chNum" id="chNum" value="${channel.chNum}">
                 <div class="row">
@@ -48,12 +70,24 @@
                     <div class="head">
                         <!--사진 파일-->
                         <div class="product-img" onclick="">
-                            <div class="img-box">
+                            <div class="img-box" id="image_container" style="width: 333px; height: 333px">
+                            
                                 <div class="circle">
+                                <label for="inputFile">                         
+                                	<div style="display: none;">
+                                		<input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple">	
+                                	</div>
+                                
                                     <img class="cross" src="/resources/img/icon/cross.png" alt="">
+                                </label>
+                                <label><input type="file" name="upload" multiple="multiple"/></label> 
+								<label><input type="file" name="upload" multiple="multiple"/></label> 
                                 </div>
+                             
                             </div>
                         </div>
+
+                        
                         <!-- 물품 정보 -->
                         <div class="product-details">
                             <div class="product-title">
@@ -174,5 +208,8 @@
     </div>
 </div>
 <!-- Footer End -->
+
+
+
 </body>
 </html>

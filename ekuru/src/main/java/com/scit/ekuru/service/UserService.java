@@ -146,6 +146,20 @@ public class UserService {
 		return list;
 	}
 
+	public String deleteCart(int CartProdNum){
+		
+		String path = "";
+		int cnt = dao.removeCart(CartProdNum);
+		
+		if(cnt > 0) {
+			path = "redirect:/user/mypageShopping";
+		}else {
+			path = "redirect:/";
+		}
+		
+		return path;
+	}
+	
 	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo){
 		String id = (String) session.getAttribute("userId");
 		ArrayList<HashMap<Object, Object>> list = dao.selectChatRoom(vo);

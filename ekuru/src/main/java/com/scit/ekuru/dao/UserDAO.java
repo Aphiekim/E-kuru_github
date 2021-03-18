@@ -242,6 +242,18 @@ public class UserDAO {
 		}
 		return check;
 	}
+	
+	public int removeCart(int cartprodnum) {
+		int cnt = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.removeCart(cartprodnum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
 	public ChatVO selectChid(String id){
 		ChatVO vo = null;
 		try {
