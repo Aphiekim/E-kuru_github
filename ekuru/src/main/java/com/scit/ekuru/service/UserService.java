@@ -391,6 +391,7 @@ public class UserService {
 			logger.info("장바구니 담기 성공");
 		}
 	
+	}
 	public ChatVO selectChId (String id){
 		return dao.selectChid(id);
 	}
