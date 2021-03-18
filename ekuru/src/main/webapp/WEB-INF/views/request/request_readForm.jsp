@@ -31,6 +31,10 @@
       font-family: 'NotoSansCJKjp-Black', sans-serif;
       box-sizing: border-box;
     }
+    #imgsize{
+    	width: 570px;
+    	height: 380px;
+    }
   </style>
   <script type="text/javascript">
 	function openRequestMain(){
@@ -46,6 +50,7 @@
 		location.href="/request/request_deleteRequest?reqNum="+reqNum;
 	}
   </script>
+  
 </head>
 
 <body>
@@ -83,17 +88,17 @@
 
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
-          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic1() }" style="width:100%">
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext">2 / 3</div>
-          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic2() }" style="width:100%">
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
-          <img src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" style="width:100%">
+          <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic3() }" style="width:100%">
 
         </div>
         

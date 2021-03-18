@@ -12,6 +12,9 @@ select
 	,categoryCode
 	,reqTitle
 	,reqContent
+	,ReqOriginalPic1
+	,ReqOriginalPic2
+	,ReqOriginalPic3
 from
 	e_request_tb
 <if test="_parameter != null">
@@ -52,12 +55,18 @@ insert into
 	    ,categoryCode
 	    ,reqTitle
 	    ,reqContent
+	    ,reqOriginalPic1
+		,reqOriginalPic2
+		,reqOriginalPic3
 	)values(
 	    reqnum_seq.nextval
 	    ,#{userId}
 	    ,#{categoryCode}
 	    ,#{reqTitle}
 	    ,#{reqContent}
+	    ,#{reqOriginalPic1}
+	    ,#{reqOriginalPic2}
+	    ,#{reqOriginalPic3}
 	)
 </insert>
 <!-- 게시글 작성한 것 불러오기 select -->
@@ -69,6 +78,9 @@ select
     ,reqTitle
     ,reqContent
     ,reqIndate
+    ,reqOriginalPic1
+	,reqOriginalPic2
+	,reqOriginalPic3
 from
 	e_request_tb
 where
