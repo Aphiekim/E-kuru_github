@@ -241,6 +241,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return check;
+	}
 	
 	public ChatVO selectChid(String id){
 		ChatVO vo = null;

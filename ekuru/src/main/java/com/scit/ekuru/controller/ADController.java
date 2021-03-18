@@ -1,5 +1,7 @@
 package com.scit.ekuru.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.service.RequestService;
 import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.RequestVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -31,6 +36,9 @@ public class ADController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private ChannelService chService;
+	
 	//AD Splan 연결하기
 	@RequestMapping(value="/superplan", method=RequestMethod.GET)
 	public String adSuperPlan() {
@@ -43,8 +51,15 @@ public class ADController {
 	@RequestMapping(value="/superplan_contract", method=RequestMethod.GET)
 	public String adSuperPlanContract(int adTotal, Model model) {
 		logger.info(adTotal + "수퍼플랜 계약서로 이동하기");
-		model.addAttribute("adTotal", adTotal);
+		String id = (String)session.getAttribute("userId");
+		ArrayList<RequestVO> reqList = service.mypageReq(id);
+		ArrayList<ProductVO> prodList = chService.getProdList(id);
+		UserVO vo = userService.selectUserTest(id);
 		
+		model.addAttribute("adTotal", adTotal);
+		model.addAttribute("reqList", reqList);
+		model.addAttribute("prodList", prodList);
+		model.addAttribute("user", vo);
 		return "ad/superplan_contract";
 	}
 

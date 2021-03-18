@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -135,47 +136,65 @@
 	                <div class="card-header text-uppercase">
 	                    Super Pass
 	                </div>
-	                
+	                <c:if test="${vo.getUserType() ne 0 }">
 	                <table class="table">
-	                    <thead>
+		                    <thead>
+		                      <tr>
+		                        <th class="table-st  text-center" scope="col">type</th>
+		                        <th class="table-st  text-center" scope="col">point</th>
+		                      </tr>
+		                    </thead>
+		                    <tbody>
+		                      <tr>
+		                        <th class="table-st" scope="row">
+		                            <h3 class="text-center">Request Posting</h3>
+		                        </th>
+		                        <td>
+		                            <select name="reqNum" class="form-control td-st">
+			                            <c:forEach var="reqList" items="${reqList }">
+		                                	<option value="${reqList.reqNum }">${reqList.reqTitle }</option>
+			                        	</c:forEach>
+		                            </select>
+		                            <input type="number" class="form-control td-st" id="adProd" placeholder="point value" value="0">
+		                        </td>
+		                      </tr>
 	                      <tr>
-	                        <th class="table-st  text-center" scope="col">type</th>
-	                        <th class="table-st  text-center" scope="col">point</th>
-	                      </tr>
-	                    </thead>
-	                    <tbody>
-	                      <tr>
-	                        <th class="table-st" scope="row">
-	                           <h3 class="text-center">Channel</h3>
-	                        </th>
-	                        <td >
-	        	               <input type="number" class="form-control td-st" id="adCh" placeholder="point value" value="0">
-	                        </td>
-	                      </tr>
+	                      	<th class="table-st" scope="row">
+	                      	
+	                      	</th>
+		                    <td>
+                    			<input class="btn btn-danger" type="button" style="margin-left:0%" onclick="applyRecipe('${adTotal}');" value="Apply">
+					        </td>
+				          </tr>
+	                    </tbody>
+	                  </table>
+	                </c:if>
+	                <c:if test="${vo.getUserType() eq 0 }">
+	                  <table class="table">
+		                    <thead>
+		                      <tr>
+		                        <th class="table-st  text-center" scope="col">type</th>
+		                        <th class="table-st  text-center" scope="col">point</th>
+		                      </tr>
+		                    </thead>
+		                    <tbody>
+		                      <tr>
+		                        <th class="table-st" scope="row">
+		                           <h3 class="text-center">Channel</h3>
+		                        </th>
+		                        <td >
+		        	               <input type="number" class="form-control td-st" id="adCh" placeholder="point value" value="0">
+		                        </td>
+		                      </tr>
 	                      <tr>
 	                        <th class="table-st" scope="row">
 	                            <h3 class="text-center">Shop Posting</h3>
 	                        </th>
 	                        <td>
-	                            <select name="reqNum"  class="form-control td-st">
-	                                <option value="0">select your Post</option>
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                            </select>
-	                            <input type="number" class="form-control td-st" id="adProd" placeholder="point value" value="0">
-	                        </td>
-	                      </tr>
-	                      <tr>
-	                        <th class="table-st" scope="row">
-	                            <h3 class="text-center">Request Posting</h3>
-	                        </th>
-	                        <td>
 	                            <select name="prodNum" class="form-control td-st">
-	                                <option value="0">select your Post</option>
-	                                <option value="1">1</option>
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
+		                        	<c:forEach var="prodList" items="${prodList }">
+	                                	<option value="${prodList.prodNum }">${prodList.prodTitle }</option>
+		                        	</c:forEach>
 	                            </select>
 	                            <input type="number" class="form-control td-st" id="adReq" placeholder="point value" value="0">
 	                        </td>
@@ -190,13 +209,12 @@
 				          </tr>
 	                    </tbody>
 	                  </table>
-	                
+	                </c:if>
 	              </div>
    	        <div class="card border-danger mb-3" style="width: 23%; height: 60%;">
                 <div class="card-header bg-transparent border-danger text-uppercase fw-bold">Receipt</div>
 	               	 <div class="card-body text-secondary">
 	               		 <h5 class="card-title">Please check your items</h5>
-	               		 <ul>
 		                    <li>
 		                        Total $
 		                        <input type="text" id="adTotal" name="adTotal" value="${adTotal }" readonly="readonly">
@@ -217,7 +235,6 @@
 		                        <input type="number" id="adReqCharge" name="adReqCharge" readonly="readonly" value="0">
 		                        <!-- <p id="adReqApply"></p> -->
 		                    </li>
-	               		 </ul>
 				     </div>
 				     <div class="d-grid gap-2 col-6 mx-auto btn-st div-margin">
 		                    <input class="btn btn-danger" type="submit" value="Submit">
