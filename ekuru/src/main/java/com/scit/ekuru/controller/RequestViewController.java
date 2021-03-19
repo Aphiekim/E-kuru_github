@@ -214,18 +214,11 @@ public class RequestViewController {
 	public String requestCategoryResult(int categoryCode, Model model) {
 		logger.info("Move to request category result"+ categoryCode);
 		ArrayList<RequestVO> list = service.requestCategoryResult(categoryCode);
-<<<<<<< HEAD
 		ArrayList<RequestVO> adReqList = service.selectReqAd();
 		
 		model.addAttribute("reqList", list);
 		model.addAttribute("adReqList", adReqList);
-		
-=======
 
-		logger.info("확인"+list);
-		model.addAttribute("reqList", list);
-
->>>>>>> origin/master
 		return "request/request_categoryResult";
 	}
 
