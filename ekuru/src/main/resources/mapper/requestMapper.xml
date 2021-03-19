@@ -104,6 +104,9 @@ set
 	categoryCode = #{categoryCode}
 	,reqTitle = #{reqTitle}
 	,reqContent = #{reqContent}
+	,reqOriginalPic1 = #{reqOriginalPic1}
+	,reqOriginalPic2 = #{reqOriginalPic2}
+	,reqOriginalPic3 = #{reqOriginalPic3}
 where
 	reqNum = #{reqNum}
 	and userId = #{userId}
