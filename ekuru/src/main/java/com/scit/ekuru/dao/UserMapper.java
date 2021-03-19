@@ -103,4 +103,6 @@ public interface UserMapper {
 	
 	//AD 수퍼플랜에 넣기 채널용
 	public int insertChAd(SuperPlanVO vo);
+	
+	public specVO selectSpecOne(int specNum);
 }

@@ -14,4 +14,5 @@ public class specVO {
 	private String customerAddr;
 	private int chatNum;
 	private String userType;
+	private String chName;
 }
