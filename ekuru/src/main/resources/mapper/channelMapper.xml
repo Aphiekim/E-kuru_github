@@ -282,4 +282,15 @@ from
 where
 	e.prodNum = a.prodNum
 </select>
+
+<!-- 채널 생성 -->
+<insert id="chCreate" parameterType="String">
+	INSERT INTO
+			E_CHANNEL_TB(
+			CHNUM,
+			CHID
+		)VALUES(
+			channel_seq.nextval,
+			#{id})
+</insert>
 </mapper>

@@ -125,4 +125,12 @@ public class ChannelService {
 		}
 
 	}
+
+	public void chCreate(String id) {
+		boolean result = dao.chCreate(id);
+		if(result) {
+			logger.info("채널 생성");
+		}
+
+	}
 }

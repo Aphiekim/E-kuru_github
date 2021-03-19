@@ -54,7 +54,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-secondary">Information</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <c:if test="${user.getUserType() eq '0'}">
-	                                <button type="button" class="btn btn-warning">Channel</button>
+	                                <button type="button" class="btn btn-warning" onclick="location.href='../channel/chCreate'" >Channel</button>
                                 </c:if>
                                 <c:if test="${user.getUserType() eq '1'}">
 	                                <button type="button" class="btn btn-warning" onclick="openMyRequest();">Request</button>

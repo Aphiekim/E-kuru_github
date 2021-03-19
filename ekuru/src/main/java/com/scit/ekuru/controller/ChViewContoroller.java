@@ -264,8 +264,6 @@ public class ChViewContoroller {
 	}
 
 
-
-
 //	채널 댓글 달기
 	@ResponseBody
 	@RequestMapping(value = "addComment")
@@ -273,6 +271,16 @@ public class ChViewContoroller {
 		return service.addComment(json);
 	}
 
+//	채널 생성
+	@RequestMapping(value = "/chCreate")
+	public String chCreate(HttpSession session) {
+		String id = (String) session.getAttribute("userId");
+
+		service.chCreate(id);
+
+		return "redirect:/channel/ch_personal_main?chId="+id;
+
+	}
 
 
 

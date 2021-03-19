@@ -186,18 +186,29 @@ public class ChannelDAO {
 		}
 		return check;
 	}
-	
+
 	public ArrayList<ChannelVO> selectChAd(){
 		ArrayList<ChannelVO> list = null;
-		
+
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
 			list = mapper.selectChAd();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return list;
+	}
+
+	public boolean chCreate(String id) {
+		boolean result = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chCreate(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }
