@@ -211,4 +211,17 @@ public class ChannelDAO {
 		return result;
 	}
 
+//	채널 유무 확인
+	public String chVerify(String chId) {
+		String result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chVerify(chId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 }

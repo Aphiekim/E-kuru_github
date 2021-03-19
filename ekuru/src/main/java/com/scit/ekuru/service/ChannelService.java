@@ -133,4 +133,9 @@ public class ChannelService {
 		}
 
 	}
+
+	public String chVerify(String chId) {
+		String result = dao.chVerify(chId);
+		return result;
+	}
 }

@@ -293,4 +293,17 @@ where
 			channel_seq.nextval,
 			#{id})
 </insert>
+
+<!-- 채널 유무 확인 -->
+<select id="chVerify" parameterType="String" resultType="String">
+
+	SELECT DISTINCT
+		ch.CHID
+	FROM
+		E_CHANNEL_TB ch, E_USER_TB u
+	WHERE
+		ch.CHID = #{chId}
+
+</select>
+
 </mapper>

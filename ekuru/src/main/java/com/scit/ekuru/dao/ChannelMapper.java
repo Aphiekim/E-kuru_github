@@ -41,4 +41,6 @@ public interface ChannelMapper {
 	public ArrayList<ChannelVO> selectChAd();
 
 	public boolean chCreate(String id);
+
+	public String chVerify(String chId);
 }

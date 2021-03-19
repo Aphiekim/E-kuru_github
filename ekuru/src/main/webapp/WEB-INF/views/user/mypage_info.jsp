@@ -34,7 +34,7 @@
 		function mypageInfoModify(){
 			location.href = "/user/mypage_InfoForm";
 		}
-		
+
 		function openMyRequest(){
 			location.href="/request/request_manageRequest";
 		}
@@ -53,8 +53,11 @@
                         <div class="row">
                             <div class="col">
                                 <button type="button" class="btn btn-secondary">Information</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <c:if test="${user.getUserType() eq '0'}">
+                                <c:if test="${user.getUserType() eq '0' && null eq result}">
 	                                <button type="button" class="btn btn-warning" onclick="location.href='../channel/chCreate'" >Channel</button>
+                                </c:if>
+                                <c:if test="${user.getUserType() eq '0' && result eq sessionScope.userId}">
+	                                <button type="button" class="btn btn-warning" onclick="location.href='../channel/ch_personal_main?chId=${result}'" >Channel</button>
                                 </c:if>
                                 <c:if test="${user.getUserType() eq '1'}">
 	                                <button type="button" class="btn btn-warning" onclick="openMyRequest();">Request</button>
@@ -101,8 +104,8 @@
                                                <c:if test="${user.getUserConfirm() eq '0'}">
 													<a href="/user/email"><img src="../resources/img/shopping-minus.png" style="width: 5%; height: auto; margin-bottom: 0px;"></a>
 												</c:if>
-                                                  	
-                                                     
+
+
                                                   </td>
                                                 </tr>
                                             </thead>
@@ -134,13 +137,13 @@
                                         <input class="btn btn-secondary"type="button" value="Modify" onclick="mypageInfoModify();">
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                     <!-- 마이페이지 메뉴 end -->
                 </div>
-                
+
             </div>
 
 
