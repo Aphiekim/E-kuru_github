@@ -25,6 +25,7 @@ import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
+import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
 import com.scit.ekuru.vo.specVO;
@@ -133,7 +134,6 @@ public class UserService {
 	        	System.out.println(addr.length);
 
 	        }
-
 	        hash.put("state", addr[0]);
 	        hash.put("address1", addr[1]);
 	        hash.put("address2", addr[2]);
@@ -486,6 +486,28 @@ public class UserService {
 	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id) {
 		
 		return dao.selectSepcAll(id);
+	public int insertReqAd(SuperPlanVO vo) {
+		int cnt = dao.insertReqAd(vo);
+		
+		if(cnt>0) {
+			logger.info("수퍼플랜에 등록 성공");
+		}else {
+			logger.info("수퍼플랜에 등록 실패");
+		}
+		
+		return cnt;
+	}
+	
+	public int insertChAd(SuperPlanVO vo) {
+		int cnt = dao.insertChAd(vo);
+		
+		if(cnt>0) {
+			logger.info("수퍼플랜에 등록 성공");
+		}else {
+			logger.info("수퍼플랜에 등록 실패");
+		}
+		
+		return cnt;
 	}
 }
 

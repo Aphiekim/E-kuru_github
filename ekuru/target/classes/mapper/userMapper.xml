@@ -296,4 +296,39 @@ from e_spec_tb
 where userId = #{userId}
 </select>
 
+<!-- AD 관련 -->
+<insert id="insertReqAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,reqNum
+		,adTotal
+		,adReqCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{reqNum}
+		,#{adTotal}
+		,#{adReqCharge}
+	)
+</insert>
+<insert id="insertChAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,prodNum
+		,adTotal
+		,adChCharge
+		,adProdCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{prodNum}
+		,#{adTotal}
+		,#{adChCharge}
+		,#{adProdCharge}
+	)
+</insert>
 </mapper>

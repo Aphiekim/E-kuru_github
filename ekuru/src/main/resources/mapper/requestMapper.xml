@@ -162,5 +162,21 @@ where
 	and
 	userId = #{userId}
 </delete>
-
+<!-- AD 관련 요청글 출력 -->
+<select id="selectReqAd" resultType="hashmap">
+select
+    r.reqNum as reqNum
+    ,r.userId as userId
+    ,r.categoryCode as categoryCode
+    ,r.reqTitle as reqTitle
+    ,r.reqContent as reqContent
+    ,r.reqIndate as reqIndate
+    ,r.reqOriginalPic1 as reqOriginalPic1
+    ,r.reqOriginalPic2 as reqOriginalPic2
+    ,r.reqOriginalPic3 as reqOriginalPic3
+from
+    e_request_tb r, e_ad_tb a
+where
+    r.reqNum = a.reqNum
+</select>
 </mapper>

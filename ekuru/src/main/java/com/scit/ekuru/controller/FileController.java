@@ -20,7 +20,7 @@ public class FileController {
 		//파일이 업로드 될 경로 설정 
 		//String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload/file"); 
 		//String saveDir = "C:\\Study\\fileupload";
-		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\pic";
 		//위에서 설정한 경로의 폴더가 없을 경우 생성 
 		File dir = new File(saveDir); if(!dir.exists()) {
 			dir.mkdirs(); 

@@ -141,7 +141,7 @@
                                               <tr>
                                               	<th scope="col">Profile</th>
                                               	<td>
-                                              	<input type="file" name="upload" id="inputFile" multiple="multiple"/>
+                                              	<input type="file" name="upload" id="inputFile" name="??여기때문인건가용...?근데 왜 아이디도 안입력되지...!!" multiple="multiple"/>
                                               	</td>
                                               </tr>
                                             </thead>
@@ -168,6 +168,14 @@
 
 
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>
+
+<!-- <form action="/file/upload.do" method="post" enctype="multipart/form-data"> 
+<label><input type="file" name="upload" multiple="multiple"/></label>
+ <label><input type="file" name="upload" multiple="multiple"/></label> 
+ <input type="submit" value="업로드" /> 
+ </form>
+
+ -->
 </body>
 
 </html>

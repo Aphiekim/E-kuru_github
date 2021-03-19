@@ -13,6 +13,7 @@ import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
+import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
 import com.scit.ekuru.vo.specVO;
 
@@ -309,6 +310,12 @@ public class UserDAO {
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			vo = mapper.selectBuyer(chatNum);
+	public int insertReqAd(SuperPlanVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertReqAd(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -321,6 +328,15 @@ public class UserDAO {
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			cnt = mapper.insertSpec(vo);
+		return cnt;
+	}
+	
+	public int insertChAd(SuperPlanVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertChAd(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
