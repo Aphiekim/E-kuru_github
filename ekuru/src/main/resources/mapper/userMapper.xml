@@ -331,7 +331,6 @@ insert into
 		,#{adProdCharge}
 	)
 </insert>
-<<<<<<< HEAD
 <!-- 
 <select id="selectSearchAll" parameterType="string" resultType="hashmap">
 select
@@ -356,12 +355,9 @@ or
 	c.prodContent like '%'|| #{search} || '%'	
 </if>
 </select> -->
-=======
-
 <select id="selectSpecOne" parameterType="int" resultType="spec">
 select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>
->>>>>>> origin/master
 </mapper>

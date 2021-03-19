@@ -511,13 +511,14 @@ public class UserService {
 		return cnt;
 	}
 	
-<<<<<<< HEAD
+
 	public ArrayList<HashMap<String, Object>> selectSearchAll(String search){
 		return dao.selectSearchAll(search);
-=======
+	}
+	
 	public specVO selectSpecOne(int specNum) {
 		return dao.selectSpecOne(specNum);
->>>>>>> origin/master
+
 	}
 }
 
