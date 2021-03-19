@@ -23,7 +23,7 @@ function useId(id){
 	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 		<input type="hidden" name="cmd" value="_xclick">
 		<input type="hidden" name="business" value="ekuruco@gmail.com">
-		결제후 이동되는 페이지 : <input type="url" name="return" value="http://localhost:8888/" size="50"/><br />
+		<input type="url" name="return" value="http://localhost:8888/payment/payinsert?pointProdNum=${pvo.getPointProdNum() }" size="50" hidden=""/><br />
 		Item : <input type="text" name="item_name" value="${pvo.getPointProdName() }" readonly="readonly"><br/>
 		Code : <input type="text" name="item_number" value="${pvo.getPointProdName() }" readonly="readonly"><br />
 		Currency : <input type="text" name="currency_code" value="JPY" readonly="readonly"><br />

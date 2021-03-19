@@ -9,6 +9,7 @@ import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
+import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
 
 public interface UserMapper {
@@ -87,4 +88,10 @@ public interface UserMapper {
 	
 	//사용된 포인트 불러오기
 	public ArrayList<PointUsedVO> selectUsedPointList(String id);
+	
+	//AD 수퍼플랜에 넣기 요청글(구매자용)
+	public int insertReqAd(SuperPlanVO vo);
+	
+	//AD 수퍼플랜에 넣기 채널용
+	public int insertChAd(SuperPlanVO vo);
 }

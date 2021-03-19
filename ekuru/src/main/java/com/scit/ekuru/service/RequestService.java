@@ -168,6 +168,17 @@ public class RequestService {
 		return path;
 	}
 	
+	//AD관련 요청글 불러오기
+	public ArrayList<RequestVO> selectReqAd(){
+		ArrayList<RequestVO> list = dao.selectReqAd();
+		
+		if(list.size()!=0 || list != null) {
+			logger.info("AD 관련 요청글 불러오기 성공");
+		}
+		
+		return list;
+	}
+	
 	
 	
 	

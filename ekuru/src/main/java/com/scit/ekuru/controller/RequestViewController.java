@@ -20,8 +20,10 @@ import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.scit.ekuru.service.RequestService;
+import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.RequestCommentVO;
 import com.scit.ekuru.vo.RequestVO;
+import com.scit.ekuru.vo.UserVO;
 
 @Controller
 @RequestMapping(value="/request")
@@ -33,26 +35,24 @@ public class RequestViewController {
 	private RequestService service;
 	
 	@Autowired
+	private UserService userService;
+	
+	@Autowired
 	private HttpSession session;
 	
 	//request 메인화면으로 가기
 	@RequestMapping(value="/request_main", method=RequestMethod.GET)
 	public String requestMain(Model model, @RequestParam(defaultValue="")String search) {
 		logger.info("Move to request main");
-//		ArrayList<RequestVO> fashionList = service.requestCategoryResult(1);
-//		ArrayList<RequestVO> beautyList = service.requestCategoryResult(2);
-//		ArrayList<RequestVO> foodList = service.requestCategoryResult(3);
-//		ArrayList<RequestVO> bookList = service.requestCategoryResult(4);
-//		ArrayList<RequestVO> ectList = service.requestCategoryResult(5);
-//		
-//		model.addAttribute("fashionList", fashionList);
-//		model.addAttribute("beautyList", beautyList);
-//		model.addAttribute("foodList", foodList);
-//		model.addAttribute("bookList", bookList);
-//		model.addAttribute("ectList", ectList);
+		String id = (String)session.getAttribute("userId");
+		UserVO user = userService.selectUserTest(id);
 		
 		ArrayList<RequestVO> requestList = service.selectRequestAll(search);
+		ArrayList<RequestVO> adReqList = service.selectReqAd();
+		
 		model.addAttribute("requestList", requestList);
+		model.addAttribute("adReqList", adReqList);
+		model.addAttribute("user", user);
 		return "request/request_main";
 	}
 	
@@ -68,7 +68,7 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		
-String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		
 		System.out.println(upload[0].getOriginalFilename());
 		
