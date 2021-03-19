@@ -126,6 +126,20 @@ public class RequestDAO {
 		return commentList;
 	}
 	
+	//코멘트 불러오기 전 글 넘버 가져오기
+	public RequestCommentVO getReqNum(int requestCommentNum) {
+		RequestCommentVO vo = null;
+				
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			vo = mapper.getReqNum(requestCommentNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
 	//코멘트 지우기
 	public int deleteComment(RequestCommentVO reqCommentVO) {
 		int cnt = 0;

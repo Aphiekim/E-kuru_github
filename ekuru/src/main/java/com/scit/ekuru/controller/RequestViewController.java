@@ -214,10 +214,18 @@ public class RequestViewController {
 	public String requestCategoryResult(int categoryCode, Model model) {
 		logger.info("Move to request category result"+ categoryCode);
 		ArrayList<RequestVO> list = service.requestCategoryResult(categoryCode);
+<<<<<<< HEAD
+		ArrayList<RequestVO> adReqList = service.selectReqAd();
+		
+		model.addAttribute("reqList", list);
+		model.addAttribute("adReqList", adReqList);
+		
+=======
 
 		logger.info("확인"+list);
 		model.addAttribute("reqList", list);
 
+>>>>>>> origin/master
 		return "request/request_categoryResult";
 	}
 
@@ -241,15 +249,19 @@ public class RequestViewController {
 	//request 댓글 지우기
 	@RequestMapping(value="/request_deleteComment", method=RequestMethod.GET)
 	public String deleteComment(int reqCommentNum) {
+		RequestCommentVO vo = service.getReqNum(reqCommentNum);
+		int reqNum = vo.getReqNum();
+		
 		int cnt = service.deleteComment(reqCommentNum);
+		
 		String path =" ";
 
 		if(cnt>0) {
 			logger.info("코멘트 지우기 성공");
-			path ="redirect:/request/request_main";
+			path ="redirect:/request/request_readForm?reqNum="+reqNum;
 		}else {
 			logger.info("코멘트 지우기 실패");
-			path ="redirect:/request/request_main";
+			path ="redirect:/request/request_readForm?reqNum="+reqNum;
 		}
 
 		return path;

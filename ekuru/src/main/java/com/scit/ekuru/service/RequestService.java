@@ -134,6 +134,11 @@ public class RequestService {
 		return dao.selectComment(reqNum);
 	}
 	
+	//코멘트 지우기 전에 글 넘버
+	public RequestCommentVO getReqNum(int requestCommentNum) {
+		return dao.getReqNum(requestCommentNum);
+	}
+	
 	//코멘트 지우기
 	public int deleteComment(int reqCommentNum) {
 		

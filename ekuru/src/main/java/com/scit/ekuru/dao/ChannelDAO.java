@@ -199,5 +199,17 @@ public class ChannelDAO {
 		
 		return list;
 	}
+	
+	public ArrayList<ProductVO> selectProdAll(String search){
+		ArrayList<ProductVO> list = null;
+		
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			list = mapper.selectProdAll(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

@@ -125,4 +125,8 @@ public class ChannelService {
 		}
 
 	}
+	
+	public ArrayList<ProductVO> selectProdAll(String search){
+		return dao.selectProdAll(search);
+	}
 }

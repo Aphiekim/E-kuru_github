@@ -36,6 +36,9 @@ public interface RequestMapper {
 	//코멘트 불러오기
 	public ArrayList<RequestCommentVO> selectComment(int reqNum);
 	
+	//코멘트 지우기 전 해당글의 번호 불러오기
+	public RequestCommentVO getReqNum(int requestCommentNum);
+	
 	//코멘트 지우기
 	public int deleteComment(RequestCommentVO reqCommentVO);
 	
