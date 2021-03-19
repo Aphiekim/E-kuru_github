@@ -7,6 +7,7 @@ import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -80,4 +81,10 @@ public interface UserMapper {
 	
 	// 채팅생성
 	public int createChat(ChatVO vo);
+	
+	//사용된 포인트 테이블에 추가
+	public int insertUsedPoint(PointUsedVO vo);
+	
+	//사용된 포인트 불러오기
+	public ArrayList<PointUsedVO> selectUsedPointList(String id);
 }

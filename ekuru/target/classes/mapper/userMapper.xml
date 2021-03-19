@@ -30,7 +30,7 @@
 
 	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum
 	where ep.userId like #{userId}
-	order by ep.pointChargeNum
+	order by ep.pointChargeNum desc
 </select>
 
 <update id="modifyUser" parameterType="user">
@@ -232,4 +232,32 @@ where cartProdNum = #{cartProdNum}
 <insert id="createChat" parameterType="chat">
 	insert into e_chat_tb(roomnum, content) values(chat_seq.nextval, #{content})
 </insert>
+
+<!-- pointUsed_TB 관련 -->
+<insert id="insertUsedPoint" parameterType="usedPoint">
+insert
+into
+	e_pointUsed_tb(
+		pointUsedNum
+		,userId
+		,pointUsed
+	)values(
+		pointUsedNum_seq.nextval
+		,#{userId}
+		,#{pointUsed}
+	)
+</insert>
+<select id="selectUsedPointList" parameterType="String" resultType="usedPoint">
+select
+	pointUsedNum	
+	,userId
+	,pointUsed
+	,to_char(pointUsedIndate, 'YYYY-MM-DD') as pointUsedIndate
+from
+	e_pointUsed_tb
+where
+	userId = #{userId}
+order by 
+	pointUsedNum desc
+</select>
 </mapper>

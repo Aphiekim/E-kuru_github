@@ -58,9 +58,7 @@
                 <!--충전 및 환불 버튼 부분-->
                 <div>
                     <div class="row g-2 ">
-                        <div class="col-6" style="margin-left: auto; margin-right: auto;">
-                            <button type="button" class="btn btn-outline-danger"
-                                style="margin-right: 5%;">Refund</button>
+                        <div class="col-6" style="margin-left: auto; margin-right: auto; margin-bottom: 2%">
                             <button type="button" class="btn btn-outline-danger" onclick="openPointPricing();">Charge</button>
                         </div>
                     </div>
@@ -72,19 +70,47 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Charged Point</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">ID</th>
                                 </tr>
                             </thead>
-                            <c:forEach items="${pointlist}" var="list" varStatus="status">
-                            	<tr>
-                                    <th scope="row">${status.count}</th>
-                                    <td>${list.POINTPRODNAME}</td>
-                                    <td>${list.POINTCHARGEDINDATE}</td>
-                                    <td>${list.USERID}</td>
+                            <c:forEach items="${pointlist}" var="list">
+	                            	<tr>
+	                                    <td>
+	                                    	${list.POINTPRODNAME}
+	                                    </td>
+	                                    <td>
+	                                    	${list.POINTCHARGEDINDATE}
+	                                    </td>
+	                                    <td>
+	                                    	${list.USERID}
+	                                    </td>
+	                                </tr>
+                            </c:forEach>
+                        </table>
+                    </form>
+                    <form action="#">
+                        <table class="table table-hover" style="margin-top: 5%; margin-bottom: 5%;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Used Point (-)</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">ID</th>
                                 </tr>
+                            </thead>
+                            <c:forEach items="${usedPoint}" var="usedPoint">
+	                            	<tr style="color: red;">
+	                                    <td>
+	                                    	- ${usedPoint.pointUsed }
+	                                    </td>
+	                                    <td>
+	                                    	${usedPoint.pointUsedIndate }
+	                                    </td>
+	                                    <td>
+	                                    	${usedPoint.userId }
+	                                    </td>
+	                                </tr>
                             </c:forEach>
                         </table>
                     </form>
@@ -97,7 +123,7 @@
         <!--마이 포인트 end-->
         <!-- include tag Footer Start -->
     </div>
-    <div>
+
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>
 </body>
 </html>

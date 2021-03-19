@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChatVO;
+import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -196,9 +197,11 @@ public class UserController {
 	public String mypagePoint(Model model) {
 		String id = (String)session.getAttribute("userId");
 		UserVO newVo = service.selectUserTest(id);
-
+		ArrayList<PointUsedVO> usedPoint = service.selectUsedPointList(id);
+		
 		ArrayList<HashMap<String, Object>> list = service.selectPoint();
 		model.addAttribute("pointlist", list);
+		model.addAttribute("usedPoint", usedPoint);
 		session.setAttribute("userPoint", newVo.getUserPoint());
 
 		return "user/mypage_point";
@@ -235,7 +238,9 @@ public class UserController {
 
 		UserVO user = service.selectUserTest(id);
 
+		
 		model.addAttribute("user", user);
+		
 
 		return "/user/mypage_pointPricing";
 	}

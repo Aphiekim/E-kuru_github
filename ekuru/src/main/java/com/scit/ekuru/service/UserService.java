@@ -22,6 +22,7 @@ import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
@@ -414,6 +415,30 @@ public class UserService {
 			path = "redirect:/user/chatForm";
 		}
 		return path;
+	}
+	
+	public int insertUsedPoint(PointUsedVO vo) {
+		int cnt = dao.insertUsedPoint(vo);
+		
+		if(cnt>0) {
+			logger.info("사용된 포인트 입력 성공");
+		}else {
+			logger.info("사용된 포인트 입력 실패");
+		}
+		
+		return cnt;
+	}
+	
+	public ArrayList<PointUsedVO> selectUsedPointList(String id){
+		ArrayList<PointUsedVO> list = dao.selectUsedPointList(id);
+		
+		if(list.size()!=0 && list !=null) {
+			logger.info("사용된 포인트 불러오기 성공");
+		}else {
+			logger.info("사용된 포인트 불러오기 실패");
+		}
+		
+		return list;
 	}
 }
 
