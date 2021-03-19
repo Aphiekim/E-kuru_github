@@ -469,5 +469,9 @@ public class UserService {
 		
 		return cnt;
 	}
+	
+	public ArrayList<HashMap<String, Object>> selectSearchAll(String search){
+		return dao.selectSearchAll(search);
+	}
 }
 

@@ -39,4 +39,7 @@ public interface ChannelMapper {
 
 	//AD 관련 채널글 출력
 	public ArrayList<ChannelVO> selectChAd();
+	
+	//메인화면 검색 채널글 출력
+	public ArrayList<ProductVO> selectProdAll(String search);
 }

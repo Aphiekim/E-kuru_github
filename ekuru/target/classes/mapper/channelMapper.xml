@@ -216,7 +216,9 @@ INSERT INTO
 				FROM
 					E_PRODUCT_TB
 				WHERE
-					PRODTITLE like '%'|| #{search} || '%')
+					PRODTITLE like '%'|| #{search} || '%'
+					or 
+					PRODCONTENT like '%'|| #{search} || '%')
 
 </select>
 
@@ -281,5 +283,23 @@ from
 	e_channel_tb c, e_ad_tb a
 where
 	e.prodNum = a.prodNum
+</select>
+<!-- 메인에서 불러오는 상품 -->
+<select id="selectProdAll" parameterType="string" resultType="product">
+select
+	prodNum,
+	prodTitle,
+	prodContent,
+	prodOriginalPic1,
+	prodIndate
+from
+	e_product_tb
+<if test="_parameter != null">
+where
+	prodContent like '%'|| #{search} || '%'
+or
+	prodTitle like '%'|| #{search} || '%'
+</if>
+order by prodNum desc
 </select>
 </mapper>

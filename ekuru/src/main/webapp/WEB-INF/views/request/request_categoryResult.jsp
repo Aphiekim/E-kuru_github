@@ -103,89 +103,64 @@
         <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
       </div>
     </section>
-    <!-- ìì²­ ê²ìê¸ ì¶ë ¥ ë¶ë¶ ìì-->
+    
+    <!-- 요청 게시글 출력 부분 시작 -->
     <section class="page-section portfolio" id="portfolio">
       <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 5%;">
           Request Board</h2>
-        <!-- ìì²­ ê²ìê¸ ë°°ì´ ëëê¸°-->
+        <!--요청 게시글 배열 나누기-->
         <div class="divider-custom">
           <div class="divider-custom-line"></div>
           <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
           <div class="divider-custom-line"></div>
         </div>
-        <!-- ê²ìê¸ ë¦¬ì¤í¸ -->
-        <!-- ì¸ê¸° ê²ìê¸ -->
+        <!-- 게시글 리스트 -->
+        <!-- 인기 게시글 -->
         <div style="margin-bottom: 10%; margin-top: 5%;">
-          <h3 class="text-center text-uppercase" id="popularRequest">Popular Request</h3>
-          <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel" style="width: 100%;">
+                
+                    <h3 class="text-center text-uppercase" id="popularRequest">Popular Request</h3>
+                    <div id="myCarousel" class="carousel slide justify-content-center"
+						data-ride="carousel" style="width: 100%;">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active inner">
+								<div class="row justify-content-center inner">
+									<c:forEach items="${adReqList }" var="adReqList">
+											<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+												<div class="portfolio-item mx-auto" data-toggle="modal"
+													data-target="#portfolioModal4">
+													<div
+														class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+														onclick="openReadForm('${adReqList.REQNUM}');">
+														<div
+															class="portfolio-item-caption-content text-center text-white">
+															<i class="fas fa-plus fa-3x"></i>
+														</div>
+													</div>
+													<img id="imgsize" class="img-fluid" src="../resources/upload/file/${adReqList.REQORIGINALPIC1 }" alt="" />
+												</div>
+												<div class="card-body">
+													<h5 class="card-title">${adReqList.REQTITLE }</h5>
+													<p class="card-text">${adReqList.REQCONTENT }</p>
+												</div>
+											</div>
+									</c:forEach>
 
-           <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active inner">
-                <div class="row justify-content-center inner">
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
+								</div>
+							</div>
+						</div>
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                        <div class="portfolio-item-caption-content text-center text-white"><i
-                            class="fas fa-plus fa-3x"></i></div>
-                      </div>
-                      <img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"
-                        alt="" />
-                    </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and
-                        make up the bulk
-                        of the card's content.</p>
-                    </div>
-                  </div>
                 </div>
-              </div>
-           </div>
-            <!-- 슬라이드 좌우 -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
         
 			<!--카테고리별 결과 출력 -->
 	        <div class="row justify-content-center inner" style="margin-bottom: 5%;">

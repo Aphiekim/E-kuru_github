@@ -151,8 +151,8 @@
                             <p>The best Korean package service is waiting for you</p>
                         </div>
                         <div class="search-form">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
+                            <form action="/main_afterSearchForm" method="post">
+                                <input type="text" placeholder="Search..." name="search">
 
                                 <button type="submit">Explore Now</button>
                             </form>

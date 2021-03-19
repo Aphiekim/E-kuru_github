@@ -296,4 +296,28 @@ insert into
 		,#{adProdCharge}
 	)
 </insert>
+<!-- 
+<select id="selectSearchAll" parameterType="string" resultType="hashmap">
+select
+	r.reqNum as reqNum
+	,r.categoryCode as categoryCode
+	,r.reqTitle as reqTitle
+	,r.reqContent as reqContent
+	,r.reqOriginalPic1 as reqOriginal
+	,r.reqIndate as reqIndate
+	,c.prodNum as prodNum
+	,c.prodTitle as prodTitle
+	,c.prodContent as prodContent
+	,c.prodOriginalPic1 as prodOriginalPic1
+	,c.prodIndate as prodIndate
+
+from
+	e_request_tb r, e_product_tb c
+<if test="_parameter != null">
+where
+	r.reqContent like '%'|| #{search} || '%'
+or
+	c.prodContent like '%'|| #{search} || '%'	
+</if>
+</select> -->
 </mapper>
