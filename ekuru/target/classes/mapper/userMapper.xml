@@ -261,4 +261,80 @@ where
 order by 
 	pointUsedNum desc
 </select>
+
+<select id="selectBuyer" parameterType="int" resultType="chat">
+select us.userid, ch.chatnum
+from  e_user_tb us join e_chattingroom_tb ch on us.userid = ch.userid
+where ch.chatnum = #{chatnum}
+</select>
+
+<insert id="insertSpec" parameterType="spec">
+	insert into e_spec_tb(
+		specNum, 
+		userId,
+		chNum,
+		productName,
+		productEa,
+		productPrice,
+		customerAddr
+	) values(
+		#{specNum},
+		#{userId},
+		#{chNum},
+		#{productName},
+		#{productEa},
+		#{productPrice},
+		#{customerAddr}
+	)
+</insert>
+
+
+<select id="selectSpecAll" parameterType="string" resultType="hashmap">
+
+select specnum, chnum, productea, productprice, customeraddr, userId, productname
+from e_spec_tb
+where userId = #{userId}
+</select>
+
+<!-- AD 관련 -->
+<insert id="insertReqAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,reqNum
+		,adTotal
+		,adReqCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{reqNum}
+		,#{adTotal}
+		,#{adReqCharge}
+	)
+</insert>
+<insert id="insertChAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,prodNum
+		,adTotal
+		,adChCharge
+		,adProdCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{prodNum}
+		,#{adTotal}
+		,#{adChCharge}
+		,#{adProdCharge}
+	)
+</insert>
+
+<select id="selectSpecOne" parameterType="int" resultType="spec">
+select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname
+from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
+where specnum = #{specNum}
+</select>
 </mapper>

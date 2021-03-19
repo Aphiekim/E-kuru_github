@@ -39,4 +39,6 @@ public interface RequestMapper {
 	//코멘트 지우기
 	public int deleteComment(RequestCommentVO reqCommentVO);
 	
+	//AD 관련 요청글 출력
+	public ArrayList<RequestVO> selectReqAd();
 }

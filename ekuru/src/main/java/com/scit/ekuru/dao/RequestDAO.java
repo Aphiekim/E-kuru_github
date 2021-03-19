@@ -153,6 +153,7 @@ public class RequestDAO {
 		return list;
 	}
 	
+	//내 요청글 내역 전체 삭제
 	public int deleteMypageReq(String id) {
 		int cnt = 0;
 		
@@ -165,6 +166,20 @@ public class RequestDAO {
 		
 		return cnt;
 		
+	}
+	
+	//AD관련 요청글 불러오기
+	public ArrayList<RequestVO> selectReqAd(){
+		ArrayList<RequestVO> list = null;
+		
+		try {
+			RequestMapper mapper = session.getMapper(RequestMapper.class);
+			list = mapper.selectReqAd();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	

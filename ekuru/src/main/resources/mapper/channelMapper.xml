@@ -264,5 +264,22 @@ INSERT INTO
 </update>
 
 
-
+<!-- AD 관련 출력 -->
+<select id="selectChAd" resultType="hashmap">
+select
+		c.PRODNUM as PRODNUM,
+		c.USERID as USERID,
+		c.CHNUM as CHNUM,
+		c.PRODCATEGORY as PRODCATEGORY,
+		c.PRODTITLE as PRODTITLE,
+		c.PRODCONTENT as PRODCONTENT,
+		c.PRODORIGINALPIC1 as PRODORIGINALPIC1,
+		c.PRODORIGINALPIC2 as PRODORIGINALPIC2,
+		c.PRODORIGINALPIC3 as PRODORIGINALPIC3,
+		c.PRODINDATE as PRODINDATE
+from
+	e_channel_tb c, e_ad_tb a
+where
+	e.prodNum = a.prodNum
+</select>
 </mapper>

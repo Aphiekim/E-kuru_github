@@ -27,6 +27,7 @@ import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.specVO;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -107,8 +108,8 @@ public class UserController {
 	public String mypageInfoForm(UserVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		//System.out.println(vo);
 		//파일이 업로드 될 경로 설정
-				String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
-				
+		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		//이렇게 하면 되는건가용?
 				System.out.println(upload[0].getOriginalFilename());
 				
 				//위에서 설정한 경로의 폴더가 없을 경우 생성 
@@ -179,12 +180,18 @@ public class UserController {
 
 		//ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
 		ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
-		System.out.println("chat 리스트" + chatlist);
+		//System.out.println("chat 리스트" + chatlist);
+		
+		
+		
+		ChatVO buyervo = service.selectBuyer(vo.getChatNum());
+		
 		if(chatlist != null) {
 			model.addAttribute("chatlist", chatlist);
 			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));
+			model.addAttribute("buyerId", buyervo.getUserId());
 		}
-
+		
 
 		return "/chat/chatForm";
 	}
@@ -371,4 +378,47 @@ public class UserController {
 		//System.out.println(chnum);
 		return service.createChatRoom(vo);
 	}
+	
+	//명세작성 폼으로 이동
+	@RequestMapping(value = "/writeStatement", method=RequestMethod.POST)
+	public String writeStatement(specVO vo, Model model) {
+		//System.out.println(vo);
+		
+		UserVO user = service.selectUserTest(vo.getUserId());
+		//System.out.println(user);
+		model.addAttribute("user", user);
+		model.addAttribute("buyerId", vo.getUserId());
+		model.addAttribute("chatNum", vo.getChatNum());
+		return "/deal/deal_specificationForm";
+	}
+	
+	//명세작성 폼으로 이동
+	@RequestMapping(value = "/WriteSpec", method=RequestMethod.POST)
+	public String writeSpec(specVO vo) {
+		vo.setChNum(service.selectChId(vo.getChId()).getChNum());
+		System.out.println("writeSpec VO : " + vo);
+		service.insertSpec(vo);
+		return "redirect:/user/chatForm";
+	}
+	
+	// 사용자 명세 확인 
+	@RequestMapping(value = "/specificationListForm", method=RequestMethod.GET)
+	public String specificationListForm(HttpSession session, Model model) {
+		String id = (String) session.getAttribute("userId");
+		
+		ArrayList<HashMap<Object, Object>> list = service.selectSpecAll(id);
+		
+		model.addAttribute("list", list);
+
+		return "deal/deal_specificationListForm";
+	}
+	
+	@RequestMapping(value = "/selectProdOne", method=RequestMethod.GET)
+	public String selectProdOne(specVO vo, Model model) {
+		specVO spec = service.selectSpecOne(vo.getSpecNum());
+		
+		model.addAttribute("spec", spec);
+		return "deal/deal_purchaseForm";
+	}
+	
 }
