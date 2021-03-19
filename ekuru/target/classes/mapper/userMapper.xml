@@ -261,4 +261,39 @@ where
 order by 
 	pointUsedNum desc
 </select>
+
+<select id="selectBuyer" parameterType="int" resultType="chat">
+select us.userid, ch.chatnum
+from  e_user_tb us join e_chattingroom_tb ch on us.userid = ch.userid
+where ch.chatnum = #{chatnum}
+</select>
+
+<insert id="insertSpec" parameterType="spec">
+	insert into e_spec_tb(
+		specNum, 
+		userId,
+		chNum,
+		productName,
+		productEa,
+		productPrice,
+		customerAddr
+	) values(
+		#{specNum},
+		#{userId},
+		#{chNum},
+		#{productName},
+		#{productEa},
+		#{productPrice},
+		#{customerAddr}
+	)
+</insert>
+
+
+<select id="selectSpecAll" parameterType="string" resultType="hashmap">
+
+select specnum, chnum, productea, productprice, customeraddr, userId, productname
+from e_spec_tb
+where userId = #{userId}
+</select>
+
 </mapper>

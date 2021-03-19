@@ -30,7 +30,7 @@
 		}
 		return false;
 	}
-	
+
   </script>
   
 </head>
@@ -84,7 +84,13 @@
       </div>
       <div class="mesgs">
         <div class="msg_history">
-        <button type="button" class="btn btn-outline-danger" style="margin-bottom: 10px;">명세작성</button>
+        <form action="/user/writeStatement" method="post">
+        	<input type="hidden" name="chId" value="${sessionScope.userId }">
+        	<input type="hidden" name="userId" value="${buyerId }">
+        	<input type="hidden" name="chatNum" value="${chatNum }">
+        	<input type="submit" class="btn btn-outline-danger" style="margin-bottom: 10px;"  value="Write a Statement">
+        </form>
+       
         <c:forEach items="${chatlist }" var="chat">
         
         	<c:if test="${chat.userid eq sessionScope.userId}">
@@ -121,7 +127,6 @@
 	              <input id="checkchat" name="content" type="text" class="write_msg" placeholder="Type a message" />
 	              <input type="hidden" name="chatNum" value="${chatNum }">
 	              <input type="hidden" name="userId" value="${sessionScope.userId }">
-	              
 	              <button class="msg_send_btn" type="button" onclick="insertChat();"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 	            </div>
 	          </div>

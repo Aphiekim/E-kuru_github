@@ -10,6 +10,7 @@ import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.specVO;
 
 public interface UserMapper {
 
@@ -87,4 +88,13 @@ public interface UserMapper {
 	
 	//사용된 포인트 불러오기
 	public ArrayList<PointUsedVO> selectUsedPointList(String id);
+	
+	// 명세폼으로 넘길 구매자의 아이디
+	public ChatVO selectBuyer(int chatNum);
+	
+	// 명세 작성
+	public int insertSpec(specVO vo);
+	
+	// 명세 조회
+	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id);
 }

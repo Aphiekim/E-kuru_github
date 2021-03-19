@@ -14,6 +14,7 @@ import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.specVO;
 
 
 @Repository
@@ -302,4 +303,40 @@ public class UserDAO {
 		
 		return list;
 	}
+	
+	public ChatVO selectBuyer(int chatNum){
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectBuyer(chatNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
+	public int insertSpec(specVO vo) {
+		int cnt = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertSpec(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectSepcAll(String id){
+		ArrayList<HashMap<Object, Object>> list = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectSpecAll(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 }
