@@ -11,6 +11,7 @@ import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChargePointVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointProductVO;
+import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.UserVO;
 
@@ -275,5 +276,30 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public int insertUsedPoint(PointUsedVO vo) {
+		int cnt = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertUsedPoint(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
+	public ArrayList<PointUsedVO> selectUsedPointList(String id){
+		ArrayList<PointUsedVO> list = null;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectUsedPointList(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 }

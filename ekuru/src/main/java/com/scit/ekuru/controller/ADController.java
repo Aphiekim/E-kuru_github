@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.service.RequestService;
 import com.scit.ekuru.service.UserService;
+import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.RequestVO;
 import com.scit.ekuru.vo.SuperPlanVO;
@@ -73,6 +74,7 @@ public class ADController {
 		String id = (String)session.getAttribute("userId");
 		String path = "";
 		UserVO vo = userService.selectUserTest(id);
+		PointUsedVO point = new PointUsedVO();
 		int userPoint = vo.getUserPoint();
 		int adTotal = splan.getAdTotal();
 		
@@ -82,8 +84,13 @@ public class ADController {
 		}else {
 			//사용한 포인트 차감
 			userPoint = userPoint-adTotal;
-			
 			vo.setUserPoint(userPoint);
+			
+			//사용한 포인트 테이블에 추가
+			point.setPointUsed(adTotal);
+			point.setUserId(id);
+			userService.insertUsedPoint(point);
+			
 			path = userService.updatePoint(vo);
 		}
 		return  path;
