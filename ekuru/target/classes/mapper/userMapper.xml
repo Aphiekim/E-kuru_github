@@ -278,4 +278,22 @@ insert into
 		,#{adReqCharge}
 	)
 </insert>
+<insert id="insertChAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,prodNum
+		,adTotal
+		,adChCharge
+		,adProdCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{prodNum}
+		,#{adTotal}
+		,#{adChCharge}
+		,#{adProdCharge}
+	)
+</insert>
 </mapper>

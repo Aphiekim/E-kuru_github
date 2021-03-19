@@ -457,5 +457,17 @@ public class UserService {
 		
 		return cnt;
 	}
+	
+	public int insertChAd(SuperPlanVO vo) {
+		int cnt = dao.insertChAd(vo);
+		
+		if(cnt>0) {
+			logger.info("수퍼플랜에 등록 성공");
+		}else {
+			logger.info("수퍼플랜에 등록 실패");
+		}
+		
+		return cnt;
+	}
 }
 

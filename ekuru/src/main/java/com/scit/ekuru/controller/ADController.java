@@ -97,7 +97,10 @@ public class ADController {
 			splan.setUserId(id);
 			if(splan.getAdReqCharge()>0 && splan.getAdProdCharge()==0) {
 				userService.insertReqAd(splan);				
+			}else if(splan.getAdProdCharge()>0 && splan.getReqNum()==0) {
+				userService.insertChAd(splan);
 			}
+			
 			path = userService.updatePoint(vo);
 		}
 		return  path;

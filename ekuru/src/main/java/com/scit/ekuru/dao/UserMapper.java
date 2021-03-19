@@ -91,4 +91,7 @@ public interface UserMapper {
 	
 	//AD 수퍼플랜에 넣기 요청글(구매자용)
 	public int insertReqAd(SuperPlanVO vo);
+	
+	//AD 수퍼플랜에 넣기 채널용
+	public int insertChAd(SuperPlanVO vo);
 }

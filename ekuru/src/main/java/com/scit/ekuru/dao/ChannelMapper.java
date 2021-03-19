@@ -37,4 +37,6 @@ public interface ChannelMapper {
 
 	public boolean chModify(ChannelVO vo);
 
+	//AD 관련 채널글 출력
+	public ArrayList<ChannelVO> selectChAd();
 }

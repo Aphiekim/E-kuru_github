@@ -316,4 +316,17 @@ public class UserDAO {
 		
 		return cnt;
 	}
+	
+	public int insertChAd(SuperPlanVO vo) {
+		int cnt = 0;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertChAd(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 }

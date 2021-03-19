@@ -48,7 +48,10 @@ public class RequestViewController {
 		UserVO user = userService.selectUserTest(id);
 		
 		ArrayList<RequestVO> requestList = service.selectRequestAll(search);
+		ArrayList<RequestVO> adReqList = service.selectReqAd();
+		
 		model.addAttribute("requestList", requestList);
+		model.addAttribute("adReqList", adReqList);
 		model.addAttribute("user", user);
 		return "request/request_main";
 	}

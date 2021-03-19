@@ -146,25 +146,23 @@
 						<div class="carousel-inner">
 							<div class="item active inner">
 								<div class="row justify-content-center inner">
-									<c:forEach items="${requesList }" var="channel">
+									<c:forEach items="${adReqList }" var="adReqList">
 											<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
 												<div class="portfolio-item mx-auto" data-toggle="modal"
 													data-target="#portfolioModal4">
 													<div
 														class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-														onclick="openReadForm('${requestList.reqNum}');">
+														onclick="openReadForm('${adReqList.REQNUM}');">
 														<div
 															class="portfolio-item-caption-content text-center text-white">
 															<i class="fas fa-plus fa-3x"></i>
 														</div>
 													</div>
-													<img class="img-fluid"
-														src="../resources/"
-														alt="" />
+													<img id="imgsize" class="img-fluid" src="../resources/upload/file/${adReqList.REQORIGINALPIC1 }" alt="" />
 												</div>
 												<div class="card-body">
-													<h5 class="card-title">${channel.chName }</h5>
-													<p class="card-text">${channel.chIntro }</p>
+													<h5 class="card-title">${adReqList.REQTITLE }</h5>
+													<p class="card-text">${adReqList.REQCONTENT }</p>
 												</div>
 											</div>
 									</c:forEach>
