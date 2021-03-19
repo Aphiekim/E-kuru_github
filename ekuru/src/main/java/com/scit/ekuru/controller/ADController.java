@@ -73,8 +73,10 @@ public class ADController {
 		
 		String id = (String)session.getAttribute("userId");
 		String path = "";
+		
 		UserVO vo = userService.selectUserTest(id);
 		PointUsedVO point = new PointUsedVO();
+		
 		int userPoint = vo.getUserPoint();
 		int adTotal = splan.getAdTotal();
 		
@@ -91,6 +93,11 @@ public class ADController {
 			point.setUserId(id);
 			userService.insertUsedPoint(point);
 			
+			//신청한 수퍼플랜 내역 넣기
+			splan.setUserId(id);
+			if(splan.getAdReqCharge()>0 && splan.getAdProdCharge()==0) {
+				userService.insertReqAd(splan);				
+			}
 			path = userService.updatePoint(vo);
 		}
 		return  path;

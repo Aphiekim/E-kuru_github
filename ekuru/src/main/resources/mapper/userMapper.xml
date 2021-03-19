@@ -260,4 +260,21 @@ where
 order by 
 	pointUsedNum desc
 </select>
+<!-- AD 관련 -->
+<insert id="insertReqAd" parameterType="ad">
+insert into 
+	e_ad_tb(
+		adNum
+		,userId
+		,reqNum
+		,adTotal
+		,adReqCharge
+	)values(
+		adNum_seq.nextval
+		,#{userId}
+		,#{reqNum}
+		,#{adTotal}
+		,#{adReqCharge}
+	)
+</insert>
 </mapper>
