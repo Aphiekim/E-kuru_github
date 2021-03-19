@@ -310,6 +310,11 @@ public class UserDAO {
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			vo = mapper.selectBuyer(chatNum);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	public int insertReqAd(SuperPlanVO vo) {
 		int cnt = 0;
 		
@@ -320,7 +325,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		
-		return vo;
+		return cnt;
 	}
 	
 	public int insertSpec(specVO vo) {
@@ -328,6 +333,10 @@ public class UserDAO {
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
 			cnt = mapper.insertSpec(vo);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return cnt;
 	}
 	
@@ -369,5 +378,19 @@ public class UserDAO {
 		return list;
 	}
 	
+<<<<<<< HEAD
 >>>>>>> 3787692141a19b390d4996025f21289612068983
+=======
+	// 명세 조회
+	public specVO selectSpecOne(int specNum) {
+		specVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectSpecOne(specNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+>>>>>>> origin/master
 }

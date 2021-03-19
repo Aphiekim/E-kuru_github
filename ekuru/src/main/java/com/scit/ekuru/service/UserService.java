@@ -486,6 +486,7 @@ public class UserService {
 	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id) {
 		
 		return dao.selectSepcAll(id);
+	}
 	public int insertReqAd(SuperPlanVO vo) {
 		int cnt = dao.insertReqAd(vo);
 		
@@ -510,8 +511,13 @@ public class UserService {
 		return cnt;
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<HashMap<String, Object>> selectSearchAll(String search){
 		return dao.selectSearchAll(search);
+=======
+	public specVO selectSpecOne(int specNum) {
+		return dao.selectSpecOne(specNum);
+>>>>>>> origin/master
 	}
 }
 

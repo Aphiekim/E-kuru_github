@@ -415,8 +415,10 @@ public class UserController {
 	
 	@RequestMapping(value = "/selectProdOne", method=RequestMethod.GET)
 	public String selectProdOne(specVO vo, Model model) {
-
-		return "deal/deal_specificationListForm";
+		specVO spec = service.selectSpecOne(vo.getSpecNum());
+		
+		model.addAttribute("spec", spec);
+		return "deal/deal_purchaseForm";
 	}
 	
 }
