@@ -213,9 +213,14 @@ public class RequestViewController {
 	@RequestMapping(value="/request_categoryResult", method=RequestMethod.GET)
 	public String requestCategoryResult(int categoryCode, Model model) {
 		logger.info("Move to request category result"+ categoryCode);
+		String id = (String)session.getAttribute("userId");
+		
 		ArrayList<RequestVO> list = service.requestCategoryResult(categoryCode);
 		ArrayList<RequestVO> adReqList = service.selectReqAd();
+		UserVO user = userService.selectUserTest(id);
 		
+		model.addAttribute("categoryCode", categoryCode);
+		model.addAttribute("user", user);
 		model.addAttribute("reqList", list);
 		model.addAttribute("adReqList", adReqList);
 

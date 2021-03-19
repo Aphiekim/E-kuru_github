@@ -57,15 +57,16 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
                             <li class="headli"><a href="/user/chatForm">My Chat</a></li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
@@ -95,12 +96,40 @@
     <!-- 카테고리별 결과 -->
     <section>
       <div class="category-button" style="height: auto; background:#FFDFB9;">
-        <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
-        <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
-		<button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
-		<button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
-		<button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
-        <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
+      	<c:if test="${categoryCode eq 1 }">
+	        <button type="button" class="btn btn-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 1 }">
+	        <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 2 }">
+	        <button type="button" class="btn btn-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 2 }">
+	        <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 3 }">
+			<button type="button" class="btn btn-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 3 }">
+			<button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 4 }">
+			<button type="button" class="btn btn-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 4 }">
+			<button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 5 }">
+			<button type="button" class="btn btn-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 5 }">
+			<button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+      	</c:if>
+      	<c:if test="${user.getUserType() eq 1 }">
+		            <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
+	    </c:if>
+        
       </div>
     </section>
     
@@ -172,7 +201,7 @@
 		                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
 		                </div>
 		              </div>
-		              	<img class="img-fluid" src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg"/>	              
+		              	<img class="img-fluid" src="../resources/upload/file/${reqList.reqOriginalPic1 }"/>	              
 		            </div>
 		          <div class="card-body">
 	            	<h5 class="card-title">

@@ -21,6 +21,29 @@
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+    function check(){
+		var reqTitle = document.getElementById('reqTitle').value;
+		var reqContent = document.getElementById('reqContent').value;
+		var categoryCode = document.getElementById('categoryCode').checked;
+		
+		if(reqTitle == null || reqTitle.length == 0){
+			alert("Please write title");
+			return false;
+		}
+
+		if(categoryCode != true){
+			alert("Please select your category");
+			return false;
+		}
+
+		if(reqContent == null || reqContent.length == 0){
+			alert("Please write your content");
+			return false;
+		}
+		
+	}
+    </script>
     <style>
         *{
             font-family: 'NotSansCJKjp-Black', sans-serif;
@@ -62,7 +85,6 @@ function setThumbnail(event) {
 
 <body>
      <!-- header -->
-     <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -73,20 +95,22 @@ function setThumbnail(event) {
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
                             <li class="headli"><a href="/user/chatForm">My Chat</a></li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <!-- header -->
+    
     <!-- Request WriteForm start-->
     <div class="container" style="margin-top: 5%;">
         <!--title-->
@@ -94,7 +118,7 @@ function setThumbnail(event) {
         <div class="row" style="margin-top: 5%;">
             <div class="col-lg-8 mb-5">
             <!--Form-->
-            <form action="/request/request_update?reqNum=${vo.reqNum }" method="post" enctype="multipart/form-data">
+            <form action="/request/request_update?reqNum=${vo.reqNum }" method="post" enctype="multipart/form-data" onsubmit="return check();">
                     
                 <!--사진 / 화면에 맞춰서 설정clear-->
                     <div class="row form-group">
@@ -145,11 +169,11 @@ function setThumbnail(event) {
                     <div class="row form-group col-md-12 cate-sty">
                         <label class="font-weight-bold text-uppercase" for="subject">category</label>
                         <div style="width: 100%">
-                            <input type="radio" name="categoryCode" value="1" style="margin-right: 2%">Fashion/Acc
-                            <input type="radio" name="categoryCode" value="2" style="margin-right: 2%">Beauty
-                            <input type="radio" name="categoryCode" value="3" style="margin-right: 2%">Food
-                            <input type="radio" name="categoryCode" value="4" style="margin-right: 2%">Book/CD
-                            <input type="radio" name="categoryCode" value="5" style="margin-right: 2%">Ect
+                            <input type="radio" id="categoryCode" name="categoryCode" value="1" style="margin-right: 2%">Fashion/Acc
+                            <input type="radio" id="categoryCode" name="categoryCode" value="2" style="margin-right: 2%">Beauty
+                            <input type="radio" id="categoryCode" name="categoryCode" value="3" style="margin-right: 2%">Food
+                            <input type="radio" id="categoryCode" name="categoryCode" value="4" style="margin-right: 2%">Book/CD
+                            <input type="radio" id="categoryCode" name="categoryCode" value="5" style="margin-right: 2%">Ect
                         </div>
                     </div>
 
