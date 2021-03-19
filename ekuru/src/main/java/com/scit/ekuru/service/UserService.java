@@ -202,12 +202,16 @@ public class UserService {
 
 		HashMap<Object, Object> hash;
 
+		System.out.println("chat num : " + vo.getChatNum());
 
 		if(vo.getChatNum() == 0 || vo == null) {
 			list = null;
 			return list;
 		}else {
 			chat = dao.selectChat(vo.getChatNum());
+			
+			System.out.println("chat vo : " + chat);
+			
 			String test = null;
 			test = chat.getContent();
 			String content[] = test.split("/");
@@ -218,11 +222,12 @@ public class UserService {
 				hash.put("date", content[i+2]);
 				hash.put("chatNum", chat.getRoomNum());
 				i += 2;
+				System.out.println("hash data : " + hash);
 				list.add(hash);
-				System.out.println(hash);
+				//System.out.println(hash);
 			}
 		}
-		System.out.println(list);
+		//System.out.println(list);
 		return list;
 	}
 
@@ -392,7 +397,7 @@ public class UserService {
 		}
 	}
 	
-	}
+	
 	public ChatVO selectChId (String id){
 		return dao.selectChid(id);
 	}
@@ -404,7 +409,7 @@ public class UserService {
 		String time1 = sysdate.format(time);
 		//vo.getUserId()로 하면 구매자가 요청버튼 눌렀을때
 		//vo.getChId()로 하면 판매자가 요청버튼 눌렀을때
-		vo.setContent(vo.getChId() + "/" + "Hello!" + "/" + time1);
+		vo.setContent(vo.getChId() + "/" + "Hello!" + "/" + time1 + "/");
 		int count = dao.createChatRoom(vo);
 
 		String path = "";

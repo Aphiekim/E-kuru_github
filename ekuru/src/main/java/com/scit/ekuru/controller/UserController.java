@@ -162,21 +162,23 @@ public class UserController {
 		String id = (String)session.getAttribute("userId");
 		UserVO uservo = service.selectUserTest(id);
 		ChatVO chatvo = null;
-		System.out.println(uservo);
+		//System.out.println(uservo);
 		if(uservo.getUserType().equals("1")) {
 			chatvo = service.selectChUser1();
 		}else {
 			chatvo = service.selectChUser2();
 		}
 
-		System.out.println(chatvo);
+		//System.out.println(chatvo);
 
 		ArrayList<HashMap<Object, Object>> chatroomlist = service.selectChatRoom(chatvo);
 		model.addAttribute("chatroomlist", chatroomlist);
 
 		//System.out.println(vo);
 
+		//ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
 		ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
+		System.out.println("chat 리스트" + chatlist);
 		if(chatlist != null) {
 			model.addAttribute("chatlist", chatlist);
 			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));

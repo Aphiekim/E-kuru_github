@@ -150,12 +150,13 @@ where
 <select id="selectChUser1" parameterType="String" resultType="chat">
 select
 
-	ch.CHNUM as CHNUM,
+	max(ch.CHNUM) as CHNUM,
 	us.USERTYPE as USERTYPE,
 	us.USERID as USERID
 
 from e_channel_tb ch join e_user_tb us on ch.chid = us.userid join e_chattingroom_tb cr on cr.chnum = ch.chnum
-where us.USERID = #{userId}
+where ch.chId = #{userId}
+group by ch.chnum, us.userType, us.userId
 </select>
 
 <select id="selectChUser2" parameterType="String" resultType="chat">
