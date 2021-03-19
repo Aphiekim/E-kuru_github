@@ -125,8 +125,21 @@ public class ChannelService {
 		}
 
 	}
-	
+
 	public ArrayList<ProductVO> selectProdAll(String search){
 		return dao.selectProdAll(search);
+	}
+
+	public void chCreate(String id) {
+		boolean result = dao.chCreate(id);
+		if(result) {
+			logger.info("채널 생성");
+		}
+
+	}
+
+	public String chVerify(String chId) {
+		String result = dao.chVerify(chId);
+		return result;
 	}
 }

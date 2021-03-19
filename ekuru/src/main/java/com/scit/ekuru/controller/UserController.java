@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.service.UserService;
 import com.scit.ekuru.vo.CartVO;
 import com.scit.ekuru.vo.ChatVO;
@@ -35,6 +36,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+
+	@Autowired
+	private ChannelService chService;
 
 
 	@Autowired
@@ -86,10 +90,16 @@ public class UserController {
 		//model.addAttribute("list", list);
 		//서비스에서 모델 저장 오류
 		HashMap<Object, Object> hash = service.selectUser((String) session.getAttribute("userId"));
+
+		// 채널 유무 확인
+		String chId = (String) session.getAttribute("userId");
+		String result = chService.chVerify(chId);
+		System.out.println(result);
 		model.addAttribute("state", hash.get("state"));
         model.addAttribute("addr1", hash.get("address1"));
         model.addAttribute("addr2", hash.get("address2"));
         model.addAttribute("user", hash.get("user"));
+        model.addAttribute("result", result);
 
 		return "/user/mypage_info";
 	}
@@ -111,33 +121,33 @@ public class UserController {
 		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		//이렇게 하면 되는건가용?
 				System.out.println(upload[0].getOriginalFilename());
-				
-				//위에서 설정한 경로의 폴더가 없을 경우 생성 
+
+				//위에서 설정한 경로의 폴더가 없을 경우 생성
 				File dir = new File(saveDir);
-				if(!dir.exists()) { 
-					dir.mkdirs(); 
-				} 
+				if(!dir.exists()) {
+					dir.mkdirs();
+				}
 				String reName = "";
-				// 파일 업로드 
-				for(MultipartFile f : upload) { 
-					if(!f.isEmpty()) { 
-						// 기존 파일 이름을 받고 확장자 저장 
+				// 파일 업로드
+				for(MultipartFile f : upload) {
+					if(!f.isEmpty()) {
+						// 기존 파일 이름을 받고 확장자 저장
 						String orifileName = f.getOriginalFilename();
 						String ext = orifileName.substring(orifileName.lastIndexOf("."));
-						// 이름 값 변경을 위한 설정 
+						// 이름 값 변경을 위한 설정
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
-						int rand = (int)(Math.random()*1000); 
-						
-						// 파일 이름 변경 
+						int rand = (int)(Math.random()*1000);
+
+						// 파일 이름 변경
 						reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-						
-						
-						// 파일 저장 
-						try { 
-							f.transferTo(new File(saveDir + "/" + reName)); 
-						}catch (IllegalStateException | IOException e) { 
-							e.printStackTrace(); 
-							} 
+
+
+						// 파일 저장
+						try {
+							f.transferTo(new File(saveDir + "/" + reName));
+						}catch (IllegalStateException | IOException e) {
+							e.printStackTrace();
+							}
 						}
 					}
 				vo.setUserProfile(reName);
@@ -158,7 +168,7 @@ public class UserController {
 		System.out.println(vo);
 		return service.deleteCart(vo.getCartProdNum());
 	}
-	
+
 	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
 	public String chatForm(Model model, ChatVO vo) {
 		String id = (String)session.getAttribute("userId");
@@ -181,17 +191,17 @@ public class UserController {
 		//ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
 		ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
 		//System.out.println("chat 리스트" + chatlist);
-		
-		
-		
+
+
+
 		ChatVO buyervo = service.selectBuyer(vo.getChatNum());
-		
+
 		if(chatlist != null) {
 			model.addAttribute("chatlist", chatlist);
 			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));
 			model.addAttribute("buyerId", buyervo.getUserId());
 		}
-		
+
 
 		return "/chat/chatForm";
 	}
@@ -207,7 +217,7 @@ public class UserController {
 		String id = (String)session.getAttribute("userId");
 		UserVO newVo = service.selectUserTest(id);
 		ArrayList<PointUsedVO> usedPoint = service.selectUsedPointList(id);
-		
+
 		ArrayList<HashMap<String, Object>> list = service.selectPoint();
 		model.addAttribute("pointlist", list);
 		model.addAttribute("usedPoint", usedPoint);
@@ -247,9 +257,9 @@ public class UserController {
 
 		UserVO user = service.selectUserTest(id);
 
-		
+
 		model.addAttribute("user", user);
-		
+
 
 		return "/user/mypage_pointPricing";
 	}
@@ -281,29 +291,29 @@ public class UserController {
 		// 해쉬로 저장하기 위해 필요한 변수
 		HashMap<Object, Object> hash = null;
 
-		
+
 		//쿠키가 있는지 먼저 확인
 		if(cook != null){
-			
+
 			//System.out.println("카운트 : " + "prodnum" + String.valueOf(0));
 			//System.out.println("쿠키 length : " + cook.length);
 			//int flag = 1;
-			
+
 			int count = 0;
-			
+
 			// db 저장된 전체 상품의 갯수만큼 반복
 			while(count < list.size()) {
 
-				// count번째 상품의 PRODNUM을 String으로 변환해서 su에 대입 
+				// count번째 상품의 PRODNUM을 String으로 변환해서 su에 대입
 				String su = String.valueOf(list.get(count).get("PRODNUM"));
 				//System.out.println("while문 : " + su);
-				
+
 				//쿠키의 length만큼 반복
 				for(int j = 0;j < cook.length; j++) {
-						
+
 					//System.out.println("for문 : " + cook[j].getValue());
 					//System.out.println("for문 : " + su);
-					
+
 					// j번째 쿠키의 값과 su의 값이 같으면 if문 실행 (cook의 상품번호와 == su의 상품번호)
 					// 맞다면 새로운 hash 객체를 생성해서 count번째의 상품정보를 hash에 저장후 prodlist로 add 그리고 for문 종료
 					if(cook[j].getValue().equals(su)) {
@@ -325,11 +335,11 @@ public class UserController {
 		}
 
 		//System.out.println(prodlist);
-		
+
 		if(prodlist.size() > 0) {
-			model.addAttribute("prodlist", prodlist);	
+			model.addAttribute("prodlist", prodlist);
 		}
-		
+
 
 		return "/user/mypage_browSingHistory";
 	}
@@ -353,7 +363,7 @@ public class UserController {
 			}
 			count++;
 		}
-		
+
 		return "redirect:/user/viewedItems";
 	}
 
@@ -368,22 +378,22 @@ public class UserController {
 	}
 
 
-	
+
 	//채팅방 채팅 생성
 	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
 	public String createChat(ChatVO vo) {
 		ChatVO chvo = service.selectChId(vo.getChId());
 		vo.setChNum(chvo.getChNum());
-		
+
 		//System.out.println(chnum);
 		return service.createChatRoom(vo);
 	}
-	
+
 	//명세작성 폼으로 이동
 	@RequestMapping(value = "/writeStatement", method=RequestMethod.POST)
 	public String writeStatement(specVO vo, Model model) {
 		//System.out.println(vo);
-		
+
 		UserVO user = service.selectUserTest(vo.getUserId());
 		//System.out.println(user);
 		model.addAttribute("user", user);
@@ -391,7 +401,7 @@ public class UserController {
 		model.addAttribute("chatNum", vo.getChatNum());
 		return "/deal/deal_specificationForm";
 	}
-	
+
 	//명세작성 폼으로 이동
 	@RequestMapping(value = "/WriteSpec", method=RequestMethod.POST)
 	public String writeSpec(specVO vo) {
@@ -400,25 +410,25 @@ public class UserController {
 		service.insertSpec(vo);
 		return "redirect:/user/chatForm";
 	}
-	
-	// 사용자 명세 확인 
+
+	// 사용자 명세 확인
 	@RequestMapping(value = "/specificationListForm", method=RequestMethod.GET)
 	public String specificationListForm(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("userId");
-		
+
 		ArrayList<HashMap<Object, Object>> list = service.selectSpecAll(id);
-		
+
 		model.addAttribute("list", list);
 
 		return "deal/deal_specificationListForm";
 	}
-	
+
 	@RequestMapping(value = "/selectProdOne", method=RequestMethod.GET)
 	public String selectProdOne(specVO vo, Model model) {
 		specVO spec = service.selectSpecOne(vo.getSpecNum());
-		
+
 		model.addAttribute("spec", spec);
 		return "deal/deal_purchaseForm";
 	}
-	
+
 }
