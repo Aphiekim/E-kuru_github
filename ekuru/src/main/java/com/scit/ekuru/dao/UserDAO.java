@@ -15,6 +15,7 @@ import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.specVO;
 
 
 @Repository
@@ -304,6 +305,11 @@ public class UserDAO {
 		return list;
 	}
 	
+	public ChatVO selectBuyer(int chatNum){
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectBuyer(chatNum);
 	public int insertReqAd(SuperPlanVO vo) {
 		int cnt = 0;
 		
@@ -314,6 +320,14 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		
+		return vo;
+	}
+	
+	public int insertSpec(specVO vo) {
+		int cnt = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			cnt = mapper.insertSpec(vo);
 		return cnt;
 	}
 	
@@ -330,6 +344,7 @@ public class UserDAO {
 		return cnt;
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<HashMap<String, Object>> selectSearchAll(String search){
 		ArrayList<HashMap<String, Object>> list = null;
 		
@@ -342,4 +357,17 @@ public class UserDAO {
 		
 		return list;
 	}
+=======
+	public ArrayList<HashMap<Object, Object>> selectSepcAll(String id){
+		ArrayList<HashMap<Object, Object>> list = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectSpecAll(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+>>>>>>> 3787692141a19b390d4996025f21289612068983
 }

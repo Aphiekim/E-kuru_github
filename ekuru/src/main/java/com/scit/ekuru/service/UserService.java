@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,18 +16,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
-import com.scit.ekuru.controller.PaymentController;
+
 import com.scit.ekuru.dao.UserDAO;
 import com.scit.ekuru.util.MailUtils;
 import com.scit.ekuru.util.Tempkey;
 import com.scit.ekuru.vo.CartVO;
-import com.scit.ekuru.vo.ChargePointVO;
+
 import com.scit.ekuru.vo.PointProductVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.specVO;
 
 
 @Service
@@ -162,7 +164,7 @@ public class UserService {
 	}
 
 	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo){
-		String id = (String) session.getAttribute("userId");
+		//String id = (String) session.getAttribute("userId");
 		ArrayList<HashMap<Object, Object>> list = dao.selectChatRoom(vo);
 		HashMap<Object, Object> test = null;
 
@@ -203,7 +205,7 @@ public class UserService {
 
 		HashMap<Object, Object> hash;
 
-		System.out.println("chat num : " + vo.getChatNum());
+		//System.out.println("chat num : " + vo.getChatNum());
 
 		if(vo.getChatNum() == 0 || vo == null) {
 			list = null;
@@ -211,7 +213,7 @@ public class UserService {
 		}else {
 			chat = dao.selectChat(vo.getChatNum());
 			
-			System.out.println("chat vo : " + chat);
+			//System.out.println("chat vo : " + chat);
 			
 			String test = null;
 			test = chat.getContent();
@@ -223,7 +225,7 @@ public class UserService {
 				hash.put("date", content[i+2]);
 				hash.put("chatNum", chat.getRoomNum());
 				i += 2;
-				System.out.println("hash data : " + hash);
+				//System.out.println("hash data : " + hash);
 				list.add(hash);
 				//System.out.println(hash);
 			}
@@ -232,24 +234,9 @@ public class UserService {
 		return list;
 	}
 
-//	public ArrayList<HashMap<String, Object>> selectChat(){
-//		String id = (String) session.getAttribute("userId");
-//		ChatVO vo = dao.selectChatRoom(id);
-//	    String text = vo.getContent();
-//	    String arr[] = text.split("/");
-//
-//	    ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
-//	    HashMap<Object, Object> content = null;
-//
-//	    for(int i = 0; i < arr.length; i++) {
-//	    	content = new HashMap<Object, Object>();
-//	    	content.put("userid", arr[i]);
-//	        content.put("content", arr[i+1]);
-//	        content.put("date", arr[i+2]);
-//	        i += 2;
-//	        list.add(content);
-//	     }
-//	}
+	public ChatVO selectBuyer(int chatNum) {
+		return dao.selectBuyer(chatNum);
+	}
 
 	@Transactional
 	public void Mailcreate() throws Exception {
@@ -410,7 +397,7 @@ public class UserService {
 		String time1 = sysdate.format(time);
 		//vo.getUserId()로 하면 구매자가 요청버튼 눌렀을때
 		//vo.getChId()로 하면 판매자가 요청버튼 눌렀을때
-		vo.setContent(vo.getChId() + "/" + "Hello!" + "/" + time1 + "/");
+		vo.setContent(vo.getUserId() + "/" + "Hello!" + "/" + time1 + "/");
 		int count = dao.createChatRoom(vo);
 
 		String path = "";
@@ -446,6 +433,59 @@ public class UserService {
 		return list;
 	}
 	
+	public String insertSpec(specVO vo) {
+		
+		//6자리 랜덤 숫자를 specnum에 set
+		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
+		vo.setSpecNum(su);
+		
+		int count = dao.insertSpec(vo);
+		
+		System.out.println("SPEC service : " + vo.getChatNum());
+		
+		String path = "";
+		
+		if(count == 0) {
+			
+			
+			
+			
+			path = "redirect:/";
+		}else {
+			
+			ChatVO chat = new ChatVO();
+			//현재 시간을 가져옴
+			SimpleDateFormat sysdate = new SimpleDateFormat ( "YYYY-MM-DD HH:mm:ss");
+			Date time = new Date();
+			String time1 = sysdate.format(time);
+
+			//기존 채팅 내역을 가져오기 위함
+			ChatVO chatvo = dao.selectChat(vo.getChatNum());
+
+
+			//기존에 있던 채팅내역과 입력한 채팅정보를 하나로 합침
+			String text = chatvo.getContent() + vo.getChId() + "/I've completed the statement. Please check it./" + time1 + "/";
+
+			//합친 정보를 vo에 저장
+			chat.setChatNum(vo.getChatNum());
+			chat.setContent(text);
+			//chat.setRoomNum(vo.getChatNum());
+			
+			System.out.println("chat vo : " + chat);
+			
+			dao.updateChat(chat);
+			
+			System.out.println(text);
+			
+			path = "redirect:/user/chatForm";
+		}
+		
+		return path;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id) {
+		
+		return dao.selectSepcAll(id);
 	public int insertReqAd(SuperPlanVO vo) {
 		int cnt = dao.insertReqAd(vo);
 		
@@ -474,4 +514,5 @@ public class UserService {
 		return dao.selectSearchAll(search);
 	}
 }
+
 
