@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,14 +60,14 @@
                     <div class="content1">
                         <div class="profile">
                             <a href="">
-                                <img src="/resources/img/channel/ch-profile${channel.chNum }.jpg" alt="" class="profile-img">
+                                <img src="../resources/upload/file/${channel.chProfile }" alt="" class="profile-img">
                             </a>
                         </div>
                     </div>
                     <div class="content2">
                         <div class="test">
                             <ul>
-                                <li class="li-sty"><span>51</span></li>
+                                <li class="li-sty"><span>${fn:length(prodListResult)}  </span></li>
                                 <li class="li-sty"><span>${channel.chFollower }</span></li>
                             <li  class="li-sty"><span>8210</span></li>
                         </ul>
@@ -95,7 +96,7 @@
 						<c:if test="${not empty prodListResult }">
                         <div class="product">
                             <a href="ch_content?prodNum=${prodList.prodNum }&chId=${channel.chId}">
-                                <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                                <img src="../resources/upload/file/${prodList.getProdOriginalPic1() }" alt="" class="product-img">
                             </a>
                         </div>
                        	</c:if>

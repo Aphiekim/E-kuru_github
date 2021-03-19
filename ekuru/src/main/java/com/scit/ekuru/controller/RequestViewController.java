@@ -1,7 +1,11 @@
 package com.scit.ekuru.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.scit.ekuru.service.RequestService;
 import com.scit.ekuru.vo.RequestCommentVO;
@@ -61,7 +66,49 @@ public class RequestViewController {
 	
 	//request 쓰기실행
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
-	public String requestWrite(RequestVO reqVO) {
+	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
+		
+String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		
+		System.out.println(upload[0].getOriginalFilename());
+		
+		//위에서 설정한 경로의 폴더가 없을 경우 생성 
+		File dir = new File(saveDir);
+		if(!dir.exists()) { 
+			dir.mkdirs(); 
+		} 
+		int count = 0;
+		String reName = "";
+		String[] nm = {"", "", ""};
+		// 파일 업로드 
+		for(MultipartFile f : upload) { 
+			if(!f.isEmpty()) { 
+				// 기존 파일 이름을 받고 확장자 저장 
+				String orifileName = f.getOriginalFilename();
+				String ext = orifileName.substring(orifileName.lastIndexOf("."));
+				// 이름 값 변경을 위한 설정 
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+				int rand = (int)(Math.random()*1000); 
+				
+				// 파일 이름 변경 
+				reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+				
+				
+				// 파일 저장 
+				try { 
+					f.transferTo(new File(saveDir + "/" + reName)); 
+				}catch (IllegalStateException | IOException e) { 
+					e.printStackTrace(); 
+					} 
+				}
+			nm[count] = reName;
+			count++;
+			}
+		reqVO.setReqOriginalPic1(nm[0]);
+		reqVO.setReqOriginalPic2(nm[1]);
+		reqVO.setReqOriginalPic3(nm[2]);
+		//System.out.println(vo);
+		
 		return service.insertOne(reqVO);
 	}
 	
@@ -97,7 +144,7 @@ public class RequestViewController {
 		RequestVO vo = service.selectReqOne(reqNum);
 		//코멘트 불러오기
 		ArrayList<RequestCommentVO> comment = service.selectComment(reqNum);
-		
+		System.out.println(vo);
 		model.addAttribute("vo", vo);
 		model.addAttribute("comment", comment);
 		

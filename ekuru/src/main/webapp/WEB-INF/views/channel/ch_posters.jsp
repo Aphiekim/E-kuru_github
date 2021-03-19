@@ -75,11 +75,12 @@ function setThumbnail(event) {
                                 <div class="circle">
                                 <label for="inputFile">                         
                                 	<div style="display: none;">
-                                		<input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple">	
+                                			
                                 	</div>
                                 
                                     <img class="cross" src="/resources/img/icon/cross.png" alt="">
                                 </label>
+                                <label><input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple"></label>
                                 <label><input type="file" name="upload" multiple="multiple"/></label> 
 								<label><input type="file" name="upload" multiple="multiple"/></label> 
                                 </div>

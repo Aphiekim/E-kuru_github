@@ -148,19 +148,19 @@ public class UserService {
 	}
 
 	public String deleteCart(int CartProdNum){
-		
+
 		String path = "";
 		int cnt = dao.removeCart(CartProdNum);
-		
+
 		if(cnt > 0) {
 			path = "redirect:/user/mypageShopping";
 		}else {
 			path = "redirect:/";
 		}
-		
+
 		return path;
 	}
-	
+
 	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo){
 		String id = (String) session.getAttribute("userId");
 		ArrayList<HashMap<Object, Object>> list = dao.selectChatRoom(vo);
@@ -391,12 +391,13 @@ public class UserService {
 		if(check) {
 			logger.info("장바구니 담기 성공");
 		}
-	
 	}
+
+
 	public ChatVO selectChId (String id){
 		return dao.selectChid(id);
 	}
-	
+
 	public String createChatRoom (ChatVO vo){
 		//현재 시간을 가져옴
 		SimpleDateFormat sysdate = new SimpleDateFormat ( "YYYY-MM-DD HH:mm:ss");

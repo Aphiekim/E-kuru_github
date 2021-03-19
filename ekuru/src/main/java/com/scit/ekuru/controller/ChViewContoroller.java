@@ -86,7 +86,42 @@ public class ChViewContoroller {
 
 //	개인 채널 수정
 	@RequestMapping(value = "/chModify")
-	public String chModify(ChannelVO vo) {
+	public String chModify(ChannelVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
+
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+
+		System.out.println(upload[0].getOriginalFilename());
+
+		//위에서 설정한 경로의 폴더가 없을 경우 생성
+		File dir = new File(saveDir);
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		String reName = "";
+		// 파일 업로드
+		for(MultipartFile f : upload) {
+			if(!f.isEmpty()) {
+				// 기존 파일 이름을 받고 확장자 저장
+				String orifileName = f.getOriginalFilename();
+				String ext = orifileName.substring(orifileName.lastIndexOf("."));
+				// 이름 값 변경을 위한 설정
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+				int rand = (int)(Math.random()*1000);
+
+				// 파일 이름 변경
+				reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+
+
+				// 파일 저장
+				try {
+					f.transferTo(new File(saveDir + "/" + reName));
+				}catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+					}
+				}
+			}
+		vo.setChProfile(reName);
+		//System.out.println(vo);
 		service.chModify(vo);
 		return "redirect:/channel/ch_personal_main?chId="+vo.getChId();
 	}
@@ -110,40 +145,53 @@ public class ChViewContoroller {
 	// 채널 게시글 쓰기
 	@RequestMapping(value = "/ch_posters_Write", method = RequestMethod.POST)
 	public String ch_posters_Write(ProductVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
-		
+
 		//파일이 업로드 될 경로 설정
 		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
-		
+
 		System.out.println(upload[0].getOriginalFilename());
-		
-		//위에서 설정한 경로의 폴더가 없을 경우 생성 
+
+		//위에서 설정한 경로의 폴더가 없을 경우 생성
 		File dir = new File(saveDir);
-		if(!dir.exists()) { 
-			dir.mkdirs(); 
-		} 
-		
-		// 파일 업로드 
-		for(MultipartFile f : upload) { 
-			if(!f.isEmpty()) { 
-				// 기존 파일 이름을 받고 확장자 저장 
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+
+		int count = 0;
+		String reName = "";
+		String[] nm = {"", "", ""};
+		// 파일 업로드
+		for(MultipartFile f : upload) {
+			if(!f.isEmpty()) {
+				// 기존 파일 이름을 받고 확장자 저장
 				String orifileName = f.getOriginalFilename();
 				String ext = orifileName.substring(orifileName.lastIndexOf("."));
-				// 이름 값 변경을 위한 설정 
+				// 이름 값 변경을 위한 설정
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
-				int rand = (int)(Math.random()*1000); 
-				
-				// 파일 이름 변경 
-				String reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-				// 파일 저장 
-				try { 
-					f.transferTo(new File(saveDir + "/" + reName)); 
-				}catch (IllegalStateException | IOException e) { 
-					e.printStackTrace(); 
-					} 
-				} 
+				int rand = (int)(Math.random()*1000);
+
+				// 파일 이름 변경
+				reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+
+
+				// 파일 저장
+				try {
+					f.transferTo(new File(saveDir + "/" + reName));
+				}catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+					}
+				}
+			nm[count] = reName;
+			count++;
 			}
+
+		vo.setProdOriginalPic1(nm[0]);
+		vo.setProdOriginalPic2(nm[1]);
+		vo.setProdOriginalPic3(nm[2]);
+
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
+
 		service.ch_posters_Write(vo);
 		return "redirect:/channel/ch_personal_main?chId=" + vo.getUserId();
 	}
@@ -197,16 +245,17 @@ public class ChViewContoroller {
 		String prod = Integer.toString(prodVo.getProdNum());
 		Cookie cook = new Cookie("prodnum" + prod, URLEncoder.encode(prod, "UTF-8"));
 		cook.setMaxAge(300);
-		cook.setPath("/user/viewedItems");
-		
+		cook.setPath("/user");
+
 		System.out.println(cook.getValue());
 		System.out.println(cook.getName());
-		
+
 		response.addCookie(cook);
 		//System.out.println(cook.getValue());
 
 		model.addAttribute("channel", channel);
 		model.addAttribute("prodEachResult", prodEachResult);
+
 		model.addAttribute("commentResult", commentResult);
 		model.addAttribute("userType", userType);
 		model.addAttribute("result", result);
@@ -225,7 +274,7 @@ public class ChViewContoroller {
 	}
 
 
-	
+
 
 
 }

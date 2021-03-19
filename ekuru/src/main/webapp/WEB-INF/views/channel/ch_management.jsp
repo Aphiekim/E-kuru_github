@@ -67,7 +67,27 @@
             });
         });
     </script>
-
+<script> 
+function setThumbnail(event) {
+		                        
+	var header = document.querySelector(".profile-img");	//제거하고자 하는 엘리먼트
+	if(header != null){
+		header.parentNode.removeChild(header);
+	}
+								
+	                        	
+	var reader = new FileReader();
+	reader.onload = function(event) {
+	var img = document.createElement("img");
+	img.setAttribute("src", event.target.result); 
+	img.setAttribute("style", style="width: 228px; height: 252px");
+	img.setAttribute("id", "inputFile");
+	img.setAttribute("class", "profile-img");
+	document.querySelector("div.profile").appendChild(img); 
+	}; 
+	reader.readAsDataURL(event.target.files[0]); 
+	} 
+</script>    
 </head>
 <body>
     <!-- header -->
@@ -100,7 +120,7 @@
 
         <div class="container" style="margin-top: 10%;background-color: #FFDFB9;">
             <div class="base">
-                <form id=chModify>
+                <form id=chModify enctype="multipart/form-data">
                     <div class="row">
                         <div class="main-text">
                             <input type="hidden" name="chId" id="chId" value="${channel.chId}">
@@ -108,10 +128,14 @@
                         </div>
                         <div class="content1">
                             <div class="profile">
-                                <a href="##"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
-                                <a href="">
-                                    <img src="/resources/img/card-img2.jpg" alt="" class="profile-img">
-                                </a>
+                            <label for="inputFile">
+                            	<div style="display: none;">
+                            		<input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple"/>
+                            	</div>
+                            	
+                                <img class="minus-icon" src="/resources/img/channel/delete.png" alt="">
+                                <img src="../resources/upload/file/${channel.getChProfile() }" alt="" class="profile-img">
+                            </label>
                             </div>
                         </div>
                         <div class="content2">
@@ -148,7 +172,7 @@
                                 <div class="product" id="delete_img_${prodList.prodNum}">
                                     <a href="" class="delete_img" data-prodNum="${prodList.prodNum}"><img class="minus-icon" src="/resources/img/channel/delete.png" alt=""></a>
                                     <a href="/channel/ch_contentModify?prodNum=${prodList.prodNum }&chNum=${channel.chNum}">
-                                        <img src="/resources/img/channel/product${prodList.prodNum }.jpg" alt="" class="product-img">
+                                        <img src="../resources/upload/file/${prodList.getProdOriginalPic1() }" alt="" class="product-img">
                                     </a>
                                 </div>
                                 </c:if>

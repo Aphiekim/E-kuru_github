@@ -41,6 +41,7 @@
         	return true;
         }
     </script>
+    
 </head>
 
 <body style="background-color: #FFDFB9;">
@@ -61,7 +62,9 @@
                     </div>
 
                     <!-- Masthead Avatar Image-->
-                    <img class="mx-auto rounded-circle imgsize" src="../resources/img/member1.jpg" style="width: 20%; margin-top: 5%;" />
+                    <img class="mx-auto rounded-circle imgsize" src="../resources/upload/file/${user.getUserProfile()}" style="width: 20%; margin-top: 5%;" />
+                    
+                    
                     <!-- Masthead Heading-->
                     <h1 class="text-uppercase mb-0" style="margin-top: 5%;color: black;">Mypage</h1>
                     <!-- Icon Divider-->
@@ -79,7 +82,7 @@
                             <div class="row align-items-center text-uppercase">
                                 <div class="col-lg-3 col-md-6 fact-style" style="margin-left: 15%;">
                                     <div class="fact-item box-sty2" style="width: 300%;">
-                                        <form action="/user/mypage_InfoForm" method="post" onsubmit="return formCheck()">
+                                        <form action="/user/mypage_InfoForm" method="post" onsubmit="return formCheck()" enctype="multipart/form-data">
                                         	<table class="table table-hover" style="width: 70%; text-align: center; margin-bottom: 10%; margin-left: 15%;" >
                                             <thead >
                                                 <tr>
@@ -135,8 +138,15 @@
                                                     <input type="text" name="userPhone" value="${user.getUserPhone()}" placeholder="Only English plz">
                                                 </td>
                                               </tr>
+                                              <tr>
+                                              	<th scope="col">Profile</th>
+                                              	<td>
+                                              	<input type="file" name="upload" id="inputFile" multiple="multiple"/>
+                                              	</td>
+                                              </tr>
                                             </thead>
                                         </table>
+                                        
                                         <input type="hidden" id="hidden-addr" name="userAddr" value="">
                                         <input class="btn btn-secondary"type="submit" value="Save">
                                         </form>
@@ -147,6 +157,7 @@
                         </div>
                     </div>
                     <!-- 마이페이지 메뉴 end -->
+                    
                 </div>
                 
             </div>

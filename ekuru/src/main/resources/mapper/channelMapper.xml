@@ -112,9 +112,9 @@ INSERT INTO
 		#{prodStock},
 		#{prodPrice},
 		#{prodContent},
-		'wash1.jpg',
-		'wash2.jpg',
-		'wash3.jpg',
+		#{prodOriginalPic1},
+		#{prodOriginalPic2},
+		#{prodOriginalPic3},
 		'wash1.jpg',
 		'wash2.jpg',
 		'wash3.jpg',
@@ -256,6 +256,7 @@ INSERT INTO
 		CHNAME = #{chName},
 		<!-- CHPROFILE = #{chProfile}, -->
 		CHINTRO =#{chIntro},
+		CHPROFILE = #{chProfile},
 		CHINDATE = SYSDATE
 	WHERE
 		CHID = #{chId}

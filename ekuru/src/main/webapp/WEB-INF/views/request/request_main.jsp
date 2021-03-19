@@ -56,6 +56,10 @@
         body {
             background-color: #FFDFB9;
         }
+        #imgsize{
+        	width: 350px;
+        	height: 260px;
+        }
     </style>
 </head>
 
@@ -350,8 +354,8 @@
 	                                <div class="portfolio-item-caption-content text-center text-white"><i
 	                                        class="fas fa-plus fa-3x"></i></div>
 	                            </div>
-	                            <img class="img-fluid"
-	                                src="../resources/img/main-section3-images/alexandre-chambon-97R5c0lXUK0-unsplash.jpg" alt="" />
+	                            <img id="imgsize" class="img-fluid"
+	                                src="../resources/upload/file/${requestList.reqOriginalPic1 }" alt="" />
 	                        </div>
 	                        <div class="card-body">
 	                            <h5 class="card-title">${requestList.reqTitle }</h5>

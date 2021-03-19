@@ -80,6 +80,12 @@
 
     </script>
 
+	<style type="text/css">
+	#contentimg{
+		width: 525px;
+		height: 300px;
+	}
+	</style>
 </head>
 <body>
 
@@ -115,8 +121,18 @@
     <!-- 중간 전체 틀 -->
     <div class="mainSize">
         <div class="text-center" style="padding-top: 7%;"></div>
-        <div><h2 class="page-section-heading text-center text-secondary title-style">
-            <strong>${channel.chName }</strong>'s item</h2></div>
+        <div>
+        	<h2 class="page-section-heading text-center text-secondary title-style"><strong>${channel.chName }</strong>'s item
+        	<c:choose>
+        		<c:when test="${userType == '0'}">
+        			<button type="button" id="translate1" class="btn btn-outline-secondary" style="margin-right: -30%; margin-left: 350px;"value="한국어">한국어</button>
+    			</c:when>
+    			<c:otherwise>
+    				<button type="button" id="translate2" class="btn btn-outline-secondary" style="margin-right: -30%; margin-left: 350px;"value="日本語">日本語</button>
+    			</c:otherwise>
+    		</c:choose>
+    		</h2>
+		</div>
         <!--상위 부분-->
         <div class="top-content">
 
@@ -127,18 +143,18 @@
                             <!-- 슬라이드 쇼 -->
                             <div class="carousel-item active">
                                 <!--가로-->
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodEachResult.getProdOriginalPic1() }?auto=compress&cs=tinysrgb&h=650&w=940"
                                     alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/2355519/pexels-photo-2355519.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodEachResult.getProdOriginalPic2() }?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                                     alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100"
-                                    src="https://images.pexels.com/photos/2544554/pexels-photo-2544554.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                                <img id="contentimg" class="d-block w-100"
+                                    src="../resources/upload/file/${prodEachResult.getProdOriginalPic3() }?auto=compress&cs=tinysrgb&h=650&w=940"
                                     alt="Third slide">
                             </div>
                             <!-- / 슬라이드 쇼 끝 -->
@@ -170,11 +186,11 @@
                 <!-- 상품 내용 -->
                 <div class="product-intro">
 
-                    <div class="product-title">
-                        <span id="prodTitle" name="prodTitle">${prodEachResult.prodTitle }</span>
+                    <div class="product-title trans2">
+                        <span class="result1" id="prodTitle" name="prodTitle">${prodEachResult.prodTitle }</span>
                     </div>
 
-                        <form id="addCart">
+                        <form id="addCart" class="trans2">
                             <div class="content-name">
                                 <span>PRICE</span>
                             </div>
@@ -190,11 +206,16 @@
                                 <input type="number" id="cartProdEa" name="cartProdEa">
                                 <input type="hidden" id="prodNum" name="prodNum" value="${prodEachResult.prodNum }">
                             </div>
-
+                            <div style="width: 50%; margin-top: 10px; margin-left: 30px;">
+                                <span>DETAIL</span>
+                            </div>
+                            <div class="result2" style="margin-top: 10px;width: 80%; margin-left: 50px;">
+                                ${prodEachResult.prodContent }
+                                </div>
                             <div style="margin-top: 30px;">
                                 <ul style="list-style: none; margin-left: 40px;">
-                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">장바구니 넣기</button></li>
-                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">문의하기</button></li>
+                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
+                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
                                 </ul>
                             </div>
                         </form>
@@ -207,12 +228,12 @@
         <!--하위 부분 시작-->
         <div class="bottom-content">
             <div class="comments">
-                <div class="row" id="commentAdd">
+                <div class="row" id="commentAdd trans1">
                     <c:forEach items="${commentResult }" var="commentList">
-                            <div class="col-md-12">
+                            <div class="col-md-12 trans1">
                                 <img class="img" src="/resources/img/person1.png">
                                 <span class="comment-detail">${commentList.userId }</span>
-                                <span class="comment-detail">${commentList.prodComment }</span>
+                                <span class="comment-detail result">${commentList.prodComment }</span>
                             </div>
                     </c:forEach>
                 </div>
@@ -224,10 +245,10 @@
                             <input id="userId" type="hidden" value="${sessionScope.userId}">
                             <c:choose>
                                 <c:when test="${result}">
-                                    <input class="textbox" id="commentBox" type="text" placeholder="댓글을 입력하세요." readonly = "readonly">
+                                    <input class="textbox" id="commentBox" type="text" placeholder="Leave your comment" readonly = "readonly">
                                 </c:when>
                                 <c:otherwise>
-                                    <input class="textbox" id="commentBox" type="text" placeholder="댓글을 입력하세요.">
+                                    <input class="textbox" id="commentBox" type="text" placeholder="Leave your comment">
                                 </c:otherwise>
                             </c:choose>
                             <a class="addComment"><img style="width: 30px; margin-left: 10px;" src="/resources/img/channel-tick.png"></a>
@@ -312,5 +333,69 @@
 
 </div>
 <!--전체 틀 끝-->
+<script type="text/javascript">
+$("#translate1").click(function () {
+    var source = 'ja';
+    var target = 'ko';
+
+  var comment = $(".trans1").find(".result").html();
+
+	$.ajax({
+		url : '../translate1',
+		type : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			source : source,
+			target : target,
+			text : comment
+		},
+		success : function(data){
+			//JSON 형태의 문자열을 JSON 객체로 변환
+			var jsonObject = JSON.parse(data);
+			$('.result').html(jsonObject.message.result.translatedText);
+		},
+		error : function(e){
+			console.log(e);
+		}
+	});
+});
+
+
+$("#translate2").click(function () {
+    var source = 'ko';
+    var target = 'ja';
+
+  var comment2 = $(".trans2").find(".result1").html();
+  	  comment2 += '#';
+  	comment2 += $(".trans2").find(".result2").html();
+
+  $.ajax({
+		url : '../translate2',
+		type : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			source : source,
+			target : target,
+			text : comment2
+		},
+		success : function(data){
+			//JSON 형태의 문자열을 JSON 객체로 변환
+			var jsonObject = JSON.parse(data);
+
+			var obj = jsonObject.message.result.translatedText.split('#');
+			/* console.log(obj); */
+			$('.result1').eq(0).text(obj[0]);
+			$('.result2').eq(0).text(obj[1]);
+
+		},
+		error : function(e){
+			console.log(e);
+		}
+	});
+});
+
+
+</script>
+
 </body>
 </html>

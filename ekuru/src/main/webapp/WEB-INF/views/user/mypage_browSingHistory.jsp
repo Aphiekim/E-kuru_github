@@ -25,6 +25,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+function removeCookie(){
+	location.href = "/user/removeCookie";
+}
+</script>
 </head>
 <body>
 <!--전체 틀-->
@@ -96,9 +101,8 @@
 		</c:forEach>
        
        <div style="text-align: center; padding-top: 30px;">
-                <button type="button" class="btn btn-info">내역삭제</button>
-            </div>
-
+       	<button type="button" class="btn btn-info" onclick="removeCookie();">내역삭제</button>
+       </div>
     </div>
     <!-- 중간 전체 틀 끝-->
         <!-- include tag Footer Start -->

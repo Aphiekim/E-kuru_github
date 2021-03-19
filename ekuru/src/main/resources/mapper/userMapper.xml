@@ -16,7 +16,7 @@
 </select>
 
 <select id="selectUser" parameterType="String" resultType="user">
-	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint, authkey
+	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint, authkey, userProfile
 	from e_user_tb
 	where userId = #{userId}
 </select>
@@ -38,7 +38,8 @@
 	set
 	 userAddr = #{userAddr},
 	 userZip = #{userZip},
-	 userPhone = #{userPhone}
+	 userPhone = #{userPhone},
+	 userProfile = #{userProfile}
 	where userId = #{userId}
 
 </update>
