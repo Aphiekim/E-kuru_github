@@ -69,24 +69,25 @@
                             <ul>
                                 <li class="li-sty"><span>${fn:length(prodListResult)}  </span></li>
                                 <li class="li-sty"><span>${channel.chFollower }</span></li>
-                            <li  class="li-sty"><span>8210</span></li>
-                        </ul>
+                                <li  class="li-sty"><span>0</span></li>
+                            </ul>
 
-                        <ul class="text">
-                            <li  class="li-sty"><span>Posts</span></li>
-                            <li  class="li-sty"><span>Followers</span></li>
-                            <li  class="li-sty"><span>Follow</span></li>
-                        </ul>
+                            <ul class="text">
+                                <li  class="li-sty"><span>Posts</span></li>
+                                <li  class="li-sty"><span>Followers</span></li>
+                                <li  class="li-sty"><span>Follow</span></li>
+                             </ul>
+                             <c:if test="${fUser ne sessionScope.userId}">
+                                 <button type="button" style="width: 20%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
+                        	</c:if>
+                        </div>
                     </div>
-
-                </div>
                 <div class="test2 col-md-12">
 
                     <p>
                         <span class="profile-text">${channel.chIntro }</span>
                     </p>
                 </div>
-
 
                 <div class="product-list">
                     <c:if test="${empty prodListResult }">

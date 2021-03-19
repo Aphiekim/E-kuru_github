@@ -326,4 +326,42 @@ order by prodNum desc
 		ch.CHID = #{chId}
 
 </select>
+
+<!-- 채널 팔로우 -->
+<insert id="chFollow" parameterType="following">
+	INSERT INTO
+		E_FOLLOWING_TB
+				(FOLLOWINGNUM,
+				USERID,
+				CHNUM
+			)VALUES(
+				following_seq.nextval,
+				#{userId},
+				#{chNum})
+</insert>
+
+<!-- 채널 팔로우 숫자 증가 -->
+<update id="chFollowUpdate" parameterType="following">
+	UPDATE
+		E_CHANNEL_TB
+	SET
+		CHFOLLOWER = CHFOLLOWER + 1
+	WHERE
+		CHNUM=#{chNum}
+</update>
+
+<!-- 팔로잉 여부 -->
+<select id="fCheck" parameterType="String" resultType="user">
+	SELECT
+		USERID
+	FROM
+		E_FOLLOWING_TB
+	WHERE
+		CHNUM = (SELECT
+					CHNUM
+				FROM
+					E_CHANNEL_TB
+				WHERE
+					CHID = #{userId})
+</select>
 </mapper>

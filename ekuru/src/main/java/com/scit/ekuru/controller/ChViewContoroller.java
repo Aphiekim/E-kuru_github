@@ -27,8 +27,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.scit.ekuru.service.ChannelService;
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.FollowingVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.UserVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -66,11 +68,16 @@ public class ChViewContoroller {
 
 //	개인 채널 보기
 	@RequestMapping(value = "/ch_personal_main")
-	public String chPersonalMain(String chId, Model model) {
+	public String chPersonalMain(String chId, Model model, HttpSession session) {
 		ChannelVO channel = service.chRead(chId);
 		ArrayList<ProductVO> prodListResult = service.getProdList(chId);
+
+		// 팔로잉 유무
+		String fUser = service.fCheck(chId, session);
+
 		model.addAttribute("prodListResult", prodListResult);
 		model.addAttribute("channel", channel);
+		model.addAttribute("fUser", fUser);
 		return "channel/ch_personal_main";
 	}
 
@@ -284,7 +291,17 @@ public class ChViewContoroller {
 
 	}
 
+//	채널 팔로우
+	@RequestMapping(value = "/chFollow")
+	public String chFollow(String chId, FollowingVO fVo, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		fVo.setUserId(userId);
+		service.chFollow(fVo);
 
+
+		return "redirect:/channel/ch_personal_main?chId="+chId;
+
+	}
 
 
 }

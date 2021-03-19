@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.FollowingVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.UserVO;
 import com.scit.ekuru.vo.categoryVO;
 
 @Repository
@@ -186,23 +188,23 @@ public class ChannelDAO {
 		}
 		return check;
 	}
-	
+
 	public ArrayList<ChannelVO> selectChAd(){
 		ArrayList<ChannelVO> list = null;
-		
+
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
 			list = mapper.selectChAd();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return list;
 	}
-	
+
 	public ArrayList<ProductVO> selectProdAll(String search){
 		ArrayList<ProductVO> list = null;
-		
+
 		try {
 			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
 			list = mapper.selectProdAll(search);
@@ -233,6 +235,30 @@ public class ChannelDAO {
 			e.printStackTrace();
 		}
 
+		return result;
+	}
+
+	public boolean chFollow(FollowingVO fVo) {
+		boolean result = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.chFollow(fVo);
+			mapper.chFollowUpdate(fVo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	public ArrayList<UserVO> fCheck(String userId) {
+		ArrayList<UserVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.fCheck(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 
