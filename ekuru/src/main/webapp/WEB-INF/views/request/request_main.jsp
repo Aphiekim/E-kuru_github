@@ -123,10 +123,10 @@
                     <form action="/request/request_search" method="post">
                     	<div class="row">
 		                   	 <div class="col-sm">
-		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:190%;"/>
+		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
 		                   	 </div>
 	                       	<div class="col-sm input-group-btn">
-	                          <button class="btn btn-danger" type="submit" style="margin-left:90%">
+	                          <button class="btn btn-danger" type="submit" style="margin-left:190%">
 	                              <span class="glyphicon glyphicon-search"></span>
 	                          </button>
 	                       </div>
@@ -305,7 +305,7 @@ $(document).ready(function() {
     setTimeout(function(){
         $('#loading').hide();
         return true;
-    },3000);
+    },1000);
 });
 </script>
 

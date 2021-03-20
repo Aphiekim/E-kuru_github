@@ -31,11 +31,11 @@
 				alert("Please write title");
 				return false;
 			}
-
+			<%--
 			if(categoryCode != true){
 				alert("Please select your category");
 				return false;
-			}
+			}--%>
 
 			if(reqContent == null || reqContent.length == 0){
 				alert("Please write your content");
@@ -174,7 +174,7 @@ function setThumbnail(event) {
                             <input type="radio" id="categoryCode" name="categoryCode" value="2" style="margin-right: 2%">Beauty
                             <input type="radio" id="categoryCode" name="categoryCode" value="3" style="margin-right: 2%">Food
                             <input type="radio" id="categoryCode" name="categoryCode" value="4" style="margin-right: 2%">Book/CD
-                            <input type="radio" id="categoryCode" name="categoryCode" value="5" style="margin-right: 2%">Ect
+                            <input type="radio" id="categoryCode" name="categoryCode" value="5" style="margin-right: 2%" checked="checked">Ect
                         </div>
                     </div>
 
