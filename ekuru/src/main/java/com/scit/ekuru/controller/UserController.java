@@ -201,6 +201,7 @@ public class UserController {
 			model.addAttribute("chatlist", chatlist);
 			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));
 			model.addAttribute("buyerId", buyervo.getUserId());
+			model.addAttribute("userType()", uservo.getUserType());
 		}
 
 

@@ -88,7 +88,9 @@
         	<input type="hidden" name="chId" value="${sessionScope.userId }">
         	<input type="hidden" name="userId" value="${buyerId }">
         	<input type="hidden" name="chatNum" value="${chatNum }">
-        	<input type="submit" class="btn btn-outline-danger" style="margin-bottom: 10px;"  value="Write a Statement">
+        	<c:if test="${userType eq 0 }">
+	        	<input type="submit" class="btn btn-outline-danger" style="margin-bottom: 10px;"  value="Write a Statement">
+        	</c:if>
         </form>
        
         <c:forEach items="${chatlist }" var="chat">
