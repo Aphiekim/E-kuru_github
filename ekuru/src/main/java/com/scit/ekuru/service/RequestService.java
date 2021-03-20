@@ -109,8 +109,8 @@ public class RequestService {
 	//코멘트 달기
 	public String insertComment(RequestCommentVO comment, int reqNum) {
 		//Id와 reqNum 코멘트 VO에 넣기
-		String id = (String)session.getAttribute("userId");
-		comment.setUserId(id);
+		//String id = (String)session.getAttribute("userId");
+		//comment.setUserId(id);
 		comment.setReqNum(reqNum);
 		
 		logger.info("확인"+comment);

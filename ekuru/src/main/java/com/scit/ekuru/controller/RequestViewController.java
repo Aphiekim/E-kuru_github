@@ -68,7 +68,7 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		
 		System.out.println(upload[0].getOriginalFilename());
 		
@@ -185,6 +185,7 @@ public class RequestViewController {
 		//코멘트 불러오기
 		ArrayList<RequestCommentVO> comment = service.selectComment(reqNum);
 		System.out.println(vo);
+		System.out.println(comment);
 		model.addAttribute("vo", vo);
 		model.addAttribute("comment", comment);
 		
@@ -224,7 +225,7 @@ public class RequestViewController {
 	public String requestComment(RequestCommentVO comment, int reqNum) {
 		logger.info("코멘트 달기");
 		comment.setReqCommentNum(reqNum);
-		
+		System.out.println(comment);
 		return service.insertComment(comment, reqNum);
 	}
 	
