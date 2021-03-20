@@ -75,15 +75,16 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
                             <li class="headli"><a href="/user/chatForm">My Chat</a></li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
@@ -137,6 +138,7 @@
     <hr class="line line-sty">
 
 	<!-- 댓글 입력창 -->
+	<c:if test="${userType eq 0 }">
     <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
        <div class="row mb-3">
          <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
@@ -144,35 +146,37 @@
          <button type="submit" class="btn btn-secondary btn-sty">comment</button>
        </div>
     </form>
+	</c:if>
     <!-- 구분선 -->
     <hr class="line">
     <!-- 댓글창 -->
-    <c:forEach var="comment" items="${comment }">
-       <div class="card comtWrite-sty">
-         <div class="card-body trans2">
-           <div class="row justify-content-between">
-             <h5 class="card-title col-4">${comment.userId }</h5>
+    <c:if test="${userType eq 0 || sessionScope.userId == vo.userId }">
+	    <c:forEach var="comment" items="${comment }">
+	       <div class="card comtWrite-sty">
+	         <div class="card-body trans2">
+	           <div class="row justify-content-between">
+	             <h5 class="card-title col-4">${comment.userId }</h5>
+	
+	             <c:if test="${sessionScope.userId ==comment.userId }">
+	               <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
+	             </c:if>
+	
+	             <c:if test="${sessionScope.userId == vo.userId }">
+		             <form action="/user/createChat" method="post">
+		                 <input type="hidden" name="chId" value="${comment.userId }">
+		                 <input type="hidden" name="userId" value="${sessionScope.userId }">
+		                  <input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+		           	</form>
+	             </c:if>
+	
+	
+	           </div>
+	           <p class="result">${comment.reqComment }</p>
+	         </div>
+	       </div>
+	    </c:forEach>
 
-             <c:if test="${sessionScope.userId ==comment.userId }">
-               <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
-             </c:if>
-
-             <c:if test="${sessionScope.userId == vo.userId }">
-
-             </c:if>
-             <form action="/user/createChat" method="post">
-                 <input type="hidden" name="chId" value="${comment.userId }">
-                 <input type="hidden" name="userId" value="${sessionScope.userId }">
-                  <input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
-           </form>
-
-
-           </div>
-           <p class="result">${comment.reqComment }</p>
-         </div>
-       </div>
-    </c:forEach>
-
+    </c:if>
   </div>
   <!-- 리스트로 가기 버튼 -->
   <div class="container" style="text-align: center; margin-top: 5%;">
