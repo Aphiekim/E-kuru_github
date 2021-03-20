@@ -15,8 +15,8 @@
 		function openHome(){
 			location.href="/";
 		}
-		function openBuyingHistory(){
-			location.href="/user/mypageMypoint";
+		function openPointHistory(){
+			location.href="/user/mypagePoint";
 		}
     </script>
     <style>
@@ -31,7 +31,7 @@
     </style>
 </head>
 <body>
- <!-- header -->
+  <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -42,7 +42,7 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli"><a href="/user/viewedItems">Recently viewed items</a></li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
                             <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
@@ -51,6 +51,7 @@
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
@@ -69,7 +70,7 @@
         <div class="row">
             <div class="col">
                 <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning" onclick="openPoint();">Point history</button>
+                <button type="button" class="btn btn-warning" onclick="openPointHistory();">Point history</button>
             </div>
         </div>
     </div>

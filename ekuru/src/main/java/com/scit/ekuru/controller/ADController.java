@@ -87,6 +87,7 @@ public class ADController {
 			//사용한 포인트 차감
 			userPoint = userPoint-adTotal;
 			vo.setUserPoint(userPoint);
+			session.setAttribute("userPoint", userPoint);
 			
 			//사용한 포인트 테이블에 추가
 			point.setPointUsed(adTotal);

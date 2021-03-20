@@ -167,4 +167,14 @@ public class ChannelService {
 
 		return result;
 	}
+	
+	public ArrayList<ChannelVO> selectChAd(){
+		ArrayList<ChannelVO> list = dao.selectChAd();
+		
+		if(list.size()!=0|| list !=null) {
+			logger.info("AD 채널 불러오기 성공");
+		}
+		
+		return list;
+	}
 }
