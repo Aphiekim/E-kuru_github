@@ -65,6 +65,7 @@
       c.prodnum as PRODNUM,
       --c.userid as USERID,
       pd.prodtitle as PRODTITLE,
+      pd.prodoriginalpic1 as PRODORIGINALPIC1,
       cc.chname as CHNAME,
       pd.prodprice as PRODPRICE,
       c.cartprodea as CARTPRODEA
@@ -355,9 +356,29 @@ or
    c.prodContent like '%'|| #{search} || '%'
 </if>
 </select> -->
+
+<!-- 명세 상세(하나) 조회 -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
 select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>
+
+<!-- 명세 하나 삭제 -->
+<delete id="removeSpecOne" parameterType="int">
+delete from e_spec_tb
+where specNum = #{specNum}
+</delete>
+
+<insert id="purchaseOne" parameterType="dealHistory">
+insert into 
+	e_dealHistory_tb(
+		dealCode, 
+		specNum
+	) values(
+		#{dealCode},
+		#{specNum}
+	)
+</insert>
+
 </mapper>

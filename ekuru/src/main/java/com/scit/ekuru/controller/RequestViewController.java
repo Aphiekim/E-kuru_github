@@ -72,6 +72,7 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
+		//String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
 		
@@ -83,33 +84,39 @@ public class RequestViewController {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		int count = 0;
+		
 		String reName = "";
-		String[] nm = {"", "", ""};
-		// 파일 업로드
-		for(MultipartFile f : upload) {
-			if(!f.isEmpty()) {
-				// 기존 파일 이름을 받고 확장자 저장
-				String orifileName = f.getOriginalFilename();
-				String ext = orifileName.substring(orifileName.lastIndexOf("."));
-				// 이름 값 변경을 위한 설정
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
-				int rand = (int)(Math.random()*1000);
-
-				// 파일 이름 변경
-				reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-
-
-				// 파일 저장
-				try {
-					f.transferTo(new File(saveDir + "/" + reName));
-				}catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-					}
-				}
-			nm[count] = reName;
-			count++;
+		String[] nm = {"Test-image.png", "Test-image.png", "Test-image.png"};
+		
+		for(int i = 0; i < upload.length; i++) {
+			if(upload[i].isEmpty()) {
+				continue;
 			}
+			
+			else {
+				MultipartFile f = upload[i];
+				if(!f.isEmpty()) {
+					// 기존 파일 이름을 받고 확장자 저장
+					String orifileName = f.getOriginalFilename();
+					String ext = orifileName.substring(orifileName.lastIndexOf("."));
+					// 이름 값 변경을 위한 설정
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+					int rand = (int)(Math.random()*1000);
+
+					// 파일 이름 변경
+					reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+
+
+					// 파일 저장
+					try {
+						f.transferTo(new File(saveDir + "/" + reName));
+					}catch (IllegalStateException | IOException e) {
+						e.printStackTrace();
+						}
+					}
+				nm[i] = reName;	
+			}
+		}
 		reqVO.setReqOriginalPic1(nm[0]);
 		reqVO.setReqOriginalPic2(nm[1]);
 		reqVO.setReqOriginalPic3(nm[2]);
@@ -139,8 +146,8 @@ public class RequestViewController {
 	@RequestMapping(value="/request_update", method=RequestMethod.POST)
 	public String updateRequest(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
-
+		//String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		System.out.println(upload[0].getOriginalFilename());
 
 		//위에서 설정한 경로의 폴더가 없을 경우 생성
@@ -149,32 +156,39 @@ public class RequestViewController {
 			dir.mkdirs();
 		}
 		int count = 0;
-		String reName = "";
-		String[] nm = {"", "", ""};
+		String reName = "Test-image.png";
+		String[] nm = {"Test-image.png", "Test-image.png", "Test-image.png"};
+		
 		// 파일 업로드
-		for(MultipartFile f : upload) {
-			if(!f.isEmpty()) {
-				// 기존 파일 이름을 받고 확장자 저장
-				String orifileName = f.getOriginalFilename();
-				String ext = orifileName.substring(orifileName.lastIndexOf("."));
-				// 이름 값 변경을 위한 설정
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
-				int rand = (int)(Math.random()*1000);
-
-				// 파일 이름 변경
-				reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-
-
-				// 파일 저장
-				try {
-					f.transferTo(new File(saveDir + "/" + reName));
-				}catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-					}
-				}
-			nm[count] = reName;
-			count++;
+		for(int i = 0; i < upload.length; i++) {
+			if(upload[i].isEmpty()) {
+				continue;
 			}
+			
+			else {
+				MultipartFile f = upload[i];
+				if(!f.isEmpty()) {
+					// 기존 파일 이름을 받고 확장자 저장
+					String orifileName = f.getOriginalFilename();
+					String ext = orifileName.substring(orifileName.lastIndexOf("."));
+					// 이름 값 변경을 위한 설정
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+					int rand = (int)(Math.random()*1000);
+
+					// 파일 이름 변경
+					reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+
+
+					// 파일 저장
+					try {
+						f.transferTo(new File(saveDir + "/" + reName));
+					}catch (IllegalStateException | IOException e) {
+						e.printStackTrace();
+						}
+					}
+				nm[i] = reName;	
+			}
+		}
 		reqVO.setReqOriginalPic1(nm[0]);
 		reqVO.setReqOriginalPic2(nm[1]);
 		reqVO.setReqOriginalPic3(nm[2]);

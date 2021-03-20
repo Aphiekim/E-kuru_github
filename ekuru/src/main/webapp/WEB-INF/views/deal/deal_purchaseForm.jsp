@@ -8,12 +8,23 @@
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/PurchaseForm.css">
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    
+    <script type="text/javascript">
+	function removeSpecOne(){
+
+		location.href = "/user/removeSpecOne?specNum=" + ${spec.getSpecNum()};
+
+	}
+
+    </script>
+    
 </head>
 <body>
     <%@ include file="/WEB-INF/views/header.jsp" %>
     <div id="container">
         <div class="base">
             <div class="row">
+            <form action="/user/purchaseOne" method="post">
                 <div class="head">
                     <div class="product-img" onclick="">
                         <img class="img-box" src="../resources/img/card-img1.jpg" alt="">
@@ -74,10 +85,11 @@
                 <div class="foot">
                     <div class="submit-btn-div">
                         <input class="sub-btn" type="submit" value="Purchase">
-                        <input class="sub-btn" type="submit" value="Cancel">
+                        <button class="sub-btn" onclick="removeSpecOne();">Cancel</button>
                     </div>
                 </div>
-
+                <input type="hidden" name="specNum" value="${spec.getSpecNum()}" >
+			</form>
             </div>
         </div>
     </div>

@@ -127,7 +127,7 @@ public class UserController {
 				if(!dir.exists()) {
 					dir.mkdirs();
 				}
-				String reName = "";
+				String reName = "Test-image.png";
 				// 파일 업로드
 				for(MultipartFile f : upload) {
 					if(!f.isEmpty()) {
@@ -369,7 +369,7 @@ public class UserController {
 	}
 
 //	장바구니 저장
-	@RequestMapping(value = "/addCart")
+	@RequestMapping(value = "/addCart", method=RequestMethod.POST)
 	public String addCart(CartVO vo, HttpSession session){
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
@@ -432,4 +432,23 @@ public class UserController {
 		return "deal/deal_purchaseForm";
 	}
 
+	@RequestMapping(value = "/removeSpecOne", method=RequestMethod.GET)
+	public String removeSpecOne(specVO vo) {
+		
+		return service.removeSpecOne(vo.getSpecNum());
+	}
+	
+	@RequestMapping(value = "/purchaseOne", method=RequestMethod.POST)
+	public String purchaseOne(specVO vo) {
+		
+		return service.purchaseOne(vo.getSpecNum());
+	}
+	
+	@RequestMapping(value = "/deal_shoppingClear", method=RequestMethod.GET)
+	public String deal_shoppingClear() {
+		
+		return "deal/deal_shoppingClear";
+	}
+	
+	
 }

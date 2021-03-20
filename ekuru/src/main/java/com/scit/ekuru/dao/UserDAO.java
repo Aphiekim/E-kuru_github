@@ -15,6 +15,7 @@ import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.dealHistoryVO;
 import com.scit.ekuru.vo.specVO;
 
 
@@ -391,4 +392,25 @@ public class UserDAO {
 		return vo;
 	}
 
+	public int removeSpecOne(int specNum){
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.removeSpecOne(specNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int purchaseOne(dealHistoryVO vo){
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.purchaseOne(vo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 }
