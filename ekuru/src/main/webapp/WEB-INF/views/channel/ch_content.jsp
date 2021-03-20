@@ -26,7 +26,6 @@
 
     $(() => {
             $(".addComment").click(function () {
-
                 const prodComment = $("#commentBox").val();
                 if (prodComment == null || prodComment.lengh == 0) {
                     alert("댓글을 입력 해 주세요");
@@ -222,7 +221,7 @@
                                     </div>
                                 </c:otherwise>
                             </c:choose>
-                            
+
                             <input type="hidden" id="prodNum" name="prodNum" value="${prodEachResult.prodNum }">
                             <div style="width: 50%; margin-top: 10px; margin-left: 30px;">
                                 <span>DETAIL</span>
@@ -248,10 +247,9 @@
         <!--하위 부분 시작-->
         <div class="bottom-content">
             <div class="comments">
-                <div class="row" id="commentAdd trans1">
+                <div class="row" id="commentAdd">
                     <c:forEach items="${commentResult }" var="commentList">
                             <div class="col-md-12 trans1">
-                                <img class="img" src="/resources/img/person1.png">
                                 <span class="comment-detail">${commentList.userId }</span>
                                 <span class="comment-detail result">${commentList.prodComment }</span>
                             </div>
