@@ -351,4 +351,28 @@ order by prodNum desc
 				WHERE
 					CHID = #{userId})
 </select>
+
+
+<select id="channelFollowing" parameterType="String" resultType="channel">
+	SELECT
+		ch.CHID,
+		ch.CHNAME,
+		ch.CHINTRO
+	FROM
+		E_CHANNEL_TB ch, E_FOLLOWING_TB fo
+	WHERE
+		fo.USERID = #{userId}
+	AND
+	ch.CHNUM = fo.CHNUM
+
+</select>
+
+<!-- 팔로잉 리스트 삭제 -->
+<delete id="deleteFollowingList" parameterType="String">
+	DELETE FROM
+			E_FOLLOWING_TB
+	WHERE
+		USERID = #{userId}
+
+</delete>
 </mapper>

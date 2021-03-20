@@ -167,14 +167,32 @@ public class ChannelService {
 
 		return result;
 	}
-	
+
 	public ArrayList<ChannelVO> selectChAd(){
 		ArrayList<ChannelVO> list = dao.selectChAd();
-		
+
 		if(list.size()!=0|| list !=null) {
 			logger.info("AD 채널 불러오기 성공");
 		}
-		
+
 		return list;
+	}
+
+	public void channelFollowing(HttpSession session, Model model) {
+
+		String userId = (String) session.getAttribute("userId");
+		ArrayList<ChannelVO> channelResult = dao.channelFollowing(userId);
+		System.out.println(channelResult);
+		model.addAttribute("channelResult", channelResult);
+	}
+
+	public void deleteFollowingList(HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		boolean result = dao.deleteFollowingList(userId);
+
+		if(result) {
+			logger.info("팔로잉 리스트 삭제 성공");
+		}
+
 	}
 }

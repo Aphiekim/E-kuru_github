@@ -49,7 +49,7 @@ public class ChViewContoroller {
 	public String chMain(Model model) {
 		ArrayList<ChannelVO> chListResult = service.getListAll();
 		ArrayList<ChannelVO> adChList = service.selectChAd();
-		
+
 		model.addAttribute("chListResult", chListResult);
 		model.addAttribute("adChList", adChList);
 		return "channel/ch_main";
@@ -171,11 +171,11 @@ public class ChViewContoroller {
 		String[] nm = {"Test-image.png", "Test-image.png", "Test-image.png"};
 		// 파일 업로드
 		for(int i = 0; i < upload.length; i++) {
-			
+
 			if(upload[i].isEmpty()) {
 				continue;
 			}
-			
+
 			else {
 				MultipartFile f = upload[i];
 				if(!f.isEmpty()) {
@@ -197,8 +197,8 @@ public class ChViewContoroller {
 						e.printStackTrace();
 						}
 					}
-				nm[i] = reName;	
-			}	
+				nm[i] = reName;
+			}
 		}
 
 		vo.setProdOriginalPic1(nm[0]);
@@ -309,6 +309,23 @@ public class ChViewContoroller {
 
 
 		return "redirect:/channel/ch_personal_main?chId="+chId;
+
+	}
+
+//	팔로잉한 채널 보기
+	@RequestMapping(value = "/channel_following")
+	public String channelFollowing(HttpSession session, Model model) {
+		service.channelFollowing(session, model);
+
+		return "user/mypage_followingList";
+
+	}
+
+//	팔로잉 채널 삭제
+	@RequestMapping(value = "/deleteFollowingList")
+	public String deleteFollowingList(HttpSession session) {
+		service.deleteFollowingList(session);
+		return "user/mypage_followingList";
 
 	}
 

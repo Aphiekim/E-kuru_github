@@ -38,6 +38,10 @@
 		function openMyRequest(){
 			location.href="/request/request_manageRequest";
 		}
+
+		function openFollowing(){
+			location.href="/channel/channel_following";
+		}
     </script>
 </head>
 
@@ -60,12 +64,14 @@
 	                                <button type="button" class="btn btn-warning" onclick="location.href='../channel/ch_personal_main?chId=${result}'" >Channel</button>
                                 </c:if>
                                 <c:if test="${user.getUserType() eq '1' && user.getUserConfirm() eq '1' }">
-	                                <button type="button" class="btn btn-warning" onclick="openMyRequest();">Request</button>
+	                                <button type="button" class="btn btn-warning" onclick="openMyRequest();">Request</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </c:if>
+                                <c:if test="${user.getUserType() eq '1' && user.getUserConfirm() eq '1' }">
+	                                <button type="button" class="btn btn-info" onclick="openFollowing();">Following</button>
                                 </c:if>
                             </div>
                         </div>
                     </div>
-					<button type="button" class="btn btn-warning" onclick="location.href='../channel/chCreate'" >Channel</button>
                     <!-- Masthead Avatar Image-->
                     <img class="mx-auto rounded-circle imgsize" src="../resources/upload/file/${user.getUserProfile()}" style="width: 20%; margin-top: 5%;" />
                     <!-- Masthead Heading-->

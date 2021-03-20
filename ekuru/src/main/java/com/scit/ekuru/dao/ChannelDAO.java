@@ -262,4 +262,26 @@ public class ChannelDAO {
 		return result;
 	}
 
+	public ArrayList<ChannelVO> channelFollowing(String userId) {
+		ArrayList<ChannelVO> result = null;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.channelFollowing(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean deleteFollowingList(String userId) {
+		boolean result = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			result = mapper.deleteFollowingList(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

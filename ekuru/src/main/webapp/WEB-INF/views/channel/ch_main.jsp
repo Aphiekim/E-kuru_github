@@ -157,9 +157,6 @@ body {
                style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
             <button type="button" class="btn btn-outline-secondary"
                style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
-            <button type="button" id="translate"
-               class="btn btn-outline-secondary" style="margin-right: 50px;"
-               value="日本語">日本語</button>
          </div>
       </section>
       <!-- 채널 게시글 출력 부분 시작-->

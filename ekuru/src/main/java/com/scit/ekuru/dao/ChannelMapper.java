@@ -54,4 +54,8 @@ public interface ChannelMapper {
 	public void chFollowUpdate(FollowingVO fVo);
 
 	public ArrayList<UserVO> fCheck(String userId);
+
+	public ArrayList<ChannelVO> channelFollowing(String userId);
+
+	public boolean deleteFollowingList(String userId);
 }
