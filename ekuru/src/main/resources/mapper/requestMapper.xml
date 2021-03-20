@@ -128,6 +128,7 @@ from
 where
 	categoryCode = #{categoryCode}
 </select>
+
 <!-- 코멘트 달기 -->
 <insert id="insertComment" parameterType="comment">
 insert into
