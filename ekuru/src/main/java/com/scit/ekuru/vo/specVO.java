@@ -15,4 +15,5 @@ public class specVO {
 	private int chatNum;
 	private String userType;
 	private String chName;
+	private String originalPic1;
 }

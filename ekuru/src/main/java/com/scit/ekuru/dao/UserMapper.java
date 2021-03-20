@@ -55,6 +55,9 @@ public interface UserMapper {
 	// 채팅방 조회
 	public ArrayList<HashMap<Object, Object>> selectChatRoom(ChatVO vo);
 
+	// 채팅방 조회
+	public ChatVO selectChatRoomOne(int chatNum);
+	
 	// 채팅 조회
 	public ChatVO selectChat(int chatNum);
 
@@ -109,10 +112,16 @@ public interface UserMapper {
 	//첫 메인화면에서 검색
 	public ArrayList<HashMap<String, Object>> selectSearchAll(String search);
 
+	// 명세 조회
 	public specVO selectSpecOne(int specNum);
 
+	// 명세 삭제
 	public int removeSpecOne(int specNum);
 	
+	// 구매 처리
 	public int purchaseOne(dealHistoryVO vo);
+	
+	// 구매후 포인트 감소
+	//public int updatePoint(UserVO vo);
 	
 }

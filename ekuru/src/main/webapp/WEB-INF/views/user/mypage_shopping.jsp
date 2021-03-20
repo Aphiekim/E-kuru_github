@@ -74,8 +74,9 @@
 		
 		<%-- foreach문 안에 foreach문 예상  --%>
 		<c:forEach items="${cart }" var="list" varStatus="status">
+		
+		<div class=shopping-list>
 			
-			<div class=shopping-list>
             <hr class="line">
             <h3>${list.CHNAME }</h3>
             <hr class="line">
@@ -84,16 +85,24 @@
                 <img class="shopping-img" src="../resources/upload/file/${list.PRODORIGINALPIC1 }">
                 <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${list.PRODTITLE }</span>
                 <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }P</span>
-                <input type="number" style="max-width: 100px; margin-left: 30px;" value="${list.CARTPRODEA }"> 개
+                <input type="number" style="max-width: 100px; margin-left: 30px;" value="${list.CARTPRODEA }"> EA
                 <!-- <input class="shopping-checkbox" type="checkbox">  -->
             </div>
         
-
+			<form action="/user/CartProdOne" method="POST">	
             <div style="text-align: center; margin-right: 70px;">
-                <button type="button" class="btn btn-info">요청</button>
+            	<input type="hidden" name="productName" value="${list.PRODTITLE }">
+            	<input type="hidden" name="chId" value="${list.CHID }">
+            	<input type="hidden" name="productEa" value="${list.CARTPRODEA }">
+            	<input type="hidden" name="productPrice" value="${list.PRODPRICE }">
+            	<input type="hidden" name="userId" value="${sessionScope.userId }">
+            	<input type="hidden" name="customerAddr" value="${addr }">
+            	<input type="hidden" name="originalPic1" value="${list.PRODORIGINALPIC1 }">
+            	<input type="submit" class="btn btn-info" value="Purchase">
             </div>
+            </form>	
         </div>
-			
+		
 		</c:forEach>
         
        

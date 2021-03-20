@@ -18,7 +18,7 @@ public class ProductVO {
 	private String prodSavedPic1;
 	private String prodSavedPic2;
 	private String prodSavedPic3;
-	private String date;
+	private String prodIndate;
 
 
 }

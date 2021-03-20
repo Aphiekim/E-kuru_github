@@ -102,10 +102,13 @@ public class ChannelService {
 	public void chSearch(String search, Model model) {
 		ArrayList<ChannelVO> searchResult = dao.chSearch(search);
 		ArrayList<ChannelVO> chListResult = dao.getListAll();
+		ArrayList<ChannelVO> adChList = dao.selectChAd();
+		
 		System.out.println(searchResult);
+		
 		model.addAttribute("chListResult", chListResult);
 		model.addAttribute("searchResult", searchResult);
-
+		model.addAttribute("adChList", adChList);
 	}
 
 //	카테고리 정보 가져오기

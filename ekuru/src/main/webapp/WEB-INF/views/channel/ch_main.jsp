@@ -86,6 +86,11 @@ body {
            left: 50%;
            z-index: 100;
            }
+           
+        #imgsize{
+       		width: 350px;
+       		height: 260px;
+       	} 
 </style>
 </head>
 
@@ -194,7 +199,7 @@ body {
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adChList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
@@ -219,7 +224,7 @@ body {
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adChList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
@@ -245,7 +250,7 @@ body {
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adChList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
@@ -286,8 +291,8 @@ body {
                               <i class="fas fa-plus fa-3x"></i>
                            </div>
                         </div>
-                        <img class="img-fluid"
-                           src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+                        <img id="imgsize" class="img-fluid"
+                           src="../resources/upload/file/${channel.chProfile }"
                            alt="" />
                      </div>
                      <div class="card-body">

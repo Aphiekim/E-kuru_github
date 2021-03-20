@@ -22,6 +22,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
+  var myCarousel = document.querySelector('#myCarousel')
+  var carousel = new bootstrap.Carousel(myCarousel, {
+      interval: 2000,
+      wrap: false
+  })
     function openCategory(category){
         var categoryCode = category;
 		location.href="/request/request_categoryResult?categoryCode="+categoryCode;
@@ -39,6 +44,11 @@
         }
         body{
             background-color: #FFDFB9;
+        }
+        
+       #imgsize{
+        	width: 350px;
+        	height: 260px;
         }
 
   </style>
@@ -72,17 +82,18 @@
     </header>
     <!-- header -->
   <div>
-   <div class="container">
+   <!-- 검색창 -->
+        <div class="container">
             <div>
                 <div id="custom-search-input" style="width: 80%;">
                     <div class="input-group">
                     <form action="/request/request_search" method="post">
                     	<div class="row">
 		                   	 <div class="col-sm">
-		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%;"/>
+		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
 		                   	 </div>
 	                       	<div class="col-sm input-group-btn">
-	                          <button class="btn btn-danger" type="submit" style="margin-left:145%">
+	                          <button class="btn btn-danger" type="submit" style="margin-left:145%;">
 	                              <span class="glyphicon glyphicon-search"></span>
 	                          </button>
 	                       </div>
@@ -145,7 +156,7 @@
         </div>
         <!-- 게시글 리스트 -->
         <!-- 인기 게시글 -->
-        <div style="margin-bottom: 10%; margin-top: 5%;">
+                <div style="margin-bottom: 10%; margin-top: 5%;">
                     <h3 class="text-center text-uppercase" id="popularRequest">Popular Request</h3>
                     <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
                         style="width: 100%;">
@@ -159,7 +170,8 @@
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                onclick="openReadForm('${adReqList.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
@@ -183,7 +195,8 @@
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                onclick="openReadForm('${adReqList.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
@@ -208,7 +221,8 @@
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
-                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                 onclick="openReadForm('${adReqList.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
@@ -237,35 +251,33 @@
                         </a>
                     </div>
                 </div>
-        
-			<!--카테고리별 결과 출력 -->
-	        <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-		      <c:forEach var="list" items="${reqList }" >
-	          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-		            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-		              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-		              onclick="openReadForm('${list.reqNum}');">>
-		                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-		                </div>
-		              </div>
-		              	<img class="img-fluid" src="../resources/upload/file/${reqList.reqOriginalPic1 }"/>	              
-		            </div>
-		          <div class="card-body">
-	            	<h5 class="card-title">
-	            		${list.reqTitle }
-	            	</h5>
-		           	<p class="card-text">${list.reqContent }</p>
-		          </div>
-	          </div>
-	         </c:forEach>
-	        </div>
-        
-        
-</div>
 
+			<!--카테고리별 결과 출력 -->
+	        <h3 id="fashion">Request List</h3>
+                <div class="row justify-content-center inner" style="margin-bottom: 5%;">
+	                <c:forEach var="list" items="${list }">
+	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+	                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+	                            <div
+	                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+	                                onclick="openReadForm('${list.reqNum}');">
+	                                <div class="portfolio-item-caption-content text-center text-white"><i
+	                                        class="fas fa-plus fa-3x"></i></div>
+	                            </div>
+	                            <img id="imgsize" class="img-fluid"
+	                                src="../resources/upload/file/${list.reqOriginalPic1 }" alt="" />
+	                        </div>
+	                        <div class="card-body">
+	                            <h5 class="card-title">${list.reqTitle }</h5>
+	                            <p class="card-text">${list.reqContent }</p>
+	                        </div>
+	                    </div>
+	                </c:forEach>
+                </div>
+                </div>
 </section>
 </div>
-  <%@ include file="/WEB-INF/views/main-footer.jsp" %>
+<%@ include file="/WEB-INF/views/main-footer.jsp" %>
 
 
 </body>
