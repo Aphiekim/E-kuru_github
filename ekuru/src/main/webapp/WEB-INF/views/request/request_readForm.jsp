@@ -136,95 +136,45 @@
       </div>
     </div>
     <hr class="line line-sty">
-<<<<<<< HEAD
-    <c:if test="${userType eq 0 || sessionScope.userId eq vo.userId}">
-	    <!-- 댓글 입력창 -->
-	    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
-		    <div class="row mb-3">
-		      <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
-		      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
-		    </div>
-	    </form>
-	    <!-- 구분선 -->
-	    <hr class="line">
-	    <!-- 댓글창 -->
-	    <c:forEach var="comment" items="${comment }">
-		    <div class="card comtWrite-sty">
-		      <div class="card-body trans2">
-		        <div class="row justify-content-between">
-		          <h5 class="card-title col-4">${comment.userId }</h5>
-		          <c:if test="${sessionScope.userId ==comment.userId }">
-		         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
-		          </c:if>
-	
-		          <c:if test="${sessionScope.userId ==vo.userId }">
-			          <form action="/user/createChat" method="post">
-				        <input type="hidden" name="chId" value="${comment.userId }">
-				        <input type="hidden" name="userId" value="${sessionScope.userId }">
-				      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
-				      </form>
-		          </c:if>
-	
-<<<<<<< HEAD
-=======
-		          <form action="/user/createChat" method="post">
-			        <input type="hidden" name="chId" value="${sessionScope.userId }">
-			        <input type="hidden" name="userId" value="${vo.userId }">
-			      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
-			      </form>
->>>>>>> origin/master
-	
-		        </div>
-		        <p class="result">${comment.reqComment }</p>
-		      </div>
-		    </div>
-	    </c:forEach>
-	
-    </c:if>
-</div>
-   
-=======
-    
-    
-    <!-- 댓글 입력창 -->
+ 
+	<!-- 댓글 입력창 -->
     <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
-	    <div class="row mb-3">
-	      <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
-	      <input type="hidden" name="userId" value="${sessionScope.userId }">
-	      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
-	    </div>
+       <div class="row mb-3">
+         <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+         <input type="hidden" name="userId" value="${sessionScope.userId }">
+         <button type="submit" class="btn btn-secondary btn-sty">comment</button>
+       </div>
     </form>
     <!-- 구분선 -->
     <hr class="line">
     <!-- 댓글창 -->
     <c:forEach var="comment" items="${comment }">
-	    <div class="card comtWrite-sty">
-	      <div class="card-body">
-	        <div class="row justify-content-between">
-	          <h5 class="card-title col-4">${comment.userId }</h5>
-	          
-	          <c:if test="${sessionScope.userId ==comment.userId }">
-	         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
-	          </c:if>
-	          
-	          <c:if test="${sessionScope.userId == vo.userId }">
-			      
-	          </c:if>
-	          <form action="/user/createChat" method="post">
-			        <input type="hidden" name="chId" value="${comment.userId }">
-			        <input type="hidden" name="userId" value="${sessionScope.userId }">
-			      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
-			  </form>
-	          
-	          
-	        </div>
-	        <p>${comment.reqComment }</p>
-	      </div>
-	    </div>
+       <div class="card comtWrite-sty">
+         <div class="card-body">
+           <div class="row justify-content-between">
+             <h5 class="card-title col-4">${comment.userId }</h5>
+             
+             <c:if test="${sessionScope.userId ==comment.userId }">
+               <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
+             </c:if>
+             
+             <c:if test="${sessionScope.userId == vo.userId }">
+               
+             </c:if>
+             <form action="/user/createChat" method="post">
+                 <input type="hidden" name="chId" value="${comment.userId }">
+                 <input type="hidden" name="userId" value="${sessionScope.userId }">
+                  <input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+           </form>
+             
+             
+           </div>
+           <p>${comment.reqComment }</p>
+         </div>
+       </div>
     </c:forEach>
 
   </div>
->>>>>>> origin/master
   <!-- 리스트로 가기 버튼 -->
   <div class="container" style="text-align: center; margin-top: 5%;">
     <button type="button" class="btn btn-secondary content-center" onclick="openRequestMain();">Go to the List</button>

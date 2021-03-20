@@ -382,17 +382,11 @@ public class UserController {
 	//채팅방 채팅 생성
 	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
 	public String createChat(ChatVO vo) {
-		System.out.println(vo);
 		ChatVO chvo = service.selectChId(vo.getChId());
-		
-		String id = (String)session.getAttribute("userId");
-		chvo.setUserId(id);
-		
-		System.out.println(chvo);
-		vo.setChNum(chvo.getChNum());
+	      vo.setChNum(chvo.getChNum());
 
-		//System.out.println(chnum);
-		return service.createChatRoom(vo);
+	      //System.out.println(chnum);
+	      return service.createChatRoom(vo);
 	}
 
 	//명세작성 폼으로 이동
