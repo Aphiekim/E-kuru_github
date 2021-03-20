@@ -60,10 +60,34 @@
         	width: 350px;
         	height: 260px;
         }
+        
+        #loading {
+        	width: 100%;
+        	height: 100%;
+        	top: 0px;
+        	left: 0px;
+        	position: fixed;
+        	display: block;
+        	opacity: 0.7;
+        	background-color: #fff;
+        	z-index: 99;
+        	text-align: center;
+        	}
+        #loading-img {
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+        	z-index: 100;
+        	}
     </style>
 </head>
 
 <body>
+<!--로딩바-->
+    <div id="loading" style="margin-left: 0px;">
+        <img id="loading-img" src="/resources/img/loader.gif">
+    </div>
+
       <!-- header -->
     <header class="header---">
         <div class="wrapper">
@@ -275,7 +299,15 @@
         </div>
     </div>
     <!-- Footer End -->
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#loading').show();
+    setTimeout(function(){
+        $('#loading').hide();
+        return true;
+    },3000);
+});
+</script>
 
 </body>
 

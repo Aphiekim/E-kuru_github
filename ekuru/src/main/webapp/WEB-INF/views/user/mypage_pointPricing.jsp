@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/mypage-pointpricing.css">
     <link rel="stylesheet" href="../resources/css/main-footer.css">
-    <link rel="stylesheet" href="../resources/css/header.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
@@ -77,30 +76,7 @@
     </script>
 </head>
 <body>
-   <!-- header -->
-    <header class="header---">
-        <div class="wrapper">
-            <a href="/">
-                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-            </a>
-            <nav>
-                <ul class="menu">
-                    <li class="menu-list headli">
-                        <a class="menu-a" href="/user/mypageMain">My Page</a>
-                        <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
-                        </ul>
-                    </li>
-                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
-                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- header -->
+  <%@ include file="/WEB-INF/views/header.jsp" %>
     <!-- 포인트 메뉴 start -->
     <div class="container">
         <!-- 포인트 메뉴 타이틀-->
@@ -119,8 +95,8 @@
                 <ul class="price">
                   <li class="text-uppercase li-sty"style="background-color: #A4193D; font-size:150%">Basic</li>
                   <li class="grey">5,000P</li>                  
-                  <li class="li-sty2">Korea <p id="priceWon">5,000</p>won</li>
-                  <li class="li-sty2">Japan <p id="priceYen">500</p>yen</li>
+                  <li class="li-sty2">KOREA <p id="priceWon">5</p>USD</li>
+                  <li class="li-sty2">JAPAN <p id="priceYen">500</p>YEN</li>
                   <li class="grey">
                     <c:if test="${user.getUserType() ne '1' }">	
                   		<button class="btn btn-outline-danger" onclick="openPayment1('1');">Charge</button>
@@ -135,8 +111,8 @@
                 <ul class="price">
                   <li class="text-uppercase li-sty">Standard</li>
                   <li class="grey">10,000P</li>
-                  <li class="li-sty2">Korea <p id="priceWon">10,000</p>won</li>
-                  <li class="li-sty2">Japan <p id="priceYen">1,000</p>yen</li>
+                  <li class="li-sty2">KOREA <p id="priceWon">10</p>USD</li>
+                  <li class="li-sty2">JAPAN <p id="priceYen">1,000</p>YEN</li>
                   <li class="li-sty2">Super pass X 1</li>
                   <li class="grey">
                   	<c:if test="${user.getUserType() ne '1' }">	
@@ -152,8 +128,8 @@
                 <ul class="price">
                   <li class="text-uppercase li-sty">Special</li>
                   <li class="grey">50,000P</li>
-                  <li class="li-sty2">Korea <p id="priceWon">50,000</p>won</li>
-                  <li class="li-sty2">Japan <p id="priceYen">5,000</p>yen</li>
+                  <li class="li-sty2">KOREA <p id="priceWon">50</p>USD</li>
+                  <li class="li-sty2">JAPAN <p id="priceYen">5,000</p>YEN</li>
                   <li class="li-sty2">Super pass X 3</li>
                   <li class="grey">
                   	<c:if test="${user.getUserType() ne '1' }">	
@@ -168,73 +144,6 @@
         </div>
     </div>
     <!-- 포인트 메뉴 end -->
-    <!-- include tag Footer Start -->
-    <div>
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="row">
-                            <!-- 주소지 -->
-                            <div class="col-md-6">
-                                <div class="footer-contact">
-                                    <h2>Our Head Office</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>서울 강남구 영동대로 513</p>
-                                    <p><i class="fa fa-phone-alt"></i>02-6000-0114</p>
-                                    <p><i class="fa fa-envelope"></i>E-kuru co.</p>
-                                    <div class="footer-social">
-                                        <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href=""><i class="fab fa-youtube"></i></a>
-                                        <a href=""><i class="fab fa-instagram"></i></a>
-                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 회사 방침 링크 -->
-                            <div class="col-md-6">
-                                <div class="footer-link">
-                                    <h2>Quick Links</h2>
-                                    <a href="">How to use</a>
-                                    <a href="">Privacy policy</a>
-                                    <a href="">Help</a>
-                                    <a href="">FQAs</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 서포트 이메일 받는란 -->
-                    <div class="col-lg-5">
-                        <div class="footer-newsletter">
-                            <h2>Support us</h2>
-                            <p>
-                                If you are interested in this business, send your email to us.<br>
-                                Thank you for supporting.
-                            </p>
-                        </div>
-                        <div>
-                            <form class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Email@email.com"
-                                    aria-label="Email@email.com aria-describedby=" button-addon2">
-                                <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 저작권 부분 -->
-            <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="#">E-kuru</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+   <%@ include file="/WEB-INF/views/main-footer.jsp" %>
 </body>
 </html>

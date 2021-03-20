@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/superplan.css">
     <link rel="stylesheet" href="../resources/css/mypage-pointpricing.css">
-    <link rel="stylesheet" href="../resources/css/header_Origin.css">
+    <link rel="stylesheet" href="../resources/css/header.css">
     <link rel="stylesheet" href="../resources/css/main-footer.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
@@ -58,7 +58,7 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli"><a href="/user/viewedItems">Recently viewed items</a></li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
                             <li class="headli"><a href="/user/chatForm">My Chat</a></li>
                             <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
@@ -67,6 +67,7 @@
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>

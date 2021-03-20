@@ -12,8 +12,5 @@ public class RequestVO {
 	private String reqOriginalPic1;
 	private String reqOriginalPic2;
 	private String reqOriginalPic3;
-	private String reqSavedPic1;
-	private String reqSavedPic2;
-	private String reqSavedPic3;
 	private String reqIndate;
 }

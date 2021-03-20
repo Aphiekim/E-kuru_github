@@ -25,7 +25,8 @@
 			var reqTitle = document.getElementById('reqTitle').value;
 			var reqContent = document.getElementById('reqContent').value;
 			var categoryCode = document.getElementById('categoryCode').checked;
-
+			
+			
 			if(reqTitle == null || reqTitle.length == 0){
 				alert("Please write title");
 				return false;
@@ -35,7 +36,6 @@
 				alert("Please select your category");
 				return false;
 			}
-				
 
 			if(reqContent == null || reqContent.length == 0){
 				alert("Please write your content");

@@ -174,14 +174,15 @@ public class UserController {
 		String id = (String)session.getAttribute("userId");
 		UserVO uservo = service.selectUserTest(id);
 		ChatVO chatvo = null;
-		//System.out.println(uservo);
-		if(uservo.getUserType().equals("1")) {
+		System.out.println(uservo);
+		
+		if(uservo.getUserType().equals("0")) {
 			chatvo = service.selectChUser1();
 		}else {
 			chatvo = service.selectChUser2();
 		}
 
-		//System.out.println(chatvo);
+		System.out.println(chatvo);
 
 		ArrayList<HashMap<Object, Object>> chatroomlist = service.selectChatRoom(chatvo);
 		model.addAttribute("chatroomlist", chatroomlist);
@@ -383,10 +384,10 @@ public class UserController {
 	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
 	public String createChat(ChatVO vo) {
 		ChatVO chvo = service.selectChId(vo.getChId());
-		vo.setChNum(chvo.getChNum());
+	      vo.setChNum(chvo.getChNum());
 
-		//System.out.println(chnum);
-		return service.createChatRoom(vo);
+	      //System.out.println(chnum);
+	      return service.createChatRoom(vo);
 	}
 
 	//명세작성 폼으로 이동
