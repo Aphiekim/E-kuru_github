@@ -28,6 +28,7 @@ import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.dealHistoryVO;
 import com.scit.ekuru.vo.specVO;
 
 
@@ -253,9 +254,9 @@ public class UserService {
 		// mail 작성 관련
 		MailUtils sendMail = new MailUtils(mailSender);
 
-		sendMail.setSubject("회원가입 이메일 인증");
-		sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
-				.append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>")
+		sendMail.setSubject("Email Authentication form E-KURU");
+		sendMail.setText(new StringBuffer().append("<h1>[Email Authentication]</h1>")
+				.append("<p>Click the link</p>")
 				.append("<a href='http://localhost:8888/user/mailConfirm?"
 						+ "userId="+ vo.getUserId()
 						+ "&authkey=" + authkey
@@ -519,6 +520,40 @@ public class UserService {
 	public specVO selectSpecOne(int specNum) {
 		return dao.selectSpecOne(specNum);
 
+	}
+	
+	public String removeSpecOne(int specNum) {
+		String path = "";
+		int cnt = dao.removeSpecOne(specNum);
+		
+		if(cnt == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/specificationListForm";
+		}
+		
+		return path;
+	}
+	
+	public String purchaseOne(int specNum) {
+		
+		String path = "";
+		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
+		
+		dealHistoryVO vo = new dealHistoryVO();
+		vo.setDealCode(su);
+		vo.setSpecNum(specNum);
+		
+		int cnt = dao.purchaseOne(vo);
+		
+		if(cnt == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/deal_shoppingClear";
+		}
+		
+		return path;
+		
 	}
 }
 
