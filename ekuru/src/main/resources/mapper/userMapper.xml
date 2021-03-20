@@ -69,9 +69,9 @@
       pd.prodprice as PRODPRICE,
       c.cartprodea as CARTPRODEA
    from
-    e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum 
+    e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum
    where c.userId = #{userId}
-   
+
 </select>
 <select id="selectPointPricing" parameterType="int" resultType="pointprod">
 select
@@ -126,16 +126,6 @@ from
          cr.userId = #{userId}
       </where>
    </otherwise>
-	<when test="userType == 0">
-		<where>
-			chh.chNum = #{chNum}
-		</where>
-	</when>
-	<otherwise>
-		<where>
-			cr.userId = #{userId}
-		</where>
-	</otherwise>
 </choose>
 
 </select>
@@ -260,7 +250,7 @@ into
 </insert>
 <select id="selectUsedPointList" parameterType="String" resultType="usedPoint">
 select
-   pointUsedNum   
+   pointUsedNum
    ,userId
    ,pointUsed
    ,to_char(pointUsedIndate, 'YYYY-MM-DD') as pointUsedIndate
@@ -268,7 +258,7 @@ from
    e_pointUsed_tb
 where
    userId = #{userId}
-order by 
+order by
    pointUsedNum desc
 </select>
 
@@ -280,7 +270,7 @@ where ch.chatnum = #{chatnum}
 
 <insert id="insertSpec" parameterType="spec">
    insert into e_spec_tb(
-      specNum, 
+      specNum,
       userId,
       chNum,
       productName,
@@ -308,7 +298,7 @@ where userId = #{userId}
 
 <!-- AD 관련 -->
 <insert id="insertReqAd" parameterType="ad">
-insert into 
+insert into
    e_ad_tb(
       adNum
       ,userId
@@ -324,7 +314,7 @@ insert into
    )
 </insert>
 <insert id="insertChAd" parameterType="ad">
-insert into 
+insert into
    e_ad_tb(
       adNum
       ,userId
@@ -341,7 +331,7 @@ insert into
       ,#{adProdCharge}
    )
 </insert>
-<!-- 
+<!--
 <select id="selectSearchAll" parameterType="string" resultType="hashmap">
 select
    r.reqNum as reqNum
@@ -362,7 +352,7 @@ from
 where
    r.reqContent like '%'|| #{search} || '%'
 or
-   c.prodContent like '%'|| #{search} || '%'   
+   c.prodContent like '%'|| #{search} || '%'
 </if>
 </select> -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
