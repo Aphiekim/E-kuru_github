@@ -77,20 +77,26 @@
 <!-- header -->
   <div>
     <!-- 검색창 -->
-    <div class="container">
-      <div>
-        <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
-          <div class="input-group">
-            <input type="text" class="search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-              <button class="btn btn-danger" type="button">
-                <span class=" glyphicon glyphicon-search"></span>
-              </button>
-            </span>
-          </div>
+        <div class="container">
+            <div>
+                <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
+                    <div class="input-group">
+                    <form action="/channel/ch_search" method="post">
+                    	<div class="row">
+		                   	 <div class="col-sm">
+		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
+		                   	 </div>
+	                       	<div class="col-sm input-group-btn">
+	                          <button class="btn btn-danger" type="submit" style="margin-left:145%;">
+	                              <span class="glyphicon glyphicon-search"></span>
+	                          </button>
+	                       </div>
+                    	</div>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     <!-- 카테고리 구분 -->
     <section>
       <div class="category-button" style="height: auto; background:#FFDFB9;">
