@@ -59,6 +59,7 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_search", method = RequestMethod.POST)
 	public String chSearch(@RequestParam(defaultValue = "") String search, Model model) {
 		service.chSearch(search, model);
+		
 		return "channel/ch_search";
 	}
 
