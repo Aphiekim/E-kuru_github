@@ -10,6 +10,7 @@
 
     <title>E-kuru</title>
 
+    <link rel="shortcut icon" href="/resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="/resources/css/(buyer)channel-content.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/header.css">
