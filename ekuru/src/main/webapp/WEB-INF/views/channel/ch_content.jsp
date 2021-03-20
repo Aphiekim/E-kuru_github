@@ -72,6 +72,12 @@
 
         function fn_addCart(){
             var addCart = document.getElementById("addCart");
+            const cartProdEa = document.getElementById("cartProdEa").value;
+
+            if(cartProdEa==""){
+                alert("数量を入力してください");
+                return false;
+            }
             addCart.action = "../user/addCart";
             addCart.method = "POST";
             addCart.submit();
@@ -200,26 +206,38 @@
                                 <input type="text" id="prodPrice" name="prodPrice" value="${prodEachResult.prodPrice }" readonly>
                             </div>
 
-
-                            <div class="content-name">
-                                <span>QUANTITY</span>
-                            </div>
-                            <div class="content-value">
-                                <input type="number" id="cartProdEa" name="cartProdEa">
-                                <input type="hidden" id="prodNum" name="prodNum" value="${prodEachResult.prodNum }">
-                            </div>
+                            <c:choose>
+                                <c:when test="${userType == '1'}">
+                                    <div class="content-name">
+                                        <span>QUANTITY</span>
+                                    </div>
+                                    <div class="content-value">
+                                        <input type="number" id="cartProdEa" name="cartProdEa">
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="content-name">
+                                    </div>
+                                    <div class="content-value">
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            <input type="hidden" id="prodNum" name="prodNum" value="${prodEachResult.prodNum }">
                             <div style="width: 50%; margin-top: 10px; margin-left: 30px;">
                                 <span>DETAIL</span>
                             </div>
                             <div class="result2" style="margin-top: 10px;width: 80%; margin-left: 50px;">
                                 ${prodEachResult.prodContent }
                                 </div>
-                            <div style="margin-top: 30px;">
-                                <ul style="list-style: none; margin-left: 40px;">
-                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
-                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
-                                </ul>
-                            </div>
+                            <c:if test="${channel.chId ne sessionScope.userId && userType == '1'}">
+                                <div style="margin-top: 30px;">
+                                    <ul style="list-style: none; margin-left: 40px;">
+                                        <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
+                                        <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
+                                    </ul>
+                                </div>
+                            </c:if>
                         </form>
                 </div>
                 <!--상품내용 끝 -->
