@@ -72,7 +72,7 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		//String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
 		System.out.println(upload[0].getOriginalFilename());
 
@@ -137,7 +137,7 @@ public class RequestViewController {
 	@RequestMapping(value="/request_update", method=RequestMethod.POST)
 	public String updateRequest(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
-		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
 		System.out.println(upload[0].getOriginalFilename());
 

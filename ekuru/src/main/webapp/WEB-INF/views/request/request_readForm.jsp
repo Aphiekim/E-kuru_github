@@ -136,7 +136,7 @@
       </div>
     </div>
     <hr class="line line-sty">
-    <c:if test="${userType eq 0}">
+    <c:if test="${userType eq 0 || sessionScope.userId eq vo.userId}">
 	    <!-- 댓글 입력창 -->
 	    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
 		    <div class="row mb-3">
@@ -157,14 +157,13 @@
 		          </c:if>
 	
 		          <c:if test="${sessionScope.userId ==vo.userId }">
-			          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+			          <form action="/user/createChat" method="post">
+				        <input type="hidden" name="chId" value="${vo.userId }">
+				        <input type="hidden" name="userId" value="${sessionScope.userId }">
+				      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+				      </form>
 		          </c:if>
 	
-		          <form action="/user/createChat" method="post">
-			        <input type="hidden" name="chId" value="${sessionScope.userId }">
-			        <input type="hidden" name="userId" value="${vo.userId }">
-			      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
-			        </form>
 	
 		        </div>
 		        <p class="result">${comment.reqComment }</p>

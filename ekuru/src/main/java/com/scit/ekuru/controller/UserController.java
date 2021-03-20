@@ -382,7 +382,8 @@ public class UserController {
 	//채팅방 채팅 생성
 	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
 	public String createChat(ChatVO vo) {
-		ChatVO chvo = service.selectChId(vo.getChId());
+		System.out.println(vo);
+		ChatVO chvo = service.selectChId(vo.getUserId());
 		vo.setChNum(chvo.getChNum());
 
 		//System.out.println(chnum);

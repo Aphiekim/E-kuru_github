@@ -16,7 +16,7 @@
 			location.href="/";
 		}
 		function openBuyingHistory(){
-			location.href="/user/mypage_dealHistory"
+			location.href="/user/mypageMypoint";
 		}
     </script>
     <style>
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col">
                 <button type="button" class="btn btn-info" onclick="openHome();">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning" onclick="openBuyingHistory();">Buying history</button>
+                <button type="button" class="btn btn-warning" onclick="openPoint();">Point history</button>
             </div>
         </div>
     </div>
