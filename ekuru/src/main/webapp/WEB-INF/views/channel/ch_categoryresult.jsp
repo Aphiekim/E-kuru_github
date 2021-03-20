@@ -216,7 +216,6 @@
         </div>
 
         <!-- 카테고리별 검색 결과 (id는 카테고리 별에 맞춰서 바뀜) -->
-        <h3 id="fashion">Fashion / Acc</h3>
         <div class="row justify-content-center inner" style="margin-bottom: 5%;">
           <c:forEach items="${listResult }" var="channel">
             <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
@@ -234,7 +233,6 @@
             </div>
           </c:forEach>
         </div>
-
 
     </section>
   </div>

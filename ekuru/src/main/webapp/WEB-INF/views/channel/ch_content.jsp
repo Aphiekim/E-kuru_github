@@ -273,7 +273,10 @@
                         </div>
                     </c:if>
                 </div>
-
+                <div class="button-list" style="text-align: center;">
+                    <input class="button btn-danger" style = "text-align:center; margin-top: 40px; margin-bottom: -20px; padding: 10px;
+                    width: 20%;" type="button" value="Back To Channel" onclick="location.href='ch_personal_main?chId=${channel.chId}'">
+                </div>
             </div>
 
         </div>

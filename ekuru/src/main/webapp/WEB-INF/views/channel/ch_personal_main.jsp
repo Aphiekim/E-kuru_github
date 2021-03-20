@@ -116,7 +116,12 @@
                             <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chId=${channel.chId}'">
                             <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management?chId=${channel.chId}'">
                         </div>
-                </c:if>
+                    </c:if>
+                    <c:if test="${sessionScope.userId ne channel.chId}">
+                        <div class="button-list">
+                            <input class="button btn-danger" type="button" value="Move To Channel Main" onclick="location.href='ch_main'">
+                        </div>
+                    </c:if>
 
 
             </div>
