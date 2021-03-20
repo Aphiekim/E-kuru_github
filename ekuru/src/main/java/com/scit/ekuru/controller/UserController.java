@@ -383,7 +383,12 @@ public class UserController {
 	@RequestMapping(value = "/createChat", method=RequestMethod.POST)
 	public String createChat(ChatVO vo) {
 		System.out.println(vo);
-		ChatVO chvo = service.selectChId(vo.getUserId());
+		ChatVO chvo = service.selectChId(vo.getChId());
+		
+		String id = (String)session.getAttribute("userId");
+		chvo.setUserId(id);
+		
+		System.out.println(chvo);
 		vo.setChNum(chvo.getChNum());
 
 		//System.out.println(chnum);
