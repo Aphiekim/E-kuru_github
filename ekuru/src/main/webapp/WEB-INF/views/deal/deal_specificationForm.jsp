@@ -23,7 +23,7 @@
                 <div class="head">
                 
                     <div class="product-img" onclick="">
-                        <img class="img-box" src="../resources/img/card-img1.jpg" alt="">
+                        <img class="img-box" src="../resources/upload/file/${pic }" alt="">
                     </div>
                     
                     <div class="product-details">
@@ -74,6 +74,7 @@
                         </div>
                         <span class="span" style="margin-top: 15px; float: left;" >${user.getUserAddr() } ${user.getUserZip() }</span>
                         <input type="hidden" name="customerAddr" value="${user.getUserAddr() } ${user.getUserZip() }">
+                        <input type="hidden" name="originalPic1" value="${pic }">
                         <input type="hidden" name="chatNum" value="${chatNum }">
                     </div>
                     

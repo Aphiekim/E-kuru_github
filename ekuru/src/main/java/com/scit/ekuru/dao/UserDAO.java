@@ -212,6 +212,16 @@ public class UserDAO {
 		return vo;
 	}
 
+	public ChatVO selectChatRoomOne(int chatNum) {
+		ChatVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectChatRoomOne(chatNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId) {
 		ArrayList<HashMap<String, Object>> result = null;

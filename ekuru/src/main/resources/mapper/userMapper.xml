@@ -68,7 +68,8 @@
       pd.prodoriginalpic1 as PRODORIGINALPIC1,
       cc.chname as CHNAME,
       pd.prodprice as PRODPRICE,
-      c.cartprodea as CARTPRODEA
+      c.cartprodea as CARTPRODEA,
+      cc.chId as CHID
    from
     e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum
    where c.userId = #{userId}
@@ -227,8 +228,14 @@ where cartProdNum = #{cartProdNum}
    where chid = #{chId}
 </select>
 
+<select id="selectChatRoomOne" parameterType="int" resultType="chat">
+select chatnum, userid, chnum, reqoriginalpic1
+from e_chattingroom_tb
+where chatnum = #{chatNum}
+</select>
+
 <insert id="createChatRoom" parameterType="chat">
-   insert into e_chattingroom_tb(chatnum, userid, chnum) values(chattingroom_seq.nextval, #{userId}, #{chNum})
+   insert into e_chattingroom_tb(chatnum, userid, chnum, reqOriginalPic1) values(chattingroom_seq.nextval, #{userId}, #{chNum}, #{reqOriginalPic1})
 </insert>
 
 <insert id="createChat" parameterType="chat">
@@ -277,7 +284,8 @@ where ch.chatnum = #{chatnum}
       productName,
       productEa,
       productPrice,
-      customerAddr
+      customerAddr,
+      originalpic1
    ) values(
       #{specNum},
       #{userId},
@@ -285,7 +293,8 @@ where ch.chatnum = #{chatnum}
       #{productName},
       #{productEa},
       #{productPrice},
-      #{customerAddr}
+      #{customerAddr},
+      #{originalPic1}
    )
 </insert>
 
@@ -359,7 +368,7 @@ or
 
 <!-- 명세 상세(하나) 조회 -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
-select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname
+select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname, sp.originalpic1
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>

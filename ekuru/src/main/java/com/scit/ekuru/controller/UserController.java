@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -158,6 +159,12 @@ public class UserController {
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
 	public String mypageShopping(CartVO vo, Model model, HttpSession ssesion) {
 		ArrayList<HashMap<String, Object>> list = service.selectCart();
+		
+		String id = (String) session.getAttribute("userId");
+		
+		UserVO user = service.selectUserTest(id);
+		
+		model.addAttribute("addr", user.getUserAddr());
 		model.addAttribute("cart", list);
 		return "user/mypage_shopping";
 	}
@@ -186,7 +193,7 @@ public class UserController {
 
 		ArrayList<HashMap<Object, Object>> chatroomlist = service.selectChatRoom(chatvo);
 		model.addAttribute("chatroomlist", chatroomlist);
-
+		
 		//System.out.println(vo);
 
 		//ArrayList<HashMap<Object, Object>> chatlist = service.selectChat(vo);
@@ -397,7 +404,13 @@ public class UserController {
 		//System.out.println(vo);
 
 		UserVO user = service.selectUserTest(vo.getUserId());
+		
+		ChatVO chat = service.selectChatRoomOne(vo.getChatNum());
+		
+		//System.out.println(chat);
+		
 		//System.out.println(user);
+		model.addAttribute("pic", chat.getReqOriginalPic1());
 		model.addAttribute("user", user);
 		model.addAttribute("buyerId", vo.getUserId());
 		model.addAttribute("chatNum", vo.getChatNum());
@@ -432,6 +445,20 @@ public class UserController {
 		model.addAttribute("spec", spec);
 		return "deal/deal_purchaseForm";
 	}
+	
+	@RequestMapping(value = "/CartProdOne", method=RequestMethod.POST)
+	public String CartProdOne(specVO vo) {
+		
+		ChatVO chat = service.selectChId(vo.getChId());
+		//System.out.println(chat);
+		vo.setChNum(chat.getChNum());
+		//System.out.println("specccccccc vo" + vo);
+		service.insertCartSpec(vo);
+		//specVO spec = service.selectSpecOne(vo.getSpecNum());
+		//System.out.println(spec);
+		//model.addAttribute("spec", spec);
+		return "redirect:/";
+	}
 
 	@RequestMapping(value = "/removeSpecOne", method=RequestMethod.GET)
 	public String removeSpecOne(specVO vo) {
@@ -441,8 +468,8 @@ public class UserController {
 	
 	@RequestMapping(value = "/purchaseOne", method=RequestMethod.POST)
 	public String purchaseOne(specVO vo) {
-		
-		return service.purchaseOne(vo.getSpecNum());
+		System.out.println("구매 정보 : " + vo);
+		return service.purchaseOne(vo);
 	}
 	
 	@RequestMapping(value = "/deal_shoppingClear", method=RequestMethod.GET)

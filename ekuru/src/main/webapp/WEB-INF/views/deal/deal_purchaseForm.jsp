@@ -27,7 +27,7 @@
             <form action="/user/purchaseOne" method="post">
                 <div class="head">
                     <div class="product-img" onclick="">
-                        <img class="img-box" src="../resources/img/card-img1.jpg" alt="">
+                        <img class="img-box" src="../resources/upload/file/${spec.getOriginalPic1() }" alt="">
                     </div>
                     <div class="product-details">
                         <div class="product-title">

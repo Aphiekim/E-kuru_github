@@ -175,6 +175,32 @@
 	         </div>
 	       </div>
 	    </c:forEach>
+    <c:forEach var="comment" items="${comment }">
+       <div class="card comtWrite-sty">
+         <div class="card-body trans2">
+           <div class="row justify-content-between">
+             <h5 class="card-title col-4">${comment.userId }</h5>
+
+             <c:if test="${sessionScope.userId ==comment.userId }">
+               <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
+             </c:if>
+
+             <c:if test="${sessionScope.userId == vo.userId }">
+
+             </c:if>
+             <form action="/user/createChat" method="post">
+             	 <input type="hidden" name="reqOriginalPic1" value="${vo.getReqOriginalPic1() }">
+                 <input type="hidden" name="chId" value="${comment.userId }">
+                 <input type="hidden" name="userId" value="${sessionScope.userId }">
+                 <input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+           </form>
+
+
+           </div>
+           <p class="result">${comment.reqComment }</p>
+         </div>
+       </div>
+    </c:forEach>
 
     </c:if>
   </div>
