@@ -55,7 +55,7 @@
 
                                 $(`#delete_img_${prodNum}`).remove();
                             } else {
-                                alert('삭제 되지 않았습니다.');
+                                alert('해당 제품을 보관중인 고객이 있어 삭제할 수 없습니다.');
                             }
                         },
                         error: function () {
@@ -68,27 +68,27 @@
             });
         });
     </script>
-<script> 
+<script>
 function setThumbnail(event) {
-		                        
+
 	var header = document.querySelector(".profile-img");	//제거하고자 하는 엘리먼트
 	if(header != null){
 		header.parentNode.removeChild(header);
 	}
-								
-	                        	
+
+
 	var reader = new FileReader();
 	reader.onload = function(event) {
 	var img = document.createElement("img");
-	img.setAttribute("src", event.target.result); 
+	img.setAttribute("src", event.target.result);
 	img.setAttribute("style", style="width: 228px; height: 252px");
 	img.setAttribute("id", "inputFile");
 	img.setAttribute("class", "profile-img");
-	document.querySelector("div.profile").appendChild(img); 
-	}; 
-	reader.readAsDataURL(event.target.files[0]); 
-	} 
-</script>    
+	document.querySelector("div.profile").appendChild(img);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
 </head>
 <body>
     <!-- header -->
@@ -102,15 +102,16 @@ function setThumbnail(event) {
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
@@ -133,7 +134,7 @@ function setThumbnail(event) {
                             	<div style="display: none;">
                             		<input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple"/>
                             	</div>
-                            	
+
                                 <img class="minus-icon" src="/resources/img/channel/delete.png" alt="">
                                 <img src="../resources/upload/file/${channel.getChProfile() }" alt="" class="profile-img">
                             </label>
@@ -184,7 +185,7 @@ function setThumbnail(event) {
                             <input class="button btn-danger" type="button" value="done" onclick="fn_chModify();">
                         </div>
                     </div>
-                </form>    
+                </form>
             </div>
         </div>
     </div>
