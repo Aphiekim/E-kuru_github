@@ -434,6 +434,28 @@ public class UserService {
 		return list;
 	}
 	
+	public String insertCartSpec(specVO vo) {
+		
+		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
+		vo.setSpecNum(su);
+		
+		int count = dao.insertSpec(vo);
+		
+		System.out.println("SPEC service : " + vo.getChatNum());
+		
+		String path = "";
+		
+		if(count == 0) {
+
+			path = "redirect:/";
+		}else {
+
+			path = "redirect:/user/chatForm";
+		}
+		
+		return path;
+	}
+	
 	public String insertSpec(specVO vo) {
 		
 		//6자리 랜덤 숫자를 specnum에 set
@@ -535,14 +557,25 @@ public class UserService {
 		return path;
 	}
 	
-	public String purchaseOne(int specNum) {
+	public String purchaseOne(specVO specvo) {
+		
+		String id = (String) session.getAttribute("userId");
+		UserVO user = dao.selectUser(id);
+		
+		int point = user.getUserPoint() - specvo.getProductPrice();
+		
+		user.setUserPoint(point);
+		
+		session.setAttribute("userPoint", point);
+		
+		dao.updatePoint(user);
 		
 		String path = "";
 		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
 		
 		dealHistoryVO vo = new dealHistoryVO();
 		vo.setDealCode(su);
-		vo.setSpecNum(specNum);
+		vo.setSpecNum(specvo.getSpecNum());
 		
 		int cnt = dao.purchaseOne(vo);
 		
@@ -555,6 +588,11 @@ public class UserService {
 		return path;
 		
 	}
+	
+	public ChatVO selectChatRoomOne(int chatNum) {
+		return dao.selectChatRoomOne(chatNum);
+	}
+	
 }
 
 
