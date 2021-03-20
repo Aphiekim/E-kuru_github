@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-
+					<button type="button" class="btn btn-warning" onclick="location.href='../channel/chCreate'" >Channel</button>
                     <!-- Masthead Avatar Image-->
                     <img class="mx-auto rounded-circle imgsize" src="../resources/upload/file/${user.getUserProfile()}" style="width: 20%; margin-top: 5%;" />
                     <!-- Masthead Heading-->

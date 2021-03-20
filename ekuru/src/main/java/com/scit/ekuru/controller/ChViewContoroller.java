@@ -98,7 +98,7 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/chModify")
 	public String chModify(ChannelVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
-		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
 		System.out.println(upload[0].getOriginalFilename());
 

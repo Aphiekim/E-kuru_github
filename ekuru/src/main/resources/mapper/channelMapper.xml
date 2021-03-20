@@ -99,9 +99,6 @@ INSERT INTO
 		PRODORIGINALPIC1,
 		PRODORIGINALPIC2,
 		PRODORIGINALPIC3,
-		PRODSAVEDPIC1,
-		PRODSAVEDPIC2,
-		PRODSAVEDPIC3,
 		PRODINDATE
 	)VALUES(
 		PRODNUM_SQ.nextval,
@@ -115,9 +112,6 @@ INSERT INTO
 		#{prodOriginalPic1},
 		#{prodOriginalPic2},
 		#{prodOriginalPic3},
-		'wash1.jpg',
-		'wash2.jpg',
-		'wash3.jpg',
 		SYSDATE)
 </insert>
 
