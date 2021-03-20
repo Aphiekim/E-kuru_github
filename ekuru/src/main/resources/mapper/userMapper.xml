@@ -6,153 +6,153 @@
 <mapper namespace="com.scit.ekuru.dao.UserMapper">
 
 <insert id="insertUser" parameterType="user">
-	insert into e_user_tb(userId, userPw, userNm, userType) values(#{userId}, #{userPw}, #{userNm}, #{userType})
+   insert into e_user_tb(userId, userPw, userNm, userType) values(#{userId}, #{userPw}, #{userNm}, #{userType})
 </insert>
 
 <select id="loginUser" parameterType="user" resultType="user">
-	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint
-	from e_user_tb
-	where userId = #{userId} and userPw = #{userPw}
+   select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint
+   from e_user_tb
+   where userId = #{userId} and userPw = #{userPw}
 </select>
 
 <select id="selectUser" parameterType="String" resultType="user">
-	select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint, authkey, userProfile
-	from e_user_tb
-	where userId = #{userId}
+   select userid, userpw, usernm, useraddr, userzip, userphone, userconfirm, usertype, userpoint, authkey, userProfile
+   from e_user_tb
+   where userId = #{userId}
 </select>
 
 <select id="selectPoint" parameterType="user" resultType="hashmap">
-	select
-		ep.pointChargeNum as pontChargeNum,
-		ep.userId as userId,
-		pp.pointprodname as pointprodname,
-		to_char(ep.pointChargedIndate, 'YYYY-MM-DD') as pointchargedindate
+   select
+      ep.pointChargeNum as pontChargeNum,
+      ep.userId as userId,
+      pp.pointprodname as pointprodname,
+      to_char(ep.pointChargedIndate, 'YYYY-MM-DD') as pointchargedindate
 
-	from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum
-	where ep.userId like #{userId}
-	order by ep.pointChargeNum desc
+   from e_point_tb ep join e_pointproduct_tb pp on ep.pointprodnum = pp.pointprodnum
+   where ep.userId like #{userId}
+   order by ep.pointChargeNum desc
 </select>
 
 <update id="modifyUser" parameterType="user">
-	update e_user_tb
-	set
-	 userAddr = #{userAddr},
-	 userZip = #{userZip},
-	 userPhone = #{userPhone},
-	 userProfile = #{userProfile}
-	where userId = #{userId}
+   update e_user_tb
+   set
+    userAddr = #{userAddr},
+    userZip = #{userZip},
+    userPhone = #{userPhone},
+    userProfile = #{userProfile}
+   where userId = #{userId}
 
 </update>
 
 <update id="modifyAuthkey" parameterType="user">
-	update e_user_tb
-	set authkey = #{authkey}
-	where userId = #{userId}
+   update e_user_tb
+   set authkey = #{authkey}
+   where userId = #{userId}
 
 </update>
 
 <update id="updateConfirm" parameterType="user">
-	update e_user_tb
-	set userConfirm = #{userConfirm}
-	where userId = #{userId}
+   update e_user_tb
+   set userConfirm = #{userConfirm}
+   where userId = #{userId}
 
 </update>
 
 <select id="selectCart" parameterType="String" resultType="hashmap">
 
-	select
-		c.cartprodnum as CARTPRODNUM,
-		c.prodnum as PRODNUM,
-		--c.userid as USERID,
-		pd.prodtitle as PRODTITLE,
-		cc.chname as CHNAME,
-		pd.prodprice as PRODPRICE,
-		c.cartprodea as CARTPRODEA
-	from
+   select
+      c.cartprodnum as CARTPRODNUM,
+      c.prodnum as PRODNUM,
+      --c.userid as USERID,
+      pd.prodtitle as PRODTITLE,
+      cc.chname as CHNAME,
+      pd.prodprice as PRODPRICE,
+      c.cartprodea as CARTPRODEA
+   from
     e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum 
-	where c.userId = #{userId}
-	
+   where c.userId = #{userId}
+   
 </select>
 <select id="selectPointPricing" parameterType="int" resultType="pointprod">
 select
-	pointProdNum
-	,pointProdName
-	,priceWon
-	,priceYen
+   pointProdNum
+   ,pointProdName
+   ,priceWon
+   ,priceYen
 from
-	e_pointProduct_tb
+   e_pointProduct_tb
 where
-	pointProdNum = #{pointProdNum}
+   pointProdNum = #{pointProdNum}
 </select>
 <update id="updatePoint" parameterType="user">
 update
-	e_user_tb
+   e_user_tb
 set
-	userPoint = #{userPoint}
+   userPoint = #{userPoint}
 where
-	userId = #{userId}
+   userId = #{userId}
 </update>
 <insert id="insertPoint" parameterType="point">
 insert
 into e_point_tb(
-	pointChargeNum
-	,userId
-	,pointProdNum
+   pointChargeNum
+   ,userId
+   ,pointProdNum
 )values(
-	point_seq.nextval
-	,#{userId}
-	,#{pointProdNum}
+   point_seq.nextval
+   ,#{userId}
+   ,#{pointProdNum}
 )
 </insert>
 
 <select id="selectChatRoom" parameterType="chat" resultType="hashmap">
 select
-	cr.chatnum as CHATNUM,
-	cr.userid as USERID,
-	cr.chnum as CHNUM,
-	chh.chname as CHNAME,
-	ca.content as CONTENT
+   cr.chatnum as CHATNUM,
+   cr.userid as USERID,
+   cr.chnum as CHNUM,
+   chh.chname as CHNAME,
+   ca.content as CONTENT
 from
-	e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
+   e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
 
 <choose>
-	<when test="userType == 1">
-		<where>
-			chh.chNum = #{chNum}
-		</where>
-	</when>
-	<otherwise>
-		<where>
-			cr.userId = #{userId}
-		</where>
-	</otherwise>
+   <when test="userType == 0">
+      <where>
+         chh.chNum = #{chNum}
+      </where>
+   </when>
+   <otherwise>
+      <where>
+         cr.userId = #{userId}
+      </where>
+   </otherwise>
 </choose>
 
 </select>
 
 <select id="selectChat" parameterType="int" resultType="chat">
 select
-	roomnum as ROOMNUM,
-	content as CONTENT
+   roomnum as ROOMNUM,
+   content as CONTENT
 from e_chat_tb
 where roomnum = #{chatNum}
 </select>
 
 <update id="updateChat" parameterType="chat">
 update
-	e_chat_tb
+   e_chat_tb
 set
-	content = #{content}
+   content = #{content}
 where
-	roomnum = #{chatNum}
+   roomnum = #{chatNum}
 </update>
 
 <select id="selectChUser1" parameterType="String" resultType="chat">
 select
 
-	max(ch.CHNUM) as CHNUM,
-	us.USERTYPE as USERTYPE,
-	us.USERID as USERID
+   max(ch.CHNUM) as CHNUM,
+   us.USERTYPE as USERTYPE,
+   us.USERID as USERID
 
 from e_channel_tb ch join e_user_tb us on ch.chid = us.userid join e_chattingroom_tb cr on cr.chnum = ch.chnum
 where ch.chId = #{userId}
@@ -161,57 +161,57 @@ group by ch.chnum, us.userType, us.userId
 
 <select id="selectChUser2" parameterType="String" resultType="chat">
 select
-	userId as userId,
-	userType as userType
+   userId as userId,
+   userType as userType
 from
-	e_user_tb
+   e_user_tb
 where userid = #{userId}
 </select>
 <!-- 거래 내역 가져오기 -->
 <select id = "dealHistory" parameterType="String" resultType="hashmap">
-	SELECT
-		d.SPECNUM as SPECNUM,
-		d.DEALCODE as DEALCODE,
-		e.USERID as USERID,
-		d.DEALSTATE as DEALSTATE,
-		d.DEALINDATE as DEALINDATE
-	FROM
-		E_DEALHISTORY_TB d, E_SPEC_TB e
-	WHERE
-		d.SPECNUM = e.SPECNUM
-	AND
-		e.USERID = #{userId}
+   SELECT
+      d.SPECNUM as SPECNUM,
+      d.DEALCODE as DEALCODE,
+      e.USERID as USERID,
+      d.DEALSTATE as DEALSTATE,
+      d.DEALINDATE as DEALINDATE
+   FROM
+      E_DEALHISTORY_TB d, E_SPEC_TB e
+   WHERE
+      d.SPECNUM = e.SPECNUM
+   AND
+      e.USERID = #{userId}
 </select>
 <!-- 상품 전체 리스트 -->
 <select id="selectProdList" resultType="hashmap">
-	SELECT
-		PRODNUM as PRODNUM,
-		USERID as USERID,
-		CHNUM as CHNUM,
-		PRODCATEGORY as PRODCATEGORY,
-		PRODTITLE as PRODTITLE,
-		PRODSTOCK as PRODSTOCK,
-		PRODPRICE as PRODSTOCK,
-		PRODCONTENT as PRODSTOCK,
-		PRODINDATE as PRODINDATE
-	FROM
-		E_PRODUCT_TB
+   SELECT
+      PRODNUM as PRODNUM,
+      USERID as USERID,
+      CHNUM as CHNUM,
+      PRODCATEGORY as PRODCATEGORY,
+      PRODTITLE as PRODTITLE,
+      PRODSTOCK as PRODSTOCK,
+      PRODPRICE as PRODSTOCK,
+      PRODCONTENT as PRODSTOCK,
+      PRODINDATE as PRODINDATE
+   FROM
+      E_PRODUCT_TB
 </select>
 
 
 <!-- 장바구니 저장 -->
 <insert id="addCart" parameterType="cart">
-	INSERT INTO
-		E_CART_TB
-			(CARTPRODNUM,
-			USERID,
-			PRODNUM,
-			CARTPRODEA
-		)VALUES(
-			CART_SEQ.nextval,
-			#{userId},
-			#{prodNum},
-			#{cartProdEa})
+   INSERT INTO
+      E_CART_TB
+         (CARTPRODNUM,
+         USERID,
+         PRODNUM,
+         CARTPRODEA
+      )VALUES(
+         CART_SEQ.nextval,
+         #{userId},
+         #{prodNum},
+         #{cartProdEa})
 
 </insert>
 
@@ -221,45 +221,45 @@ where cartProdNum = #{cartProdNum}
 </delete>
 
 <select id="selectChid" parameterType="String" resultType="chat">
-	select chNum, chId, chName
-	from e_channel_tb
-	where chid = #{chId}
+   select chNum, chId, chName
+   from e_channel_tb
+   where chid = #{chId}
 </select>
 
 <insert id="createChatRoom" parameterType="chat">
-	insert into e_chattingroom_tb(chatnum, userid, chnum) values(chattingroom_seq.nextval, #{userId}, #{chNum})
+   insert into e_chattingroom_tb(chatnum, userid, chnum) values(chattingroom_seq.nextval, #{userId}, #{chNum})
 </insert>
 
 <insert id="createChat" parameterType="chat">
-	insert into e_chat_tb(roomnum, content) values(chat_seq.nextval, #{content})
+   insert into e_chat_tb(roomnum, content) values(chat_seq.nextval, #{content})
 </insert>
 
 <!-- pointUsed_TB 관련 -->
 <insert id="insertUsedPoint" parameterType="usedPoint">
 insert
 into
-	e_pointUsed_tb(
-		pointUsedNum
-		,userId
-		,pointUsed
-	)values(
-		pointUsedNum_seq.nextval
-		,#{userId}
-		,#{pointUsed}
-	)
+   e_pointUsed_tb(
+      pointUsedNum
+      ,userId
+      ,pointUsed
+   )values(
+      pointUsedNum_seq.nextval
+      ,#{userId}
+      ,#{pointUsed}
+   )
 </insert>
 <select id="selectUsedPointList" parameterType="String" resultType="usedPoint">
 select
-	pointUsedNum	
-	,userId
-	,pointUsed
-	,to_char(pointUsedIndate, 'YYYY-MM-DD') as pointUsedIndate
+   pointUsedNum   
+   ,userId
+   ,pointUsed
+   ,to_char(pointUsedIndate, 'YYYY-MM-DD') as pointUsedIndate
 from
-	e_pointUsed_tb
+   e_pointUsed_tb
 where
-	userId = #{userId}
+   userId = #{userId}
 order by 
-	pointUsedNum desc
+   pointUsedNum desc
 </select>
 
 <select id="selectBuyer" parameterType="int" resultType="chat">
@@ -269,23 +269,23 @@ where ch.chatnum = #{chatnum}
 </select>
 
 <insert id="insertSpec" parameterType="spec">
-	insert into e_spec_tb(
-		specNum, 
-		userId,
-		chNum,
-		productName,
-		productEa,
-		productPrice,
-		customerAddr
-	) values(
-		#{specNum},
-		#{userId},
-		#{chNum},
-		#{productName},
-		#{productEa},
-		#{productPrice},
-		#{customerAddr}
-	)
+   insert into e_spec_tb(
+      specNum, 
+      userId,
+      chNum,
+      productName,
+      productEa,
+      productPrice,
+      customerAddr
+   ) values(
+      #{specNum},
+      #{userId},
+      #{chNum},
+      #{productName},
+      #{productEa},
+      #{productPrice},
+      #{customerAddr}
+   )
 </insert>
 
 
@@ -299,60 +299,60 @@ where userId = #{userId}
 <!-- AD 관련 -->
 <insert id="insertReqAd" parameterType="ad">
 insert into 
-	e_ad_tb(
-		adNum
-		,userId
-		,reqNum
-		,adTotal
-		,adReqCharge
-	)values(
-		adNum_seq.nextval
-		,#{userId}
-		,#{reqNum}
-		,#{adTotal}
-		,#{adReqCharge}
-	)
+   e_ad_tb(
+      adNum
+      ,userId
+      ,reqNum
+      ,adTotal
+      ,adReqCharge
+   )values(
+      adNum_seq.nextval
+      ,#{userId}
+      ,#{reqNum}
+      ,#{adTotal}
+      ,#{adReqCharge}
+   )
 </insert>
 <insert id="insertChAd" parameterType="ad">
 insert into 
-	e_ad_tb(
-		adNum
-		,userId
-		,prodNum
-		,adTotal
-		,adChCharge
-		,adProdCharge
-	)values(
-		adNum_seq.nextval
-		,#{userId}
-		,#{prodNum}
-		,#{adTotal}
-		,#{adChCharge}
-		,#{adProdCharge}
-	)
+   e_ad_tb(
+      adNum
+      ,userId
+      ,prodNum
+      ,adTotal
+      ,adChCharge
+      ,adProdCharge
+   )values(
+      adNum_seq.nextval
+      ,#{userId}
+      ,#{prodNum}
+      ,#{adTotal}
+      ,#{adChCharge}
+      ,#{adProdCharge}
+   )
 </insert>
 <!-- 
 <select id="selectSearchAll" parameterType="string" resultType="hashmap">
 select
-	r.reqNum as reqNum
-	,r.categoryCode as categoryCode
-	,r.reqTitle as reqTitle
-	,r.reqContent as reqContent
-	,r.reqOriginalPic1 as reqOriginal
-	,r.reqIndate as reqIndate
-	,c.prodNum as prodNum
-	,c.prodTitle as prodTitle
-	,c.prodContent as prodContent
-	,c.prodOriginalPic1 as prodOriginalPic1
-	,c.prodIndate as prodIndate
+   r.reqNum as reqNum
+   ,r.categoryCode as categoryCode
+   ,r.reqTitle as reqTitle
+   ,r.reqContent as reqContent
+   ,r.reqOriginalPic1 as reqOriginal
+   ,r.reqIndate as reqIndate
+   ,c.prodNum as prodNum
+   ,c.prodTitle as prodTitle
+   ,c.prodContent as prodContent
+   ,c.prodOriginalPic1 as prodOriginalPic1
+   ,c.prodIndate as prodIndate
 
 from
-	e_request_tb r, e_product_tb c
+   e_request_tb r, e_product_tb c
 <if test="_parameter != null">
 where
-	r.reqContent like '%'|| #{search} || '%'
+   r.reqContent like '%'|| #{search} || '%'
 or
-	c.prodContent like '%'|| #{search} || '%'	
+   c.prodContent like '%'|| #{search} || '%'   
 </if>
 </select> -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
