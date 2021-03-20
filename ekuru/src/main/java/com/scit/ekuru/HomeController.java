@@ -61,11 +61,13 @@ public class HomeController {
 		ArrayList<RequestVO> reqList = reqService.selectRequestAll(search);
 		ArrayList<RequestVO> adReqList = reqService.selectReqAd();
 		ArrayList<ProductVO> prodList = chService.selectProdAll(search);
+		ArrayList<ChannelVO> adChList = chService.selectChAd();
 		
 		model.addAttribute("search", search);
 		model.addAttribute("adReqList", adReqList);
 		model.addAttribute("reqList", reqList);
 		model.addAttribute("prodList", prodList);
+		model.addAttribute("adChList", adChList);
 		
 		return "main_afterSearchForm";
 	}

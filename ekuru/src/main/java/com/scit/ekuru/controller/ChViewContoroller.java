@@ -66,6 +66,8 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_categoryresult", method = RequestMethod.GET)
 	public String chCategoryResult(int categoryCode, Model model) {
 		service.chCategoryResult(model, categoryCode);
+		
+		model.addAttribute("categoryCode", categoryCode);
 		return "channel/ch_categoryresult";
 	}
 

@@ -72,8 +72,8 @@ public class RequestViewController {
 	@RequestMapping(value="/request_write", method=RequestMethod.POST)
 	public String requestWrite(RequestVO reqVO, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 
-		//String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
-		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		//String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
 		
 		
@@ -237,7 +237,7 @@ public class RequestViewController {
 		
 		model.addAttribute("categoryCode", categoryCode);
 		model.addAttribute("user", user);
-		model.addAttribute("reqList", list);
+		model.addAttribute("list", list);
 		model.addAttribute("adReqList", adReqList);
 
 		return "request/request_categoryResult";
@@ -286,10 +286,12 @@ public class RequestViewController {
 	public String search(@RequestParam(defaultValue="")String search, Model model) {
 		logger.info("검색어 : {}", search);
 		logger.info("내용 검색 후, 목록 출력");
-
+		
+		ArrayList<RequestVO> adReqList = service.selectReqAd();
 		ArrayList<RequestVO> searchList = service.selectRequestAll(search);
+		
 		model.addAttribute("searchList", searchList);
-
+		model.addAttribute("adReqList", adReqList);
 		return "request/request_search";
 	}
 

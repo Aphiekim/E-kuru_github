@@ -100,16 +100,36 @@
     <!-- 카테고리 구분 -->
     <section>
       <div class="category-button" style="height: auto; background:#FFDFB9;">
-        <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;"
-          onclick="openCategory('1');">Fashion/Acc</button>
-        <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;"
-          onclick="openCategory('2');">Beauty</button>
-        <button type="button" class="btn btn-outline-success" style="margin-right: 50px;"
-          onclick="openCategory('3');">Food</button>
-        <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;"
-          onclick="openCategory('4');">Book/CD</button>
-        <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;"
-          onclick="openCategory('5');">Ect</button>
+      	<c:if test="${categoryCode eq 1 }">
+	        <button type="button" class="btn btn-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 1 }">
+	        <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 2 }">
+	        <button type="button" class="btn btn-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 2 }">
+	        <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 3 }">
+			<button type="button" class="btn btn-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 3 }">
+			<button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 4 }">
+			<button type="button" class="btn btn-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 4 }">
+			<button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+      	</c:if>
+      	<c:if test="${categoryCode eq 5 }">
+			<button type="button" class="btn btn-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+      	</c:if>
+      	<c:if test="${categoryCode ne 5 }">
+			<button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+      	</c:if>
       </div>
     </section>
     <!-- 채널 게시글 출력 부분 시작-->
