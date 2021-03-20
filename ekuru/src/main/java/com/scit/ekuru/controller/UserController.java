@@ -118,7 +118,7 @@ public class UserController {
 	public String mypageInfoForm(UserVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		//System.out.println(vo);
 		//파일이 업로드 될 경로 설정
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		//이렇게 하면 되는건가용?
 				System.out.println(upload[0].getOriginalFilename());
 

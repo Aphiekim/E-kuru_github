@@ -126,6 +126,16 @@ from
          cr.userId = #{userId}
       </where>
    </otherwise>
+	<when test="userType == 0">
+		<where>
+			chh.chNum = #{chNum}
+		</where>
+	</when>
+	<otherwise>
+		<where>
+			cr.userId = #{userId}
+		</where>
+	</otherwise>
 </choose>
 
 </select>
