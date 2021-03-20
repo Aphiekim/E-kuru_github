@@ -118,7 +118,7 @@ public class UserController {
 	public String mypageInfoForm(UserVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		//System.out.println(vo);
 		//파일이 업로드 될 경로 설정
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		//이렇게 하면 되는건가용?
 				System.out.println(upload[0].getOriginalFilename());
 
@@ -127,7 +127,7 @@ public class UserController {
 				if(!dir.exists()) {
 					dir.mkdirs();
 				}
-				String reName = "";
+				String reName = "Test-image.png";
 				// 파일 업로드
 				for(MultipartFile f : upload) {
 					if(!f.isEmpty()) {
@@ -369,7 +369,7 @@ public class UserController {
 	}
 
 //	장바구니 저장
-	@RequestMapping(value = "/addCart")
+	@RequestMapping(value = "/addCart", method=RequestMethod.POST)
 	public String addCart(CartVO vo, HttpSession session){
 		String userId = (String) session.getAttribute("userId");
 		vo.setUserId(userId);
@@ -432,4 +432,23 @@ public class UserController {
 		return "deal/deal_purchaseForm";
 	}
 
+	@RequestMapping(value = "/removeSpecOne", method=RequestMethod.GET)
+	public String removeSpecOne(specVO vo) {
+		
+		return service.removeSpecOne(vo.getSpecNum());
+	}
+	
+	@RequestMapping(value = "/purchaseOne", method=RequestMethod.POST)
+	public String purchaseOne(specVO vo) {
+		
+		return service.purchaseOne(vo.getSpecNum());
+	}
+	
+	@RequestMapping(value = "/deal_shoppingClear", method=RequestMethod.GET)
+	public String deal_shoppingClear() {
+		
+		return "deal/deal_shoppingClear";
+	}
+	
+	
 }

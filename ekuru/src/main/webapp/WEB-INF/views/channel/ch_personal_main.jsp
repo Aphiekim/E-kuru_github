@@ -70,17 +70,23 @@
                             <ul>
                                 <li class="li-sty"><span>${fn:length(prodListResult)}  </span></li>
                                 <li class="li-sty"><span>${channel.chFollower }</span></li>
-                                <li  class="li-sty"><span>0</span></li>
+                                <li  class="li-sty" style="color: #FFDFB9;"><span>.</span></li>
                             </ul>
-
                             <ul class="text">
                                 <li  class="li-sty"><span>Posts</span></li>
                                 <li  class="li-sty"><span>Followers</span></li>
-                                <li  class="li-sty"><span>Follow</span></li>
+                                <li  class="li-sty">
+                                	<c:if test="${fUser ne sessionScope.userId && channel.chId ne sessionScope.userId}">
+                                 		<button type="button" style="width: 30%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
+                        			</c:if>
+                        			<c:if test="${fUser eq sessionScope.userId}">
+                                 		<button type="button" style="width: 30%;" class="btn btn-outline-secondary">followed</button>
+                        			</c:if>
+                        			<c:if test="${channel.chId eq sessionScope.userId}">
+                                 		<span style="color: #FFDFB9;">.</span>
+                        			</c:if>
+                        		</li>
                              </ul>
-                             <c:if test="${fUser ne sessionScope.userId}">
-                                 <button type="button" style="width: 20%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
-                        	</c:if>
                         </div>
                     </div>
                 <div class="test2 col-md-12">
@@ -110,7 +116,12 @@
                             <input class="button btn-danger" type="button" value="write" onclick="location.href='ch_posters?chId=${channel.chId}'">
                             <input class="button btn-danger" type="button" value="modify" onclick="location.href='ch_management?chId=${channel.chId}'">
                         </div>
-                </c:if>
+                    </c:if>
+                    <c:if test="${sessionScope.userId ne channel.chId}">
+                        <div class="button-list">
+                            <input class="button btn-danger" type="button" value="Move To Channel Main" onclick="location.href='ch_main'">
+                        </div>
+                    </c:if>
 
 
             </div>

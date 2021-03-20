@@ -28,6 +28,20 @@
 
         function fn_chModify(){
             const chModify = document.getElementById("chModify");
+            const chName = document.getElementById("chName").value;
+            const chIntro = document.getElementById("chIntro").value;
+
+            if(chName ==""){
+                alert("채널 이름을 입력 해 주세요");
+                return false;
+            }
+
+            if(chIntro == ""){
+                alert("채널 소개를 입력 해 주세요");
+                return false;
+            }
+
+
             chModify.action="/channel/chModify";
             chModify.method="POSt";
             chModify.submit();
@@ -143,16 +157,25 @@ function setThumbnail(event) {
                         <div class="content2">
                             <div class="test">
                                 <ul>
-                                    <li class="li-sty"><span>${fn:length(prodListResult)}</span></li>
-                                    <li class="li-sty"><span>379</span></li>
-                                    <li  class="li-sty"><span>8210</span></li>
+                                    <li class="li-sty"><span>${fn:length(prodListResult)}  </span></li>
+                                    <li class="li-sty"><span>${channel.chFollower }</span></li>
+                                    <li  class="li-sty" style="color: #FFDFB9;"><span>.</span></li>
                                 </ul>
-
                                 <ul class="text">
                                     <li  class="li-sty"><span>Posts</span></li>
                                     <li  class="li-sty"><span>Followers</span></li>
-                                    <li  class="li-sty"><span>Follow</span></li>
-                                </ul>
+                                    <li  class="li-sty">
+                                        <c:if test="${fUser ne sessionScope.userId && channel.chId ne sessionScope.userId}">
+                                             <button type="button" style="width: 30%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
+                                        </c:if>
+                                        <c:if test="${fUser eq sessionScope.userId}">
+                                             <button type="button" style="width: 30%;" class="btn btn-outline-secondary">followed</button>
+                                        </c:if>
+                                        <c:if test="${channel.chId eq sessionScope.userId}">
+                                             <span style="color: #FFDFB9;">.</span>
+                                        </c:if>
+                                    </li>
+                                 </ul>
                             </div>
                         </div>
 

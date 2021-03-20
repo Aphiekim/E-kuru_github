@@ -81,11 +81,11 @@
             <hr class="line">
             <div style="padding-bottom: 10px;">
                 <a href="/user/removeCart?cartProdNum=${list.CARTPRODNUM }"><img class="shopping-minus" src="../resources/img/shopping-minus.png"></a>
-                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
+                <img class="shopping-img" src="../resources/upload/file/${list.PRODORIGINALPIC1 }">
                 <span style="padding-right: 50px; padding-left: 50px;margin-left: 30px;">${list.PRODTITLE }</span>
                 <span style="padding-right: 50px; margin-left: 30px;">${list.PRODPRICE }P</span>
-                <input type="number" style="max-width: 40px; margin-left: 30px;" value="${list.CARTPRODEA }"> 개
-                <input class="shopping-checkbox" type="checkbox">
+                <input type="number" style="max-width: 100px; margin-left: 30px;" value="${list.CARTPRODEA }"> 개
+                <!-- <input class="shopping-checkbox" type="checkbox">  -->
             </div>
         
 

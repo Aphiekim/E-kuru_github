@@ -29,34 +29,68 @@
     <script>
         function fn_prodWrite(){
             var prodWriteForm = document.getElementById("prodWriteForm");
+
+            const prodTitle = document.getElementById("prodTitle").value;
+            const prodPrice = document.getElementById("prodPrice").value;
+            const prodStock = document.getElementById("prodStock").value;
+            const prodContent = document.getElementById("prodContent").value;
+
+            if(prodTitle==""){
+                alert("제목을 입력해 주세요");
+                return false;
+            }
+
+            if(prodPrice==""){
+                alert("가격을 입력해 주세요");
+				return false;
+            }
+
+            if(isNaN(prodPrice)){
+                alert("숫자만 입력 가능합니다");
+				return false;
+             }
+
+             if(prodStock==""){
+                alert("수량을 입력해 주세요");
+				return false;
+            }
+
+             if(prodContent==""){
+                alert("상품 설명을 입력해 주세요");
+				return false;
+            }
+
             console.log(prodWriteForm);
             prodWriteForm.action="/channel/ch_posters_Write";
             prodWriteForm.method="POST";
             prodWriteForm.enctype="multipart/form-data";
             prodWriteForm.submit();
         }
+
+
+
     </script>
-    
-<script> 
+
+<script>
 function setThumbnail(event) {
-		                        
+
 	var header = document.querySelector("#inputFileOne");	//제거하고자 하는 엘리먼트
 	if(header != null){
 		header.parentNode.removeChild(header);
 	}
-								
-	                        	
+
+
 	var reader = new FileReader();
 	reader.onload = function(event) {
 	var img = document.createElement("img");
-	img.setAttribute("src", event.target.result); 
+	img.setAttribute("src", event.target.result);
 	img.setAttribute("style", style="width: 333px; height: 333px");
 	img.setAttribute("id", id="inputFileOne");
-	document.querySelector("div#image_container").appendChild(img); 
-	}; 
-	reader.readAsDataURL(event.target.files[0]); 
-	} 
-</script>    
+	document.querySelector("div#image_container").appendChild(img);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
 </head>
 <body>
     <!-- header -->
@@ -96,28 +130,33 @@ function setThumbnail(event) {
                         <!--사진 파일-->
                         <div class="product-img" onclick="">
                             <div class="img-box" id="image_container" style="width: 333px; height: 333px">
-                            
+
                                 <div class="circle">
-                                <label for="inputFile">                         
+                                <label for="inputFile">
                                 	<div style="display: none;">
-                                			
+
                                 	</div>
-                                
+
                                     <img class="cross" src="/resources/img/icon/cross.png" alt="">
                                 </label>
                                 <label><input type="file" name="upload" id="inputFile" onchange="setThumbnail(event);" multiple="multiple"></label>
-                                <label><input type="file" name="upload" multiple="multiple"/></label> 
-								<label><input type="file" name="upload" multiple="multiple"/></label> 
+                                <label><input type="file" name="upload" multiple="multiple"/></label>
+								<label><input type="file" name="upload" multiple="multiple"/></label>
                                 </div>
-                             
+
                             </div>
                         </div>
 
-                        
+
                         <!-- 물품 정보 -->
                         <div class="product-details">
                             <div class="product-title">
-                                <input type="text" name="prodTitle" id="prodTitle">
+                                <div class="" style="float: left; margin-left: 120px;">
+                                    <span class="span">Title</span>
+                                </div>
+                                <div class="" style="width: 50%; display: inline-block;">
+                                    <input type="text" name="prodTitle" id="prodTitle">
+                                </div>
                             </div>
                             <div class="product-spec">
                                 <div class="content1">

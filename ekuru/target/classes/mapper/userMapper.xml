@@ -65,13 +65,14 @@
       c.prodnum as PRODNUM,
       --c.userid as USERID,
       pd.prodtitle as PRODTITLE,
+      pd.prodoriginalpic1 as PRODORIGINALPIC1,
       cc.chname as CHNAME,
       pd.prodprice as PRODPRICE,
       c.cartprodea as CARTPRODEA
    from
-    e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum 
+    e_cart_tb c join e_product_tb pd on c.prodnum = pd.prodnum join e_channel_tb cc on cc.chnum = pd.chnum
    where c.userId = #{userId}
-   
+
 </select>
 <select id="selectPointPricing" parameterType="int" resultType="pointprod">
 select
@@ -250,7 +251,7 @@ into
 </insert>
 <select id="selectUsedPointList" parameterType="String" resultType="usedPoint">
 select
-   pointUsedNum   
+   pointUsedNum
    ,userId
    ,pointUsed
    ,to_char(pointUsedIndate, 'YYYY-MM-DD') as pointUsedIndate
@@ -258,7 +259,7 @@ from
    e_pointUsed_tb
 where
    userId = #{userId}
-order by 
+order by
    pointUsedNum desc
 </select>
 
@@ -270,7 +271,7 @@ where ch.chatnum = #{chatnum}
 
 <insert id="insertSpec" parameterType="spec">
    insert into e_spec_tb(
-      specNum, 
+      specNum,
       userId,
       chNum,
       productName,
@@ -298,7 +299,7 @@ where userId = #{userId}
 
 <!-- AD 관련 -->
 <insert id="insertReqAd" parameterType="ad">
-insert into 
+insert into
    e_ad_tb(
       adNum
       ,userId
@@ -314,7 +315,7 @@ insert into
    )
 </insert>
 <insert id="insertChAd" parameterType="ad">
-insert into 
+insert into
    e_ad_tb(
       adNum
       ,userId
@@ -331,7 +332,7 @@ insert into
       ,#{adProdCharge}
    )
 </insert>
-<!-- 
+<!--
 <select id="selectSearchAll" parameterType="string" resultType="hashmap">
 select
    r.reqNum as reqNum
@@ -352,12 +353,32 @@ from
 where
    r.reqContent like '%'|| #{search} || '%'
 or
-   c.prodContent like '%'|| #{search} || '%'   
+   c.prodContent like '%'|| #{search} || '%'
 </if>
 </select> -->
+
+<!-- 명세 상세(하나) 조회 -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
 select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>
+
+<!-- 명세 하나 삭제 -->
+<delete id="removeSpecOne" parameterType="int">
+delete from e_spec_tb
+where specNum = #{specNum}
+</delete>
+
+<insert id="purchaseOne" parameterType="dealHistory">
+insert into 
+	e_dealHistory_tb(
+		dealCode, 
+		specNum
+	) values(
+		#{dealCode},
+		#{specNum}
+	)
+</insert>
+
 </mapper>
