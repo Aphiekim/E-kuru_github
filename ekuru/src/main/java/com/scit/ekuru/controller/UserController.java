@@ -118,7 +118,7 @@ public class UserController {
 	public String mypageInfoForm(UserVO vo, HttpSession session, MultipartFile[] upload, HttpServletRequest request) {
 		//System.out.println(vo);
 		//파일이 업로드 될 경로 설정
-		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
+		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		//이렇게 하면 되는건가용?
 				System.out.println(upload[0].getOriginalFilename());
 
@@ -173,14 +173,16 @@ public class UserController {
 	public String chatForm(Model model, ChatVO vo) {
 		String id = (String)session.getAttribute("userId");
 		UserVO uservo = service.selectUserTest(id);
+		
+		
 		ChatVO chatvo = null;
 		//System.out.println(uservo);
-		if(uservo.getUserType().equals("1")) {
+		if(uservo.getUserType().equals("0")) {
 			chatvo = service.selectChUser1();
 		}else {
 			chatvo = service.selectChUser2();
 		}
-
+		
 		//System.out.println(chatvo);
 
 		ArrayList<HashMap<Object, Object>> chatroomlist = service.selectChatRoom(chatvo);

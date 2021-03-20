@@ -116,7 +116,7 @@ from
 	e_chattingroom_tb cr join e_channel_tb chh on cr.chnum = chh.chnum join e_chat_tb ca on cr.chatnum = ca.roomnum
 
 <choose>
-	<when test="userType == 1">
+	<when test="userType == 0">
 		<where>
 			chh.chNum = #{chNum}
 		</where>
