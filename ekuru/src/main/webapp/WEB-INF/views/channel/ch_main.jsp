@@ -86,6 +86,17 @@ body {
         	left: 50%;
         	z-index: 100;
         	}
+        	
+       	#imgsize{
+       		width: 350px;
+       		height: 260px;
+       	}
+       	
+       	#sd-imgsize{
+       		width: 350px;
+       		height: 233px;
+       	
+       	}
 </style>
 </head>
 
@@ -199,8 +210,8 @@ body {
 															<i class="fas fa-plus fa-3x"></i>
 														</div>
 													</div>
-													<img class="img-fluid"
-														src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+													<img id="sd-imgsize" class="img-fluid"
+														src="../resources/upload/file/${channel.chProfile }"
 														alt="" />
 												</div>
 												<div class="card-body">
@@ -229,8 +240,8 @@ body {
 															<i class="fas fa-plus fa-3x"></i>
 														</div>
 													</div>
-													<img class="img-fluid"
-														src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+													<img id="sd-imgsize" class="img-fluid"
+														src="../resources/upload/file/${channel.chProfile }"
 														alt="" />
 												</div>
 												<div class="card-body ">
@@ -258,8 +269,8 @@ body {
 															<i class="fas fa-plus fa-3x"></i>
 														</div>
 													</div>
-													<img class="img-fluid"
-														src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+													<img id="sd-imgsize" class="img-fluid"
+														src="../resources/upload/file/${channel.chProfile }"
 														alt="" />
 												</div>
 												<div class="card-body">
@@ -302,8 +313,8 @@ body {
 										<i class="fas fa-plus fa-3x"></i>
 									</div>
 								</div>
-								<img class="img-fluid"
-									src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
+								<img id="imgsize" class="img-fluid"
+									src="../resources/upload/file/${channel.chProfile }"
 									alt="" />
 							</div>
 							<div class="card-body">

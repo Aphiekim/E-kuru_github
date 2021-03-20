@@ -11,6 +11,7 @@ import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.dealHistoryVO;
 import com.scit.ekuru.vo.specVO;
 
 public interface UserMapper {
@@ -110,4 +111,8 @@ public interface UserMapper {
 
 	public specVO selectSpecOne(int specNum);
 
+	public int removeSpecOne(int specNum);
+	
+	public int purchaseOne(dealHistoryVO vo);
+	
 }

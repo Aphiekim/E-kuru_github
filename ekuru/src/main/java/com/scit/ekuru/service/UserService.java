@@ -28,6 +28,7 @@ import com.scit.ekuru.vo.PointVO;
 import com.scit.ekuru.vo.SuperPlanVO;
 import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.dealHistoryVO;
 import com.scit.ekuru.vo.specVO;
 
 
@@ -519,6 +520,40 @@ public class UserService {
 	public specVO selectSpecOne(int specNum) {
 		return dao.selectSpecOne(specNum);
 
+	}
+	
+	public String removeSpecOne(int specNum) {
+		String path = "";
+		int cnt = dao.removeSpecOne(specNum);
+		
+		if(cnt == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/specificationListForm";
+		}
+		
+		return path;
+	}
+	
+	public String purchaseOne(int specNum) {
+		
+		String path = "";
+		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
+		
+		dealHistoryVO vo = new dealHistoryVO();
+		vo.setDealCode(su);
+		vo.setSpecNum(specNum);
+		
+		int cnt = dao.purchaseOne(vo);
+		
+		if(cnt == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/deal_shoppingClear";
+		}
+		
+		return path;
+		
 	}
 }
 

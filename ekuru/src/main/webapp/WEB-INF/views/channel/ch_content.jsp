@@ -72,7 +72,7 @@
 
         function fn_addCart(){
             var addCart = document.getElementById("addCart");
-            addCart.action = "../user/addCart";
+            addCart.action = "/user/addCart";
             addCart.method = "POST";
             addCart.submit();
         }
@@ -220,6 +220,8 @@
                                     <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
                                 </ul>
                             </div>
+                            
+                            <input type="hidden" name="" value="${prodEachResult.getProdOriginalPic1() }">
                         </form>
                 </div>
                 <!--상품내용 끝 -->
