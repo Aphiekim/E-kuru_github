@@ -294,8 +294,6 @@ body {
                               <i class="fas fa-plus fa-3x"></i>
                            </div>
                         </div>
-                        <img class="img-fluid"
-                           src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
                         <img id="imgsize" class="img-fluid"
                            src="../resources/upload/file/${channel.chProfile }"
                            alt="" />
