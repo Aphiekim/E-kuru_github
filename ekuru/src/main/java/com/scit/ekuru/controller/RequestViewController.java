@@ -74,6 +74,8 @@ public class RequestViewController {
 
 		String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
+		
+		
 		System.out.println(upload[0].getOriginalFilename());
 
 		//위에서 설정한 경로의 폴더가 없을 경우 생성
