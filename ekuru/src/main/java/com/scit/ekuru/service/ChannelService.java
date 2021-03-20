@@ -3,6 +3,8 @@ package com.scit.ekuru.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,10 @@ import org.springframework.ui.Model;
 import com.scit.ekuru.controller.ChViewContoroller;
 import com.scit.ekuru.dao.ChannelDAO;
 import com.scit.ekuru.vo.ChannelVO;
+import com.scit.ekuru.vo.FollowingVO;
 import com.scit.ekuru.vo.ProductCommentVO;
 import com.scit.ekuru.vo.ProductVO;
+import com.scit.ekuru.vo.UserVO;
 import com.scit.ekuru.vo.categoryVO;
 
 @Service
@@ -124,5 +128,43 @@ public class ChannelService {
 			logger.info("채널수정완료");
 		}
 
+	}
+
+	public ArrayList<ProductVO> selectProdAll(String search){
+		return dao.selectProdAll(search);
+	}
+
+	public void chCreate(String id) {
+		boolean result = dao.chCreate(id);
+		if(result) {
+			logger.info("채널 생성");
+		}
+
+	}
+
+	public String chVerify(String chId) {
+		String result = dao.chVerify(chId);
+		return result;
+	}
+
+	public void chFollow(FollowingVO fVo) {
+		boolean result = dao.chFollow(fVo);
+		if(result) {
+			logger.info("팔로우 완료");
+		}
+
+	}
+
+	public String fCheck(String userId, HttpSession session) {
+		ArrayList<UserVO> fCheck = dao.fCheck(userId);
+		String id = (String) session.getAttribute("userId");
+		String result = null;
+		for (UserVO userVO : fCheck) {
+			if(userVO.getUserId().equals(id)) {
+				result = userVO.getUserId();
+			}
+		}
+
+		return result;
 	}
 }

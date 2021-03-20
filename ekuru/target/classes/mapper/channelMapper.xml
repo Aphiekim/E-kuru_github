@@ -216,7 +216,9 @@ INSERT INTO
 				FROM
 					E_PRODUCT_TB
 				WHERE
-					PRODTITLE like '%'|| #{search} || '%')
+					PRODTITLE like '%'|| #{search} || '%'
+					or
+					PRODCONTENT like '%'|| #{search} || '%')
 
 </select>
 
@@ -281,5 +283,85 @@ from
 	e_channel_tb c, e_ad_tb a
 where
 	e.prodNum = a.prodNum
+</select>
+
+<!-- 메인에서 불러오는 상품 -->
+<select id="selectProdAll" parameterType="string" resultType="product">
+select
+	prodNum,
+	prodTitle,
+	prodContent,
+	prodOriginalPic1,
+	prodIndate
+from
+	e_product_tb
+<if test="_parameter != null">
+where
+	prodContent like '%'|| #{search} || '%'
+or
+	prodTitle like '%'|| #{search} || '%'
+</if>
+order by prodNum desc
+</select>
+
+<!-- 채널 생성 -->
+<insert id="chCreate" parameterType="String">
+	INSERT INTO
+			E_CHANNEL_TB(
+			CHNUM,
+			CHID
+		)VALUES(
+			channel_seq.nextval,
+			#{id})
+</insert>
+
+<!-- 채널 유무 확인 -->
+<select id="chVerify" parameterType="String" resultType="String">
+
+	SELECT DISTINCT
+		ch.CHID
+	FROM
+		E_CHANNEL_TB ch, E_USER_TB u
+	WHERE
+		ch.CHID = #{chId}
+
+</select>
+
+<!-- 채널 팔로우 -->
+<insert id="chFollow" parameterType="following">
+	INSERT INTO
+		E_FOLLOWING_TB
+				(FOLLOWINGNUM,
+				USERID,
+				CHNUM
+			)VALUES(
+				following_seq.nextval,
+				#{userId},
+				#{chNum})
+</insert>
+
+<!-- 채널 팔로우 숫자 증가 -->
+<update id="chFollowUpdate" parameterType="following">
+	UPDATE
+		E_CHANNEL_TB
+	SET
+		CHFOLLOWER = CHFOLLOWER + 1
+	WHERE
+		CHNUM=#{chNum}
+</update>
+
+<!-- 팔로잉 여부 -->
+<select id="fCheck" parameterType="String" resultType="user">
+	SELECT
+		USERID
+	FROM
+		E_FOLLOWING_TB
+	WHERE
+		CHNUM = (SELECT
+					CHNUM
+				FROM
+					E_CHANNEL_TB
+				WHERE
+					CHID = #{userId})
 </select>
 </mapper>

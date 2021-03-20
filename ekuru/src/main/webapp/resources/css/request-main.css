@@ -3,22 +3,22 @@ body{
 }
 
 .category-button{
-    text-align: center;
+    text-align: center !important;
 }
 
 .request-list{
-    text-align: center;
+    text-align: center !important;
 }
 
 /* 검색창 */
 #custom-search-input {
-    margin:0;
-    padding: 0;
-    margin-top:10%;
+    margin:0 !important;
+    padding: 0 !important;
+    margin-top:10% !important;
 }
 
 #custom-search-input .search-query {
-    padding-right: 3%;
+    padding-right: 3% ;
     padding-right: 4% \9;
     padding-left: 3%;
     padding-left: 4% \9;
@@ -46,37 +46,37 @@ body{
 }
 
 .search-query:focus + button {
-    z-index: 3;   
+    z-index: 3 !important;   
 }
 
 
 /*목록 출력에 필요한 스타일*/
 .portfolio .portfolio-item {
-    cursor: pointer;
-    position: relative;
-    display: block;
-    max-width: 100%;
-    border-radius: 0.5rem;
-    overflow: hidden;
+    cursor: pointer !important;
+    position: relative !important;
+    display: block !important;
+    max-width: 100% !important;
+    border-radius:0.5rem !important;
+    overflow: hidden !important;
 }
 .portfolio .portfolio-item .portfolio-item-caption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.2s ease-in-out;
-    opacity: 0;
-    background-color: brown;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    transition: all 0.2s ease-in-out !important;
+    opacity: 0 !important;
+    background-color: brown !important;
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
-    opacity: 1;
+    opacity: 1 !important;
 }
 .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
 }
 
 .portfolio-modal .portfolio-modal-title {
-    font-size: 2.25rem;
-    line-height: 2rem;
+    font-size: 2.25rem !important;
+    line-height: 2rem !important;
 }
 
 
@@ -102,19 +102,19 @@ body{
     }
 }
 .portfolio-modal .close {
-    position: absolute;
-    z-index: 1;
-    right: 1.5rem;
-    top: 1rem;
-    font-size: 3rem;
-    line-height: 3rem;
-    color: #1abc9c;
-    opacity: 1;
+    position: absolute !important;
+    z-index: 1 !important;
+    right: 1.5rem !important;
+    top: 1rem !important;
+    font-size: 3rem !important;
+    line-height: 3rem !important;
+    color: #1abc9c !important;
+    opacity: 1 !important;
 }
 
 /* 페이징 css */
 .sizeTrans{
-    width: 110%;
+    width: 110% !important;
 
 }
 
@@ -124,18 +124,18 @@ body{
 }
 
 .search-list{
-    text-align: center;
-    margin-top: 25px;
+    text-align: center !important;
+    margin-top: 25px !important;
 
-    width: 100%;
-    height: 200px;
+    width: 100% !important;
+    height: 200px !important;
 }
 
 .search-result{
-    width: 80%;
-    height: 100%;
-    margin-bottom: 20px;
-    margin-left: auto;
+    width: 80% !important;
+    height: 100% !important;
+    margin-bottom: 20px !important;
+    margin-left: auto !important;
     margin-right: auto;
     
 }
@@ -143,32 +143,32 @@ body{
 .search-card{
     margin: 0px !important;
     padding: 0px !important;
-    height: 100%;
+    height: 100% !important;
 }
 
 .search-img{
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .cdby{
-    height: 100%;
-    text-align: left;
+    height: 100% !important;
+    text-align: left !important;
 }
 
 .search-form{
-    width: 100%;
-    height: 100%;
-    border: 2px solid #A4193D;
-    margin-bottom: 15px;
+    width: 100% !important;
+    height: 100% !important;
+    border: 2px solid #A4193D !important;
+    margin-bottom: 15px !important;
 }
 
 .card-text{
-    line-height: 1.5
+    line-height: 1.5 !important;
 }
 
 .submit-btn{
-    margin-top: 0
+    margin-top: 0 !important;
 }
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
 @media all and (min-width:768px) and (max-width:1023px) {

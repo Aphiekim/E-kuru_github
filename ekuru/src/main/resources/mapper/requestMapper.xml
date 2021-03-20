@@ -12,6 +12,7 @@ select
 	,categoryCode
 	,reqTitle
 	,reqContent
+	,reqIndate
 	,ReqOriginalPic1
 	,ReqOriginalPic2
 	,ReqOriginalPic3
@@ -20,6 +21,8 @@ from
 <if test="_parameter != null">
 where
 	reqContent like '%'|| #{search} || '%'
+or
+	reqTitle like '%'|| #{search} || '%'
 </if>
 order by reqNum desc
 </select>
@@ -151,6 +154,17 @@ from
 	e_requestComment_tb
 where
 	reqNum = #{reqNum}
+</select>
+<!-- 코멘트 삭제전 해당 글의 넘버 가져오기 -->
+<select id="getReqNum" parameterType="int" resultType="comment">
+select
+	r.reqNum
+from
+	e_request_tb r, e_requestComment_tb c
+where
+	r.reqNum = c.reqNum
+and
+	c.reqCommentNum = #{reqCommentNum}
 </select>
 <!-- 코멘트 삭제 -->
 <delete id="deleteComment" parameterType="comment">

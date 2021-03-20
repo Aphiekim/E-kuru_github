@@ -151,8 +151,8 @@
                             <p>The best Korean package service is waiting for you</p>
                         </div>
                         <div class="search-form">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
+                            <form action="/main_afterSearchForm" method="post">
+                                <input type="text" placeholder="Search..." name="search">
 
                                 <button type="submit">Explore Now</button>
                             </form>
@@ -193,15 +193,15 @@
                         <h5>
                             <a>1. Request</a>
                         </h5>
-                        <p id="context-korean" style="margin-top: 10%; font: ;">
+                        <p id="context-korean" style="margin-top: 10%;">
                            구매자가 원하는 상품을<br>
                            채널을 운영하는 판매자에게<br>
                            요청글 작성 / 상품 요청
                         </p>
-                        <p id="context-japan" style="margin-top: 10%; font: ;">
-                            구매자가 원하는 상품을<br>
-                           채널을 운영하는 판매자에게<br>
-                           요청글 작성 / 상품 요청
+                        <p id="context-japan" style="margin-top: 10%;">
+                            お客様のご希望の商品を<br>
+                           チャンネルを運営する人に<br>
+                           リクエスト作成 / 商品リクエスト
                         </p>
                     </div>
                 </div>
@@ -216,12 +216,13 @@
                     <div class="services-cap">
                         <h5><a>2. Matching</a></h5>
                         <p id="context-korean" style="margin-top: 10%;">
-                            구매자와 판매자가 채팅을 통하여<br>
-                            원하는 상품 정보 공유 / 거래
+                           원하는 상품을 채팅을 통해<br>
+                           정보 공유 및 거래
                         </p>
                         <p id="context-japan" style="margin-top: 10%;">
-                            구매자와 판매자가 채팅을 통하여<br>
-                            원하는 상품 정보 공유 / 거래
+                            欲しい賞品をチャットで<br>
+                          	情報共有及び取引
+                           
                         </p>
                     </div>
                 </div>
@@ -240,8 +241,8 @@
                             해외 배송으로 상품 수령
                         </p>
                         <p id="context-japan" style="margin-top: 10%; font: ;">
-                            거래서 작성 후<br>
-                            해외 배송으로 상품 수령
+                            取引書作成後、<br>
+                            海外配送で商品を受領
                         </p>
                     </div>
                 </div>

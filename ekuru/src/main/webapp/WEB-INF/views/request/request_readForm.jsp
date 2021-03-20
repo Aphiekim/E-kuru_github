@@ -20,6 +20,10 @@
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
+<!-- 적용방법 2 : cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- 적용방법 3 -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -57,7 +61,7 @@
 		}
 	}
   </script>
-  
+
 </head>
 
 <body>
@@ -88,7 +92,15 @@
     <!-- header -->
     <!-- header -->
   <div class="container" style="margin-top: 10%;">
-    <hr class="line line-sty" style="margin-top: 5%;">
+    <c:choose>
+        		<c:when test="${userType == '0'}">
+        			<button type="button" id="translate1" class="btn btn-outline-secondary" style="margin-left: 90%;"value="한국어">한국어</button>
+    			</c:when>
+    			<c:otherwise>
+    				<button type="button" id="translate2" class="btn btn-outline-secondary" style="margin-left: 90%;"value="日本語">日本語</button>
+    			</c:otherwise>
+    		</c:choose>
+    <hr class="line line-sty">
     <div class="row">
       <!-- 요청글 사진 슬라이드 -->
       <div class="slideshow-container" style="width: 50%; margin-left: 5%;">
@@ -97,33 +109,72 @@
           <div class="numbertext">1 / 3</div>
           <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic1() }" style="width:100%">
         </div>
-        
+
         <div class="mySlides fade">
           <div class="numbertext">2 / 3</div>
           <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic2() }" style="width:100%">
         </div>
-        
+
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
           <img id="imgsize" src="../resources/upload/file/${vo.getReqOriginalPic3() }" style="width:100%">
 
         </div>
-        
+
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        
+
       </div>
       <!-- 요청 설명글 -->
       <div class="card" style="width: 40%;">
-        <div class="card-body">
-          <h5 class="card-title ">[ ${vo.reqTitle } ]</h5>
+        <div class="card-body trans1">
+          <h5 class="card-title result1">[ ${vo.reqTitle } ]</h5>
           <h6 class="card-subtitle mb-2 text-muted ">ID : ${vo.userId }</h6>
           <h5 class="card-title con-margin" style="margin-top:5%">Information</h5>
-          <p class="card-text">> ${vo.reqContent }</p>
+          <p class="card-text result2">> ${vo.reqContent }</p>
         </div>
       </div>
     </div>
     <hr class="line line-sty">
+    <c:if test="${userType eq 0}">
+	    <!-- 댓글 입력창 -->
+	    <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
+		    <div class="row mb-3">
+		      <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
+		      <button type="submit" class="btn btn-secondary btn-sty">comment</button>
+		    </div>
+	    </form>
+	    <!-- 구분선 -->
+	    <hr class="line">
+	    <!-- 댓글창 -->
+	    <c:forEach var="comment" items="${comment }">
+		    <div class="card comtWrite-sty">
+		      <div class="card-body trans2">
+		        <div class="row justify-content-between">
+		          <h5 class="card-title col-4">${comment.userId }</h5>
+		          <c:if test="${sessionScope.userId ==comment.userId }">
+		         	<button type="button" class="btn btn-outline-danger col-4-sm" style="margin-left: 40%" onclick="deleteComment('${comment.reqCommentNum }');">Delete</button>
+		          </c:if>
+	
+		          <c:if test="${sessionScope.userId ==vo.userId }">
+			          <button type="button" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;">Request</button>
+		          </c:if>
+	
+		          <form action="/user/createChat" method="post">
+			        <input type="hidden" name="chId" value="${sessionScope.userId }">
+			        <input type="hidden" name="userId" value="${vo.userId }">
+			      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+			      </form>
+	
+		        </div>
+		        <p class="result">${comment.reqComment }</p>
+		      </div>
+		    </div>
+	    </c:forEach>
+	
+    </c:if>
+	  </div>
+    
     <!-- 댓글 입력창 -->
     <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
 	    <div class="row mb-3">
@@ -169,8 +220,8 @@
       <button type="button" class="btn btn-danger btn-sty" onclick="deleteReadForm('${vo.reqNum}');">Delete</button>
     </c:if>
   </div>
-  
-  
+
+
   <!-- include tag Footer Start -->
   <div class="footer">
     <div class="container">
@@ -238,34 +289,111 @@
 </div>
 <!-- Footer End -->
 
+<script type="text/javascript">
+//번역기능
+
+$("#translate1").click(function () {
+    var source = 'ja';
+    var target = 'ko';
+
+  var comment = $(".trans1").find(".result1").html();
+  comment += '#';
+  comment += $(".trans1").find(".result2").html();
+
+	$.ajax({
+		url : '../translate1',
+		type : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			source : source,
+			target : target,
+			text : comment
+		},
+		success : function(data){
+			//JSON 형태의 문자열을 JSON 객체로 변환
+			var jsonObject = JSON.parse(data);
+      var obj = jsonObject.message.result.translatedText.split('#');
+
+			$('.result1').eq(0).html(obj[0]);
+			$('.result2').eq(0).html(obj[1]);
+		},
+		error : function(e){
+			console.log(e);
+		}
+	});
+});
+
+
+$("#translate2").click(function () {
+    var source = 'ko';
+    var target = 'ja';
+
+    var arr = '';
+  $(".trans2").each(function(index,item){
+    arr += $(this).find(".result").html();
+			  if(index < ($(".trans2").length-1)){
+				  arr += '#';
+			  }
+  })
+
+    console.log(arr);
+
+  $.ajax({
+		url : '../translate2',
+		type : 'post',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		data : {
+			source : source,
+			target : target,
+			text : arr
+		},
+		success : function(data){
+			//JSON 형태의 문자열을 JSON 객체로 변환
+			var jsonObject = JSON.parse(data);
+
+			var obj = jsonObject.message.result.translatedText.split("#");
+
+      for(i=0; i<arr.length-1; i++){
+        $('.result').eq(i).text(obj[i]);
+      }
+
+		},
+		error : function(e){
+			console.log(e);
+		}
+	});
+});
+</script>
 </body>
 <script>
   var slideIndex = 1;
   showSlides(slideIndex);
-  
+
   function plusSlides(n) {
     showSlides(slideIndex += n);
   }
-  
+
   function currentSlide(n) {
     showSlides(slideIndex = n);
   }
-  
+
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}    
+    if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
   }
+
+
   </script>
 
 </html>

@@ -104,5 +104,10 @@ public interface UserMapper {
 	//AD 수퍼플랜에 넣기 채널용
 	public int insertChAd(SuperPlanVO vo);
 	
+
+	//첫 메인화면에서 검색
+	public ArrayList<HashMap<String, Object>> selectSearchAll(String search);
+
 	public specVO selectSpecOne(int specNum);
+
 }

@@ -34,15 +34,16 @@
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
                         <ul class="menu-sub">
-                            <li class="headli">Recently viewed items</li>
-                            <li class="headli">My Request</li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypagerequest">My Cart</a></li>
+                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
+                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
+                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
                         </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                    <li class="headli"><a class="menu-a" href="">58600P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                 </ul>
             </nav>
         </div>
@@ -69,24 +70,25 @@
                             <ul>
                                 <li class="li-sty"><span>${fn:length(prodListResult)}  </span></li>
                                 <li class="li-sty"><span>${channel.chFollower }</span></li>
-                            <li  class="li-sty"><span>8210</span></li>
-                        </ul>
+                                <li  class="li-sty"><span>0</span></li>
+                            </ul>
 
-                        <ul class="text">
-                            <li  class="li-sty"><span>Posts</span></li>
-                            <li  class="li-sty"><span>Followers</span></li>
-                            <li  class="li-sty"><span>Follow</span></li>
-                        </ul>
+                            <ul class="text">
+                                <li  class="li-sty"><span>Posts</span></li>
+                                <li  class="li-sty"><span>Followers</span></li>
+                                <li  class="li-sty"><span>Follow</span></li>
+                             </ul>
+                             <c:if test="${fUser ne sessionScope.userId}">
+                                 <button type="button" style="width: 20%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
+                        	</c:if>
+                        </div>
                     </div>
-
-                </div>
                 <div class="test2 col-md-12">
 
                     <p>
                         <span class="profile-text">${channel.chIntro }</span>
                     </p>
                 </div>
-
 
                 <div class="product-list">
                     <c:if test="${empty prodListResult }">

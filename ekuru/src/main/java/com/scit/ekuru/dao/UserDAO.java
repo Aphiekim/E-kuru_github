@@ -353,6 +353,20 @@ public class UserDAO {
 		return cnt;
 	}
 	
+
+	public ArrayList<HashMap<String, Object>> selectSearchAll(String search){
+		ArrayList<HashMap<String, Object>> list = null;
+		
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectSearchAll(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 	public ArrayList<HashMap<Object, Object>> selectSepcAll(String id){
 		ArrayList<HashMap<Object, Object>> list = null;
 		try {
@@ -364,6 +378,7 @@ public class UserDAO {
 		return list;
 	}
 	
+
 	// 명세 조회
 	public specVO selectSpecOne(int specNum) {
 		specVO vo = null;
@@ -375,4 +390,5 @@ public class UserDAO {
 		}
 		return vo;
 	}
+
 }
