@@ -164,6 +164,14 @@
 				      </form>
 		          </c:if>
 	
+<<<<<<< HEAD
+=======
+		          <form action="/user/createChat" method="post">
+			        <input type="hidden" name="chId" value="${sessionScope.userId }">
+			        <input type="hidden" name="userId" value="${vo.userId }">
+			      	<input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
+			      </form>
+>>>>>>> origin/master
 	
 		        </div>
 		        <p class="result">${comment.reqComment }</p>
