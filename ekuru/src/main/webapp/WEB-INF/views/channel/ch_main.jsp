@@ -205,7 +205,7 @@ body {
                                             <p class="card-text">${adChList.CHNAME }</p>
                                         </div>
                                     </div>
-                                   
+
                                 </c:forEach>
                                 </div>
                             </div>
@@ -230,10 +230,10 @@ body {
                                             <p class="card-text">${adChList.CHNAME }</p>
                                         </div>
                                     </div>
-                                   
+
                                 </c:forEach>
-                                    
-                                    
+
+
                                 </div>
                             </div>
                             <div class="item inner">
@@ -256,7 +256,7 @@ body {
                                             <p class="card-text">${adChList.CHNAME }</p>
                                         </div>
                                     </div>
-                                   
+
                                 </c:forEach>
                               </div>
                             </div>
