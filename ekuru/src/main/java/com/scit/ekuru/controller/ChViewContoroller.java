@@ -48,7 +48,10 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_main")
 	public String chMain(Model model) {
 		ArrayList<ChannelVO> chListResult = service.getListAll();
+		ArrayList<ChannelVO> adChList = service.selectChAd();
+		
 		model.addAttribute("chListResult", chListResult);
+		model.addAttribute("adChList", adChList);
 		return "channel/ch_main";
 	}
 

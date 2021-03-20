@@ -61,9 +61,9 @@
                         </p>
                     </div>
                     <div>
-                        <form class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Email@email.com" aria-label="Email@email.com aria-describedby="button-addon2">
-                            <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
+                        <form class="row input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email@email.com" style="width:70%">
+                            <button class="btn btn-secondary" type="submit" style="width15%">submit</button>
                         </form>
                     </div>
                 </div>
