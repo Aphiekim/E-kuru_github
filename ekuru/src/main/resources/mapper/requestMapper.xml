@@ -123,6 +123,9 @@ select
 	,reqTitle
 	,reqContent
 	,reqIndate
+	,reqOriginalPic1
+	,reqOriginalPic2
+	,reqOriginalPic3
 from
 	e_request_tb
 where
