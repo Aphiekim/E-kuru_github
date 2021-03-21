@@ -16,6 +16,10 @@
 
 	}
 
+	function ckPoint(){
+		var
+	}
+
     </script>
     
 </head>
