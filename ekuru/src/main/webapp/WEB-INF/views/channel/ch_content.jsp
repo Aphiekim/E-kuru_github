@@ -240,14 +240,6 @@
                                     </ul>
                                 </div>
                             </c:if>
-                            <div style="margin-top: 30px;">
-                                <ul style="list-style: none; margin-left: 40px;">
-                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
-                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
-                                </ul>
-                            </div>
-                            
-                            
                             <input type="hidden" name="" value="${prodEachResult.getProdOriginalPic1() }">
                         </form>
                         <form action="/user/createChat" method="post">
