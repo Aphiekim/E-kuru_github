@@ -595,7 +595,7 @@ public class UserService {
 		int cnt = dao.purchaseOne(vo);
 		
 		if(cnt == 0) {
-			path = "redirect:/user//specificationListForm";
+			path = "redirect:/user/specificationListForm";
 		}else {
 			path = "redirect:/user/deal_shoppingClear";
 		}
@@ -620,6 +620,8 @@ public class UserService {
 		
 		return path;
 	}
+
+	
 }
 
 
