@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,19 +84,30 @@
                             </div>
                             
                         </div>
-                        
+                        <input type="hidden" name="specNum" value="${spec.getSpecNum()}" >
                     </div>
                     
                 </div>
 
                 <div class="foot">
                     <div class="submit-btn-div">
-                        <input class="sub-btn" type="submit" value="Purchase">
-                        <button class="sub-btn" onclick="removeSpecOne();">Cancel</button>
-                    </div>
+                    <c:if test="${sessionScope.userType eq '1' }">
+                    	<input class="sub-btn" type="submit" value="Purchase">
+                    </c:if>
+                        
+                   </div>
                 </div>
-                <input type="hidden" name="specNum" value="${spec.getSpecNum()}" >
+
 			</form>
+			<div class="foot" style="margin-top: 0">
+				<div class="submit-btn-div">
+					<form action="/user/removeSpecOne" method="get">
+				    	<input type="hidden" name="specNum" value="${spec.getSpecNum()}">
+				        <input class="sub-btn" type="submit" value="Cancel">
+				    </form>
+				</div>
+			</div>
+		                
             </div>
         </div>
     </div>
