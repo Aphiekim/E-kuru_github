@@ -62,7 +62,7 @@
     <div class="text-center text-st">
         <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
         <h2>[ Super Plan ]</h2>
-        <h1>Point payment successful!</h1>
+        <h1>Point payment success!!</h1>
     </div>
 
     <!--버튼-->
