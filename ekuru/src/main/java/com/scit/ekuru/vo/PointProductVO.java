@@ -6,6 +6,6 @@ import lombok.Data;
 public class PointProductVO {
 	private int pointProdNum;
 	private int pointProdName;
-	private int priceWon;
+	private int priceUsd;
 	private int priceYen;
 }
