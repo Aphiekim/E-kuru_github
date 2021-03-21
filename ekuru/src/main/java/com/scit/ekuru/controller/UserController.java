@@ -485,4 +485,10 @@ public class UserController {
 		return "deal/deal_shoppingFail";
 	}
 	
+	@RequestMapping(value = "/updateStatus", method=RequestMethod.POST)
+	public String updateStatus(specVO vo) {
+		System.out.println(vo);
+		return service.updateStatus(vo.getSpecNum());
+	}
+	
 }

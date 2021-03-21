@@ -128,4 +128,5 @@ public interface UserMapper {
 	// 구매후 포인트 감소
 	//public int updatePoint(UserVO vo);
 	
+	public int updateStatus(int specNum);
 }

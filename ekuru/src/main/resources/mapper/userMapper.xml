@@ -400,4 +400,11 @@ insert into
 	)
 </insert>
 
+<update id="updateStatus" parameterType="int">
+update e_spec_tb
+set status = 1
+where specnum = #{specNum}
+</update>
+
+
 </mapper>
