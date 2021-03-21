@@ -90,7 +90,7 @@ function removeCookie(){
             <hr class="line">
             <hr class="line">
             <div style="padding-bottom: 10px;">
-                <img class="shopping-img" src="../resources/img/shopping-food.jpg">
+                <img class="shopping-img" src="../resources/upload/file/${list.PRODORIGINALPIC1 }">
                 <span style="padding-right: 70px; padding-left: 70px;margin-left: 30px;"><b>${status.count}</b></span>
                 <span style="padding-right: 70px; margin-left: 50px;"><b>${list.PRODNUM }</b></span>
                 <span style="padding-right: 70px; margin-left: 50px;"><b>${list.PRODTITLE }</b></span> 

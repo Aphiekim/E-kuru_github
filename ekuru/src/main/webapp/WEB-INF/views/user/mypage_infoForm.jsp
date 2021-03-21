@@ -168,7 +168,7 @@
                                               <tr>
                                               	<th scope="col">Profile</th>
                                               	<td>
-                                              	<input type="file" name="upload" id="inputFile" name="??여기때문인건가용...?근데 왜 아이디도 안입력되지...!!" multiple="multiple"/>
+                                              	<input type="file" name="upload" id="inputFile" value="${user.getUserProfile()}" multiple="multiple"/>
                                               	</td>
                                               </tr>
                                             </thead>
