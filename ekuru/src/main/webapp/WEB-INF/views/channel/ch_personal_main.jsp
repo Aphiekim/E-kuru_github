@@ -76,14 +76,11 @@
                                 <li  class="li-sty"><span>Posts</span></li>
                                 <li  class="li-sty"><span>Followers</span></li>
                                 <li  class="li-sty">
-                                	<c:if test="${fUser ne sessionScope.userId && channel.chId ne sessionScope.userId}">
+                                	<c:if test="${fUser ne sessionScope.userId && sessionScope.userType=='1'}">
                                  		<button type="button" style="width: 30%;" class="btn btn-info" onclick="location.href='chFollow?chNum=${channel.chNum }&chId=${channel.chId}'">follow</button>
                         			</c:if>
                         			<c:if test="${fUser eq sessionScope.userId}">
                                  		<button type="button" style="width: 30%;" class="btn btn-outline-secondary">followed</button>
-                        			</c:if>
-                        			<c:if test="${channel.chId eq sessionScope.userId}">
-                                 		<span style="color: #FFDFB9;">.</span>
                         			</c:if>
                         		</li>
                              </ul>
