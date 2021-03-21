@@ -208,7 +208,7 @@ public class UserController {
 			model.addAttribute("chatlist", chatlist);
 			model.addAttribute("chatNum", chatlist.get(0).get("chatNum"));
 			model.addAttribute("buyerId", buyervo.getUserId());
-			model.addAttribute("userType()", uservo.getUserType());
+			model.addAttribute("userType", uservo.getUserType());
 		}
 
 
@@ -429,12 +429,13 @@ public class UserController {
 	// 사용자 명세 확인
 	@RequestMapping(value = "/specificationListForm", method=RequestMethod.GET)
 	public String specificationListForm(HttpSession session, Model model) {
-		String id = (String) session.getAttribute("userId");
 
-		ArrayList<HashMap<Object, Object>> list = service.selectSpecAll(id);
+		String id = (String) session.getAttribute("userId");
+		UserVO user = service.selectUserTest(id);
+		
+		ArrayList<HashMap<Object, Object>> list = service.selectSpecAll(user);
 
 		model.addAttribute("list", list);
-
 		return "deal/deal_specificationListForm";
 	}
 
@@ -457,7 +458,7 @@ public class UserController {
 		//specVO spec = service.selectSpecOne(vo.getSpecNum());
 		//System.out.println(spec);
 		//model.addAttribute("spec", spec);
-		return "redirect:/";
+		return "redirect:/user/specificationListForm";
 	}
 
 	@RequestMapping(value = "/removeSpecOne", method=RequestMethod.GET)
@@ -478,5 +479,10 @@ public class UserController {
 		return "deal/deal_shoppingClear";
 	}
 	
+	@RequestMapping(value = "/deal_shoppingFail", method=RequestMethod.GET)
+	public String deal_shoppingFail() {
+		
+		return "deal/deal_shoppingFail";
+	}
 	
 }

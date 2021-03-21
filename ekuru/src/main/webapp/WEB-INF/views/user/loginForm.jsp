@@ -14,12 +14,12 @@
 				var pw = document.getElementById('userPw').value;
 
 				if(id.length == 0 || id == null){
-					alert('Please put your id');
+					alert('Please check your email');
 					return false;
 				}
 
 				if(pw.length == 0 || pw == null){
-					alert('Please put your password');
+					alert('Please check your password');
 					return false;
 				}
 			}

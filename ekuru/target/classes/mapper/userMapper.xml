@@ -299,11 +299,21 @@ where ch.chatnum = #{chatnum}
 </insert>
 
 
-<select id="selectSpecAll" parameterType="string" resultType="hashmap">
+<select id="selectSpecAll1" parameterType="user" resultType="hashmap">
 
-select specnum, chnum, productea, productprice, customeraddr, userId, productname
+select specnum, chnum, productea, productprice, customeraddr, userId, productname, status
 from e_spec_tb
 where userId = #{userId}
+
+
+</select>
+
+<select id="selectSpecAll2" parameterType="user" resultType="hashmap">
+
+select sp.specnum, ch.chnum, sp.productea, sp.productprice, sp.customeraddr, sp.userId, sp.productname, sp.status
+from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
+where ch.chId = #{userId}
+
 </select>
 
 <!-- AD 관련 -->

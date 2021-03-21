@@ -35,10 +35,37 @@
     		var addr1 = document.getElementById("addr1").value;
         	var addr2 = document.getElementById("addr2").value;
         	var addr3 = document.getElementById("addr3").value;
+        	var zip = document.getElementById("userZip").value;
+        	var phone = document.getElementById("userPhone").value;
         	var result = addr1 + "/" + addr2 + "/" + addr3;
         	document.getElementById("hidden-addr").value = result;
+
+			if(zip.length ==0 || zip ==null){
+				alert('Please check your ZipCode');
+				return false;
+			}
+			
+			if(addr1.length ==0 || addr1 ==null){
+				alert('Please check your State');
+				return false;
+			}
+			
+
+			if(addr2.length ==0 || addr2 == null){
+				alert('Please check your Address');
+				return false;
+			}
+			
+			if(addr3.length ==0 || addr3 == null){
+				alert('Please check your Address');
+				return false;
+			}
         	
-        	return true;
+			if(phone.length ==0 || phone ==null){
+				alert('Please check your Phone Number');
+				return false;
+			}
+			
         }
     </script>
     
@@ -111,7 +138,7 @@
                                             <tr>
                                                 <th scope="col">zip code</th>
                                                 <td>
-                                                    <input type="text" name="userZip" value="${user.getUserZip()}" placeholder="Only English plz">
+                                                    <input type="text" id="userZip" name="userZip" value="${user.getUserZip()}" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>
@@ -135,7 +162,7 @@
                                               <tr>
                                                 <th scope="col">phone</th>
                                                 <td>
-                                                    <input type="text" name="userPhone" value="${user.getUserPhone()}" placeholder="Only English plz">
+                                                    <input type="text" id="userPhone" name="userPhone" value="${user.getUserPhone()}" placeholder="Only English plz">
                                                 </td>
                                               </tr>
                                               <tr>

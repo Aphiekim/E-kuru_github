@@ -14,9 +14,39 @@
 function formCheck(){
 	var firstname = document.getElementById("first").value;
 	var lastname = document.getElementById("last").value;
+	var userId = document.getElementById('userId').value;
+	var userPw = document.getElementById('userPw').value;
+	var userType = document.getElementById('userType');
+	
+	
+	if(firstname.length == 0 || firstname == null){
+		alert("Check your last name please");
+		return false;
+	}
+
+	if(lastname.length ==0 || lastname == null){
+		alert("Check your first name please");
+		return false;
+	}
+
 	var name = firstname+lastname;
 	document.getElementById("userNm").value = name;
-	return true;
+
+	if(userId.length == 0 || userId == null){
+		alert("Check your email please");
+		return false;
+	}
+
+	if(userPw.length == 0 || userPw == null){
+		alert("Check your password please");
+		return false;
+	}
+<%--
+	if(userType != '0' || userType != '1'){
+		alert("Check your country please");
+		return false;
+	} --%>
+	
 }
 </script>
 </head>
@@ -37,16 +67,16 @@ function formCheck(){
                         </div>
                     </div>
                     <br>
-                    <input type="text" name="userId" class="form-control input-lg" placeholder="Please write your Email adress..."/>
+                    <input type="text" id="userId" name="userId" class="form-control input-lg" placeholder="Please write your Email adress..."/>
                     <br>
-                    <input type="password" name="userPw" class="form-control input-lg" placeholder="Password"/>
+                    <input type="password" id="userPw" name="userPw" class="form-control input-lg" placeholder="Password"/>
          
                     <%--<input type="password" name="userPw2" class="form-control input-lg" placeholder="Re-enter Password"> --%>
                     <br>
                     
                     <h5>
-                    	<b>Korean</b><input type="radio" name="userType" value="0">
-                   		<b>Japanese</b><input type="radio" name="userType" value="1">
+                    	<b>Korean</b><input type="radio" id="userType" name="userType" value="0">
+                   		<b>Japanese</b><input type="radio" id="userType" name="userType" value="1">
                     </h5>
                     
                     

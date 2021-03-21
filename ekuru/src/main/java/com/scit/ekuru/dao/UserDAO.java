@@ -378,11 +378,22 @@ public class UserDAO {
 		return list;
 	}
 
-	public ArrayList<HashMap<Object, Object>> selectSepcAll(String id){
+	public ArrayList<HashMap<Object, Object>> selectSepcAll1(UserVO user){
 		ArrayList<HashMap<Object, Object>> list = null;
 		try {
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			list = mapper.selectSpecAll(id);
+			list = mapper.selectSpecAll1(user);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<HashMap<Object, Object>> selectSepcAll2(UserVO user){
+		ArrayList<HashMap<Object, Object>> list = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			list = mapper.selectSpecAll2(user);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

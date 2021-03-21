@@ -69,6 +69,7 @@ public class UserService {
 	        session.setAttribute("userNm", Uservo.getUserNm());
 	        session.setAttribute("userId", Uservo.getUserId());
 	        session.setAttribute("userPoint", Uservo.getUserPoint());
+	        session.setAttribute("userType", Uservo.getUserType());
 			path = "redirect:/";
 
 	        // 인증여부 확인용 session.setAttribute("userId", Uservo.getUserId());
@@ -92,6 +93,7 @@ public class UserService {
 		session.removeAttribute("userNm");
 		session.removeAttribute("userId");
 		session.removeAttribute("userPoint");
+		session.removeAttribute("userType");
 	}
 
 	public String modifyUser(UserVO vo) {
@@ -399,8 +401,9 @@ public class UserService {
 		//vo.getUserId()로 하면 구매자가 요청버튼 눌렀을때
 		//vo.getChId()로 하면 판매자가 요청버튼 눌렀을때
 		vo.setContent(vo.getUserId() + "/" + "Hello!" + "/" + time1 + "/");
+		
 		int count = dao.createChatRoom(vo);
-
+		
 		String path = "";
 		if(count == 0) {
 			path = "redirect:/";
@@ -506,9 +509,15 @@ public class UserService {
 		return path;
 	}
 	
-	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id) {
+	public ArrayList<HashMap<Object, Object>> selectSpecAll(UserVO user) {
+		ArrayList<HashMap<Object, Object>> list = null;
+		if(user.getUserType().equals("1")) {
+			list = dao.selectSepcAll1(user);
+		}else {
+			list = dao.selectSepcAll2(user);
+		}
 		
-		return dao.selectSepcAll(id);
+		return list;
 	}
 	public int insertReqAd(SuperPlanVO vo) {
 		int cnt = dao.insertReqAd(vo);
@@ -561,6 +570,13 @@ public class UserService {
 		
 		String id = (String) session.getAttribute("userId");
 		UserVO user = dao.selectUser(id);
+		String path = "";
+		
+		if(user.getUserPoint() < specvo.getProductPrice() || user.getUserPoint() < 0) {
+			logger.info("포인트 결제 실패");
+			path = "redirect:/user/deal_shoppingFail";
+			return path;
+		}
 		
 		int point = user.getUserPoint() - specvo.getProductPrice();
 		
@@ -570,7 +586,6 @@ public class UserService {
 		
 		dao.updatePoint(user);
 		
-		String path = "";
 		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
 		
 		dealHistoryVO vo = new dealHistoryVO();
@@ -580,7 +595,7 @@ public class UserService {
 		int cnt = dao.purchaseOne(vo);
 		
 		if(cnt == 0) {
-			path = "redirect:/";
+			path = "redirect:/user//specificationListForm";
 		}else {
 			path = "redirect:/user/deal_shoppingClear";
 		}

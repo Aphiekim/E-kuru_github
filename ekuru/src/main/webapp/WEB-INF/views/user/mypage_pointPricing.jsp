@@ -87,7 +87,7 @@
             <h1>Point menu</h1>
         </div>
         <div class="text-center card-titles">
-            <p>This is meue of point. If you charge your point, you can use it as money in this world</p>
+            <p>This is menu of point. If you charge your point, you can use it as money in this world</p>
         </div>
         <!-- 포인트 메뉴 목록-->
         <div class="row justify-content-md-center text-center" style="margin-bottom: 30%;">
