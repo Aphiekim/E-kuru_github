@@ -330,6 +330,7 @@ public class UserController {
 						hash.put("PRODNUM", list.get(count).get("PRODNUM"));
 						hash.put("PRODINDATE", list.get(count).get("PRODINDATE"));
 						hash.put("PRODTITLE", list.get(count).get("PRODTITLE"));
+						hash.put("PRODORIGINALPIC1", list.get(count).get("PRODORIGINALPIC1"));
 						//flag++;
 						prodlist.add(hash);
 						//System.out.println(hash);
