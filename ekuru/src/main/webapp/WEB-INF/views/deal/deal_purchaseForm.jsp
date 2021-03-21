@@ -92,7 +92,7 @@
                 <div class="foot">
                     <div class="submit-btn-div">
                     <c:if test="${spec.getStatus() eq '0' }">
-                    	<c:if test="${sessionScope.userType eq '1' }">
+                    	<c:if test="${sessionScope.userType eq '1' &&  empty deal.getSpecNum()}">
                     		<input class="sub-btn" type="submit" value="Purchase">
                     	</c:if>
                     </c:if>
@@ -104,10 +104,13 @@
 			</form>
 			<div class="foot" style="margin-top: 0">
 				<div class="submit-btn-div">
+				<c:if test="${spec.getDealstate() ne '1' }">
 					<form action="/user/removeSpecOne" method="get">
 				    	<input type="hidden" name="specNum" value="${spec.getSpecNum()}">
 				        <input class="sub-btn" type="submit" value="Cancel">
 				    </form>
+				</c:if>
+					
 				</div>
 			</div>
 		                

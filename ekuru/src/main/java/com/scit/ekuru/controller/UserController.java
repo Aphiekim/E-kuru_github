@@ -29,6 +29,7 @@ import com.scit.ekuru.vo.ChatVO;
 import com.scit.ekuru.vo.PointUsedVO;
 import com.scit.ekuru.vo.ProductVO;
 import com.scit.ekuru.vo.UserVO;
+import com.scit.ekuru.vo.dealHistoryVO;
 import com.scit.ekuru.vo.specVO;
 
 @Controller
@@ -443,7 +444,9 @@ public class UserController {
 	@RequestMapping(value = "/selectProdOne", method=RequestMethod.GET)
 	public String selectProdOne(specVO vo, Model model) {
 		specVO spec = service.selectSpecOne(vo.getSpecNum());
-
+		dealHistoryVO deal = service.selectDealOne(vo.getSpecNum());
+		
+		model.addAttribute("deal", deal);
 		model.addAttribute("spec", spec);
 		return "deal/deal_purchaseForm";
 	}

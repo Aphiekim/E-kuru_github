@@ -17,4 +17,5 @@ public class specVO {
 	private String chName;
 	private String originalPic1;
 	private String status;
+	private String dealstate;
 }

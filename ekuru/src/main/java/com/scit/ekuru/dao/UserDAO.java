@@ -222,6 +222,17 @@ public class UserDAO {
 		}
 		return vo;
 	}
+	
+	public dealHistoryVO selectDealOne(int specNum) {
+		dealHistoryVO vo = null;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			vo = mapper.selectDealOne(specNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 
 	public ArrayList<HashMap<String, Object>> dealHistory(String userId) {
 		ArrayList<HashMap<String, Object>> result = null;

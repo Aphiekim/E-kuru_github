@@ -110,7 +110,7 @@ public class ChViewContoroller {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		String reName = "Test-image.png";
+		String reName = "person1.png";
 		// 파일 업로드
 		for(MultipartFile f : upload) {
 			if(!f.isEmpty()) {

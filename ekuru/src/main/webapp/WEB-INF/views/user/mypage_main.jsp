@@ -69,14 +69,16 @@
                             </div>
                         </a>
                         </div>
-                        <div class="col-lg-3 col-md-6 fact-style">
-                        <a href="/user/mypageShopping">
-                            <div class="fact-item">
-                                <img src="../resources/img/mypage-img/main/icon-5.png" alt="Icon">
-                                <h2>Shopping</h2>
-                            </div>
-                        </a>
-                        </div>
+                        <c:if test="${userType eq 1 }">
+	                        <div class="col-lg-3 col-md-6 fact-style">
+		                        <a href="/user/mypageShopping">
+		                            <div class="fact-item">
+		                                <img src="../resources/img/mypage-img/main/icon-5.png" alt="Icon">
+		                                <h2>Shopping</h2>
+		                            </div>
+		                        </a>
+	                        </div>
+                        </c:if>
                         <div class="col-lg-3 col-md-6 fact-style">
                         <a href="/user/mypagePoint">
                             <div class="fact-item">
