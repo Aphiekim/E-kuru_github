@@ -479,5 +479,10 @@ public class UserController {
 		return "deal/deal_shoppingClear";
 	}
 	
+	@RequestMapping(value = "/deal_shoppingFail", method=RequestMethod.GET)
+	public String deal_shoppingFail() {
+		
+		return "deal/deal_shoppingFail";
+	}
 	
 }

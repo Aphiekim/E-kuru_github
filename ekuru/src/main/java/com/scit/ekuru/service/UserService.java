@@ -570,6 +570,13 @@ public class UserService {
 		
 		String id = (String) session.getAttribute("userId");
 		UserVO user = dao.selectUser(id);
+		String path = "";
+		
+		if(user.getUserPoint() < specvo.getProductPrice() || user.getUserPoint() < 0) {
+			logger.info("포인트 결제 실패");
+			path = "redirect:/user/deal_shoppingFail";
+			return path;
+		}
 		
 		int point = user.getUserPoint() - specvo.getProductPrice();
 		
@@ -579,7 +586,6 @@ public class UserService {
 		
 		dao.updatePoint(user);
 		
-		String path = "";
 		int su = ThreadLocalRandom.current().nextInt(100000, 1000000);
 		
 		dealHistoryVO vo = new dealHistoryVO();

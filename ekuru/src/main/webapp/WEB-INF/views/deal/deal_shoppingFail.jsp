@@ -27,7 +27,7 @@
     <div class="text-center text-st">
         <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 30%; margin-top: 10%;">
         <h2>[ Shopping ]</h2>
-        <h1>Your order is complete!</h1>
+        <h1>The payment point is more than your point.</h1>
     </div>
 
     <!--버튼-->
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col">
                 <button type="button" class="btn btn-info" onclick="location.href='/'">Home</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning" onclick="location.href='/user/mypage_dealHistory'">Buying history</button>
+                <button type="button" class="btn btn-warning" onclick="location.href='/user/mypage_pointPricing'">Charge</button>
             </div>
         </div>
     </div>
