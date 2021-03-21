@@ -38,9 +38,9 @@
         <div class="buttons">
 			<div class="row">
 				<div class="col">
-					<button type="button" class="btn btn-info">my shopping</button>&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-secondary">browsing history</button>&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-warning">buying history</button>
+					<button type="button" class="btn btn-info" onclick="location.href='/user/mypageShopping'">My shopping</button>&nbsp;&nbsp;&nbsp;
+					<button type="button" class="btn btn-secondary" onclick="location.href='/user/viewedItems'">Browsing history</button>&nbsp;&nbsp;&nbsp;
+					<button type="button" class="btn btn-warning" onclick="location.href='/user/mypage_dealHistory'">Buying history</button>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 	                                            <td>${list.PRODUCTPRICE}</td>
 	                                            <td>${list.CUSTOMERADDR }</td>
 	                                            <td>
-	                                                <button class="btn btn-secondary">Wating</button>
+	                                                <button class="btn btn-secondary">Waiting</button>
 	                                            </td>
 	                                        </tr>
 	                                    
