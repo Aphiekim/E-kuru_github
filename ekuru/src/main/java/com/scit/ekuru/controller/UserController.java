@@ -128,7 +128,7 @@ public class UserController {
 				if(!dir.exists()) {
 					dir.mkdirs();
 				}
-				String reName = "Test-image.png";
+				String reName = "person1.png";
 				// 파일 업로드
 				for(MultipartFile f : upload) {
 					if(!f.isEmpty()) {
@@ -488,7 +488,11 @@ public class UserController {
 	@RequestMapping(value = "/updateStatus", method=RequestMethod.POST)
 	public String updateStatus(specVO vo) {
 		System.out.println(vo);
-		return service.updateStatus(vo.getSpecNum());
+		
+		
+		String path =service.updateStatus(vo.getSpecNum());
+		
+		return path;
 	}
 	
 }

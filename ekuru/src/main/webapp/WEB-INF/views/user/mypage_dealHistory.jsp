@@ -63,7 +63,8 @@
                                         <td><span>${dealHistory.DEALCODE }</span></td>
                                         <td><span>${dealHistory.USERID }</span></td>
                                         <td><span>${dealHistory.DEALINDATE }</span></td>
-                                        <td><span>Specification</span></td>
+                                        <td><span><a href="selectProdOne?specNum=${dealHistory.SPECNUM}">Specification</a></span></td>
+                                     
                                 </tr>
                                 </c:forEach>
 

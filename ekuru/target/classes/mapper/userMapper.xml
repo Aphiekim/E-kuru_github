@@ -378,7 +378,7 @@ or
 
 <!-- 명세 상세(하나) 조회 -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
-select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname, sp.originalpic1
+select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname, sp.originalpic1, sp.status
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>
