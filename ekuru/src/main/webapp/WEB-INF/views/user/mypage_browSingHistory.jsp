@@ -43,8 +43,8 @@ function removeCookie(){
         <div class="buttons">
 			<div class="row">
 				<div class="col">
-					<button type="button" class="btn btn-info" onclick="location.href='/user/mypageShopping'">my shopping</button>&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-warning" onclick="location.href='/user/mypage_dealHistory'">buying history</button>
+					<button type="button" class="btn btn-info" onclick="location.href='/user/mypageShopping'">My shopping</button>&nbsp;&nbsp;&nbsp;
+					<button type="button" class="btn btn-warning" onclick="location.href='/user/mypage_dealHistory'">Buying history</button>
 				</div>
 			</div>
 		</div>
