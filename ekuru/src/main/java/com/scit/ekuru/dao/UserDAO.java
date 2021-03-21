@@ -434,4 +434,15 @@ public class UserDAO {
 		}
 		return count;
 	}
+	
+	public int updateStatus(int specNum) {
+		int count = 0;
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			count = mapper.updateStatus(specNum);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 }

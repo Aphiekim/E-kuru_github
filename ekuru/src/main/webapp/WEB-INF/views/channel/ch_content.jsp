@@ -27,7 +27,7 @@
     $(() => {
             $(".addComment").click(function () {
                 const prodComment = $("#commentBox").val();
-                if (prodComment == null || prodComment.lengh == 0) {
+                if (prodComment == null || prodComment.lengh == 0 || prodComment =='') {
                     alert("댓글을 입력 해 주세요");
                 } else {
                     const userId = $("#userId").val();
@@ -57,6 +57,8 @@
                                 `;**/
                                 const content = '<div class="col-md-12"><span class="comment-detail">'+userId+'</span><span class="comment-detail">'+prodComment+'</span></div>';
                                 $("#commentAdd").append(content);
+                                $("#commentBox").val("");
+                                $("#commentBox").attr({'readonly':'readonly'});
                             } else {
                                 alert('등록 되지 않았습니다.');
                             }
@@ -233,18 +235,18 @@
                                 <div style="margin-top: 30px;">
                                     <ul style="list-style: none; margin-left: 40px;">
                                         <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
-                                        <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
+                                        <li class="button">
+                                        </li>
                                     </ul>
                                 </div>
                             </c:if>
-                            <div style="margin-top: 30px;">
-                                <ul style="list-style: none; margin-left: 40px;">
-                                    <li class="button"><button type="button" id="button1" style="width: 100%;" class="btn btn-info" onclick="fn_addCart()">Add to Cart</button></li>
-                                    <li class="button"><button type="button" style="width: 100%;" class="btn btn-info">Chat with Seller</button></li>
-                                </ul>
-                            </div>
-                            
                             <input type="hidden" name="" value="${prodEachResult.getProdOriginalPic1() }">
+                        </form>
+                        <form action="/user/createChat" method="post">
+                            <input type="hidden" name="chId" id="chId" value="${channel.chId }">
+                            <input type="hidden" name="userId" id="userId" value="${sessionScope.userId }">
+                            <input type="hidden" name="reqOriginalPic1" id="reqOriginalPic1" src="/resources/upload/file/Test-image.png">
+                            <button type="submit" style="width: 100%;" class="btn btn-info">Chat with Seller</button>
                         </form>
                 </div>
                 <!--상품내용 끝 -->
@@ -271,7 +273,7 @@
                             <input id="userId" type="hidden" value="${sessionScope.userId}">
                             <c:choose>
                                 <c:when test="${result}">
-                                    <input class="textbox" id="commentBox" type="text" placeholder="Leave your comment" readonly = "readonly">
+                                    <input type="text" placeholder="Leave your comment" readonly = "readonly">
                                 </c:when>
                                 <c:otherwise>
                                     <input class="textbox" id="commentBox" type="text" placeholder="Leave your comment">

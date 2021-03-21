@@ -608,6 +608,20 @@ public class UserService {
 		return dao.selectChatRoomOne(chatNum);
 	}
 	
+	public String updateStatus(int specNum) {
+		String path = "";
+		int cnt = dao.updateStatus(specNum);
+		
+		if(cnt == 0) {
+			path = "redirect:/";
+		}else {
+			path = "redirect:/user/specificationListForm";
+		}
+		
+		return path;
+	}
+
+	
 }
 
 

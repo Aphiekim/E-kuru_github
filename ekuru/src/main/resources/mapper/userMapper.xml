@@ -176,7 +176,7 @@ where userid = #{userId}
       d.DEALCODE as DEALCODE,
       e.USERID as USERID,
       d.DEALSTATE as DEALSTATE,
-      d.DEALINDATE as DEALINDATE
+      to_char(d.DEALINDATE, 'YYYY-MM-DD HH:MM') as DEALINDATE
    FROM
       E_DEALHISTORY_TB d, E_SPEC_TB e
    WHERE
@@ -378,7 +378,7 @@ or
 
 <!-- 명세 상세(하나) 조회 -->
 <select id="selectSpecOne" parameterType="int" resultType="spec">
-select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname, sp.originalpic1
+select sp.specnum, sp.userid, sp.chnum, sp.productname, sp.productea, sp.productprice, sp.customeraddr, ch.chname, sp.originalpic1, sp.status
 from e_spec_tb sp join e_channel_tb ch on sp.chnum = ch.chnum
 where specnum = #{specNum}
 </select>
@@ -399,5 +399,12 @@ insert into
 		#{specNum}
 	)
 </insert>
+
+<update id="updateStatus" parameterType="int">
+update e_spec_tb
+set status = 1
+where specnum = #{specNum}
+</update>
+
 
 </mapper>
