@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,7 +60,7 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_search", method = RequestMethod.POST)
 	public String chSearch(@RequestParam(defaultValue = "") String search, Model model) {
 		service.chSearch(search, model);
-		
+
 		return "channel/ch_search";
 	}
 
@@ -67,7 +68,7 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_categoryresult", method = RequestMethod.GET)
 	public String chCategoryResult(int categoryCode, Model model) {
 		service.chCategoryResult(model, categoryCode);
-		
+
 		model.addAttribute("categoryCode", categoryCode);
 		return "channel/ch_categoryresult";
 	}
@@ -290,6 +291,13 @@ public class ChViewContoroller {
 	@RequestMapping(value = "addComment")
 	public HashMap<String, Object> addComment(@RequestBody HashMap<String, Object> json) {
 		return service.addComment(json);
+	}
+
+//	채널 댓글 쓰기
+	@ResponseBody
+	@RequestMapping(value = "deleteComment")
+	public boolean deleteCommeent(@RequestBody HashMap<String, Object> json){
+		return service.deleteComment(json);
 	}
 
 //	채널 생성

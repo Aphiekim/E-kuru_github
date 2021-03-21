@@ -134,6 +134,19 @@ public class ChannelDAO {
 		return prodCommentNum;
 	}
 
+//	댓글 삭제
+	public boolean deleteComment(int prodCommentNum) {
+		boolean check = false;
+		try {
+			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
+			check = mapper.deleteComment(prodCommentNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return check;
+	}
+
 	public ArrayList<ChannelVO> chCategoryResult(int categoryCode) {
 		ArrayList<ChannelVO> result = null;
 		try {
@@ -283,5 +296,7 @@ public class ChannelDAO {
 		}
 		return result;
 	}
+
+
 
 }

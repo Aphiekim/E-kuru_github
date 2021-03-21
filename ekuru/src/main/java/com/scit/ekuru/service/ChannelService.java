@@ -90,6 +90,19 @@ public class ChannelService {
 		return result;
 	}
 
+//	상품 댓글 삭제
+	public boolean deleteComment(HashMap<String, Object> json) {
+        int prodCommentNum = (int) json.get("prodCommentNum");
+
+        boolean check = dao.deleteComment(prodCommentNum);
+
+        if(check) {
+        	logger.info("삭제 성공");
+        }
+
+		return check;
+	}
+
 //	카테고리 별 리스트 출력
 	public void chCategoryResult(Model model, int categoryCode) {
 		ArrayList<ChannelVO> listResult = dao.chCategoryResult(categoryCode);
@@ -103,9 +116,9 @@ public class ChannelService {
 		ArrayList<ChannelVO> searchResult = dao.chSearch(search);
 		ArrayList<ChannelVO> chListResult = dao.getListAll();
 		ArrayList<ChannelVO> adChList = dao.selectChAd();
-		
+
 		System.out.println(searchResult);
-		
+
 		model.addAttribute("chListResult", chListResult);
 		model.addAttribute("searchResult", searchResult);
 		model.addAttribute("adChList", adChList);

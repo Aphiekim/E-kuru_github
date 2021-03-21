@@ -55,10 +55,13 @@
                                         <span class="comment-detail">${userId}</span>
                                     </div>
                                 `;**/
-                                const content = '<div class="col-md-12"><span class="comment-detail">'+userId+'</span><span class="comment-detail">'+prodComment+'</span></div>';
+
+                                const content = '<div class="col-md-12"><span class="comment-detail">'+userId+
+                                    '</span><span class="comment-detail">'+prodComment+'</span><a class="deleteComment"><img id="cImg" style="width: 30px; margin-left: 10px;" src="/resources/img/channel/delete.png"></a></div>';
                                 $("#commentAdd").append(content);
                                 $("#commentBox").val("");
                                 $("#commentBox").attr({'readonly':'readonly'});
+                                location.reload();
                             } else {
                                 alert('등록 되지 않았습니다.');
                             }
@@ -69,6 +72,42 @@
                     });
                 }
             });
+
+            $(".deleteComment").click(function(){
+                
+                /* const cUserId = $("#cUserId").text();
+                const cComment = $("#cComment").text(); */
+
+                let prodCommentNum = $("#prodCommentNum").val();
+                prodCommentNum = parseInt(prodCommentNum);
+
+                const data = {
+                    prodCommentNum
+                    };
+
+                    $.ajax({
+                        url: '/channel/deleteComment',
+                        type: "POST",
+                        async : false,
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(data),
+                        success: function (result) {
+                            if (result==true) {
+                                $("#cUserId").remove();
+                                $("#cComment").remove();
+                                $("#cImg").remove();
+                                location.reload();
+                            } else {
+                                alert('등록 되지 않았습니다.');
+                            }
+                        },
+                        error: function () {
+                            alert("통신장애가 발생하였습니다.");
+                        }
+                    });
+            });
+
         });
 
         function fn_addCart(){
@@ -240,14 +279,15 @@
                                     </ul>
                                 </div>
                             </c:if>
-                            <input type="hidden" name="" value="${prodEachResult.getProdOriginalPic1() }">
                         </form>
-                        <form action="/user/createChat" method="post">
-                            <input type="hidden" name="chId" id="chId" value="${channel.chId }">
-                            <input type="hidden" name="userId" id="userId" value="${sessionScope.userId }">
-                            <input type="hidden" name="reqOriginalPic1" id="reqOriginalPic1" src="/resources/upload/file/Test-image.png">
-                            <button type="submit" style="width: 100%;" class="btn btn-info">Chat with Seller</button>
-                        </form>
+                        <c:if test="${channel.chId ne sessionScope.userId && userType == '1'}">
+                            <form action="/user/createChat" method="post">
+                                <input type="hidden" name="chId" id="chId" value="${channel.chId }">
+                                <input type="hidden" name="userId" id="userId" value="${sessionScope.userId }">
+                                <input type="hidden" name="reqOriginalPic1" id="reqOriginalPic1" value="${prodEachResult.getProdOriginalPic1() }">
+                                <button type="submit" style="width: 81%; margin-left: 40px;" class="btn btn-info">Chat with Seller</button>
+                            </form>
+                        </c:if>
                 </div>
                 <!--상품내용 끝 -->
 
@@ -260,8 +300,10 @@
                 <div class="row" id="commentAdd">
                     <c:forEach items="${commentResult }" var="commentList">
                             <div class="col-md-12 trans1">
-                                <span class="comment-detail">${commentList.userId }</span>
-                                <span class="comment-detail result">${commentList.prodComment }</span>
+                                <input id="prodCommentNum" type="hidden" value="${commentList.prodCommentNum }">
+                                <span class="comment-detail" id="cUserId" value="${commentList.userId }">${commentList.userId }</span>
+                                <span class="comment-detail result" id="cComment" value="${commentList.prodComment }">${commentList.prodComment }</span>
+                                <a class="deleteComment"><img id="cImg" style="width: 30px; margin-left: 10px;" src="/resources/img/channel/delete.png"></a>
                             </div>
                     </c:forEach>
                 </div>
@@ -273,7 +315,7 @@
                             <input id="userId" type="hidden" value="${sessionScope.userId}">
                             <c:choose>
                                 <c:when test="${result}">
-                                    <input type="text" placeholder="Leave your comment" readonly = "readonly">
+                                    <input type="text" class="textbox" placeholder="Leave your comment" readonly = "readonly">
                                 </c:when>
                                 <c:otherwise>
                                     <input class="textbox" id="commentBox" type="text" placeholder="Leave your comment">

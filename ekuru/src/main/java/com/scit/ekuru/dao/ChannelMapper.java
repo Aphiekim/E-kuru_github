@@ -58,4 +58,6 @@ public interface ChannelMapper {
 	public ArrayList<ChannelVO> channelFollowing(String userId);
 
 	public boolean deleteFollowingList(String userId);
+
+	public boolean deleteComment(int prodCommentNum);
 }
