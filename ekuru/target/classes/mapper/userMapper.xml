@@ -79,7 +79,7 @@
 select
    pointProdNum
    ,pointProdName
-   ,priceWon
+   ,priceUsd
    ,priceYen
 from
    e_pointProduct_tb
