@@ -91,9 +91,12 @@
 
                 <div class="foot">
                     <div class="submit-btn-div">
-                    <c:if test="${sessionScope.userType eq '1' }">
-                    	<input class="sub-btn" type="submit" value="Purchase">
+                    <c:if test="${spec.getStatus() eq '0' }">
+                    	<c:if test="${sessionScope.userType eq '1' }">
+                    		<input class="sub-btn" type="submit" value="Purchase">
+                    	</c:if>
                     </c:if>
+                    
                         
                    </div>
                 </div>
