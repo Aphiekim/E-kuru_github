@@ -54,7 +54,7 @@ function useId(id){
 		Item : <input type="text" name="item_name" value="${pvo.getPointProdName() }" readonly="readonly"><br/>
 		Code : <input type="text" name="item_number" value="${pvo.getPointProdName() }" readonly="readonly"><br />
 		Currency : <input type="text" name="currency_code" value="USD" readonly="readonly"><br />
-		Price : <input type="text" name="amount" value="${pvo.getPriceWon() }" readonly="readonly"><br />
+		Price : <input type="text" name="amount" value="${pvo.getPriceUsd() }" readonly="readonly"><br />
 		Encoding : <input type="text" name="charset" value="UTF-8" readonly="readonly"><br /><br />
 		<input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
 	</form>
