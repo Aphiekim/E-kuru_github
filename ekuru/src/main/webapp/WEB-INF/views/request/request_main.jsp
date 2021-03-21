@@ -87,8 +87,7 @@
     <div id="loading" style="margin-left: 0px;">
         <img id="loading-img" src="/resources/img/loader.gif">
     </div>
-
-      <!-- header -->
+  <!-- header -->
     <header class="header---">
         <div class="wrapper">
             <a href="/">
@@ -98,17 +97,14 @@
                 <ul class="menu">
                     <li class="menu-list headli">
                         <a class="menu-a" href="/user/mypageMain">My Page</a>
-                        <ul class="menu-sub">
-                            <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
-                            <li class="headli"><a href="/user/chatForm">My Chat</a></li>
-                            <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
-                        </ul>
                     </li>
                     <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
-                    <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
+                    <c:if test="${userType eq 1 }">
+                       <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
+                    </c:if>
                 </ul>
             </nav>
         </div>

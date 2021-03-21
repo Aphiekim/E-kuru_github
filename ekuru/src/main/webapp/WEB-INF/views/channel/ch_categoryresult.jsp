@@ -49,49 +49,47 @@
 </head>
 
 <body>
-  <!-- header -->
-  <header class="header---">
-    <div class="wrapper">
-        <a href="/">
-            <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
-        </a>
-        <nav>
-            <ul class="menu">
-                <li class="menu-list headli">
-                    <a class="menu-a" href="/user/mypageMain">My Page</a>
-                    <ul class="menu-sub">
-                        <li class="headli"><a href="/user/specificationListForm">My Spec</a></li>
-                        <li class="headli"><a href="/user/chatForm">My Chat</a></li>
-                        <li class="headli"><a class="sub-a"  href="/user/mypageShopping">My Cart</a></li>
-                    </ul>
-                </li>
-                <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
-                <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
-                <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
-                <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
-                <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<!-- header -->
+     <!-- header -->
+    <header class="header---">
+        <div class="wrapper">
+            <a href="/">
+                <img src="../resources/img/HatchfulExport-All/ekuru_logo.png" style="width: 4%; position: absolute;">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-list headli">
+                        <a class="menu-a" href="/user/mypageMain">My Page</a>
+                    </li>
+                    <li class="headli"><a class="menu-a" href="/ad/superplan">SPlan?</a></li>
+                    <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
+                    <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
+                    <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
+                    <c:if test="${userType eq 1 }">
+                       <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
+                    </c:if>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
+
   <div>
     <!-- 검색창 -->
         <div class="container">
             <div>
-                <div id="custom-search-input" style="width: 80%; margin-left: 10%;">
+                <div id="custom-search-input" style="width: 80%;">
                     <div class="input-group">
                     <form action="/channel/ch_search" method="post">
-                    	<div class="row">
-		                   	 <div class="col-sm">
-		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
-		                   	 </div>
-	                       	<div class="col-sm input-group-btn">
-	                          <button class="btn btn-danger" type="submit" style="margin-left:145%;">
-	                              <span class="glyphicon glyphicon-search"></span>
-	                          </button>
-	                       </div>
-                    	</div>
+                       <div class="row">
+                             <div class="col-sm">
+                              <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
+                             </div>
+                             <div class="col-sm input-group-btn">
+                             <button class="btn btn-danger" type="submit" style="margin-left:145%;">
+                                 <span class="glyphicon glyphicon-search"></span>
+                             </button>
+                          </div>
+                       </div>
                     </form>
                     </div>
                 </div>
@@ -132,108 +130,117 @@
       	</c:if>
       </div>
     </section>
-    <!-- 채널 게시글 출력 부분 시작-->
-    <section class="page-section portfolio" id="portfolio">
-      <div class="container">
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-top: 5%;">
-          특정 카테고리</h2>
-        <!-- 채널 게시글 배열 나누기-->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- 게시글 리스트 -->
-        <!-- 인기 채널-->
-        <div style="margin-bottom: 10%; margin-top: 5%;">
-          <h3 class="text-center text-uppercase" id="popularRequest">Popular Channel</h3>
-          <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel" style="width: 100%;">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active inner">
-                <div class="row justify-content-center inner">
-                  <c:forEach items="${chListResult }" var="channel">
-                    <c:if test="${channel.chNum > -1 && channel.chNum < 3 }">
-                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
-                            alt="" />
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">${channel.chName }</h5>
-                          <p class="card-text">${channel.chIntro }</p>
-                        </div>
-                      </div>
-                  </c:if>
-                  </c:forEach>
-
-                </div>
-              </div>
-
-              <div class="item inner">
-                <div class="row justify-content-center inner">
-                  <c:forEach items="${chListResult }" var="channel">
-                    <c:if test="${channel.chNum > 2 && channel.chNum < 6 }">
-                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
-                            alt="" />
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">${channel.chName }</h5>
-                          <p class="card-text">${channel.chIntro }</p>
-                        </div>
-                      </div>
-                    </c:if>
-                  </c:forEach>
-                </div>
-              </div>
-
-              <div class="item inner">
-                <div class="row justify-content-center inner">
-                  <c:forEach items="${chListResult }" var="channel">
-                    <c:if test="${channel.chNum > 5 && channel.chNum < 9 }">
-                      <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" onclick="location.href='ch_personal_main?chId=${channel.chId }'">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                class="fas fa-plus fa-3x"></i></div>
-                          </div>
-                          <img class="img-fluid" src="/resources/img/channel/ch-profile${channel.chNum }.jpg"
-                            alt="" />
-                        </div>
-                        <div class="card-body">
-                          <h5 class="card-title">${channel.chName }</h5>
-                          <p class="card-text">${channel.chIntro }</p>
-                        </div>
-                      </div>
-                    </c:if>
-                  </c:forEach>
-                </div>
-              </div>
+   <!-- 채널 게시글 출력 부분 시작-->
+      <section class="page-section portfolio" id="portfolio">
+         <div class="container">
+            <h2
+               class="page-section-heading text-center text-uppercase text-secondary mb-0"
+               id="text" style="margin-top: 5%;">Channel Board</h2>
+            <!-- 채널 게시글 배열 나누기-->
+            <div class="divider-custom">
+               <div class="divider-custom-line"></div>
+               <div class="divider-custom-icon">
+                  <i class="fas fa-star"></i>
+               </div>
+               <div class="divider-custom-line"></div>
             </div>
-            <!-- 인기 채널 끝 -->
-            <!-- 슬라이드 커서 기능 -->
-            <!-- 슬라이드 커서 기능 -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
+            <!-- 게시글 리스트 -->
+            <!-- 인기 채널-->
+            <div style="margin-bottom: 10%; margin-top: 5%;">
+                    <h3 class="text-center text-uppercase" id="popularRequest">Popular Channel</h3>
+                    <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
+                        style="width: 100%;">
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active inner">
+                                <div class="row justify-content-center inner">
+                                <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="1" end="3">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                <div class="portfolio-item-caption-content text-center text-white"><i
+                                                        class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img id="imgsize" class="img-fluid"
+                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${adChList.USERID }</h5>
+                                            <p class="card-text">${adChList.CHNAME }</p>
+                                        </div>
+                                    </div>
+
+                                </c:forEach>
+                                </div>
+                            </div>
+
+                            <div class="item inner">
+                                <div class="row justify-content-center inner">
+                                    <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="4" end="6">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                <div class="portfolio-item-caption-content text-center text-white"><i
+                                                        class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img id="imgsize" class="img-fluid"
+                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${adChList.USERID }</h5>
+                                            <p class="card-text">${adChList.CHNAME }</p>
+                                        </div>
+                                    </div>
+
+                                </c:forEach>
+
+
+                                </div>
+                            </div>
+                            <div class="item inner">
+                                <div class="row justify-content-center inner">
+                                    <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="6" end="9">
+                                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                        <div class="portfolio-item mx-auto" data-toggle="modal"
+                                            data-target="#portfolioModal4">
+                                            <div
+                                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                <div class="portfolio-item-caption-content text-center text-white"><i
+                                                        class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img id="imgsize" class="img-fluid"
+                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                        </div>
+                                        <div class="card-body">
+                                             <h5 class="card-title">${adChList.USERID }</h5>
+                                            <p class="card-text">${adChList.CHNAME }</p>
+                                        </div>
+                                    </div>
+
+                                </c:forEach>
+                              </div>
+                            </div>
+                        </div>
+                  <!-- 인기 슬라이드 end -->
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
         <!-- 카테고리별 검색 결과 (id는 카테고리 별에 맞춰서 바뀜) -->
         <div class="row justify-content-center inner" style="margin-bottom: 5%;">
@@ -254,8 +261,8 @@
           </c:forEach>
         </div>
 
-    </section>
   </div>
+    </section>
 
 </div>
 <!-- include tag Footer Start -->
