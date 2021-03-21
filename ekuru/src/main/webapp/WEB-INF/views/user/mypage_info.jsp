@@ -56,7 +56,6 @@
                     <div class="buttons">
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-secondary">Information</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <c:if test="${user.getUserType() eq '0' && null eq result && user.getUserConfirm() eq '1'}">
 	                                <button type="button" class="btn btn-warning" onclick="location.href='../channel/chCreate'" >Channel</button>
                                 </c:if>
