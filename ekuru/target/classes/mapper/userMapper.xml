@@ -176,7 +176,7 @@ where userid = #{userId}
       d.DEALCODE as DEALCODE,
       e.USERID as USERID,
       d.DEALSTATE as DEALSTATE,
-      d.DEALINDATE as DEALINDATE
+      to_char(d.DEALINDATE, 'YYYY-MM-DD HH:MM') as DEALINDATE
    FROM
       E_DEALHISTORY_TB d, E_SPEC_TB e
    WHERE

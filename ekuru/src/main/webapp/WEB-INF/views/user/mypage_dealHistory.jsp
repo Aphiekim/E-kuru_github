@@ -40,7 +40,7 @@
         <!--거래 내역 시작-->
         <div class="card text-center">
             <div class="card-header">
-                <h1 id="h1-p">거래 내역</h1>
+                <h1 id="h1-p">Deal History</h1>
             </div>
             <div class="card-body">
 
@@ -53,16 +53,15 @@
                                     <th><span class="th-text">SPECNUM</span></th>
                                     <th><span class="th-text">DEALCODE</span></th>
                                     <th><span class="th-text">USERID</span></th>
-                                    <th><span class="th-text">DEALSTATE</span></th>
                                     <th><span class="th-text">DEALINDATE</span></th>
                                     <th><span class="th-text">Specification</span></th>
                                 </tr>
                                     <c:forEach items="${result }" var="dealHistory">
                                 <tr>
+                                	
                                         <td><span>${dealHistory.SPECNUM }</span></td>
                                         <td><span>${dealHistory.DEALCODE }</span></td>
                                         <td><span>${dealHistory.USERID }</span></td>
-                                        <td><span>${dealHistory.DEALSTATE }</span></td>
                                         <td><span>${dealHistory.DEALINDATE }</span></td>
                                         <td><span>Specification</span></td>
                                 </tr>
