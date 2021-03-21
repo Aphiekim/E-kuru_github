@@ -101,7 +101,11 @@ public interface UserMapper {
 	public int insertSpec(specVO vo);
 	
 	// 명세 조회
-	public ArrayList<HashMap<Object, Object>> selectSpecAll(String id);
+	public ArrayList<HashMap<Object, Object>> selectSpecAll1(UserVO user);
+	
+	// 판매자 조회
+	public ArrayList<HashMap<Object, Object>> selectSpecAll2(UserVO user);
+	
 	//AD 수퍼플랜에 넣기 요청글(구매자용)
 	public int insertReqAd(SuperPlanVO vo);
 	

@@ -15,9 +15,6 @@ public class ProductVO {
 	private String prodOriginalPic1;
 	private String prodOriginalPic2;
 	private String prodOriginalPic3;
-	private String prodSavedPic1;
-	private String prodSavedPic2;
-	private String prodSavedPic3;
 	private String prodIndate;
 
 
