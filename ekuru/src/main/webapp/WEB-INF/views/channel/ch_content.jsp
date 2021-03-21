@@ -244,7 +244,7 @@
                                 </ul>
                             </div>
                             
-                            <input type="hidden" name="" value="${prodEachResult.getProdOriginalPic1() }">
+                            
                         </form>
                 </div>
                 <!--상품내용 끝 -->

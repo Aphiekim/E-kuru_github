@@ -24,13 +24,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-	<script type="text/javascript">
-	function updateStatus(){
-
-		location.href = "/user/updateStatus";
-	}
-
-	</script>
 
 </head>
 <body>
@@ -63,7 +56,7 @@
                     <div class="card-body">
                         <!-- 충전 내역 출력 부분 -->
                         <div>
-                            <!--<form action="#">-->
+                            <form action="/user/updateStatus" method="post">
                                 <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
                                     <thead>
                                         <tr>
@@ -92,7 +85,8 @@
 	                                            <c:if test="${list.STATUS eq '0'}">
 	                                            	<c:if test="${sessionScope.userType eq '0' }">
 		                                            	<td>
-			                                                <button class="btn btn-secondary" onclick="updateStatus();">Wating</button>
+		                                            		<input type="hidden" name="specNum" value="${list.SPECNUM }">
+		                                            		<input class="btn btn-secondary" type="submit" value="Wating">
 			                                            </td>
 	                                            	</c:if>
 		                                           <c:if test="${sessionScope.userType ne '0' }">
@@ -115,7 +109,7 @@
                                        
                                     </tbody>
                                 </table>
-                            <!--</form>  -->
+                            </form>
                         </div>
                     <div class="card-footer text-muted">
                         Make your request more, Get your stuff more
