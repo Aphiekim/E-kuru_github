@@ -16,4 +16,5 @@ public class specVO {
 	private String userType;
 	private String chName;
 	private String originalPic1;
+	private String status;
 }

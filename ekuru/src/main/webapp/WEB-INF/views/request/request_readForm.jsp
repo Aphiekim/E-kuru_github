@@ -165,6 +165,7 @@
                    <form action="/user/createChat" method="post">
                        <input type="hidden" name="chId" value="${comment.userId }">
                        <input type="hidden" name="userId" value="${sessionScope.userId }">
+                       <input type="hidden" name="reqOriginalPic1" value="${vo.getReqOriginalPic1() }">
                         <input type="submit" class="btn btn-outline-danger col-4-sm" style="margin-right: 2%;" value="Request">
                     </form>
                 </c:if>
