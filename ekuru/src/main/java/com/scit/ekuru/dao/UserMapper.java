@@ -129,4 +129,7 @@ public interface UserMapper {
 	//public int updatePoint(UserVO vo);
 	
 	public int updateStatus(int specNum);
+	
+	//
+	public dealHistoryVO selectDealOne(int specNum);
 }

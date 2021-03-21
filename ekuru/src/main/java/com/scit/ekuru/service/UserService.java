@@ -608,6 +608,10 @@ public class UserService {
 		return dao.selectChatRoomOne(chatNum);
 	}
 	
+	public dealHistoryVO selectDealOne(int specNum) {
+		return dao.selectDealOne(specNum);
+	}
+	
 	public String updateStatus(int specNum) {
 		String path = "";
 		int cnt = dao.updateStatus(specNum);
