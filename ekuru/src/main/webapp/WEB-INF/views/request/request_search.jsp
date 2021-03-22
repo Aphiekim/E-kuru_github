@@ -163,50 +163,53 @@
                         <div class="carousel-inner">
                             <div class="item active inner">
                                 <div class="row justify-content-center inner">
-                                <c:forEach items="${adReqList }" var="adReqList" varStatus="status" begin="1" end="3">
+                                <c:forEach items="${adReqList }" var="adlist" varStatus="status">
+                                <c:if test="${status.index>=0 && status.index<3 }">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="openReadForm('${adReqList.REQNUM}');">
+                                                onclick="openReadForm('${adlist.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="../resources/upload/file/${adReqList.REQORIGINALPIC1 }">
+                                                src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adReqList.REQTITLE }</h5>
-                                            <p class="card-text">${adReqList.REQCONTENT }</p>
+                                            <h5 class="card-title">${adlist.REQTITLE }</h5>
+                                            <p class="card-text">${adlist.REQCONTENT }</p>
                                         </div>
                                     </div>
                                    
+                                </c:if>
                                 </c:forEach>
                                 </div>
                             </div>
 
                             <div class="item inner">
                                 <div class="row justify-content-center inner">
-                                    <c:forEach items="${adReqList }" var="adReqList" varStatus="status" begin="4" end="6">
+                                    <c:forEach items="${adReqList }" var="adlist" varStatus="status">
+                                    <c:if test="${status.index>=3 && status.index<6}">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="openReadForm('${adReqList.REQNUM}');">
+                                                onclick="openReadForm('${adlist.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="../resources/upload/file/${adReqList.REQORIGINALPIC1 }">
+                                                src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adReqList.REQTITLE }</h5>
-                                            <p class="card-text">${adReqList.REQCONTENT }</p>
+                                            <h5 class="card-title">${adlist.REQTITLE }</h5>
+                                            <p class="card-text">${adlist.REQCONTENT }</p>
                                         </div>
                                     </div>
-                                   
+                                   </c:if>
                                 </c:forEach>
                                     
                                     
@@ -214,25 +217,26 @@
                             </div>
                             <div class="item inner">
                                 <div class="row justify-content-center inner">
-                                    <c:forEach items="${adReqList }" var="adReqList" varStatus="status" begin="6" end="9">
+                                    <c:forEach items="${adReqList }" var="adlist" varStatus="status">
+                                    <c:if test="${status.index>=6 && status.index<9 }">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                 onclick="openReadForm('${adReqList.REQNUM}');">
+                                                onclick="openReadForm('${adlist.REQNUM}');">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img class="img-fluid"
-                                                src="../resources/upload/file/${adReqList.REQORIGINALPIC1 }">
+                                                src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adReqList.REQTITLE }</h5>
-                                            <p class="card-text">${adReqList.REQCONTENT }</p>
+                                            <h5 class="card-title">${adlist.REQTITLE }</h5>
+                                            <p class="card-text">${adlist.REQCONTENT }</p>
                                         </div>
                                     </div>
-                                   
+                                 </c:if>
                                 </c:forEach>
                               </div>
                             </div>
@@ -272,6 +276,7 @@
 	                    </div>
 	                </c:forEach>
                 </div>
+        </div>
         </section>
 
         

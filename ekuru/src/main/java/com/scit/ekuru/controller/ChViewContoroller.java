@@ -60,7 +60,8 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_search", method = RequestMethod.POST)
 	public String chSearch(@RequestParam(defaultValue = "") String search, Model model) {
 		service.chSearch(search, model);
-
+		ArrayList<ChannelVO> adChList = service.selectChAd();
+		model.addAttribute("adChList", adChList);
 		return "channel/ch_search";
 	}
 
@@ -68,7 +69,8 @@ public class ChViewContoroller {
 	@RequestMapping(value = "/ch_categoryresult", method = RequestMethod.GET)
 	public String chCategoryResult(int categoryCode, Model model) {
 		service.chCategoryResult(model, categoryCode);
-
+		ArrayList<ChannelVO> adChList = service.selectChAd();
+		model.addAttribute("adChList", adChList);
 		model.addAttribute("categoryCode", categoryCode);
 		return "channel/ch_categoryresult";
 	}
