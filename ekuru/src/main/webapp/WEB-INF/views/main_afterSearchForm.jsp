@@ -115,7 +115,13 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- 인기 채널 리스트 -->
-                <div class="carousel-inner">
+                <div style="margin-bottom: 10%; margin-top: 5%;">
+                    <h3 class="text-center text-uppercase" id="popularRequest">Popular Channel</h3>
+                    <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
+                        style="width: 100%;">
+
+                        <!-- Wrapper for slides -->
+                         <div class="carousel-inner">
                             <div class="item active inner">
                                 <div class="row justify-content-center inner">
                                 <c:forEach items="${adChList }" var="chList" varStatus="status">
