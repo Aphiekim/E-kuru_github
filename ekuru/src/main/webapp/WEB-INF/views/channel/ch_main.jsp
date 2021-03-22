@@ -15,26 +15,27 @@
 <link rel="stylesheet" href="/resources/css/header.css">
 <link rel="stylesheet" href="/resources/css/main-footer.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-reboot.min.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.min.css">
 <link rel="stylesheet"
-   href="/resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
+   href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap.css">
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>  -->
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <script type="text/javascript"
    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="../resources/js/bootstrap.js" ></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
 
@@ -95,6 +96,7 @@ body {
 </head>
 
 <body>
+
    <!--로딩바-->
     <div id="loading" style="margin-left: 0px;">
         <img id="loading-img" src="/resources/img/loader.gif">
@@ -123,6 +125,7 @@ body {
         </div>
     </header>
     <!-- header -->
+    
    <div>
       <!-- 검색창 -->
         <div class="container">
@@ -186,22 +189,22 @@ body {
                         <div class="carousel-inner">
                             <div class="item active inner">
                                 <div class="row justify-content-center inner">
-                                <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="1" end="3">
+                                <c:forEach items="${adChList }" var="adChListaaa" varStatus="status">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                onclick="location.href='ch_personal_main?chId=${adChListaaa.USERID }'">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img id="imgsize" class="img-fluid"
-                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                                src="../resources/upload/file/${adChListaaa.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adChList.USERID }</h5>
-                                            <p class="card-text">${adChList.CHNAME }</p>
+                                            <h5 class="card-title">${adChListaaa.USERID }</h5>
+                                            <p class="card-text">${adChListaaa.CHNAME }</p>
                                         </div>
                                     </div>
 

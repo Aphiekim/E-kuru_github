@@ -104,7 +104,7 @@
 			</form>
 			<div class="foot" style="margin-top: 0">
 				<div class="submit-btn-div">
-				<c:if test="${spec.getDealstate() ne '1' }">
+				<c:if test="${spec.getDealstate() ne '1' && empty deal.getSpecNum()}">
 					<form action="/user/removeSpecOne" method="get">
 				    	<input type="hidden" name="specNum" value="${spec.getSpecNum()}">
 				        <input class="sub-btn" type="submit" value="Cancel">
