@@ -280,8 +280,8 @@
                                 <h4>Choi Hyun Jong</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
-                                <p class="text-muted">Lead Marketer</p>
-                                <p class="text-muted">Lead Marketer</p>
+                                <p class="text-muted">"成長、情熱、責任"</p>
+                                <p class="text-muted">meojong@gmail.com</p>
                             </div>
                         </div>
                         <div class="col-lg-4">
