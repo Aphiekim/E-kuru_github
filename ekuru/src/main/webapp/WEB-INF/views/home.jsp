@@ -270,7 +270,7 @@
                                 <h4>Jung Ha Young</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
-                                <p class="text-muted">"グローバル人間、やめない"</p>
+                                <p class="text-muted">"グローバル人間、諦めない"</p>
                                 <p class="text-muted">hayoungjung55@gmail.com</p>
                             </div>
                         </div>
