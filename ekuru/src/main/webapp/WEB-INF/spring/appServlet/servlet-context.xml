@@ -74,4 +74,35 @@
 		</mvc:message-converters>
 	</annotation-driven>
 
+
+	<!-- 로그인 인터셉터 정의 -->
+	<!-- 스프링에서 사용할수있도록 빈 등록 -->
+	<!-- class는 파일이 현재 위치한 경로 -->
+	<beans:bean id="loginInterceptor" class="com.scit.ekuru.util.LoginInterceptor"></beans:bean>
+	
+	<!-- 로그인 인터셉터를 경유해서 처리할 경로들 지정 -->
+	<!-- 현 XML파일 상단의 beans 태그 내에 xmlns:mvc="http://www.springframework.org/schema/mvc" 추가하고 사용 -->
+	<interceptors>
+		<interceptor>
+			<!-- 가료채야할 경로들을 지정해준다 -->
+
+			<mapping path="/ad/**"/>
+			<mapping path="/channel/**"/>
+			<mapping path="/user/mypageMain"/>
+			<mapping path="/user/mypage_Info"/>
+			<mapping path="/user/mypage_InfoForm"/>
+			<mapping path="/user/mypageShopping"/>
+			<mapping path="/user/removeCart"/>
+			<mapping path="/user/chatForm"/>
+			<mapping path="/user/mypagePoint"/>
+			<mapping path="/user/mypage_pointPricing"/>			
+			<mapping path="/user/mypage_paymentClear"/>
+			<mapping path="/user/mypage_dealHistory"/>
+			<mapping path="/user/viewedItems"/>
+			<mapping path="/user/specificationListForm"/>
+			<mapping path="/request/**"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors>
+
 </beans:beans>
