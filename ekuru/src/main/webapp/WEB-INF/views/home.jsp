@@ -89,7 +89,7 @@
                         <a class="#" href="/"><img class="logo" src="../resources/img/HatchfulExport-All/ekuru_logo.png" alt="logo"></a>
                     </div>
                 </div>
-				
+
                 <!-- ë©ë´ êµ¬ì­ -->
                 <div class="col-lg-9 col-md-9">
                     <div class="box2">
@@ -222,7 +222,7 @@
                         <p id="context-japan" style="margin-top: 10%;">
                             欲しい賞品をチャットで<br>
                           	情報共有及び取引
-                           
+
                         </p>
                     </div>
                 </div>
@@ -266,12 +266,12 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="../resources/img/member1.jpg" alt="" />
+                                <img class="mx-auto rounded-circle" src="../resources/img/crew-img/member1.jpg" alt="" />
                                 <h4>Jung Ha Young</h4>
                                 <p class="text-muted">IT engineer</p>
                                 <p class="text-muted">한국어/日本語/English</p>
-                                <p class="text-muted">Lead Designer</p>
-                                <p class="text-muted">Lead Designer</p>
+                                <p class="text-muted">"グローバル人間、やめない"</p>
+                                <p class="text-muted">hayoungjung55@gmail.com</p>
                             </div>
                         </div>
                         <div class="col-lg-4">
