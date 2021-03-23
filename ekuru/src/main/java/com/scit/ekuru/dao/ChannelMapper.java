@@ -25,8 +25,6 @@ public interface ChannelMapper {
 
 	public ArrayList<ProductCommentVO> getProdComment(int prodNum);
 
-	public String getUserType(String userId);
-
 	public int addComment(ProductCommentVO commentVo);
 
 	public ArrayList<ChannelVO> chCategoryResult(int categoryCode);

@@ -244,12 +244,10 @@ public class ChViewContoroller {
 		ChannelVO channel = service.chRead(chId);
 		ProductVO prodEachResult = service.getProdEach(prodVo);
 		ArrayList<ProductCommentVO> commentResult = service.getProdComment(prodVo.getProdNum());
-		String userType = "0";
 		String userId = (String) session.getAttribute("userId");
 		boolean result = false;
 
 		if (userId != null) {
-			userType = service.getUserType(userId);
 			for (ProductCommentVO productCommentVO : commentResult) {
 				if (productCommentVO.getUserId().equals(userId)) {
 					result = true;
@@ -279,7 +277,6 @@ public class ChViewContoroller {
 		model.addAttribute("prodEachResult", prodEachResult);
 
 		model.addAttribute("commentResult", commentResult);
-		model.addAttribute("userType", userType);
 		model.addAttribute("result", result);
 
 		return "channel/ch_content";

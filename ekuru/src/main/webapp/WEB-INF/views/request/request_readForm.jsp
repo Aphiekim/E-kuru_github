@@ -79,7 +79,7 @@
                     <%-- <li class="headli"><a class="menu-a" href="">Board</a></li> --%>
                     <li class="headli"><a class="menu-a" href="/user/mypagePoint">${sessionScope.userPoint }P</a></li>
                     <li class="headli"><a class="menu-a" href="/user/logout">Logout</a></li>
-                    <c:if test="${userType eq 1 }">
+                    <c:if test="${sessionScope.userType == 1}">
                        <li class="headli"><a class="menu-a" href="/user/viewedItems">Recently viewed items</a></li>
                     </c:if>
                 </ul>
@@ -90,7 +90,7 @@
     <!-- header -->
   <div class="container" style="margin-top: 10%;">
     <c:choose>
-              <c:when test="${userType == '0'}">
+              <c:when test="${sessionScope.userType == 0}">
                  <button type="button" id="translate1" class="btn btn-outline-secondary" style="margin-left: 90%;"value="한국어">한국어</button>
              </c:when>
              <c:otherwise>
@@ -135,7 +135,7 @@
     <hr class="line line-sty">
 
    <!-- 댓글 입력창 -->
-   <c:if test="${userType eq 0 }">
+   <c:if test="${sessionScope.userType == 0}">
     <form action="/request/request_comment?reqNum=${vo.reqNum }" method="post" onsubmit="return checkComment();">
        <div class="row mb-3">
          <input type="text" id="reqComment" name="reqComment" class="form-control comment-sty" id="exampleFormControlInput1" placeholder="Leave your comment">
@@ -147,7 +147,7 @@
     <!-- 구분선 -->
     <hr class="line">
     <!-- 댓글창 -->
-    <c:if test="${userType eq 0 || sessionScope.userId == vo.userId }">
+    <c:if test="${sessionScope.userType == 0 || sessionScope.userId == vo.userId }">
        <c:forEach var="comment" items="${comment }">
           <div class="card comtWrite-sty">
             <div class="card-body trans2">

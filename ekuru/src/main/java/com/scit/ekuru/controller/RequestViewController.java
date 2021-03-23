@@ -75,8 +75,8 @@ public class RequestViewController {
 		//String saveDir = "C:\\Users\\SCIT\\Documents\\E-kuru_github\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 		String saveDir = "C:\\Users\\MeoJong\\Desktop\\Project\\ekuru\\src\\main\\webapp\\resources\\upload\\file";
 
-		
-		
+
+
 		System.out.println(upload[0].getOriginalFilename());
 
 		//위에서 설정한 경로의 폴더가 없을 경우 생성
@@ -84,15 +84,15 @@ public class RequestViewController {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		
+
 		String reName = "";
 		String[] nm = {"Test-image.png", "Test-image.png", "Test-image.png"};
-		
+
 		for(int i = 0; i < upload.length; i++) {
 			if(upload[i].isEmpty()) {
 				continue;
 			}
-			
+
 			else {
 				MultipartFile f = upload[i];
 				if(!f.isEmpty()) {
@@ -114,7 +114,7 @@ public class RequestViewController {
 						e.printStackTrace();
 						}
 					}
-				nm[i] = reName;	
+				nm[i] = reName;
 			}
 		}
 		reqVO.setReqOriginalPic1(nm[0]);
@@ -158,13 +158,13 @@ public class RequestViewController {
 		int count = 0;
 		String reName = "Test-image.png";
 		String[] nm = {"Test-image.png", "Test-image.png", "Test-image.png"};
-		
+
 		// 파일 업로드
 		for(int i = 0; i < upload.length; i++) {
 			if(upload[i].isEmpty()) {
 				continue;
 			}
-			
+
 			else {
 				MultipartFile f = upload[i];
 				if(!f.isEmpty()) {
@@ -186,7 +186,7 @@ public class RequestViewController {
 						e.printStackTrace();
 						}
 					}
-				nm[i] = reName;	
+				nm[i] = reName;
 			}
 		}
 		reqVO.setReqOriginalPic1(nm[0]);
@@ -206,13 +206,8 @@ public class RequestViewController {
 		ArrayList<RequestCommentVO> comment = service.selectComment(reqNum);
 		System.out.println(vo);
 
-		// 유저타입 불러오기
-		String id = (String) session.getAttribute("userId");
-		String userType = chService.getUserType(id);
-
 		model.addAttribute("vo", vo);
 		model.addAttribute("comment", comment);
-		model.addAttribute("userType", userType);
 
 		return "request/request_readForm";
 	}
@@ -230,11 +225,11 @@ public class RequestViewController {
 	public String requestCategoryResult(int categoryCode, Model model) {
 		logger.info("Move to request category result"+ categoryCode);
 		String id = (String)session.getAttribute("userId");
-		
+
 		ArrayList<RequestVO> list = service.requestCategoryResult(categoryCode);
 		ArrayList<RequestVO> adReqList = service.selectReqAd();
 		UserVO user = userService.selectUserTest(id);
-		
+
 		model.addAttribute("categoryCode", categoryCode);
 		model.addAttribute("user", user);
 		model.addAttribute("list", list);
@@ -265,9 +260,9 @@ public class RequestViewController {
 	public String deleteComment(int reqCommentNum) {
 		RequestCommentVO vo = service.getReqNum(reqCommentNum);
 		int reqNum = vo.getReqNum();
-		
+
 		int cnt = service.deleteComment(reqCommentNum);
-		
+
 		String path =" ";
 
 		if(cnt>0) {
@@ -286,10 +281,10 @@ public class RequestViewController {
 	public String search(@RequestParam(defaultValue="")String search, Model model) {
 		logger.info("검색어 : {}", search);
 		logger.info("내용 검색 후, 목록 출력");
-		
+
 		ArrayList<RequestVO> adReqList = service.selectReqAd();
 		ArrayList<RequestVO> searchList = service.selectRequestAll(search);
-		
+
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("adReqList", adReqList);
 		return "request/request_search";

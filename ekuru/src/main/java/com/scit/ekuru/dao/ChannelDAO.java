@@ -108,18 +108,6 @@ public class ChannelDAO {
 
 	}
 
-	public String getUserType(String userId) {
-		String userResult = null;
-		try {
-			ChannelMapper mapper = session.getMapper(ChannelMapper.class);
-			userResult = mapper.getUserType(userId);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return userResult;
-
-	}
 
 //	상품 댓글 추가
 	public int addComment(ProductCommentVO commentVo) {

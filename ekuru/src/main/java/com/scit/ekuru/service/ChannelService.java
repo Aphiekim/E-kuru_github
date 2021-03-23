@@ -65,11 +65,6 @@ public class ChannelService {
 		return commentResult;
 	}
 
-//	채널 댓글 창 입력 위한 유저 타입 가져오기
-	public String getUserType(String userId) {
-		String userResult = dao.getUserType(userId);
-		return userResult;
-	}
 
 //	상품 댓글 추가
 	public HashMap<String, Object> addComment(HashMap<String, Object> json) {
