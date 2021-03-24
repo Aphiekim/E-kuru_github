@@ -59,7 +59,7 @@
                     <div class="card-body">
                         <!-- 충전 내역 출력 부분 -->
                         <div>
-                            <form action="/user/updateStatus" method="post">
+                            
                                 <table class="table table-hover" style="width: 80%; margin-left: auto; margin-right: auto;">
                                     <thead>
                                         <tr>
@@ -89,8 +89,10 @@
 	                                            <c:if test="${list.STATUS eq '0'}">
 	                                            	<c:if test="${sessionScope.userType eq '0' }">
 		                                            	<td>
+		                                            	<form action="/user/updateStatus" method="post">
 		                                            		<input type="hidden" name="specNum" value="${list.SPECNUM }">
 		                                            		<input class="btn btn-secondary" type="submit" value="Wating">
+		                                            		</form>
 			                                            </td>
 	                                            	</c:if>
 		                                           <c:if test="${sessionScope.userType ne '0' }">
@@ -114,7 +116,7 @@
                                        
                                     </tbody>
                                 </table>
-                            </form>
+                            
                         </div>
                     <div class="card-footer text-muted">
                         Make your request more, Get your stuff more

@@ -174,7 +174,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
@@ -201,7 +201,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
@@ -228,7 +228,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">

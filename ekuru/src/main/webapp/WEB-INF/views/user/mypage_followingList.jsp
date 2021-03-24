@@ -50,7 +50,7 @@
         <div class="buttons" style="text-align: center; margin-top: 10%;">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-info">Home</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-info" onclick="location.href='/'">Home</button>&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-warning" onclick="openWriteRequest();">Request</button>
                     <button type="button" id="translate2" class="btn btn-outline-secondary" style="margin-left: 20px;">日本語</button>
                 </div>
