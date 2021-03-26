@@ -85,7 +85,7 @@
 	                                            <td>${list.PRODUCTEA }</td>
 	                                            <td>${list.PRODUCTPRICE}</td>
 	                                            <td>${list.CUSTOMERADDR }</td>
-
+				 								
 	                                            <c:if test="${list.STATUS eq '0'}">
 	                                            	<c:if test="${sessionScope.userType eq '0' }">
 		                                            	<td>
@@ -95,14 +95,16 @@
 		                                            		</form>
 			                                            </td>
 	                                            	</c:if>
+	                                            </c:if>
+	                                            <c:if test="${list.STATUS eq '0'}">
 		                                           <c:if test="${sessionScope.userType ne '0' }">
 		                                            	<td>
 			                                                <button class="btn btn-secondary">Wating</button>
 			                                            </td>
 	                                            	</c:if>
 	                                            </c:if>
-	                                            
-	                                            <c:if test="${list.STATUS ne '0'}">
+	                                           
+	                                            <c:if test="${list.STATUS eq '1'}">
 		                                            <td>
 		                                                <button class="btn btn-danger">Clear</button>
 		                                            </td>
@@ -110,7 +112,6 @@
 	                                            
 
 	                                        </tr>
-	                                    
                                     	</c:forEach>
                                     
                                        

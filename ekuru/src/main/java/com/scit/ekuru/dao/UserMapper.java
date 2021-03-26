@@ -125,11 +125,9 @@ public interface UserMapper {
 	// 구매 처리
 	public int purchaseOne(dealHistoryVO vo);
 	
-	// 구매후 포인트 감소
-	//public int updatePoint(UserVO vo);
-	
+	// 상품 배송 상태 수정
 	public int updateStatus(int specNum);
 	
-	//
+	//거래내역 조회
 	public dealHistoryVO selectDealOne(int specNum);
 }

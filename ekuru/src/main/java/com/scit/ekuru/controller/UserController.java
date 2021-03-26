@@ -157,6 +157,7 @@ public class UserController {
 		return service.modifyUser(vo);
 	}
 
+	// 
 	@RequestMapping(value = "/mypageShopping", method = RequestMethod.GET)
 	public String mypageShopping(CartVO vo, Model model, HttpSession ssesion) {
 		ArrayList<HashMap<String, Object>> list = service.selectCart();
@@ -170,6 +171,7 @@ public class UserController {
 		return "user/mypage_shopping";
 	}
 
+	// 장바구니 삭제
 	@RequestMapping(value = "/removeCart", method = RequestMethod.GET)
 	public String removeCart(CartVO vo) {
 		//ArrayList<HashMap<String, Object>> list = service.selectCart();
@@ -177,6 +179,7 @@ public class UserController {
 		return service.deleteCart(vo.getCartProdNum());
 	}
 
+	// 채팅방 조회
 	@RequestMapping(value = "/chatForm", method = RequestMethod.GET)
 	public String chatForm(Model model, ChatVO vo) {
 		String id = (String)session.getAttribute("userId");
@@ -436,7 +439,7 @@ public class UserController {
 		UserVO user = service.selectUserTest(id);
 		
 		ArrayList<HashMap<Object, Object>> list = service.selectSpecAll(user);
-
+		System.out.println("명세 :" + list);
 		model.addAttribute("list", list);
 		return "deal/deal_specificationListForm";
 	}
@@ -492,9 +495,12 @@ public class UserController {
 	@RequestMapping(value = "/updateStatus", method=RequestMethod.POST)
 	public String updateStatus(specVO vo) {
 		System.out.println(vo);
+		dealHistoryVO deal = service.selectDealOne(vo.getSpecNum());
+		String path = "redirect:/user/specificationListForm";
+		if(deal != null) {
+			path =service.updateStatus(vo.getSpecNum());
+		}
 		
-		
-		String path =service.updateStatus(vo.getSpecNum());
 		
 		return path;
 	}
