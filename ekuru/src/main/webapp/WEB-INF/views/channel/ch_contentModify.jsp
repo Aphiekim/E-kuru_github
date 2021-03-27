@@ -24,6 +24,42 @@
     function fn_contentModify(){
         var prodModify = document.getElementById("prodModify");
         console.log(prodModify);
+
+        const prodTitle = document.getElementById("prodTitle").value;
+        const prodPrice = document.getElementById("prodPrice").value;
+        const prodStock = document.getElementById("prodStock").value;
+        const prodContent = document.getElementById("prodContent").value;
+
+        if(prodTitle == '' || prodTitle == null){
+            alert("물품 이름을 입력 해 주세요");
+            return false;
+        }
+
+        if(prodPrice == '' || prodPrice == null || prodPrice < 1){
+            alert("가격을 입력 해 주세요");
+            return false;
+        }
+
+        if(isNaN(prodPrice)){
+            alert("숫자만 입력 가능합니다");
+            return false;
+        }
+
+        if(prodStock == '' || prodStock == null || prodStock < 1){
+            alert("수량을 입력 해 주세요");
+            return false;
+        }
+
+        if(isNaN(prodStock)){
+            alert("숫자만 입력 가능합니다");
+            return false;
+        }
+
+        if(prodContent == '' || prodContent == null){
+            alert("내용을 입력 해 주세요");
+            return false;
+        }
+
         prodModify.action = "/channel/contentModify";
         prodModify.method = "POST";
         prodModify.submit();
