@@ -303,7 +303,9 @@
                                 <input id="prodCommentNum" type="hidden" value="${commentList.prodCommentNum }">
                                 <span class="comment-detail" id="cUserId" value="${commentList.userId }">${commentList.userId }</span>
                                 <span class="comment-detail result" id="cComment" value="${commentList.prodComment }">${commentList.prodComment }</span>
-                                <a class="deleteComment"><img id="cImg" style="width: 30px; margin-left: 10px;" src="/resources/img/channel/delete.png"></a>
+                                <c:if test="${sessionScope.userId == commentList.userId }">
+	                                <a class="deleteComment"><img id="cImg" style="width: 30px; margin-left: 10px;" src="/resources/img/channel/delete.png"></a>
+                                </c:if>
                             </div>
                     </c:forEach>
                 </div>

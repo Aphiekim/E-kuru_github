@@ -12,7 +12,7 @@
     <title>E-kuru</title>
     <link rel="shortcut icon" href="../resources/img/HatchfulExport-All/ekuru_logo.ico">
     <link rel="stylesheet" href="../resources/css/request-main.css">
-  	<link rel="stylesheet" href="../resources/css/header_Origin.css">
+     <link rel="stylesheet" href="../resources/css/header_Origin.css">
     <link rel="stylesheet" href="../resources/font/NotoSansCJKjp-Black.otf">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../resources/css/bootstrap-4.6.0-dist/css/bootstrap-grid.min.css">
@@ -32,20 +32,20 @@
         })
 
         function openCategory(category){
-			var categoryCode = category;
-			location.href="/request/request_categoryResult?categoryCode="+categoryCode;
+         var categoryCode = category;
+         location.href="/request/request_categoryResult?categoryCode="+categoryCode;
         }
         function openWriteForm(){
-			location.href="/request/request_writeForm";
+         location.href="/request/request_writeForm";
         }
-		function openReadForm(reqNum){
-			location.href="/request/request_readForm?reqNum="+reqNum;
-		}
-		<%--function searchList(){
-			var search = document.getElementById('search').value;
+      function openReadForm(reqNum){
+         location.href="/request/request_readForm?reqNum="+reqNum;
+      }
+      <%--function searchList(){
+         var search = document.getElementById('search').value;
 
-			location.href="/request/request_search?search="+search;
-		}--%>
+         location.href="/request/request_search?search="+search;
+      }--%>
         
     </script>
     <style>
@@ -57,28 +57,28 @@
             background-color: #FFDFB9;
         }
         #imgsize{
-        	width: 350px;
-        	height: 260px;
+           width: 350px;
+           height: 260px;
         }
         
         #loading {
-        	width: 100%;
-        	height: 100%;
-        	top: 0px;
-        	left: 0px;
-        	position: fixed;
-        	display: block;
-        	opacity: 0.7;
-        	background-color: #fff;
-        	z-index: 99;
-        	text-align: center;
-        	}
+           width: 100%;
+           height: 100%;
+           top: 0px;
+           left: 0px;
+           position: fixed;
+           display: block;
+           opacity: 0.7;
+           background-color: #fff;
+           z-index: 99;
+           text-align: center;
+           }
         #loading-img {
-        	position: absolute;
-        	top: 50%;
-        	left: 50%;
-        	z-index: 100;
-        	}
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           z-index: 100;
+           }
     </style>
 </head>
 
@@ -117,16 +117,16 @@
                 <div id="custom-search-input" style="width: 80%;">
                     <div class="input-group">
                     <form action="/request/request_search" method="post">
-                    	<div class="row">
-		                   	 <div class="col-sm">
-		                        <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
-		                   	 </div>
-	                       	<div class="col-sm input-group-btn">
-	                          <button class="btn btn-danger" type="submit" style="margin-left:145%;">
-	                              <span class="glyphicon glyphicon-search"></span>
-	                          </button>
-	                       </div>
-                    	</div>
+                       <div class="row">
+                             <div class="col-sm">
+                              <input type="text" class="search-query form-control" name="search" placeholder="Search" style="width:230%; margin-left: 15%"/>
+                             </div>
+                             <div class="col-sm input-group-btn">
+                             <button class="btn btn-danger" type="submit" style="margin-left:145%;">
+                                 <span class="glyphicon glyphicon-search"></span>
+                             </button>
+                          </div>
+                       </div>
                     </form>
                     </div>
                 </div>
@@ -135,14 +135,14 @@
         <!-- 카테고리 구분 -->
         <section>
             <div class="category-button" style="height: auto; background:#FFDFB9;">
-	            <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
-	            <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
-				<button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
-				<button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
-	 			<button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
-	            <c:if test="${user.getUserType() eq 1 }">
-		            <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
-	            </c:if>
+               <button type="button" class="btn btn-outline-danger" style="margin-right: 50px;" onclick="openCategory('1');">Fashion/Acc</button>
+               <button type="button" class="btn btn-outline-warning" style="margin-right: 50px;" onclick="openCategory('2');">Beauty</button>
+            <button type="button" class="btn btn-outline-success" style="margin-right: 50px;" onclick="openCategory('3');">Food</button>
+            <button type="button" class="btn btn-outline-primary" style="margin-right: 50px;" onclick="openCategory('4');">Book/CD</button>
+             <button type="button" class="btn btn-outline-secondary" style="margin-right: 50px;" onclick="openCategory('5');">Ect</button>
+               <c:if test="${user.getUserType() eq 1 }">
+                  <button class="btn text-white" style="background: brown;" onclick="openWriteForm();">Request</button>
+               </c:if>
             </div>
         </section>
         <!-- 요청 게시글 출력 부분 시작-->
@@ -178,7 +178,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
@@ -205,7 +205,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
@@ -232,7 +232,7 @@
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
-                                            <img class="img-fluid"
+                                            <img id="imgsize" class="img-fluid"
                                                 src="../resources/upload/file/${adlist.REQORIGINALPIC1 }">
                                         </div>
                                         <div class="card-body">
@@ -245,7 +245,7 @@
                               </div>
                             </div>
                         </div>
-						<!-- 인기 슬라이드 end -->
+                  <!-- 인기 슬라이드 end -->
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -261,28 +261,28 @@
                 <!-- 요청 게시글 전체 출력-->
                 <h3 id="fashion">Request List</h3>
                 <div class="row justify-content-center inner" style="margin-bottom: 5%;">
-	                <c:forEach var="requestList" items="${requestList }">
-	                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-	                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-	                            <div
-	                                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-	                                onclick="openReadForm('${requestList.reqNum}');">
-	                                <div class="portfolio-item-caption-content text-center text-white"><i
-	                                        class="fas fa-plus fa-3x"></i></div>
-	                            </div>
-	                            <img id="imgsize" class="img-fluid"
-	                                src="../resources/upload/file/${requestList.reqOriginalPic1 }" alt="" />
-	                        </div>
-	                        <div class="card-body">
-	                            <h5 class="card-title">${requestList.reqTitle }</h5>
-	                            <p class="card-text">${requestList.reqContent }</p>
-	                        </div>
-	                    </div>
-	                </c:forEach>
+                   <c:forEach var="requestList" items="${requestList }">
+                       <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                               <div
+                                   class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                                   onclick="openReadForm('${requestList.reqNum}');">
+                                   <div class="portfolio-item-caption-content text-center text-white"><i
+                                           class="fas fa-plus fa-3x"></i></div>
+                               </div>
+                               <img id="imgsize" class="img-fluid"
+                                   src="../resources/upload/file/${requestList.reqOriginalPic1 }" alt="" />
+                           </div>
+                           <div class="card-body">
+                               <h5 class="card-title">${requestList.reqTitle }</h5>
+                               <p class="card-text">${requestList.reqContent }</p>
+                           </div>
+                       </div>
+                   </c:forEach>
                 </div>
                 </div>
-				
-    	
+            
+       
     </section>
 <%@ include file="/WEB-INF/views/main-footer.jsp" %>
 

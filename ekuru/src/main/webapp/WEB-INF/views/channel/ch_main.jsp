@@ -30,11 +30,13 @@
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>  -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="/resources/js/bootstrap.js" ></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript">
 
@@ -177,86 +179,90 @@ body {
             </div>
             <!-- 게시글 리스트 -->
             <!-- 인기 채널-->
-            <div style="margin-bottom: 10%; margin-top: 5%;">
+             <div style="margin-bottom: 10%; margin-top: 5%;">
                     <h3 class="text-center text-uppercase" id="popularRequest">Popular Channel</h3>
                     <div id="myCarousel" class="carousel slide justify-content-center" data-ride="carousel"
                         style="width: 100%;">
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
+                         <div class="carousel-inner">
                             <div class="item active inner">
                                 <div class="row justify-content-center inner">
-                                <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="1" end="3">
+                                <c:forEach items="${adChList }" var="chList" varStatus="status">
+                                <c:if test="${status.index>=0 && status.index<3 }">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                onclick="location.href='ch_personal_main?chId=${chList.USERID }'">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img id="imgsize" class="img-fluid"
-                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                                src="../resources/upload/file/${chList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adChList.USERID }</h5>
-                                            <p class="card-text">${adChList.CHNAME }</p>
+                                            <h5 class="card-title">${chList.USERID }</h5>
+                                            <p class="card-text">${chList.CHNAME }</p>
                                         </div>
                                     </div>
 
+                                </c:if>
                                 </c:forEach>
                                 </div>
                             </div>
 
                             <div class="item inner">
                                 <div class="row justify-content-center inner">
-                                    <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="4" end="6">
+                                    <c:forEach items="${adChList }" var="chList" varStatus="status">
+                                     <c:if test="${status.index>=3 && status.index<6 }">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                onclick="location.href='ch_personal_main?chId=${chList.USERID }'">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img id="imgsize" class="img-fluid"
-                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                                src="../resources/upload/file/${chList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${adChList.USERID }</h5>
-                                            <p class="card-text">${adChList.CHNAME }</p>
+                                            <h5 class="card-title">${chList.USERID }</h5>
+                                            <p class="card-text">${chList.CHNAME }</p>
                                         </div>
                                     </div>
-
-                                </c:forEach>
+									</c:if>
+                               	   </c:forEach>
 
 
                                 </div>
                             </div>
                             <div class="item inner">
                                 <div class="row justify-content-center inner">
-                                    <c:forEach items="${adChList }" var="adChList" varStatus="status" begin="6" end="9">
+                                    <c:forEach items="${adChList }" var="chList" varStatus="status">
+                                    <c:if test="${status.index>=6 && status.index<9 }">
                                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                                         <div class="portfolio-item mx-auto" data-toggle="modal"
                                             data-target="#portfolioModal4">
                                             <div
                                                 class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                                                onclick="location.href='ch_personal_main?chId=${adChList.USERID }'">
+                                                onclick="location.href='ch_personal_main?chId=${chList.USERID }'">
                                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                                         class="fas fa-plus fa-3x"></i></div>
                                             </div>
                                             <img id="imgsize" class="img-fluid"
-                                                src="../resources/upload/file/${adChList.CHPROFILE }">
+                                                src="../resources/upload/file/${chList.CHPROFILE }">
                                         </div>
                                         <div class="card-body">
-                                             <h5 class="card-title">${adChList.USERID }</h5>
-                                            <p class="card-text">${adChList.CHNAME }</p>
+                                             <h5 class="card-title">${chList.USERID }</h5>
+                                            <p class="card-text">${chList.CHNAME }</p>
                                         </div>
                                     </div>
-
-                                </c:forEach>
+									</c:if>
+                               		</c:forEach>
                               </div>
                             </div>
                         </div>
